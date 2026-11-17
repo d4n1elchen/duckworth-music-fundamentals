@@ -10,6 +10,11 @@
     const currentIndex = pages.findIndex(p => p.id === pageId);
     const currentPage = pages[currentIndex] || pages[0];
 
+    // Prevent mobile Safari/Chrome double-tap smart-zoom during fast rhythmic/piano tapping
+    document.addEventListener('dblclick', (e) => {
+      e.preventDefault();
+    }, { passive: false });
+
     // 1. Skip Link & Polite Announcer
     const skip = document.createElement('a');
     skip.href = '#main-heading';

@@ -246,6 +246,12 @@
   box-sizing: border-box;
 }
 
+/* Disable accidental double-tap zoom across all elements while preserving pinch-zoom & scrolling */
+:where(*, *::before, *::after) {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   font-family: var(--font-sans);
   line-height: 1.6;
@@ -1047,7 +1053,7 @@ button.concept-card:hover {
   block-size: auto;
   color: var(--text-primary);
   user-select: none;
-  touch-action: pan-x pan-y;
+  touch-action: manipulation;
 }
 
 .music-svg .staff-line {
@@ -1108,7 +1114,7 @@ button.concept-card:hover {
   margin-inline: auto;
   border-radius: 0 0 10px 10px;
   user-select: none;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .piano-key-white {
