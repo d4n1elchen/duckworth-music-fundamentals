@@ -1,0 +1,1552 @@
+/* ==========================================================================
+   創意音樂基礎互動教學網 — A Creative Approach to Music Fundamentals (11e)
+   Modern CSS Architecture (Light/Dark, Logical Properties, Container Queries)
+   ========================================================================== */
+
+@property --drawer-backdrop {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+:root {
+  /* Raw Light Mode Palette — Warm Archival Manuscript & Conservatory Ink */
+  --bg-canvas-light: #faf7f2;
+  --bg-surface-light: #ffffff;
+  --bg-subtle-light: #f2ece1;
+  --bg-elevated-light: #fffdf9;
+  --bg-score-light: #fffefb;
+
+  --text-primary-light: #1c1917;
+  --text-secondary-light: #4a433d;
+  --text-muted-light: #6e655d;
+
+  --border-subtle-light: #e4ddd0;
+  --border-strong-light: #c8beac;
+
+  --brand-light: #1e428a;
+  --brand-hover-light: #16326b;
+  --brand-soft-light: #e6eefc;
+  --brand-on-light: #ffffff;
+
+  --accent-amber-light: #b45309;
+  --accent-amber-soft-light: #fef3c7;
+  --success-light: #15803d;
+  --success-soft-light: #dcfce7;
+  --danger-light: #b91c1c;
+  --danger-soft-light: #fee2e2;
+  --purple-light: #6d28d9;
+  --purple-soft-light: #ede9fe;
+
+  /* Raw Dark Mode Palette — Nocturnal Recital Hall & Warm Brass */
+  --bg-canvas-dark: #111318;
+  --bg-surface-dark: #191d26;
+  --bg-subtle-dark: #222733;
+  --bg-elevated-dark: #262c3a;
+  --bg-score-dark: #161a22;
+
+  --text-primary-dark: #f4f0e8;
+  --text-secondary-dark: #cbc4b8;
+  --text-muted-dark: #978f82;
+
+  --border-subtle-dark: #2e3545;
+  --border-strong-dark: #454f66;
+
+  --brand-dark: #8ab4ff;
+  --brand-hover-dark: #adcaff;
+  --brand-soft-dark: #1e2d4a;
+  --brand-on-dark: #0e1729;
+
+  --accent-amber-dark: #fbbf24;
+  --accent-amber-soft-dark: #3b2d0c;
+  --success-dark: #4ade80;
+  --success-soft-dark: #133120;
+  --danger-dark: #f87171;
+  --danger-soft-dark: #3b1818;
+  --purple-dark: #c4b5fd;
+  --purple-soft-dark: #2b1f4a;
+
+  /* Default (Fallback for browsers without light-dark()) */
+  --bg-canvas: var(--bg-canvas-light);
+  --bg-surface: var(--bg-surface-light);
+  --bg-subtle: var(--bg-subtle-light);
+  --bg-elevated: var(--bg-elevated-light);
+  --bg-score: var(--bg-score-light);
+  --text-primary: var(--text-primary-light);
+  --text-secondary: var(--text-secondary-light);
+  --text-muted: var(--text-muted-light);
+  --border-subtle: var(--border-subtle-light);
+  --border-strong: var(--border-strong-light);
+  --brand: var(--brand-light);
+  --brand-hover: var(--brand-hover-light);
+  --brand-soft: var(--brand-soft-light);
+  --brand-on: var(--brand-on-light);
+  --accent-amber: var(--accent-amber-light);
+  --accent-amber-soft: var(--accent-amber-soft-light);
+  --success: var(--success-light);
+  --success-soft: var(--success-soft-light);
+  --danger: var(--danger-light);
+  --danger-soft: var(--danger-soft-light);
+  --purple: var(--purple-light);
+  --purple-soft: var(--purple-soft-light);
+  --scrollbar-track: #ece6da;
+  --scrollbar-thumb: #787065;
+
+  @media (prefers-color-scheme: dark) {
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-subtle: var(--bg-subtle-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --bg-score: var(--bg-score-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --text-muted: var(--text-muted-dark);
+    --border-subtle: var(--border-subtle-dark);
+    --border-strong: var(--border-strong-dark);
+    --brand: var(--brand-dark);
+    --brand-hover: var(--brand-hover-dark);
+    --brand-soft: var(--brand-soft-dark);
+    --brand-on: var(--brand-on-dark);
+    --accent-amber: var(--accent-amber-dark);
+    --accent-amber-soft: var(--accent-amber-soft-dark);
+    --success: var(--success-dark);
+    --success-soft: var(--success-soft-dark);
+    --danger: var(--danger-dark);
+    --danger-soft: var(--danger-soft-dark);
+    --purple: var(--purple-dark);
+    --purple-soft: var(--purple-soft-dark);
+    --scrollbar-track: #181c24;
+    --scrollbar-thumb: #7a8396;
+  }
+
+  /* Explicit meta override fallback when light-dark() is unsupported */
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+    --bg-canvas: var(--bg-canvas-dark);
+    --bg-surface: var(--bg-surface-dark);
+    --bg-subtle: var(--bg-subtle-dark);
+    --bg-elevated: var(--bg-elevated-dark);
+    --bg-score: var(--bg-score-dark);
+    --text-primary: var(--text-primary-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --text-muted: var(--text-muted-dark);
+    --border-subtle: var(--border-subtle-dark);
+    --border-strong: var(--border-strong-dark);
+    --brand: var(--brand-dark);
+    --brand-hover: var(--brand-hover-dark);
+    --brand-soft: var(--brand-soft-dark);
+    --brand-on: var(--brand-on-dark);
+    --accent-amber: var(--accent-amber-dark);
+    --accent-amber-soft: var(--accent-amber-soft-dark);
+    --success: var(--success-dark);
+    --success-soft: var(--success-soft-dark);
+    --danger: var(--danger-dark);
+    --danger-soft: var(--danger-soft-dark);
+    --purple: var(--purple-dark);
+    --purple-soft: var(--purple-soft-dark);
+    --scrollbar-track: #181c24;
+    --scrollbar-thumb: #7a8396;
+  }
+
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+    --bg-canvas: var(--bg-canvas-light);
+    --bg-surface: var(--bg-surface-light);
+    --bg-subtle: var(--bg-subtle-light);
+    --bg-elevated: var(--bg-elevated-light);
+    --bg-score: var(--bg-score-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    --text-muted: var(--text-muted-light);
+    --border-subtle: var(--border-subtle-light);
+    --border-strong: var(--border-strong-light);
+    --brand: var(--brand-light);
+    --brand-hover: var(--brand-hover-light);
+    --brand-soft: var(--brand-soft-light);
+    --brand-on: var(--brand-on-light);
+    --accent-amber: var(--accent-amber-light);
+    --accent-amber-soft: var(--accent-amber-soft-light);
+    --success: var(--success-light);
+    --success-soft: var(--success-soft-light);
+    --danger: var(--danger-light);
+    --danger-soft: var(--danger-soft-light);
+    --purple: var(--purple-light);
+    --purple-soft: var(--purple-soft-light);
+    --scrollbar-track: #ece6da;
+    --scrollbar-thumb: #787065;
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bg-canvas: light-dark(var(--bg-canvas-light), var(--bg-canvas-dark));
+    --bg-surface: light-dark(var(--bg-surface-light), var(--bg-surface-dark));
+    --bg-subtle: light-dark(var(--bg-subtle-light), var(--bg-subtle-dark));
+    --bg-elevated: light-dark(var(--bg-elevated-light), var(--bg-elevated-dark));
+    --bg-score: light-dark(var(--bg-score-light), var(--bg-score-dark));
+    --text-primary: light-dark(var(--text-primary-light), var(--text-primary-dark));
+    --text-secondary: light-dark(var(--text-secondary-light), var(--text-secondary-dark));
+    --text-muted: light-dark(var(--text-muted-light), var(--text-muted-dark));
+    --border-subtle: light-dark(var(--border-subtle-light), var(--border-subtle-dark));
+    --border-strong: light-dark(var(--border-strong-light), var(--border-strong-dark));
+    --brand: light-dark(var(--brand-light), var(--brand-dark));
+    --brand-hover: light-dark(var(--brand-hover-light), var(--brand-hover-dark));
+    --brand-soft: light-dark(var(--brand-soft-light), var(--brand-soft-dark));
+    --brand-on: light-dark(var(--brand-on-light), var(--brand-on-dark));
+    --accent-amber: light-dark(var(--accent-amber-light), var(--accent-amber-dark));
+    --accent-amber-soft: light-dark(var(--accent-amber-soft-light), var(--accent-amber-soft-dark));
+    --success: light-dark(var(--success-light), var(--success-dark));
+    --success-soft: light-dark(var(--success-soft-light), var(--success-soft-dark));
+    --danger: light-dark(var(--danger-light), var(--danger-dark));
+    --danger-soft: light-dark(var(--danger-soft-light), var(--danger-soft-dark));
+    --purple: light-dark(var(--purple-light), var(--purple-dark));
+    --purple-soft: light-dark(var(--purple-soft-light), var(--purple-soft-dark));
+    --scrollbar-track: light-dark(#ece6da, #181c24);
+    --scrollbar-thumb: light-dark(#787065, #7a8396);
+  }
+
+  /* MANDATORY: Viewport-wide native UI adaptation */
+  color-scheme: light dark;
+  accent-color: var(--brand);
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+
+  /* Typography & Rhythm */
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+  --font-serif: "Noto Serif TC", "Songti TC", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", Consolas, ui-monospace, monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04);
+  --shadow-md: 0 6px 20px rgb(0 0 0 / 0.08), 0 2px 6px rgb(0 0 0 / 0.04);
+  --header-height: 3.75rem;
+}
+
+@supports not (scrollbar-color: auto) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+}
+
+/* Cross-Document View Transitions (MPA smooth fade) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  scroll-padding-block-start: calc(var(--header-height) + 1.5rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+svg, img, canvas {
+  display: block;
+  max-inline-size: 100%;
+}
+
+/* Accessible Visually Hidden & Skip Link */
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.skip-link {
+  position: fixed;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  z-index: 1000;
+  padding: 0.6rem 1.1rem;
+  background: var(--brand);
+  color: var(--brand-on);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* High-Contrast Focus Indicators */
+:where(a:any-link, button, input, select, textarea, summary, [tabindex="0"]):focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.3;
+  color: var(--text-primary);
+  text-wrap: balance;
+  margin-block: 1.5em 0.6em;
+}
+
+h1:focus {
+  outline: none;
+}
+
+p, li {
+  color: var(--text-primary);
+  max-inline-size: 74ch;
+}
+
+code, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--bg-subtle);
+  padding: 0.12em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   Site Header & Toolbar
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 40;
+  inline-size: 100%;
+  min-block-size: var(--header-height);
+  background: var(--bg-surface);
+  border-block-end: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-sm);
+}
+
+.header-inner {
+  max-inline-size: 1440px;
+  inline-size: 100%;
+  margin-inline: auto;
+  min-block-size: var(--header-height);
+  padding-block: 0.35rem;
+  padding-inline: 0.85rem;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: safe center;
+  gap: 0.5rem;
+}
+
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.02rem;
+  min-block-size: 38px;
+  min-inline-size: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (width < 580px) {
+  .brand-link {
+    font-size: 0.92rem;
+  }
+  .hide-narrow {
+    display: none;
+  }
+  .header-inner .btn {
+    padding-inline: 0.55rem;
+    font-size: 0.82rem;
+  }
+}
+
+.brand-badge {
+  display: inline-grid;
+  place-content: center;
+  inline-size: 2rem;
+  block-size: 2rem;
+  border-radius: 8px;
+  background: var(--brand);
+  color: var(--brand-on);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.header-progress-wrap {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  margin-inline-start: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+@media (width >= 900px) {
+  .header-progress-wrap {
+    display: flex;
+  }
+}
+
+.header-actions {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: safe center;
+  gap: 0.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-block-size: 38px;
+  min-inline-size: 38px;
+  padding-block: 0.45rem;
+  padding-inline: 0.85rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.btn:hover {
+  background: var(--border-subtle);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: var(--brand-on);
+  border-color: var(--brand);
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+  border-color: var(--brand-hover);
+}
+
+.btn-amber {
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
+  border-color: var(--accent-amber);
+}
+
+.btn-sm {
+  min-block-size: 32px;
+  padding-block: 0.25rem;
+  padding-inline: 0.65rem;
+  font-size: 0.82rem;
+}
+
+.btn[aria-pressed="true"],
+.btn.is-active {
+  background: var(--brand);
+  color: var(--brand-on);
+  border-color: var(--brand);
+}
+
+.mobile-drawer-btn {
+  display: inline-flex;
+}
+
+@media (width >= 1060px) {
+  .mobile-drawer-btn {
+    display: none;
+  }
+}
+
+/* Styled Native <progress> (Modern Web Guidance compliant) */
+progress {
+  appearance: none;
+  border: 0 solid;
+  overflow: clip;
+  --progress-bar-radius: 999px;
+  border-radius: var(--progress-bar-radius);
+  background: var(--bg-subtle);
+  inline-size: 8rem;
+  block-size: 0.6rem;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.12);
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress::-webkit-progress-value {
+  background: var(--brand);
+  border-radius: var(--progress-bar-radius);
+  transition: inline-size 0.3s;
+}
+
+progress::-moz-progress-bar {
+  background: var(--brand);
+  border-radius: var(--progress-bar-radius);
+  transition: inline-size 0.3s;
+}
+
+/* ==========================================================================
+   App Shell Grid (Desktop Persistent Sidebar + Main Content)
+   ========================================================================== */
+.app-shell {
+  flex: 1;
+  max-inline-size: 1440px;
+  inline-size: 100%;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (width >= 1060px) {
+  .app-shell {
+    grid-template-columns: 290px minmax(0, 1fr);
+  }
+}
+
+.course-sidebar {
+  display: none;
+  border-inline-end: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  position: sticky;
+  inset-block-start: var(--header-height);
+  block-size: calc(100dvh - var(--header-height));
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  overscroll-behavior: contain;
+  padding: 1rem 0.85rem 2rem;
+}
+
+@media (width >= 1060px) {
+  .course-sidebar {
+    display: block;
+  }
+}
+
+.sidebar-group-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-block: 1.1rem 0.4rem;
+  padding-inline: 0.6rem;
+}
+
+.sidebar-group-title:first-child {
+  margin-block-start: 0.2rem;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.48rem 0.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  border-inline-start: 3px solid transparent;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.nav-link:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+/* Do NOT indicate current page with color alone — left border bar + bold + badge */
+.nav-link[aria-current="page"] {
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-weight: 700;
+  border-inline-start-color: var(--brand);
+}
+
+.nav-num {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-inline-size: 1.9rem;
+  flex-shrink: 0;
+}
+
+.nav-link[aria-current="page"] .nav-num {
+  color: var(--brand);
+}
+
+.nav-done-mark {
+  margin-inline-start: auto;
+  font-size: 0.8rem;
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Mobile Navigation Drawer (<dialog> with Scroll Snap)
+   ========================================================================== */
+.Drawer {
+  --drawer-width: min(21rem, 84dvw, 100dvw - 24px);
+  --drawer-backdrop: 0;
+  inset: 0;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  overflow: visible;
+}
+
+.Drawer::backdrop {
+  background: #000;
+  opacity: calc(var(--drawer-backdrop) * 0.55);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.Drawer-scroller {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--drawer-width) 100%;
+  overflow-x: scroll;
+  overscroll-behavior: none;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .Drawer-scroller {
+    scroll-behavior: smooth;
+  }
+}
+
+.Drawer-scroller::after {
+  content: '';
+  scroll-snap-align: end;
+  scroll-initial-target: nearest;
+}
+
+.Drawer-sheet {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  block-size: 100svh;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border-inline-end: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-align: start;
+  padding: 1rem;
+}
+
+.Drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block-end: 0.75rem;
+  margin-block-end: 0.5rem;
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+@supports (animation-timeline: scroll()) {
+  .Drawer {
+    timeline-scope: --drawer-fade;
+    animation: fade-drawer-backdrop linear both;
+    animation-timeline: --drawer-fade;
+  }
+  .Drawer-scroller {
+    scroll-timeline: --drawer-fade x;
+  }
+  @keyframes fade-drawer-backdrop {
+    0% { --drawer-backdrop: 1; }
+    100% { --drawer-backdrop: 0; }
+  }
+}
+
+/* General Modal Dialogs (Settings, Floating Piano) */
+dialog:modal {
+  overscroll-behavior: contain;
+}
+
+dialog::backdrop {
+  overflow: hidden;
+  overscroll-behavior: contain;
+  background: rgb(0 0 0 / 0.52);
+}
+
+.modal-dialog {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  max-inline-size: min(94dvw, 900px);
+  inline-size: 100%;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block-end: 1rem;
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* ==========================================================================
+   Main Lesson Container & Editorial Components
+   ========================================================================== */
+.lesson-main {
+  padding-block: 2rem 4rem;
+  padding-inline: clamp(1rem, 3.5vw, 3rem);
+  max-inline-size: 1060px;
+  inline-size: 100%;
+  margin-inline: auto;
+}
+
+.chapter-hero {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 3vw, 2.25rem);
+  margin-block-end: 2rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.chapter-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--brand);
+  background: var(--brand-soft);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+}
+
+.chapter-hero h1 {
+  margin-block: 0.65rem 0.5rem;
+  font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+}
+
+.chapter-subtitle {
+  font-size: 1.06rem;
+  color: var(--text-secondary);
+  margin-block: 0 1.15rem;
+  max-inline-size: 68ch;
+}
+
+.learning-goals {
+  background: var(--bg-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  border-inline-start: 4px solid var(--brand);
+}
+
+.learning-goals h2 {
+  margin-block: 0 0.5rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+}
+
+.learning-goals ul {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+/* Lesson Sections */
+.lesson-section {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2.6vw, 2rem);
+  margin-block-end: 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.lesson-section > h2:first-child {
+  margin-block-start: 0;
+  padding-block-end: 0.5rem;
+  border-block-end: 2px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Duckworth Callout Boxes: Tips & Tools, Music in Action, A Final Note */
+.callout {
+  margin-block: 1.35rem;
+  padding: 1.1rem 1.3rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  border-inline-start-width: 5px;
+  background: var(--bg-elevated);
+}
+
+.callout-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.96rem;
+  margin-block: 0 0.45rem;
+}
+
+.callout-tips {
+  border-inline-start-color: var(--accent-amber);
+  background: var(--accent-amber-soft);
+}
+.callout-tips .callout-title {
+  color: var(--accent-amber);
+}
+
+.callout-action {
+  border-inline-start-color: var(--brand);
+  background: var(--brand-soft);
+}
+.callout-action .callout-title {
+  color: var(--brand);
+}
+
+.callout-ear {
+  border-inline-start-color: var(--purple);
+  background: var(--purple-soft);
+}
+.callout-ear .callout-title {
+  color: var(--purple);
+}
+
+.callout-final {
+  border-inline-start-color: var(--success);
+  background: var(--success-soft);
+}
+.callout-final .callout-title {
+  color: var(--success);
+}
+
+/* Grid Cards */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 1rem;
+  margin-block: 1.1rem;
+}
+
+.concept-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.1rem;
+  min-inline-size: 0;
+}
+
+.concept-card h3 {
+  margin-block: 0 0.4rem;
+  font-size: 1.08rem;
+}
+
+.concept-card p {
+  margin-block: 0.4rem 0;
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   Interactive Studio Widgets & Score Notation Panels
+   ========================================================================== */
+.widget-box {
+  margin-block: 1.4rem;
+  padding: 1.25rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+
+.widget-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-block-end: 1rem;
+}
+
+.widget-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.widget-controls {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  align-items: safe center;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+
+.score-card {
+  background: var(--bg-score);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-block: 1rem;
+  overflow-x: auto;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.score-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-block-end: 0.5rem;
+}
+
+/* SVG Music Notation Theme Variables */
+.music-svg {
+  inline-size: 100%;
+  block-size: auto;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.music-svg .staff-line {
+  stroke: var(--text-secondary);
+  stroke-width: 1.25;
+}
+
+.music-svg .bar-line {
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+}
+
+.music-svg .note-el {
+  cursor: pointer;
+  transition: fill 0.12s, stroke 0.12s;
+}
+
+.music-svg .note-el.is-playing,
+.music-svg .note-el:hover {
+  color: var(--accent-amber);
+}
+
+.music-svg .highlight-tonic {
+  color: var(--success);
+}
+
+.music-svg .highlight-tendency {
+  color: var(--danger);
+}
+
+/* ==========================================================================
+   Interactive Virtual Piano Keyboard
+   ========================================================================== */
+.piano-scroll {
+  overflow-x: auto;
+  padding-block: 0.5rem 0.75rem;
+}
+
+.piano-keyboard {
+  position: relative;
+  display: flex;
+  block-size: 170px;
+  inline-size: max-content;
+  margin-inline: auto;
+  border-radius: 0 0 8px 8px;
+  user-select: none;
+}
+
+.piano-key-white {
+  position: relative;
+  inline-size: 46px;
+  block-size: 170px;
+  background: linear-gradient(to bottom, #ffffff 0%, #f5f2eb 100%);
+  border: 1px solid #9c9488;
+  border-radius: 0 0 6px 6px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block-end: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #3a342e;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.08s, transform 0.06s;
+}
+
+.piano-key-white:hover {
+  background: #eef4ff;
+}
+
+.piano-key-white.is-landmark {
+  border-block-end: 4px solid var(--brand-light);
+}
+
+.piano-key-white.is-scale-member {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.piano-key-white.is-tonic {
+  background: #bbf7d0;
+  color: #14532d;
+}
+
+.piano-key-white.is-active,
+.piano-key-white:active {
+  background: #fde68a !important;
+  color: #78350f !important;
+  transform: translateY(2px);
+}
+
+.piano-key-black {
+  position: absolute;
+  inset-block-start: 0;
+  inline-size: 30px;
+  block-size: 106px;
+  background: linear-gradient(to bottom, #2d2d35 0%, #141418 100%);
+  border: 1px solid #09090b;
+  border-radius: 0 0 5px 5px;
+  color: #e5e7eb;
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  line-height: 1.15;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-block-end: 6px;
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.38);
+  transition: background-color 0.08s, transform 0.06s;
+}
+
+.piano-key-black.is-scale-member {
+  background: linear-gradient(to bottom, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+}
+
+.piano-key-black.is-tonic {
+  background: linear-gradient(to bottom, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+}
+
+.piano-key-black.is-active,
+.piano-key-black:active {
+  background: #f59e0b !important;
+  color: #1c1917 !important;
+  transform: translateY(2px);
+}
+
+/* ==========================================================================
+   Rhythm Sequencer & Beat Pads
+   ========================================================================== */
+.rhythm-grid {
+  display: grid;
+  gap: 0.6rem;
+  margin-block: 0.75rem;
+}
+
+.rhythm-track {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+@media (width < 600px) {
+  .rhythm-track {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rhythm-steps {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(34px, 1fr);
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.rhythm-step {
+  min-block-size: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.rhythm-step.is-beat-start {
+  border-inline-start: 3px solid var(--brand);
+}
+
+.rhythm-step[aria-pressed="true"] {
+  background: var(--brand-soft);
+  color: var(--brand);
+  border-color: var(--brand);
+  font-weight: 700;
+}
+
+.rhythm-step.is-current {
+  outline: 3px solid var(--accent-amber);
+  background: var(--accent-amber-soft);
+  color: var(--accent-amber);
+}
+
+/* ==========================================================================
+   Tabs (Modern Web Guidance compliant: aria-selected, hidden=until-found)
+   ========================================================================== */
+.tabs {
+  margin-block: 1.25rem;
+}
+
+.tablist {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.25rem;
+  border-block-end: 1px solid var(--border-strong);
+  scrollbar-width: thin;
+}
+
+.tablist > button {
+  flex: none;
+  position: relative;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0.65rem 1rem;
+  min-block-size: 42px;
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.tablist > button:hover {
+  color: var(--text-primary);
+  background: var(--bg-subtle);
+}
+
+.tablist > button[aria-selected="true"] {
+  color: var(--brand);
+}
+
+.tablist > button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  border-block-end: 3px solid var(--brand);
+}
+
+/* Put padding/border on inner wrapper, NOT on [role="tabpanel"] due to hidden="until-found" */
+.tabpanel-inner {
+  padding-block: 1.15rem 0.25rem;
+}
+
+/* ==========================================================================
+   Accordions (<details> + <summary> with ::details-content)
+   ========================================================================== */
+.accordion {
+  display: grid;
+  gap: 0.6rem;
+  margin-block: 1rem;
+}
+
+.accordion > details {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+}
+
+.accordion > details > summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6ch;
+  padding: 0.85rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.accordion > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion > details > summary::before {
+  content: "▸";
+  display: inline-block;
+  font-size: 0.95em;
+  color: var(--brand);
+  flex-shrink: 0;
+  rotate: 0deg;
+}
+
+.accordion > details[open] > summary::before {
+  rotate: 90deg;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion > details > summary::before {
+    transition: rotate 0.2s;
+  }
+}
+
+.accordion > details::details-content {
+  interpolate-size: allow-keywords;
+  overflow: clip;
+  contain: layout;
+}
+
+.accordion > details:not([open])::details-content {
+  block-size: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .accordion > details::details-content {
+    transition: block-size, content-visibility, display;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    transition-behavior: allow-discrete;
+  }
+}
+
+.details-body {
+  padding: 0 1.1rem 1rem;
+  border-block-start: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   Responsive Data Tables (@container query stacked fallback)
+   ========================================================================== */
+.table-wrapper {
+  overflow: auto;
+  max-inline-size: 100%;
+  container-type: inline-size;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-block: 1rem;
+  background: var(--bg-surface);
+}
+
+.data-table {
+  inline-size: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.92rem;
+}
+
+.data-table caption {
+  text-align: start;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle);
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.65rem 0.9rem;
+  text-align: start;
+  border-block-end: 1px solid var(--border-subtle);
+}
+
+.data-table thead {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
+.data-table thead th {
+  background: var(--bg-subtle);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.data-table tbody th {
+  position: sticky;
+  inset-inline-start: 0;
+  background: var(--bg-surface);
+  font-weight: 700;
+}
+
+@container (width < 520px) {
+  .data-table.stack-mobile,
+  .data-table.stack-mobile thead,
+  .data-table.stack-mobile tbody,
+  .data-table.stack-mobile tr,
+  .data-table.stack-mobile th,
+  .data-table.stack-mobile td {
+    display: block;
+  }
+  .data-table.stack-mobile thead {
+    display: none;
+  }
+  .data-table.stack-mobile tr {
+    border-block-end: 2px solid var(--border-strong);
+  }
+  .data-table.stack-mobile tbody th {
+    background: var(--bg-subtle);
+  }
+  .data-table.stack-mobile td[data-label]::before {
+    content: attr(data-label) "：";
+    font-weight: 700;
+    color: var(--text-secondary);
+  }
+}
+
+/* ==========================================================================
+   Practice & Focus on Skills Quiz Engine
+   ========================================================================== */
+.quiz-list {
+  display: grid;
+  gap: 1.15rem;
+  margin-block: 1rem;
+}
+
+.quiz-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+}
+
+.quiz-q {
+  font-weight: 700;
+  margin-block: 0 0.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 0.5rem;
+}
+
+.quiz-opt {
+  justify-content: flex-start;
+  text-align: start;
+  font-weight: 500;
+}
+
+.quiz-opt.is-correct {
+  background: var(--success-soft);
+  color: var(--success);
+  border-color: var(--success);
+  font-weight: 700;
+}
+
+.quiz-opt.is-wrong {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.quiz-feedback {
+  margin-block-start: 0.75rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.quiz-feedback.ok {
+  background: var(--success-soft);
+  color: var(--success);
+  border-inline-start: 4px solid var(--success);
+}
+
+.quiz-feedback.err {
+  background: var(--danger-soft);
+  color: var(--danger);
+  border-inline-start: 4px solid var(--danger);
+}
+
+/* Chapter Bottom Prev/Next & Completion Bar */
+.chapter-footer-nav {
+  margin-block-start: 2.5rem;
+  padding-block-start: 1.5rem;
+  border-block-start: 2px solid var(--border-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-footer {
+  inline-size: 100%;
+  background: var(--bg-surface);
+  border-block-start: 1px solid var(--border-subtle);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+.site-footer p {
+  margin-inline: auto;
+}
+
+/* Circle of Fifths & Conducting Canvas/SVG */
+.circle-fifths-wrap {
+  display: grid;
+  grid-template-columns: minmax(250px, 370px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+@media (width < 860px) {
+  .circle-fifths-wrap {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.circle-slice {
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.circle-slice:hover {
+  opacity: 0.85;
+}
+
+/* Guitar Chord Cards */
+.guitar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.guitar-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 0.85rem;
+  text-align: center;
+}
+
+/* Form Controls */
+input[type="search"],
+input[type="text"],
+select {
+  min-block-size: 38px;
+  padding-inline: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: 0.94rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+}
+
+input[type="range"] {
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+@media (forced-colors: active) {
+  .nav-link[aria-current="page"],
+  .tablist > button[aria-selected="true"]::after {
+    border-color: Highlight;
+  }
+}

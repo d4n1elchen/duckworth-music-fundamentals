@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 12 章：三和弦結構與轉位 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch12">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 12 · 第 12 章</span>
+        <h1 id="main-heading" tabindex="-1">第 12 章：三和弦結構、四種性質、開密位置與轉位（Triads）</h1>
+        <p class="chapter-subtitle">
+          如果旋律是音樂的「水平線條」，和聲就是「垂直支柱」隨時間的推進。三個以上音高同時發聲稱為<strong>和弦 (Chord)</strong>，而由兩個三度垂直疊置而成的三音和弦——<strong>三和弦 (Triad)</strong>——正是整個調性和聲體系最核心的積木！
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>熟記三度字母鏈（<code>ACE – CEG – EGB – GBD – BDF – DFA – FAC</code>）與原位三和弦的<strong>根音 (Root)、三音 (Third)、五音 (Fifth)</strong>。</li>
+            <li>辨識並建構四種三和弦性質：<strong>大三 (Major)、小三 (Minor)、增三 (Augmented)、減三 (Diminished)</strong>，以及<strong>密集位置 (Close)</strong> vs. <strong>開放位置 (Open)</strong>。</li>
+            <li>掌握大／小調各音級上的順階三和弦，以及<strong>第一轉位 (<code>6</code>)</strong> 與<strong>第二轉位 (<code>6/4</code>)</strong> 的數字低音標記法！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Triad Structure & Four Qualities -->
+      <section class="lesson-section" aria-labelledby="ch12-qual">
+        <h2 id="ch12-qual">1. 三和弦結構、四種性質與密集／開放位置</h2>
+        <p>
+          當三和弦以「兩個三度上下疊置（線-線-線，或間-間-間）」排列時，稱為<strong>原位 (Root Position)</strong>，由下而上分別為<strong>根音 (Root)、三音 (Third，根音上方三度)、五音 (Fifth，根音上方五度)</strong>，且和弦永遠以「根音」命名。請大聲朗讀以下三度字母口訣直到脫口而出：<code>ACE – CEG – EGB – GBD – BDF – DFA – FAC</code>！
+        </p>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="triad-q-cap">
+          <table class="data-table stack-mobile">
+            <caption id="triad-q-cap">四種三和弦性質 (Four Qualities of Triads) 結構公式對照表</caption>
+            <thead>
+              <tr>
+                <th scope="col">三和弦性質</th>
+                <th scope="col">下方三度（根音→三音）</th>
+                <th scope="col">上方三度（三音→五音）</th>
+                <th scope="col">外圍五度（根音→五音）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">大三和弦 (Major, <code>M</code>)</th>
+                <td data-label="下方三度"><strong>大三度 (M3，4 半音)</strong></td>
+                <td data-label="上方三度">小三度 (m3，3 半音)</td>
+                <td data-label="外圍五度"><strong>完全五度 (P5，7 半音)</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">小三和弦 (Minor, <code>m</code>)</th>
+                <td data-label="下方三度"><strong>小三度 (m3，3 半音)</strong></td>
+                <td data-label="上方三度">大三度 (M3，4 半音)</td>
+                <td data-label="外圍五度"><strong>完全五度 (P5，7 半音)</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">增三和弦 (Augmented, <code>A / +</code>)</th>
+                <td data-label="下方三度">大三度 (M3，4 半音)</td>
+                <td data-label="上方三度">大三度 (M3，4 半音)</td>
+                <td data-label="外圍五度"><strong>增五度 (A5，8 半音)</strong></td>
+              </tr>
+              <tr>
+                <th scope="row">減三和弦 (Diminished, <code>d / °</code>)</th>
+                <td data-label="下方三度">小三度 (m3，3 半音)</td>
+                <td data-label="上方三度">小三度 (m3，3 半音)</td>
+                <td data-label="外圍五度"><strong>減五度 (d5，6 半音)</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>密集位置 (Close Position) vs. 開放位置 (Open Position)：</strong>當三和弦的三個音緊密擠在<strong>一個八度之內</strong>時稱為密集位置；當各聲部之間拉開距離（每個音之間跳過一個和弦音，總跨度<strong>超過一個八度</strong>，例如由下而上排成 <code>D3 – A3 – F4</code>）時，則稱為開放位置，能帶來更寬廣溫暖的音響色彩。
+        </p>
+      </section>
+
+      <!-- 2. Triads on Scale Degrees & Inversions -->
+      <section class="lesson-section" aria-labelledby="ch12-inv">
+        <h2 id="ch12-inv">2. 音階各級三和弦與轉位標記（<code>6</code> 與 <code>6/4</code> 數字低音）</h2>
+        <p>
+          在大調音階的七個音級上建立順階三和弦，永遠會產生 <strong>3 個大三和弦（第 1、4、5 級）、3 個小三和弦（第 2、3、6 級）與 1 個減三和弦（第 7 級）</strong>。而在小調中，為了獲得強而有力的導音，作曲家通常採用和聲小調將第 5 級屬和弦由小三改為<strong>大三和弦 (<code>V</code>)</strong>，並將第 7 級改為<strong>減三和弦 (<code>vii°</code>)</strong>！
+        </p>
+
+        <h3>三和弦轉位 (Inversions of Triads) 與巴洛克數字低音 (Figured Bass)</h3>
+        <p>
+          當三和弦最低音不是根音時，和弦的根音名稱與性質<strong>完全不變</strong>，但音響色彩與聲部導進會更圓滑：
+        </p>
+        <ul>
+          <li><strong>原位 (Root Position)：</strong><strong>根音</strong>在最低音（由下而上為三度＋五度，簡寫時<strong>省略數字不標</strong>）。</li>
+          <li><strong>第一轉位 (First Inversion, 標記 <code>6</code>)：</strong><strong>三音</strong>在最低音（下方三度＋上方四度；最低音到上方兩音為三度與六度 <code>6/3</code>，簡寫為 <strong><code>6</code></strong>）。</li>
+          <li><strong>第二轉位 (Second Inversion, 標記 <code>6/4</code>)：</strong><strong>五音</strong>在最低音（下方四度＋上方三度；最低音到上方兩音為四度與六度，必寫完整 <strong><code>6/4</code></strong>）。</li>
+        </ul>
+        <p>
+          <strong>秒找轉位根音秘訣：</strong>原位沒有四度；一旦在密集三和弦中看見<strong>「四度音程」</strong>（一線一間相隔），<strong>該四度的「上方那個音」永遠就是整個三和弦真正的根音 (Root)</strong>！
+        </p>
+
+        <!-- 互動三和弦性質、位置與轉位實驗室 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎹 互動三和弦工廠（性質 · 原位／轉位 · 密集／開放位置）</h3>
+            <button type="button" class="btn btn-sm btn-primary" id="triad-play-btn">▶ 同時擊弦試聽</button>
+          </div>
+          <div class="widget-controls">
+            <label>根音：
+              <select id="tr-root">
+                <option value="C4">C</option>
+                <option value="D4">D</option>
+                <option value="Eb4">E♭</option>
+                <option value="F3" selected>F</option>
+                <option value="G3">G</option>
+                <option value="A3">A</option>
+                <option value="Bb3">B♭</option>
+              </select>
+            </label>
+            <label>性質：
+              <select id="tr-qual">
+                <option value="major">大三和弦 (Major)</option>
+                <option value="minor">小三和弦 (Minor)</option>
+                <option value="augmented">增三和弦 (Augmented)</option>
+                <option value="diminished">減三和弦 (Diminished)</option>
+              </select>
+            </label>
+            <label>轉位狀態：
+              <select id="tr-inv">
+                <option value="0">原位 Root Position（無數字）</option>
+                <option value="1">第一轉位 First Inversion (6)</option>
+                <option value="2">第二轉位 Second Inversion (6/4)</option>
+              </select>
+            </label>
+            <label style="display:inline-flex;align-items:center;gap:0.35rem;font-weight:600;">
+              <input type="checkbox" id="tr-open"> 切換為開放位置 (Open Position)
+            </label>
+          </div>
+          <p id="tr-readout" style="font-weight:700;margin-block:0.4rem;"></p>
+          <div id="tr-score"></div>
+          <div id="tr-piano"></div>
+        </div>
+      </section>
+
+      <!-- 3. Practice 12-1 ~ 12-11 -->
+      <section class="lesson-section" aria-labelledby="ch12-quiz-sec">
+        <h2 id="ch12-quiz-sec">📝 Practice 12-1～12-11 三和弦建構與轉位檢定</h2>
+        <div id="ch12-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const piano = Widgets.createPiano('#tr-piano', { startMidi: 53, endMidi: 84 });
+      const rSel = document.getElementById('tr-root');
+      const qSel = document.getElementById('tr-qual');
+      const iSel = document.getElementById('tr-inv');
+      const oChk = document.getElementById('tr-open');
+      const readout = document.getElementById('tr-readout');
+      let curChord = [];
+
+      function updateTriadLab() {
+        const inv = Number(iSel.value);
+        curChord = CourseData.buildTriad(rSel.value, qSel.value, inv, oChk.checked);
+        const rootP = CourseData.parsePitch(rSel.value);
+        const qLabel = { major: '大三和弦', minor: '小三和弦', augmented: '增三和弦', diminished: '減三和弦' }[qSel.value];
+        const qSym = { major: '', minor: 'm', augmented: '+', diminished: '°' }[qSel.value] || '';
+        const fig = inv === 0 ? '原位' : inv === 1 ? '第一轉位 (6)' : '第二轉位 (6/4)';
+        readout.textContent = `${rootP.name}${qSym} ${qLabel} · ${fig} · ${oChk.checked ? '開放位置' : '密集位置'} — 由下而上發聲音高：${curChord.map(n => n.label).join(' – ')}`;
+
+        MusicNotation.render('#tr-score', {
+          clef: 'treble',
+          playable: false,
+          minWidth: 320,
+          notes: [
+            { notes: curChord.map(n => n.ascii), dur: 'w', topText: `${rootP.name}${qSym} (${fig})`, label: curChord.map(n => n.name).join('+') },
+            { bar: '||' },
+            ...curChord.map(n => ({ pitch: n.ascii, dur: 'q', label: n.label }))
+          ]
+        });
+
+        piano.highlightMidi(curChord.map(n => n.midi), rootP.midi);
+      }
+
+      [rSel, qSel, iSel, oChk].forEach(el => el.addEventListener('change', updateTriadLab));
+      updateTriadLab();
+
+      document.getElementById('triad-play-btn').addEventListener('click', () => {
+        AudioEngine.playChord(curChord, 1.15);
+        curChord.forEach(n => piano.flashKey(n.midi, 500));
+      });
+
+      Widgets.createQuiz('#ch12-quiz', 'quiz-ch12', 'ch12', [
+        {
+          prompt: '【Practice 12-3 已知三音反推三和弦】如果要建構一個密集位置的「大三和弦 (Major triad)」，且已知它的中間「三音 (Third)」是 F♯4，請問完整的三個音為何？',
+          options: ['D4 – F♯4 – A4', 'D♯4 – F♯4 – A♯4', 'F♯4 – A♯4 – C♯5', 'B3 – D4 – F♯4'],
+          answer: 0,
+          explanation: '大三和弦的三音位於根音上方大三度（F♯4 往下大三度為根音 D4），五音在根音上方完全五度為 A4，即 D 大三和弦 D4–F♯4–A4！'
+        },
+        {
+          prompt: '【Practice 12-5 & 12-7】由下而上為「C – E – G♯」的三和弦屬於哪一種性質？',
+          options: ['大三和弦 (Major)', '小三和弦 (Minor)', '增三和弦 (Augmented)', '減三和弦 (Diminished)'],
+          answer: 2,
+          explanation: 'C–E 為大三度 (4 半音)，E–G♯ 也是大三度 (4 半音)，外圍 C–G♯ 為增五度 (8 半音)，兩個大三度疊置即為增三和弦！'
+        },
+        {
+          prompt: '【Practice 12-10 轉位根音與性質判讀】觀察下方密集轉位三和弦「A3 – D4 – F4」，請問它的轉位狀態、根音與性質分別為何？',
+          scoreSpec: { clef: 'treble', playable: false, minWidth: 260, notes: [{ notes: ['A3', 'D4', 'F4'], dur: 'w' }] },
+          options: [
+            '第一轉位 (6)，根音 A，小三和弦',
+            '第二轉位 (6/4)，根音 D，d 小三和弦',
+            '第一轉位 (6)，根音 D，D 大三和弦',
+            '原位，根音 A，減三和弦'
+          ],
+          answer: 1,
+          explanation: '下方兩音 A3–D4 構成四度！四度上方的音 D 即為真正的根音；還原成原位 D–F–A 為小三和弦，且最低音 A 是五音，故為第二轉位 (6/4)！'
+        },
+        {
+          prompt: '【Practice 12-11 數字低音實現】低音譜號給定最低音「E3」，下方標有數字「6」，要求寫出對應的大三和弦。請問這個和弦的根音與完整三音為何？',
+          options: ['E 大三和弦（E-G♯-B）', 'C 大三和弦第一轉位（E3 – G3 – C4）', 'A 大三和弦第二轉位（E3 – A3 – C♯4）', 'G 大三和弦'],
+          answer: 1,
+          explanation: '數字「6」代表第一轉位，因此最低音 E3 是大三和弦的「三音」！E 往下推大三度找到根音為 C，故為 C 大三和弦第一轉位（E3–G3–C4）。'
+        },
+        {
+          prompt: '【聽音辨識三和弦性質】點擊試聽這個原位三和弦，判斷它是哪一種性質？',
+          audioLabel: '🔊 播放三和弦題目',
+          audioFn: () => AudioEngine.playChord(['D4', 'F4', 'Ab4'], 1.25),
+          options: ['大三和弦 (Major)', '小三和弦 (Minor)', '增三和弦 (Augmented)', '減三和弦 (Diminished)'],
+          answer: 3,
+          explanation: 'D4–F4(m3) + F4–A♭4(m3) 疊成外圍減五度 (d5)，呈現緊縮不安定的減三和弦色彩！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

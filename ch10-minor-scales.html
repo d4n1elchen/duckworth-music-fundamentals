@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 10 章：小調音階的三種形式 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch10">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 10 · 第 10 章</span>
+        <h1 id="main-heading" tabindex="-1">第 10 章：小調音階的三種形式（自然、和聲與旋律小調）</h1>
+        <p class="chapter-subtitle">
+          Duckworth 特別提醒：世上其實只有「一個小調音階」，但因為它的<strong>第 6 級與第 7 級具有不穩定性</strong>，作曲家為了兼顧「和聲推進力」與「旋律流暢度」，發展出三種靈活變體：<strong>自然小調 (Natural)</strong>、<strong>和聲小調 (Harmonic)</strong> 與<strong>旋律小調 (Melodic)</strong>。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>掌握<strong>自然小調</strong>結構（<code>W-H-W-W-H-W-W</code>）與全音距離的第 7 級<strong>下主音 (Subtonic)</strong>。</li>
+            <li>理解<strong>和聲小調</strong>為何向平行大調借用升高的第 7 級導音、產生特色<strong>增二度 (<code>A2</code>)</strong>，以及重升記號 (<code>𝄪</code>) 的登場時機。</li>
+            <li>掌握<strong>旋律小調</strong>「上行升 6、7 級，下行還原為自然小調」的設計邏輯、真實樂曲混合應用與小調視唱唱名。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Three Forms of Minor Scale (with Accessible Tabs!) -->
+      <section class="lesson-section" aria-labelledby="ch10-forms">
+        <h2 id="ch10-forms">1. 深度剖析小調的三種形式：成因、音程公式與唱名</h2>
+
+        <div class="tabs">
+          <div class="tablist" focusgroup="tablist nomemory" aria-label="小調音階三種形式切換">
+            <button type="button" id="tab-nat" aria-selected="true" focusgroupstart>① 自然小調 (Natural Minor)</button>
+            <button type="button" id="tab-harm" aria-selected="false">② 和聲小調 (Harmonic Minor)</button>
+            <button type="button" id="tab-mel" aria-selected="false">③ 旋律小調 (Melodic Minor)</button>
+          </div>
+
+          <div role="tabpanel" aria-labelledby="tab-nat">
+            <div class="tabpanel-inner">
+              <h3>自然小調 (Natural Minor Scale)：純粹依循調號的古樸色彩</h3>
+              <p>
+                全半音順序為 <strong><code>W – [H] – W – W – [H] – W – W</code></strong>（兩個半音落在 <strong>2–3 級</strong>與 <strong>5–6 級</strong>，在 A 自然小調上剛好全為白鍵）。與大調相比，主音到第 3、6、7 級都變成了小音程（<code>m3, m6, m7</code>），奠定了暗色調的小調性格。
+              </p>
+              <p>
+                <strong>關鍵特徵：</strong>第 7 級與主音相距一個「全音」而非半音，因此不能稱為導音，而稱為<strong>下主音 (Subtonic)</strong>。民謠（如《Erie Canal》）非常喜愛這種柔和感，但在和聲上則缺乏強烈推回主音的重力。
+              </p>
+            </div>
+          </div>
+
+          <div role="tabpanel" aria-labelledby="tab-harm" hidden="until-found">
+            <div class="tabpanel-inner">
+              <h3>和聲小調 (Harmonic Minor Scale)：借用導音強化和聲張力</h3>
+              <p>
+                為了強化屬和弦推向主和弦的拉力（比較巴哈《小前奏曲》有無升第 7 級的巨大差異！），作曲家將自然小調的<strong>第 7 級升高一個變化半音</strong>（等於向平行大調借用真正的<strong>導音 Leading Tone</strong>）。
+              </p>
+              <p>
+                結果產生了<strong>三個半音（2–3、5–6、7–8 級）</strong>，並且在<strong>第 6 級與升高的第 7 級之間形成長達 3 個半音的「增二度 (Augmented 2nd, A2)」</strong>（例如 A 和聲小調中的 <code>F – G♯</code>）！也因為原本已帶升號的導音（如 <code>G♯</code> 小調的第 7 音原本是 <code>F♯</code>）還得再升高半音且不能重複字母 G，這正是第 2 章學過的<strong>重升記號 (<code>F𝄪</code>)</strong> 在實際音樂中最常登場的地方！
+              </p>
+            </div>
+          </div>
+
+          <div role="tabpanel" aria-labelledby="tab-mel" hidden="until-found">
+            <div class="tabpanel-inner">
+              <h3>旋律小調 (Melodic Minor Scale)：消除增二度、上下行不同軌</h3>
+              <p>
+                和聲小調的增二度 (<code>A2</code>) 在聲樂演唱上較難唱準且帶有異國跳躍感。為了讓上行旋律既保留導音推向主音的力量、又消除增二度，作曲家<strong>在上行時同時升高第 6 級與第 7 級</strong>（<code>W – [H] – W – W – W – W – [H]</code>——注意上行時除了第 3 級是 <code>♭3</code> 外，其餘跟平行大調一模一樣！）。
+              </p>
+              <p>
+                而當旋律<strong>下行</strong>時，不再需要導音向上推回主音，因此<strong>將第 7 級與第 6 級雙雙降回原位（等同下行自然小調）</strong>，完美恢復濃郁的小調色彩！
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 互動三種小調音階工作坊 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎹 互動小調三態實驗室（含 <code>G♯ / D♯</code> 重升記號示範與首調唱名）</h3>
+            <div class="widget-controls" style="margin:0;">
+              <label style="font-weight:700;font-size:0.88rem;">主音：
+                <select id="min-root-sel">
+                  <option value="A">a 小調（調號 0）</option>
+                  <option value="E">e 小調（調號 1♯）</option>
+                  <option value="B">b 小調（調號 2♯）</option>
+                  <option value="F#">f♯ 小調（調號 3♯）</option>
+                  <option value="C#">c♯ 小調（調號 4♯）</option>
+                  <option value="G#">g♯ 小調（調號 5♯ — 觀察 F𝄪！）</option>
+                  <option value="D#">d♯ 小調（調號 6♯ — 觀察 C𝄪！）</option>
+                  <option value="D">d 小調（調號 1♭）</option>
+                  <option value="G">g 小調（調號 2♭）</option>
+                  <option value="C">c 小調（調號 3♭）</option>
+                  <option value="F">f 小調（調號 4♭）</option>
+                </select>
+              </label>
+              <label style="font-weight:700;font-size:0.88rem;">形式：
+                <select id="min-form-sel">
+                  <option value="naturalMinor">自然小調 (Natural)</option>
+                  <option value="harmonicMinor" selected>和聲小調 (Harmonic)</option>
+                  <option value="melodicFull">旋律小調完整上下行 (Melodic Asc + Desc)</option>
+                </select>
+              </label>
+              <button type="button" class="btn btn-sm btn-primary" id="play-minor-btn">▶ 播放此小調音階</button>
+            </div>
+          </div>
+          <p id="min-lab-readout" style="font-weight:600;margin-block:0.4rem;"></p>
+          <div id="min-lab-score"></div>
+          <div id="min-lab-piano"></div>
+        </div>
+      </section>
+
+      <!-- 2. Minor Scales in Actual Music & Sight-Singing -->
+      <section class="lesson-section" aria-labelledby="ch10-real">
+        <h2 id="ch10-real">2. 真實音樂中的混合運用與小調視唱兩大學派</h2>
+        <p>
+          <strong>千萬別誤以為作曲家寫曲時只能「三選一」從頭用到尾！</strong>Duckworth 以史卡拉第 (Scarlatti)《c 小調奏鳴曲》與巴哈作品說明：真實的小調樂曲中，作曲家會隨和聲進行選用和聲小調、隨級進旋律線條選用旋律小調或自然小調，<strong>在同一首曲子裡自由穿梭三種形式</strong>。
+        </p>
+        <p>
+          <strong>如何視唱小調音階 (How to Sing Minor Scales)？</strong>目前國際上有兩大主流唱法，兩者皆通：
+        </p>
+        <ul>
+          <li><strong><code>do</code> 主音派（課本附錄 C 主推）：</strong>維持主音永遠唱 <code>do</code>，降低的音級改變母音：自然小調唱作 <strong><code>do – re – me – fa – sol – le – te – do</code></strong>；和聲小調第 7 級改唱 <strong><code>ti</code></strong>；旋律小調上行第 6、7 級唱 <strong><code>la – ti</code></strong>，下行唱回 <strong><code>te – le</code></strong>。</li>
+          <li><strong><code>la</code> 關係調派：</strong>直接沿用關係大調唱名從 <code>la</code> 唱到 <code>la</code>（自然小調 <code>la-ti-do-re-mi-fa-sol-la</code>；升高第 7 級唱 <code>si</code>，升高第 6 級唱 <code>fi</code>）。</li>
+        </ul>
+      </section>
+
+      <!-- 3. Practice 10-1 ~ 10-15 + Ear Training -->
+      <section class="lesson-section" aria-labelledby="ch10-quiz-sec">
+        <h2 id="ch10-quiz-sec">📝 Music in Action 四種音階聽辨 ＆ Practice 10-1～10-15 檢定</h2>
+        <div id="ch10-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const piano = Widgets.createPiano('#min-lab-piano', { startMidi: 57, endMidi: 84 });
+      const rootSel = document.getElementById('min-root-sel');
+      const formSel = document.getElementById('min-form-sel');
+      const readout = document.getElementById('min-lab-readout');
+      let playSeqNotes = [];
+
+      function updateMinorLab() {
+        const r = rootSel.value + '4';
+        const f = formSel.value;
+
+        if (f === 'melodicFull') {
+          const asc = CourseData.buildScale(r, 'melodicMinorAsc');
+          const desc = [...CourseData.buildScale(r, 'naturalMinor').notes].reverse();
+          playSeqNotes = [...asc.notes, ...desc.slice(1)];
+          readout.innerHTML = `<strong>上行：</strong> ${asc.notes.map(n => n.name).join('–')} &nbsp;|&nbsp; <strong>下行（還原自然小調）：</strong> ${desc.map(n => n.name).join('–')}`;
+
+          MusicNotation.render('#min-lab-score', {
+            clef: 'treble',
+            playable: false,
+            spacing: 40,
+            notes: [
+              ...asc.notes.map((n, i) => ({ pitch: n.ascii, dur: 'q', label: n.name, solfege: asc.solfege[i] })),
+              { bar: '||' },
+              ...desc.slice(1).map((n, i) => ({ pitch: n.ascii, dur: 'q', label: n.name, solfege: ['te', 'le', 'sol', 'fa', 'me', 're', 'do'][i] }))
+            ]
+          });
+          piano.highlightMidi(asc.notes.map(n => n.midi), asc.notes[0].midi);
+        } else {
+          const sc = CourseData.buildScale(r, f);
+          playSeqNotes = sc.notes;
+          const extra = f === 'harmonicMinor'
+            ? `（注意 6–7 級增二度 A2：${sc.notes[5].name} → ${sc.notes[6].name}！）`
+            : `（半音於 2–3 級與 5–6 級）`;
+          readout.innerHTML = `<strong>音階拼寫：</strong> ${sc.notes.map(n => n.name).join(' – ')} ${extra}`;
+
+          MusicNotation.render('#min-lab-score', {
+            clef: 'treble',
+            playable: false,
+            spacing: 56,
+            notes: sc.notes.map((n, i) => ({
+              pitch: n.ascii,
+              dur: 'w',
+              label: n.name,
+              solfege: sc.solfege[i],
+              topText: (f === 'harmonicMinor' && i === 5) ? '┌─ A2(3半音) ─┐' : ''
+            }))
+          });
+          piano.highlightMidi(sc.notes.map(n => n.midi), sc.notes[0].midi);
+        }
+      }
+
+      [rootSel, formSel].forEach(el => el.addEventListener('change', updateMinorLab));
+      updateMinorLab();
+
+      document.getElementById('play-minor-btn').addEventListener('click', () => {
+        AudioEngine.playSequence(playSeqNotes.map(n => ({ pitch: n, beats: 0.5 })), 104, {
+          onStep: ev => piano.flashKey(ev.pitch.midi, 260)
+        });
+      });
+
+      Widgets.createQuiz('#ch10-quiz', 'quiz-ch10', 'ch10', [
+        {
+          prompt: '【聽音辨識 Hearing Scales】點擊播放這條上下行音階，憑聽覺判斷它是哪一種音階？',
+          audioLabel: '🔊 播放音階題目',
+          audioFn: () => {
+            const sc = CourseData.buildScale('D4', 'harmonicMinor').notes;
+            const full = [...sc, ...[...sc].reverse().slice(1)];
+            AudioEngine.playSequence(full.map(n => ({ pitch: n, beats: 0.42 })), 108);
+          },
+          options: ['大調音階 (Major)', '自然小調 (Natural Minor)', '和聲小調 (Harmonic Minor — 含鮮明的 6-7 級增二度！)', '旋律小調 (Melodic Minor)'],
+          answer: 2,
+          explanation: '此為 D 和聲小調（D-E-F-G-A-B♭-C♯-D），B♭ 與 C♯ 之間寬達 3 個半音的增二度 (A2) 在上行與下行都極具辨識度！'
+        },
+        {
+          prompt: '【Practice 10-9 重升記號實戰】在拼寫「g♯ 和聲小調」音階時，為了將第 7 級升高半音成為導音，第 7 級必須寫成什麼音？',
+          options: ['G♮', 'F♯', 'F𝄪 (F double sharp)', 'A♭'],
+          answer: 2,
+          explanation: 'g♯ 自然小調第 7 級原本就是 F♯；再升高半音且必須保留字母 F（不可與主音 G♯ 重複字母 G），因此必須寫為 F𝄪！'
+        },
+        {
+          prompt: '【Practice 10-7 平號小調中的升記號】在拼寫「g 和聲小調」（調號 2♭：B♭, E♭）時，它的第 7 級導音是什麼音？',
+          options: ['F♭', 'F♮', 'F♯', 'G♭'],
+          answer: 2,
+          explanation: 'g 自然小調的第 7 級是 F♮（下主音），將其升高半音借用 G 大調的導音，就會出現升記號 F♯！'
+        },
+        {
+          prompt: '【Practice 10-15 旋律小調】下列哪一組是「c 旋律小調」上行與下行的正確第 6、7 級變化？',
+          options: [
+            '上行 A♮–B♮，下行 B♭–A♭',
+            '上行 A♭–B♮，下行 B♮–A♭',
+            '上行 A♭–B♭，下行 B♮–A♮',
+            '上行與下行皆為 A♮–B♮'
+          ],
+          answer: 0,
+          explanation: 'c 自然小調原本是 C-D-E♭-F-G-A♭-B♭-C；旋律小調上行升高 6、7 級變 A♮–B♮，下行還原回 B♭–A♭！'
+        },
+        {
+          prompt: '【Practice 10-11】如果「G♯」是某個和聲小調的「導音 (Leading tone, 第 7 級)」，請問這是哪一個和聲小調？',
+          options: ['a 和聲小調', 'c♯ 和聲小調', 'e 和聲小調', 'f♯ 和聲小調'],
+          answer: 0,
+          explanation: '導音永遠位於主音下方一個自然半音：G♯ 往上推半音即為 A，故為 a 和聲小調！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

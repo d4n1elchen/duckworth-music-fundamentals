@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>導論：音樂的本質與練習之道 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="intro">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Introduction · 導論</span>
+        <h1 id="main-heading" tabindex="-1">導論：觀看音樂、聲音四大特性、音樂六大要素與練習之道</h1>
+        <p class="chapter-subtitle">
+          不論你喜歡金屬、饒舌、電子、嘻哈、百老匯、流行歌，或是巴哈、莫札特、貝多芬的古典音樂——所有音樂的聲響都共享相同的<strong>四大物理特性</strong>，且所有風格都由相同的<strong>六大基本要素（音樂的 DNA）</strong>交織而成。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>認識所有樂音共通的<strong>四大特性 (Four Characteristics of Musical Sound)</strong>：音高、時值、音量、音色。</li>
+            <li>理解構成一切音樂的<strong>六大基本要素 (Six Basic Elements of Music)</strong>，以及單音、主音、複音三種織體。</li>
+            <li>比較古典精確記譜與流行功能譜 (Lead Sheet) 的差異，建立高效、科學的每日練習方法。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Looking at Music -->
+      <section class="lesson-section" aria-labelledby="sec-looking">
+        <h2 id="sec-looking">1. 觀看音樂 (Looking at Music)：兩種截然不同的記譜哲學</h2>
+        <p>
+          聆聽音樂是人類的天性，但「用眼睛讀譜」則是需要後天培養的能力。當我們把音樂寫在紙上時，不同風格的樂譜外觀往往反映了截然不同的表演期待：
+        </p>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3>古典精確記譜：貝多芬《月光奏鳴曲》</h3>
+            <p>作曲家精確控制每一個音符的音高、三連音伴奏織體、低音八度、速度（<i lang="it">Adagio sostenuto</i>）與極弱力度（<i lang="it">sempre pp e senza sordino</i>），演奏者須忠實重現藍圖。</p>
+            <div id="score-moonlight"></div>
+          </div>
+          <div class="concept-card">
+            <h3>流行與民謠功能譜 (Lead Sheet)：《Careless Love》</h3>
+            <p>譜面僅記出核心旋律、歌詞與上方的和弦代號（<code>F</code>、<code>C7</code>、<code>B♭</code>）。伴奏型態、裝飾音與即興詮釋不僅被允許，更是風格靈魂所在！</p>
+            <div id="score-careless"></div>
+          </div>
+        </div>
+
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 Tips &amp; Tools：天賦與知識的差別 (Talent and Knowledge)</div>
+          <p>
+            有些人天生唱奏極佳，卻說不出背後的原理；另一些人能客觀分析樂曲結構，卻不擅長演奏。前者仰賴<strong>天賦 (Innate Talent)</strong>，後者依賴習得的<strong>音樂知識 (Learned Knowledge)</strong>。要成為完整的現代音樂人，兩者缺一不可——你的目標是學會「主動傾聽 (Listen)」而不只是「聽見 (Hear)」，並能客觀理解音樂運作的機制。
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. The Four Characteristics of Musical Sound -->
+      <section class="lesson-section" aria-labelledby="sec-four-char">
+        <h2 id="sec-four-char">2. 音樂聲響的四大特性 (The Four Characteristics of Musical Sound)</h2>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3>① 音高 (Pitch / Frequency)</h3>
+            <p>源於空氣分子的規則振動。科學家稱為<strong>頻率 (Frequency，單位 Hz)</strong>：每秒振動越快音越高，越慢音越低（如標準調音 <code>A4 = 440 Hz</code>）。</p>
+          </div>
+          <div class="concept-card">
+            <h3>② 時值／長度 (Duration)</h3>
+            <p>聲音在時間中延續的長短。每個聲音都包含三個階段：<strong>起音 (Attack)</strong>、<strong>持續 (Sustain)</strong> 與<strong>衰減消失 (Decay)</strong>。</p>
+          </div>
+          <div class="concept-card">
+            <h3>③ 音量 (Volume / Amplitude)</h3>
+            <p>聲音的相對強弱。科學上稱為<strong>振幅 (Amplitude)</strong>，以分貝 (dB) 測量；音樂家則使用 <i lang="it">forte</i>（強）與 <i lang="it">piano</i>（弱）等術語。</p>
+          </div>
+          <div class="concept-card">
+            <h3>④ 音色 (Timbre)</h3>
+            <p>聲音的「色彩」。使我們即使在相同音高與音量下，仍能瞬間分辨吉他、長笛或小提琴的獨特泛音結構。</p>
+          </div>
+        </div>
+
+        <!-- 互動聲響四大特性實驗室 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎛️ 互動實驗室：親手操控聲音的四大特性（Pitch · Duration · Volume · Timbre）</h3>
+            <button type="button" class="btn btn-primary" id="sound-lab-play">🔊 發聲並觀察波形包絡</button>
+          </div>
+          <div class="concept-grid">
+            <label class="concept-card">
+              <strong>1. 音高頻率 (Pitch): <span id="lbl-freq">440 Hz (A4)</span></strong>
+              <input type="range" id="ctrl-freq" min="110" max="880" step="1" value="440" style="inline-size:100%;margin-block-start:0.5rem;">
+            </label>
+            <label class="concept-card">
+              <strong>2. 持續與起音 (Duration &amp; Attack): <span id="lbl-dur">0.9 秒 / 柔和起音</span></strong>
+              <input type="range" id="ctrl-dur" min="0.2" max="2.2" step="0.1" value="0.9" style="inline-size:100%;margin-block-start:0.5rem;">
+            </label>
+            <label class="concept-card">
+              <strong>3. 音量振幅 (Volume): <span id="lbl-vol">70% (forte)</span></strong>
+              <input type="range" id="ctrl-vol" min="15" max="100" step="5" value="70" style="inline-size:100%;margin-block-start:0.5rem;">
+            </label>
+            <label class="concept-card">
+              <strong>4. 樂器音色 (Timbre):</strong>
+              <select id="ctrl-timbre" style="inline-size:100%;margin-block-start:0.5rem;">
+                <option value="piano">鋼琴 (Piano — 清晰擊弦衰減)</option>
+                <option value="flute">長笛 (Flute — 純淨基音氣流)</option>
+                <option value="clarinet">單簧管 (Clarinet — 奇次泛音木管)</option>
+                <option value="violin">小提琴 (Violin — 豐富泛音擦弦)</option>
+                <option value="guitar">吉他 (Guitar — 撥弦快速衰減)</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. The Six Basic Elements of Music -->
+      <section class="lesson-section" aria-labelledby="sec-six-elem">
+        <h2 id="sec-six-elem">3. 音樂的六大基本要素 (The Six Basic Elements of Music)</h2>
+        <p>Duckworth 將六大要素分為三組兩兩相關的維度，本書將以<strong>節奏、旋律、和聲</strong>為核心，並貫穿其餘三項：</p>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="elem-table-cap">
+          <table class="data-table stack-mobile">
+            <caption id="elem-table-cap">音樂六大基本要素與對應關係表</caption>
+            <thead>
+              <tr>
+                <th scope="col">維度分組</th>
+                <th scope="col">基本要素</th>
+                <th scope="col">核心定義與在音樂中的角色</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">時間的組織</th>
+                <td data-label="基本要素"><strong>節奏 (Rhythm)</strong> 與 <strong>曲式 (Form)</strong></td>
+                <td data-label="核心定義"><strong>節奏</strong>是推動音樂前進的引擎（穩定的底層脈動＋上方千變萬化的長短音型）；<strong>曲式</strong>則是整首作品在時間中展開的宏觀建築藍圖（統一與對比）。</td>
+              </tr>
+              <tr>
+                <th scope="row">音高的組織</th>
+                <td data-label="基本要素"><strong>旋律 (Melody)</strong> 與 <strong>和聲 (Harmony)</strong></td>
+                <td data-label="核心定義"><strong>旋律</strong>是音高隨時間水平展開的線條（我們記住的「歌調」）；<strong>和聲</strong>則是多個音同時發聲（和弦）並前後連結（和弦進行）的垂直與水平張力。</td>
+              </tr>
+              <tr>
+                <th scope="row">聲響層次與色彩</th>
+                <td data-label="基本要素"><strong>音色 (Timbre)</strong> 與 <strong>織體 (Texture)</strong></td>
+                <td data-label="核心定義"><strong>音色</strong>關乎個別人聲／樂器或樂團編制（如搖滾樂團 vs 弦樂四重奏）；<strong>織體</strong>則描述聲部線條的厚薄與互動方式。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 互動三種音樂織體比較 -->
+        <div class="widget-box">
+          <h3 class="widget-title">🎧 互動聽辨：三大音樂織體 (Musical Textures)</h3>
+          <p style="margin-block:0.4rem 0.8rem;font-size:0.92rem;">點擊下方三個按鈕，用耳朵直接感受相同旋律素材在三種織體下的厚薄與層次差異：</p>
+          <div class="widget-controls">
+            <button type="button" class="btn btn-primary" id="tex-mono">① 單音織體 (Monophonic)：單一無伴奏旋律線</button>
+            <button type="button" class="btn" id="tex-homo">② 主音織體 (Homophonic)：主旋律＋和弦伴奏</button>
+            <button type="button" class="btn" id="tex-poly">③ 複音織體 (Polyphonic)：兩條以上獨立平等旋律交織（如卡農/賦格）</button>
+          </div>
+          <p id="tex-desc" style="margin-block-end:0;color:var(--text-secondary);font-size:0.9rem;">點擊上方任一織體按鈕聆聽示範。</p>
+        </div>
+
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 Tips &amp; Tools：什麼是樂理 (What Is Music Theory)?</div>
+          <p>
+            樂理是有計畫、有系統地研究「特定音樂如何運作」的學問——在本書中，我們聚焦於<strong>調性音樂 (Tonal Music)</strong>。無論你喜愛哪種曲風，樂理都在剖析節奏、旋律、和聲、音色、織體、曲式如何結合互動。任何想要「創造音樂」的人，都需要這把鑰匙。
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. How to Practice -->
+      <section class="lesson-section" aria-labelledby="sec-practice">
+        <h2 id="sec-practice">4. 如何練習 (How to Practice)：高原期定律與三大準則</h2>
+        <p>
+          音樂學習不只是把知識塞進大腦，更要把聲音與律動「放進身體裡」。Duckworth 提出高效練習的三個黃金法則：
+        </p>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3>1. 設定短程與長程目標</h3>
+            <p>今天、下週你想學會什麼？學期末、十年後你想成為怎樣的音樂人？明確的目標能讓你在每個練習題中看見意義。</p>
+          </div>
+          <div class="concept-card">
+            <h3>2. 少量多次、每日規律練習</h3>
+            <p>音樂進步<strong>不是一條直線，而是階梯狀的「高原期 (Plateaus)」</strong>！每天專注練習 20 分鐘，遠勝過週末一次苦練三小時。</p>
+          </div>
+          <div class="concept-card">
+            <h3>3. 練習多樣化的教材</h3>
+            <p>結合視唱、鍵盤彈奏、節奏拍擊、聽寫與創作，從不同角度切入同一概念，不僅更有趣，吸收速度也會倍增。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Intro Check Quiz -->
+      <section class="lesson-section" aria-labelledby="sec-quiz">
+        <h2 id="sec-quiz">✅ 導論觀念自測</h2>
+        <div id="intro-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      MusicNotation.render('#score-moonlight', {
+        title: '例 1：貝多芬《月光奏鳴曲》第一樂章開頭（精確記譜）',
+        clef: 'treble',
+        key: 'c#',
+        time: 'C',
+        bpm: 64,
+        spacing: 42,
+        notes: [
+          { pitch: 'G#3', dur: '8', beam: 1, tuplet: 3, tupletText: '3' },
+          { pitch: 'C#4', dur: '8', beam: 1, tuplet: 3 },
+          { pitch: 'E4',  dur: '8', beam: 1, tuplet: 3 },
+          { pitch: 'G#3', dur: '8', beam: 2, tuplet: 3, tupletText: '3' },
+          { pitch: 'C#4', dur: '8', beam: 2, tuplet: 3 },
+          { pitch: 'E4',  dur: '8', beam: 2, tuplet: 3 },
+          { pitch: 'G#3', dur: '8', beam: 3, tuplet: 3, tupletText: '3' },
+          { pitch: 'C#4', dur: '8', beam: 3, tuplet: 3 },
+          { pitch: 'E4',  dur: '8', beam: 3, tuplet: 3 },
+          { pitch: 'G#3', dur: '8', beam: 4, tuplet: 3, tupletText: '3' },
+          { pitch: 'C#4', dur: '8', beam: 4, tuplet: 3 },
+          { pitch: 'E4',  dur: '8', beam: 4, tuplet: 3 }
+        ]
+      });
+
+      MusicNotation.render('#score-careless', {
+        title: '例 2：傳統民謠《Careless Love》（功能譜 Lead Sheet）',
+        clef: 'treble',
+        key: 'F',
+        time: '4/4',
+        bpm: 92,
+        spacing: 48,
+        notes: [
+          { pitch: 'A4', dur: 'h', dotted: true, chordSymbol: 'F', lyric: 'Love,' },
+          { pitch: 'F4', dur: 'q', lyric: 'oh' },
+          { bar: '|' },
+          { pitch: 'A4', dur: 'h', dotted: true, chordSymbol: 'C7', lyric: 'love,' },
+          { pitch: 'G4', dur: 'q', lyric: 'oh' },
+          { bar: '|' },
+          { pitch: 'F4', dur: 'q', chordSymbol: 'F', lyric: 'care-' },
+          { pitch: 'F4', dur: 'q', lyric: 'less' },
+          { pitch: 'A4', dur: 'h', chordSymbol: 'Bb', lyric: 'love;' }
+        ]
+      });
+
+      // Sound Characteristics Lab
+      const fEl = document.getElementById('ctrl-freq');
+      const dEl = document.getElementById('ctrl-dur');
+      const vEl = document.getElementById('ctrl-vol');
+      const tEl = document.getElementById('ctrl-timbre');
+
+      function updateSoundLabels() {
+        const hz = Number(fEl.value);
+        document.getElementById('lbl-freq').textContent = `${hz} Hz`;
+        const dur = Number(dEl.value);
+        document.getElementById('lbl-dur').textContent = `${dur.toFixed(1)} 秒`;
+        const vol = Number(vEl.value);
+        const dyn = vol < 30 ? 'pp (極弱)' : vol < 50 ? 'p (弱)' : vol < 70 ? 'mf (中強)' : vol < 88 ? 'f (強)' : 'ff (極強)';
+        document.getElementById('lbl-vol').textContent = `${vol}% (${dyn})`;
+      }
+      [fEl, dEl, vEl].forEach(el => el.addEventListener('input', updateSoundLabels));
+
+      document.getElementById('sound-lab-play').addEventListener('click', () => {
+        AudioEngine.playNote(Number(fEl.value), Number(dEl.value), 0, {
+          timbre: tEl.value,
+          velocity: Number(vEl.value) / 100
+        });
+      });
+
+      // Three Musical Textures Demo
+      const desc = document.getElementById('tex-desc');
+      document.getElementById('tex-mono').addEventListener('click', () => {
+        desc.textContent = '正在播放【單音織體 Monophonic】：只有單一旋律線（《Frère Jacques》），完全沒有伴奏或第二聲部。';
+        AudioEngine.playSequence([
+          { pitch: 'C4', beats: 1 }, { pitch: 'D4', beats: 1 }, { pitch: 'E4', beats: 1 }, { pitch: 'C4', beats: 1 },
+          { pitch: 'E4', beats: 1 }, { pitch: 'F4', beats: 1 }, { pitch: 'G4', beats: 2 }
+        ], 112);
+      });
+
+      document.getElementById('tex-homo').addEventListener('click', () => {
+        desc.textContent = '正在播放【主音織體 Homophonic】：上方有一條清楚的主旋律，下方配以支撐它的和弦伴奏（流行與古典最常見）。';
+        AudioEngine.playSequence([
+          { notes: ['C3', 'E3', 'G3', 'C4'], beats: 1 },
+          { notes: ['G2', 'F3', 'G3', 'D4'], beats: 1 },
+          { notes: ['C3', 'E3', 'G3', 'E4'], beats: 1 },
+          { notes: ['C3', 'E3', 'G3', 'C4'], beats: 1 },
+          { notes: ['C3', 'G3', 'C4', 'E4'], beats: 1 },
+          { notes: ['F3', 'A3', 'C4', 'F4'], beats: 1 },
+          { notes: ['G3', 'B3', 'D4', 'G4'], beats: 2 }
+        ], 112);
+      });
+
+      document.getElementById('tex-poly').addEventListener('click', () => {
+        desc.textContent = '正在播放【複音織體 Polyphonic】：第一聲部唱出主題後，第二聲部在低八度模仿進入，兩條旋律各自獨立卻和諧交織！';
+        AudioEngine.playSequence([
+          { pitch: 'C5', beats: 1 }, { pitch: 'D5', beats: 1 }, { pitch: 'E5', beats: 1 }, { pitch: 'C5', beats: 1 },
+          { notes: ['C4', 'E5'], beats: 1 }, { notes: ['D4', 'F5'], beats: 1 }, { notes: ['E4', 'G5'], beats: 1 }, { notes: ['C4', 'G5'], beats: 1 },
+          { notes: ['E4', 'G5'], beats: 0.5 }, { pitch: 'A5', beats: 0.5, simultaneous: false },
+          { notes: ['F4', 'G5'], beats: 0.5 }, { pitch: 'F5', beats: 0.5 },
+          { notes: ['G4', 'E5'], beats: 1 }, { notes: ['G4', 'C5'], beats: 1 }
+        ], 108);
+      });
+
+      Widgets.createQuiz('#intro-quiz', 'quiz-intro', 'intro', [
+        {
+          prompt: '即使小提琴、長笛與吉他演奏完全相同的音高 (Pitch) 與相同的音量 (Volume)，我們仍能輕易分辨它們，這是因為聲音的哪一項特性不同？',
+          options: ['時值 (Duration)', '音色 (Timbre)', '拍號 (Meter)', '曲式 (Form)'],
+          answer: 1,
+          explanation: '音色 (Timbre) 描述聲音的色彩（源於泛音強弱結構差異），使我們能辨認不同樂器與人聲。'
+        },
+        {
+          prompt: '一首民謠由一位歌手自彈吉他和弦伴奏演唱（一條主旋律配和聲伴奏），這種音樂織體稱為什麼？',
+          options: ['單音織體 (Monophonic)', '主音織體 (Homophonic)', '複音織體 (Polyphonic)', '無調性織體 (Atonal)'],
+          answer: 1,
+          explanation: '單一旋律無伴奏為 Monophonic；主旋律加上伴奏為 Homophonic；兩條以上同等重要的獨立旋律同時交織（如卡農或賦格）為 Polyphonic。'
+        },
+        {
+          prompt: '在聲學與音樂上，每一個聲音的「時值 (Duration)」在時間中都包含哪三個階段？',
+          options: ['前奏、副歌、尾奏', '起音 (Attack)、持續 (Sustain)、衰減 (Decay)', '頻率、分貝、泛音', '強拍、弱拍、小節線'],
+          answer: 1,
+          explanation: 'Duckworth 指出任何樂音的時值皆由起音 (Attack)、持續維持 (Sustain) 與消逝衰減 (Decay) 三個階段構成。'
+        },
+        {
+          prompt: '關於「音樂練習 (How to Practice)」，課本強調哪一項觀念最符合真實的學習曲線？',
+          options: ['每天進步的幅度都會呈完美的直線上升', '只要背熟樂理事實，不需實際唱奏就能成為好音樂家', '音樂能力的成長呈現階梯狀的「高原期 (Plateaus)」，需要每日規律且多樣化的練習', '等學完整本課本後再開始創作或彈唱音樂'],
+          answer: 2,
+          explanation: '進步並非直線而是呈高原期躍升；而且從第一章起就應同步進行聆聽、唱奏與創作！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 9 章：小調調號（關係調與平行調） | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch09">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 9 · 第 9 章</span>
+        <h1 id="main-heading" tabindex="-1">第 9 章：小調調號、關係大小調與平行大小調（Minor Key Signatures）</h1>
+        <p class="chapter-subtitle">
+          好消息：學習小調並不需要重新背誦一套全新的調號圖案！因為每一個小調都與你已經學會的某個大調共享完全相同的調號。記譜與分析慣例上，大調以大寫字母標示（如 <code>C, F♯</code>），小調則以<strong>小寫字母</strong>標示（如 <code>a, f♯</code>）。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>理解<strong>關係大小調 (Relative Major &amp; Minor)</strong>：共享相同調號、但主音相差小三度（大調第 6 級）。</li>
+            <li>區分<strong>平行大小調 (Parallel Major &amp; Minor)</strong>：共享相同主音、但調號永遠相差 3 個升降記號。</li>
+            <li>整合<strong>大小調雙層五度圈</strong>，並學會實戰判斷一首樂曲究竟是大調還是小調的兩大線索！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Relative Keys & Minor Key Signatures -->
+      <section class="lesson-section" aria-labelledby="ch9-rel">
+        <h2 id="ch9-rel">1. 關係調 (Related Keys)：一組調號、兩種靈魂</h2>
+        <p>
+          從任何一個大調音階的<strong>第 6 級音（下中音 Submediant）</strong>出發，順著原本的調號音往上走一個八度，就會自然形成一個全新的<strong>自然小調音階</strong>！例如 F 大調（1♭: <code>B♭</code>）從第 6 音 D 出發就是 d 小調（同樣只有 1♭: <code>B♭</code>）。
+        </p>
+        <ul>
+          <li><strong>關係小調 (Relative Minor) 兩種記憶法：</strong>① 位於關係大調音階的<strong>第 6 級</strong>；② 位於關係大調主音<strong>下方 3 個半音（下行小三度，且須相隔兩個字母，如 <code>C → a</code>、<code>E♭ → c</code>）</strong>。大多數學生覺得往下數小三度最快！</li>
+          <li><strong>小調調號的小細節：</strong>在升號小調中，調號最後一個升號落在小調的第 2 級（上主音 Supertonic）；在降號小調中，最後一個降號落在小調的第 6 級（下中音 Submediant）。</li>
+        </ul>
+      </section>
+
+      <!-- 2. Parallel Keys & Combined Circle of Fifths -->
+      <section class="lesson-section" aria-labelledby="ch9-par">
+        <h2 id="ch9-par">2. 平行大小調 (Parallel Keys) 與大小調雙層五度圈</h2>
+        <p>
+          除了共享調號的「關係調」外，作曲家也極常使用<strong>平行大小調 (Parallel Major / Parallel Minor)</strong>——<strong>主音 (Tonic) 完全相同，但調號不同</strong>的一對大小調！例如 <code>E 大調（4♯）</code> 與 <code>e 小調（1♯）</code>、<code>E♭ 大調（3♭）</code> 與 <code>e♭ 小調（6♭）</code>、<code>D 大調（2♯）</code> 與 <code>d 小調（1♭）</code>。
+        </p>
+        <p>
+          <strong>黃金定律：任何一對平行大調與平行小調之間，調號永遠相差「3 個升降記號」</strong>（從大調轉為平行小調等於在五度圈逆時針退三格：減去 3 個升號或加上 3 個降號）！在樂曲中切換平行大小調（主音不變）稱為<strong>調式轉換 (Change of Mode)</strong>；而切換到關係調或其他新主音則稱為<strong>轉調 (Modulation)</strong>。
+        </p>
+
+        <!-- 互動雙層大小調五度圈 -->
+        <div class="widget-box">
+          <h3 class="widget-title">🧭 互動雙層大小調五度圈（外圈大調 ＋ 內圈關係小調）</h3>
+          <p style="font-size:0.9rem;margin-block:0.3rem 0.8rem;">點擊任一扇形，同時觀察大調與關係小調如何共用同一組調號，並試聽兩者截然不同的調性色彩！</p>
+          <div id="ch09-circle"></div>
+        </div>
+
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 Tips &amp; Tools：看到調號有兩種可能——如何判斷真實樂曲是大調還是小調？</div>
+          <p>
+            單憑譜頭的調號只能縮小到「一個大調或它的關係小調」（例如 1 個降號可能是 F 大調，也可能是 d 小調）。要確定答案，必須走進樂曲內部檢查兩件事：<br>
+            <strong>1. 看全曲最後一個音（與低音結尾和弦）：</strong>調性樂曲的最後一顆音幾乎百分之百是主音 (Tonic)！若停在 D 就是 d 小調，停在 F 就是 F 大調。<br>
+            <strong>2. 掃描譜面內部的臨時變化音：</strong>因為調號只代表「自然小調」，而真實小調樂曲極常升高第 7 級導音（和聲小調，如 d 小調頻繁出現 <code>C♯</code>！）或同時升高第 6、7 級（旋律小調，出現 <code>B♮, C♯</code>）。一旦看到持續升高的第 7 級音，幾乎可斷定是小調！
+          </p>
+        </div>
+
+        <!-- 樂譜調性偵探小實驗 -->
+        <div id="score-key-detective"></div>
+      </section>
+
+      <!-- 3. Practice 9-1 ~ 9-6 -->
+      <section class="lesson-section" aria-labelledby="ch9-quiz-sec">
+        <h2 id="ch9-quiz-sec">📝 Practice 9-1～9-6 小調調號、關係調與平行調檢定</h2>
+        <div id="ch09-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Widgets.createCircleOfFifths('#ch09-circle', { showMinor: true });
+
+      MusicNotation.render('#score-key-detective', {
+        title: '調性偵探實例：巴哈《g 小調小步舞曲》片段（調號 2♭ 看似 B♭ 大調，但譜內出現升高導音 F♯ 且結尾歸於 G → 確診為 g 小調！）',
+        clef: 'treble',
+        key: 'Bb',
+        time: '3/4',
+        bpm: 104,
+        spacing: 46,
+        notes: [
+          { pitch: 'Bb4', dur: 'q', hideAccidental: true },
+          { pitch: 'A4',  dur: 'q' },
+          { pitch: 'G4',  dur: 'q' },
+          { bar: '|' },
+          { pitch: 'F#4', dur: 'h', topText: '升高導音 F♯！', className: 'highlight-tendency' },
+          { pitch: 'D4',  dur: 'q' },
+          { bar: '|' },
+          { pitch: 'G4',  dur: 'q' },
+          { pitch: 'A4',  dur: 'q' },
+          { pitch: 'Bb4', dur: 'q', hideAccidental: true },
+          { bar: '|' },
+          { pitch: 'A4',  dur: 'q' },
+          { pitch: 'F#4', dur: 'q', className: 'highlight-tendency' },
+          { pitch: 'G4',  dur: 'q', topText: '主音 G', className: 'highlight-tonic' }
+        ]
+      });
+
+      Widgets.createQuiz('#ch09-quiz', 'quiz-ch09', 'ch09', [
+        {
+          prompt: '【Practice 9-1】請問「E 大調」的關係小調 (Relative Minor) 是哪一個小調？',
+          options: ['e 小調', 'c♯ 小調', 'c 小調', 'g♯ 小調'],
+          answer: 1,
+          explanation: 'E 往下數小三度（3 個半音、兩個字母間距 E → D → C）：為 c♯ 小調（與 E 大調共享 4 個升記號）！'
+        },
+        {
+          prompt: '【Practice 9-2】請問擁有「3 個降記號（B♭, E♭, A♭）」的大調與關係小調配對為何？',
+          options: ['A♭ 大調 ／ f 小調', 'E♭ 大調 ／ c 小調', 'B♭ 大調 ／ g 小調', 'F 大調 ／ d 小調'],
+          answer: 1,
+          explanation: '3 個降號倒數第二個降號為 E♭ 大調；E♭ 往下小三度為 c 小調！'
+        },
+        {
+          prompt: '【Practice 9-3】請問「f♯ 小調」的關係大調 (Relative Major) 是什麼調？調號有幾個升記號？',
+          options: ['D 大調（2♯）', 'A 大調（3♯）', 'E 大調（4♯）', 'F♯ 大調（6♯）'],
+          answer: 1,
+          explanation: '從 f♯ 往上推小三度（3 個半音、兩個字母 f♯ → g → a）即為 A 大調，共有 3 個升記號（F♯, C♯, G♯）。'
+        },
+        {
+          prompt: '【平行大小調 Parallel Keys】「D 大調」有 2 個升記號，那麼它的平行小調「d 小調」調號是什麼？',
+          options: ['同樣是 2 個升記號', '1 個降記號（B♭）', '3 個降記號', '無升降記號'],
+          answer: 1,
+          explanation: '平行大小調主音同為 D，調號相差 3 個記號：從 2♯ 逆時針退三格（2♯ → 1♯ → 0 → 1♭），正是 1 個降記號（B♭，與 F 大調同調號）！'
+        },
+        {
+          prompt: '拿到一首調號為「1 個升記號 (F♯)」的新曲子，你看見譜面頻繁出現臨時記號「D♯」，且最後一個音停在 E。請問這首曲子是什麼調？',
+          options: ['G 大調', 'e 小調', 'D 大調', 'b 小調'],
+          answer: 1,
+          explanation: '1 個升記號代表 G 大調或 e 小調；結尾音停在 E，且頻繁出現升高的第 7 級導音 D♯，明確指出此曲為 e 小調！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

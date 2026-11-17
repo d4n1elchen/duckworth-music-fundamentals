@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>附錄 A–E：節奏合奏、視唱唱名與鍵盤指法 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="app-ae">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Appendices A – E · 附錄 A 至 E 實練室</span>
+        <h1 id="main-heading" tabindex="-1">附錄 A–E：分級節奏、多聲部世界節奏、視唱唱名與鍵盤指法實練室</h1>
+        <p class="chapter-subtitle">
+          Duckworth 建議每次練習開始前，先從附錄挑選一兩條節奏與視唱旋律暖身。本頁將課本附錄 A 至 E 的核心練習素材轉化為可互動發聲、分軌混音與指法標示的數位實練室！
+        </p>
+      </section>
+
+      <!-- Appendix A & B: Graded Rhythms & World Polyrhythms -->
+      <section class="lesson-section" aria-labelledby="sec-app-ab">
+        <h2 id="sec-app-ab">附錄 A ＆ B：特殊混合拍子（<code>5/4 · 7/8</code>）與二／三聲部世界節奏合奏室</h2>
+        <p>
+          <strong>附錄 A (Graded Rhythms)</strong> 除了單拍子與複拍子外，還收錄了<strong>較少見的不對稱混合拍號（如 <code>5/4</code>、<code>5/8</code>、<code>7/8</code>）</strong>，常見於東歐民謠與二十世紀音樂（例如 <code>7/8</code> 常分為 <code>2+2+3</code> 或 <code>3+2+2</code>）；而<strong>附錄 B (Graded World Rhythms in Two and Three Parts)</strong> 則改編自非洲、南美洲與東歐的多聲部擊樂傳統——Duckworth 建議每次反覆時逐一加入或抽離一個聲部，感受複節奏交織的張力！
+        </p>
+
+        <div class="widget-box">
+          <h3 class="widget-title">🌍 互動世界多聲部節奏與混合拍號合奏器（Appendices A &amp; B）</h3>
+          <div id="world-rhythm-seq"></div>
+        </div>
+      </section>
+
+      <!-- Appendix C & D: Sight Singing Syllables & Graded Melodies -->
+      <section class="lesson-section" aria-labelledby="sec-app-cd">
+        <h2 id="sec-app-cd">附錄 C ＆ D：全音階與調式視唱唱名總表 (Syllables) 與分級視唱曲</h2>
+        <p>
+          <strong>附錄 C</strong> 統整了半音音階（上行升音改母音 <code>-i</code>：<code>di, ri, fi, si, li</code>；下行降音改母音 <code>-e/-a</code>：<code>te, le, se, me, ra</code>）、大小調、教會調式、五聲與全音音階的首調視唱唱名。點擊任一列即可聽見標準音準並跟唱：
+        </p>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="solf-cap">
+          <table class="data-table stack-mobile">
+            <caption id="solf-cap">附錄 C：各類音階與調式首調視唱唱名 (Movable Do Syllables) 互動發聲表</caption>
+            <thead>
+              <tr>
+                <th scope="col">音階／調式名稱</th>
+                <th scope="col">標準視唱唱名序列（由主音 C4 示範）</th>
+                <th scope="col">互動試聽</th>
+              </tr>
+            </thead>
+            <tbody id="solfege-table-body"></tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-block-start:1.5rem;">附錄 D：分級視唱與彈奏旋律精選（大調與小調）</h3>
+        <div id="app-d-melody-1"></div>
+        <div id="app-d-melody-2"></div>
+      </section>
+
+      <!-- Appendix E: Keyboard Scale Fingerings -->
+      <section class="lesson-section" aria-labelledby="sec-app-e">
+        <h2 id="sec-app-e">附錄 E：鍵盤樂器半音音階與大調音階標準指法（1 = 大拇指）</h2>
+        <p>
+          在鍵盤指法編號中，<strong>不論右手 (R.H.) 或左手 (L.H.)，數字 <code>1</code> 永遠代表大拇指 (Thumb)</strong>，<code>2</code> 為食指、<code>3</code> 為中指、<code>4</code> 為無名指、<code>5</code> 為小指。黃金原則：<strong>大拇指避免放在黑鍵上</strong>（半音音階由 <code>3</code> 指彈所有黑鍵，白鍵彈 <code>1</code>，遇到連續兩白鍵 <code>E-F</code> 與 <code>B-C</code> 則搭配 <code>2</code> 指！）。
+        </p>
+
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🖐️ 互動鍵盤指法顯示儀（琴鍵上方橘色數字即為標準指法 1–5！）</h3>
+            <div class="widget-controls" style="margin:0;">
+              <select id="finger-scale-sel" aria-label="選擇音階指法">
+                <option value="C_RH">C / G / D / A / E 大調 — 右手 (R.H.): 1-2-3-1-2-3-4-5</option>
+                <option value="C_LH">C / G / D / A / E 大調 — 左手 (L.H.): 5-4-3-2-1-3-2-1</option>
+                <option value="F_RH">F 大調（含 B♭）— 右手 (R.H.): 1-2-3-4-1-2-3-4</option>
+                <option value="B_LH">B 大調 — 左手 (L.H.): 4-3-2-1-4-3-2-1</option>
+                <option value="CHROM_RH">半音音階上行 — 右手 (R.H.): 1-3-1-3-1-2-3-1-3-1-3-1-2</option>
+              </select>
+              <button type="button" class="btn btn-sm btn-primary" id="play-fingering-btn">▶ 按指法順序示範彈奏</button>
+            </div>
+          </div>
+          <p id="finger-desc" style="font-weight:700;margin-block:0.4rem;"></p>
+          <div id="finger-piano"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Appendix A & B Polyrhythm Sequencer
+      Widgets.createRhythmSequencer('#world-rhythm-seq', {
+        bpm: 100,
+        presets: [
+          {
+            name: '附錄 B：西非風格三聲部 6/8 複節奏（3 對 2 交錯律動！）',
+            stepFactor: 0.35,
+            beatEvery: 3,
+            counts: ['1', 'la', 'le', '2', 'la', 'le', '1', 'la', 'le', '2', 'la', 'le'],
+            tracks: [
+              { name: '牛鈴 Bell',   voice: 'clave', pattern: [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 1, 0] },
+              { name: '中鼓 Conga',  voice: 'snare', pattern: [0, 1, 0, 2, 0, 1, 0, 1, 0, 2, 0, 1] },
+              { name: '低音大鼓',    voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
+            ]
+          },
+          {
+            name: '附錄 B：南美拉丁 Clave 二聲部切分節奏 (4/4)',
+            stepFactor: 0.25,
+            beatEvery: 4,
+            counts: ['1', 'e', '&', 'a', '2', 'e', '&', 'a', '3', 'e', '&', 'a', '4', 'e', '&', 'a'],
+            tracks: [
+              { name: '木棒 Clave (3-2)', voice: 'clave', pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 1, 0, 0, 0] },
+              { name: '低音 Tumbao',      voice: 'kick',  pattern: [1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0] }
+            ]
+          },
+          {
+            name: '附錄 A：東歐不對稱混合拍 7/8（分組 2 + 2 + 3）',
+            stepFactor: 0.42,
+            beatEvery: 7,
+            counts: ['1', '2', '1', '2', '1', '2', '3', '1', '2', '1', '2', '1', '2', '3'],
+            tracks: [
+              { name: '旋律重音 (2+2+3)', voice: 'clave', pattern: [2, 1, 2, 1, 2, 1, 1, 2, 0, 2, 1, 2, 0, 1] },
+              { name: '不對稱大拍',       voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 0, 2, 0, 1, 0, 1, 0, 0] }
+            ]
+          }
+        ]
+      });
+
+      // Appendix C Interactive Solfege Table
+      const SOLF_ROWS = [
+        { name: '半音音階（上行）Chromatic Asc.', syl: 'do – di – re – ri – mi – fa – fi – sol – si – la – li – ti – do', notes: ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4','C5'] },
+        { name: '半音音階（下行）Chromatic Desc.', syl: 'do – ti – te – la – le – sol – se – fa – mi – me – re – ra – do', notes: ['C5','B4','Bb4','A4','Ab4','G4','Gb4','F4','E4','Eb4','D4','Db4','C4'] },
+        { name: '大調音階 Major Scale', syl: 'do – re – mi – fa – sol – la – ti – do', notes: CourseData.buildScale('C4', 'major').notes },
+        { name: '自然小調 Natural Minor', syl: 'do – re – me – fa – sol – le – te – do', notes: CourseData.buildScale('C4', 'naturalMinor').notes },
+        { name: '和聲小調 Harmonic Minor', syl: 'do – re – me – fa – sol – le – ti – do', notes: CourseData.buildScale('C4', 'harmonicMinor').notes },
+        { name: '旋律小調（上行）Melodic Asc.', syl: 'do – re – me – fa – sol – la – ti – do', notes: CourseData.buildScale('C4', 'melodicMinorAsc').notes },
+        { name: '多利安調式 Dorian Mode', syl: 'do – re – me – fa – sol – la – te – do', notes: CourseData.buildScale('C4', 'dorian').notes },
+        { name: '弗里吉安調式 Phrygian Mode', syl: 'do – ra – me – fa – sol – le – te – do', notes: CourseData.buildScale('C4', 'phrygian').notes },
+        { name: '利底亞調式 Lydian Mode', syl: 'do – re – mi – fi – sol – la – ti – do', notes: CourseData.buildScale('C4', 'lydian').notes },
+        { name: '混合利底亞調式 Mixolydian Mode', syl: 'do – re – mi – fa – sol – la – te – do', notes: CourseData.buildScale('C4', 'mixolydian').notes },
+        { name: '大調五聲 ／ 小調五聲', syl: 'do – re – mi – sol – la – do ／ do – re – me – sol – la – do', notes: CourseData.buildScale('C4', 'majorPentatonic').notes },
+        { name: '全音音階 Whole-Tone Scale', syl: 'do – re – mi(me) – fi – si – li – do', notes: CourseData.buildScale('C4', 'wholeTone').notes }
+      ];
+
+      const tbody = document.getElementById('solfege-table-body');
+      SOLF_ROWS.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <th scope="row">${row.name}</th>
+          <td data-label="唱名序列" style="font-family:var(--font-mono);font-size:0.86rem;">${row.syl}</td>
+          <td data-label="試聽"><button type="button" class="btn btn-sm btn-primary">▶ 發聲跟唱</button></td>
+        `;
+        tr.querySelector('button').addEventListener('click', () => {
+          AudioEngine.playSequence(row.notes.map(n => ({ pitch: n, beats: 0.45 })), 106);
+        });
+        tbody.appendChild(tr);
+      });
+
+      // Appendix D Graded Melodies
+      MusicNotation.render('#app-d-melody-1', {
+        title: '附錄 D 大調分級視唱曲（G 大調 4/4，練習首調 do-re-mi-sol-la-do 跳進音準）',
+        clef: 'treble',
+        key: 'G',
+        time: '4/4',
+        bpm: 96,
+        spacing: 44,
+        notes: [
+          { pitch: 'G4', dur: 'q', solfege: 'do' },
+          { pitch: 'A4', dur: 'q', solfege: 're' },
+          { pitch: 'B4', dur: 'q', solfege: 'mi' },
+          { pitch: 'G4', dur: 'q', solfege: 'do' },
+          { bar: '|' },
+          { pitch: 'D5', dur: 'h', solfege: 'sol' },
+          { pitch: 'B4', dur: 'h', solfege: 'mi' },
+          { bar: '|' },
+          { pitch: 'C5', dur: 'q', solfege: 'fa' },
+          { pitch: 'B4', dur: 'q', solfege: 'mi' },
+          { pitch: 'A4', dur: 'q', solfege: 're' },
+          { pitch: 'F#4', dur: 'q', hideAccidental: true, solfege: 'ti' },
+          { bar: '|' },
+          { pitch: 'G4', dur: 'w', solfege: 'do' }
+        ]
+      });
+
+      MusicNotation.render('#app-d-melody-2', {
+        title: '附錄 D 小調分級視唱曲（d 和聲小調 3/4，注意導音 C♯ 唱作 ti 解決回 do！）',
+        clef: 'treble',
+        key: 'd',
+        time: '3/4',
+        bpm: 94,
+        spacing: 46,
+        notes: [
+          { pitch: 'D4', dur: 'q', solfege: 'do' },
+          { pitch: 'F4', dur: 'q', solfege: 'me' },
+          { pitch: 'A4', dur: 'q', solfege: 'sol' },
+          { bar: '|' },
+          { pitch: 'Bb4', dur: 'h', hideAccidental: true, solfege: 'le' },
+          { pitch: 'A4', dur: 'q', solfege: 'sol' },
+          { bar: '|' },
+          { pitch: 'G4', dur: 'q', solfege: 'fa' },
+          { pitch: 'F4', dur: 'q', solfege: 'me' },
+          { pitch: 'E4', dur: 'q', solfege: 're' },
+          { bar: '|' },
+          { pitch: 'C#4', dur: 'h', solfege: 'ti(導音)' },
+          { pitch: 'D4', dur: 'q', solfege: 'do' }
+        ]
+      });
+
+      // Appendix E Keyboard Fingerings
+      const fPiano = Widgets.createPiano('#finger-piano', { startMidi: 59, endMidi: 77, showLandmarks: true });
+      const FINGER_DATA = {
+        C_RH: {
+          desc: 'C 大調右手上行指法：1(C) – 2(D) – 3(E) – [大拇指穿指！] 1(F) – 2(G) – 3(A) – 4(B) – 5(C)（G, D, A, E 大調右手完全相同！）',
+          seq: [[60,'R1'],[62,'R2'],[64,'R3'],[65,'R1'],[67,'R2'],[69,'R3'],[71,'R4'],[72,'R5']]
+        },
+        C_LH: {
+          desc: 'C 大調左手上行指法：5(C) – 4(D) – 3(E) – 2(F) – 1(G) – [3指跨指！] 3(A) – 2(B) – 1(C)',
+          seq: [[60,'L5'],[62,'L4'],[64,'L3'],[65,'L2'],[67,'L1'],[69,'L3'],[71,'L2'],[72,'L1']]
+        },
+        F_RH: {
+          desc: 'F 大調右手上行指法（為避免大拇指彈黑鍵 B♭，改在第 4 指 B♭ 後穿大拇指！）：1(F) – 2(G) – 3(A) – 4(B♭) – 1(C) – 2(D) – 3(E) – 4(F)',
+          seq: [[65,'R1'],[67,'R2'],[69,'R3'],[70,'R4'],[72,'R1'],[74,'R2'],[76,'R3'],[77,'R4']]
+        },
+        B_LH: {
+          desc: 'B 大調左手上行指法（起點白鍵 B 改用 4 指，避開大拇指落黑鍵）：4(B) – 3(C♯) – 2(D♯) – 1(E) – 4(F♯) – 3(G♯) – 2(A♯) – 1(B)',
+          seq: [[59,'L4'],[61,'L3'],[63,'L2'],[64,'L1'],[66,'L4'],[68,'L3'],[70,'L2'],[71,'L1']]
+        },
+        CHROM_RH: {
+          desc: '半音音階右手標準指法：所有黑鍵一律用 3 指，白鍵用 1 指，唯有 E–F 與 B–C 兩白鍵相鄰處用 1–2 指！',
+          seq: [[60,'1'],[61,'3'],[62,'1'],[63,'3'],[64,'1'],[65,'2'],[66,'3'],[67,'1'],[68,'3'],[69,'1'],[70,'3'],[71,'1'],[72,'2']]
+        }
+      };
+
+      const fSel = document.getElementById('finger-scale-sel');
+      const fDesc = document.getElementById('finger-desc');
+
+      function updateFingering() {
+        const d = FINGER_DATA[fSel.value];
+        fDesc.textContent = d.desc;
+        const badgeMap = {};
+        d.seq.forEach(([m, fg]) => { badgeMap[m] = fg; });
+        fPiano.highlightMidi(d.seq.map(x => x[0]), d.seq[0][0], badgeMap);
+      }
+      fSel.addEventListener('change', updateFingering);
+      updateFingering();
+
+      document.getElementById('play-fingering-btn').addEventListener('click', () => {
+        const d = FINGER_DATA[fSel.value];
+        AudioEngine.playSequence(d.seq.map(([m]) => ({ pitch: m, beats: 0.48 })), 104, {
+          onStep: ev => fPiano.flashKey(ev.pitch, 260)
+        });
+      });
+    });
+  </script>
+</body>
+</html>

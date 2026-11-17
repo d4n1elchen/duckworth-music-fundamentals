@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 14 章：和弦進行、終止式與藍調 ＋ 焦點技能 7 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch14">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 14 + Focus on Skills 7 · 第 14 章與第七階段檢定</span>
+        <h1 id="main-heading" tabindex="-1">第 14 章：和弦進行、四種終止式與 12 小節藍調 ＋ 技能檢定 7</h1>
+        <p class="chapter-subtitle">
+          <strong>調性 (Tonality)</strong> 是讓一群音符與和弦彼此產生引力階層的神奇力量：主和弦 (<code>I</code>) 是安定的歸宿，其他和弦則帶著不同程度的<strong>緊張感 (Tension)</strong> 推向<strong>解決 (Resolution)</strong>。本章將剖析屬主關係、樂句標點符號「終止式 (Cadences)」，以及人類音樂史上最著名的 12 小節藍調進行！
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>理解<strong>傾向音 (Tendency Tones)</strong> 與調性音樂最強引力：<strong>屬和弦到主和弦關係 (<code>V – I</code> / <code>V7 – I</code>)</strong>。</li>
+            <li>聽辨並分析樂句結尾的四種<strong>和聲終止式：正格終止 (Authentic)、變格終止 (Plagal)、半終止 (Half) 與假終止 (Deceptive)</strong>。</li>
+            <li>掌握雙和弦、三和弦進行與 <strong>12 小節藍調和弦進行 (12-Bar Blues)</strong>，並完成最後一站 <strong>Focus on Skills 7</strong>！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Dominant/Tonic & Four Cadences -->
+      <section class="lesson-section" aria-labelledby="ch14-cadences">
+        <h2 id="ch14-cadences">1. 屬主關係 (<code>V–I</code>) 與樂句的四種終止式 (Cadences)</h2>
+        <p>
+          第 5 級屬和弦 (<code>V</code>) 同時包含了活躍的第 5 級音、第 2 級上主音與第 7 級導音（等傾向音 Tendency Tones），再加上小七度成為 <code>V7</code> 時張力更達頂峰；當它解決回主和弦 (<code>I</code>) 時，便產生最明確的向心力。
+        </p>
+        <p>
+          就像文章的段落由句子組成，音樂也由<strong>樂句 (Phrases)</strong> 構成，而每個樂句結尾的暫時或永久停頓點就稱為<strong>終止式 (Cadence)</strong>。<strong>請牢記 Duckworth 的關鍵叮嚀：<code>V – I</code> 唯有出現在「樂句結尾」且配合旋律與節奏停頓時才構成終止式，出現在樂句中間並不算終止式！</strong>
+        </p>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="cad-table-cap">
+          <table class="data-table stack-mobile">
+            <caption id="cad-table-cap">調性音樂四大和聲終止式 (Four Harmonic Cadences) 對照與標點比喻</caption>
+            <thead>
+              <tr>
+                <th scope="col">終止式名稱</th>
+                <th scope="col">和弦公式（大調／小調）</th>
+                <th scope="col">語氣比喻與音樂功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">正格終止 (Authentic Cadence)</th>
+                <td data-label="公式"><code>V – I</code> 或 <code>V7 – I</code> ／ <code>V(7) – i</code></td>
+                <td data-label="功能"><strong>句號 (<code>.</code>)</strong> — 最強烈的完結解決感，古典、搖滾、爵士、鄉村最常作為樂段與全曲終結。</td>
+              </tr>
+              <tr>
+                <th scope="row">變格終止 (Plagal Cadence)</th>
+                <td data-label="公式"><code>IV – I</code> ／ <code>iv – i</code></td>
+                <td data-label="功能"><strong>聖詩「阿們終止 (Amen Cadence)」</strong> — 具備永久安定感，但張力比正格終止溫和柔順。</td>
+              </tr>
+              <tr>
+                <th scope="row">半終止 (Half Cadence)</th>
+                <td data-label="公式"><code>? – V</code>（常見 <code>I–V, IV–V, ii–V</code>）</td>
+                <td data-label="功能"><strong>逗號／問號 (<code>, / ?</code>)</strong> — 停在充滿張力的屬和弦 <code>V</code> 上，絕不能結束全曲！常於第一樂句結尾提問，再由第二樂句以正格終止回答。</td>
+              </tr>
+              <tr>
+                <th scope="row">假終止 (Deceptive Cadence)</th>
+                <td data-label="公式"><code>V(7) – vi</code> ／ <code>V(7) – VI</code></td>
+                <td data-label="功能"><strong>驚嘆轉折號 (<code>!</code>)</strong> — 耳朵原本預期 <code>V</code> 會回到 <code>I</code>，卻意外轉入小三和弦 <code>vi</code>，製造迷人的瞬間驚喜與延展！</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 互動四種終止式聽覺比較實驗室 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎧 互動終止式試聽比較台（C 大調四聲部和聲示範）</h3>
+          </div>
+          <div class="widget-controls" id="cadence-btns"></div>
+          <p id="cadence-desc" style="font-weight:700;margin-block:0.4rem;"></p>
+          <div id="cadence-score"></div>
+        </div>
+      </section>
+
+      <!-- 2. Simple Chord Progressions & The 12-Bar Blues -->
+      <section class="lesson-section" aria-labelledby="ch14-blues12">
+        <h2 id="ch14-blues12">2. 簡單和弦進行與經典「12 小節藍調進行 (The 12-Bar Blues)」</h2>
+        <p>
+          在雙和弦曲（如民謠《Tom Dooley》僅用 <code>I – V – I</code>）中加入下屬和弦 <code>IV</code>（第一層溫和張力），便形成三和弦進行的兩大經典公式：層層堆疊的 <strong><code>I – IV – V – I</code></strong>（《The Wabash Cannon Ball》）與先釋放再攀升的 <strong><code>I – IV – I – V – I</code></strong>（《Michael, Row the Boat Ashore》）。
+        </p>
+        <p>
+          而將 <code>I</code>、<code>IV</code>、<code>V</code> 三個和弦發揮到極致、傳唱百年橫跨藍調、節奏藍調與早期搖滾樂（Chuck Berry、Little Richard、Elvis）的，正是分成<strong>三個 4 小節樂句</strong>的 <strong>12 小節藍調和弦進行</strong>：
+        </p>
+
+        <!-- 互動 12 小節藍調播放器 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎷 互動 12 小節藍調進行播放器（F 大調，可切換第 10 小節 R&amp;B 變體 <code>IV</code>）</h3>
+            <div class="widget-controls" style="margin:0;">
+              <label style="font-size:0.88rem;font-weight:600;display:inline-flex;align-items:center;gap:0.35rem;">
+                <input type="checkbox" id="blues-rnb-var" checked> 第 10 小節採用 R&amp;B 變體 (<code>V → IV</code>)
+              </label>
+              <button type="button" class="btn btn-sm btn-primary" id="play-12bar-btn">▶ 播放完整 12 小節藍調</button>
+              <button type="button" class="btn btn-sm" id="stop-12bar-btn">■ 停止</button>
+            </div>
+          </div>
+          <div id="blues-12-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-block-start:0.75rem;"></div>
+        </div>
+      </section>
+
+      <!-- 3. Focus on Skills 7: Triads and Progressions -->
+      <section class="lesson-section" aria-labelledby="focus7-heading">
+        <h2 id="focus7-heading">🏆 Focus on Skills 7: Triads and Progressions（第七階段最終技能檢定）</h2>
+        <p>綜合檢驗第 12、13、14 章（三和弦、開密位置、轉位、屬七和弦、四種終止式與 12 小節藍調）：</p>
+        <div id="focus7-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const CADENCES = [
+        {
+          name: '正格終止 Authentic (V7 → I)',
+          desc: 'C 大調：I → IV → V7 → I — 導音 B 上行解決至 C、七音 F 下行解決至 E，帶來最圓滿的終結句號！',
+          chords: [
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
+            { top: ['F4', 'A4', 'C5'], bot: ['F3'], rn: 'IV', sym: 'F' },
+            { top: ['F4', 'G4', 'B4'], bot: ['G2'], rn: 'V7', sym: 'G7' },
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C (正格)' }
+          ]
+        },
+        {
+          name: '變格終止 Plagal (IV → I)',
+          desc: 'C 大調：I → V → I → IV → I — 結尾「IV → I」沒有導音尖銳感，呈現莊嚴溫暖的聖詩「阿們」終止！',
+          chords: [
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
+            { top: ['D4', 'G4', 'B4'], bot: ['G2'], rn: 'V', sym: 'G' },
+            { top: ['F4', 'A4', 'C5'], bot: ['F3'], rn: 'IV', sym: 'F (A-)' },
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C (-men!)' }
+          ]
+        },
+        {
+          name: '半終止 Half Cadence (I–IV–V)',
+          desc: 'C 大調：I → vi → IV → V — 停在懸而未決的屬和弦 V 上，像一個問號，等待下一樂句回答！',
+          chords: [
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
+            { top: ['E4', 'A4', 'C5'], bot: ['A2'], rn: 'vi', sym: 'Am' },
+            { top: ['F4', 'A4', 'C5'], bot: ['F2'], rn: 'IV', sym: 'F' },
+            { top: ['D4', 'G4', 'B4'], bot: ['G2'], rn: 'V', sym: 'G (半終止?)' }
+          ]
+        },
+        {
+          name: '假終止 Deceptive (V7 → vi)',
+          desc: 'C 大調：I → IV → V7 → vi — 耳朵預期回到明亮的 C，卻意外落入暗色調的 Am (vi)，令樂思得以繼續延伸！',
+          chords: [
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
+            { top: ['F4', 'A4', 'C5'], bot: ['F3'], rn: 'IV', sym: 'F' },
+            { top: ['F4', 'G4', 'B4'], bot: ['G2'], rn: 'V7', sym: 'G7' },
+            { top: ['E4', 'A4', 'C5'], bot: ['A2'], rn: 'vi', sym: 'Am (假終止!)' }
+          ]
+        }
+      ];
+
+      const cBtns = document.getElementById('cadence-btns');
+      const cDesc = document.getElementById('cadence-desc');
+
+      function renderCadence(c) {
+        cDesc.textContent = c.desc;
+        MusicNotation.render('#cadence-score', {
+          grand: true,
+          playable: false,
+          spacing: 85,
+          notes: c.chords.map((ch, idx) => ({
+            notes: ch.top,
+            dur: idx === 3 ? 'w' : 'h',
+            chordSymbol: ch.sym,
+            roman: ch.rn,
+            fermata: idx === 3
+          })),
+          bassNotes: c.chords.map((ch, idx) => ({
+            notes: ch.bot,
+            dur: idx === 3 ? 'w' : 'h'
+          }))
+        });
+      }
+
+      CADENCES.forEach((c, i) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn btn-sm' + (i === 0 ? ' btn-primary' : '');
+        b.textContent = c.name;
+        b.addEventListener('click', () => {
+          cBtns.querySelectorAll('button').forEach(x => x.classList.remove('btn-primary'));
+          b.classList.add('btn-primary');
+          renderCadence(c);
+          AudioEngine.playSequence(c.chords.map((ch, idx) => ({
+            notes: [...ch.bot, ...ch.top],
+            beats: idx === 3 ? 2.2 : 1.1
+          })), 86);
+        });
+        cBtns.appendChild(b);
+      });
+      renderCadence(CADENCES[0]);
+
+      // 12-Bar Blues Interactive Grid
+      const grid12 = document.getElementById('blues-12-grid');
+      const rnbChk = document.getElementById('blues-rnb-var');
+
+      function get12Chords() {
+        const bar10 = rnbChk.checked ? { rn: 'IV (R&B)', sym: 'B♭7', notes: ['Bb2', 'F3', 'Ab3', 'D4'] }
+                                     : { rn: 'V (傳統)', sym: 'C7', notes: ['C3', 'G3', 'Bb3', 'E4'] };
+        const I  = { rn: 'I',  sym: 'F7',  notes: ['F2', 'C3', 'Eb3', 'A3'] };
+        const IV = { rn: 'IV', sym: 'B♭7', notes: ['Bb2', 'F3', 'Ab3', 'D4'] };
+        const V  = { rn: 'V',  sym: 'C7',  notes: ['C3', 'G3', 'Bb3', 'E4'] };
+        return [I, I, I, I, IV, IV, I, I, V, bar10, I, I];
+      }
+
+      function render12Grid(activeIdx = -1) {
+        const bars = get12Chords();
+        grid12.innerHTML = bars.map((b, idx) => `
+          <div class="concept-card" style="padding:0.65rem;text-align:center;border-color:${idx === activeIdx ? 'var(--accent-amber)' : 'var(--border-subtle)'};background:${idx === activeIdx ? 'var(--accent-amber-soft)' : 'var(--bg-surface)'};">
+            <div style="font-size:0.74rem;color:var(--text-muted);">第 ${idx + 1} 小節</div>
+            <div style="font-size:1.15rem;font-weight:700;color:var(--brand);">${b.rn}</div>
+            <div style="font-size:0.82rem;font-family:var(--font-mono);">${b.sym}</div>
+          </div>
+        `).join('');
+      }
+      render12Grid();
+      rnbChk.addEventListener('change', () => render12Grid());
+
+      document.getElementById('play-12bar-btn').addEventListener('click', () => {
+        const bars = get12Chords();
+        AudioEngine.playSequence(bars.map((b, idx) => ({ notes: b.notes, beats: 1.6, idx })), 116, {
+          onStep: ev => render12Grid(ev.idx),
+          onDone: () => render12Grid(-1)
+        });
+      });
+      document.getElementById('stop-12bar-btn').addEventListener('click', () => {
+        AudioEngine.stopAll();
+        render12Grid(-1);
+      });
+
+      Widgets.createQuiz('#focus7-quiz', 'quiz-focus7', 'ch14', [
+        {
+          prompt: '【終止式辨識】在 G 大調中，某個樂句結尾停在「C 大三和弦 → D 大三和弦（IV → V）」，給人暫時停頓、尚未結束的感覺。這是哪一種終止式？',
+          options: ['正格終止 (Authentic Cadence)', '變格終止 (Plagal Cadence)', '半終止 (Half Cadence)', '假終止 (Deceptive Cadence)'],
+          answer: 2,
+          explanation: '凡是在樂句結尾停在屬和弦 V 上的終止式（如 I–V、IV–V、ii–V），皆為半終止 (Half Cadence)！'
+        },
+        {
+          prompt: '【聖詠《Old Hundredth》分析】在 G 大調中，樂句結尾出現「D7 → Em（V7 → vi）」，請問這是哪一種終止式？',
+          options: ['正格終止', '變格終止', '半終止', '假終止 (Deceptive Cadence)'],
+          answer: 3,
+          explanation: 'V7 原本令人期待解決回 G (I)，卻轉接到第 6 級小三和弦 Em (vi)，正是典型的假終止 (Deceptive Cadence)！'
+        },
+        {
+          prompt: '【12 小節藍調結構】標準 12 小節藍調和弦進行分為三個 4 小節樂句，請問第 5–8 小節（第二樂句）的和弦順序為何？',
+          options: ['I – I – I – I', 'IV – IV – I – I', 'V – IV – I – I', 'IV – V – vi – I'],
+          answer: 1,
+          explanation: '第一樂句（1–4 小節）為 I-I-I-I；第二樂句（5–8 小節）為 IV-IV-I-I；第三樂句（9–12 小節）為 V-V(或IV)-I-I！'
+        },
+        {
+          prompt: '【Focus 7 Q4 開放位置】下列哪一組音是「F 大三和弦」的原位開放位置 (Open Position)？',
+          options: ['F3 – A3 – C4', 'F3 – C4 – A4', 'A3 – C4 – F4', 'C3 – F3 – A3'],
+          answer: 1,
+          explanation: 'F3–A3–C4 擠在一個八度內為密集位置；F3 – C4 – A4 根音在底、中間跳過和弦音使總跨度超過一個八度，為標準原位開放位置！'
+        },
+        {
+          prompt: '【聽音辨識終止式 Ear Training】點擊播放這組四和弦樂句，聽聽看最後兩個和弦構成哪一種終止式？',
+          audioLabel: '🔊 播放樂句終止式題目',
+          audioFn: () => AudioEngine.playSequence([
+            { notes: ['F2', 'F3', 'A3', 'C4'], beats: 1.1 },
+            { notes: ['Bb2', 'F3', 'Bb3', 'D4'], beats: 1.1 },
+            { notes: ['C3', 'E3', 'Bb3', 'C4'], beats: 1.2 },
+            { notes: ['D3', 'F3', 'A3', 'D4'], beats: 2.2 }
+          ], 86),
+          options: ['正格終止 (V7 → I)', '變格終止 (IV → I)', '假終止 (Deceptive Cadence：V7 → vi，意外落入小三和弦！)', '半終止 (? → V)'],
+          answer: 2,
+          explanation: '此為 F 大調：F(I) → B♭(IV) → C7(V7) → Dm(vi)！最後並未回到明亮的 F，而是落入暗色調的 d 小三和弦，即假終止！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

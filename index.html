@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>課程總覽與學習儀表板 | 創意音樂基礎 11e 互動教學網</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">William Duckworth · Eleventh Edition</span>
+        <h1 id="main-heading" tabindex="-1">創意音樂基礎：互動式樂理全書教學網</h1>
+        <p class="chapter-subtitle">
+          完整依據 <cite lang="en">A Creative Approach to Music Fundamentals (11th Edition)</cite> 全書脈絡編排——從「聲音四大特性、節奏單拍與複拍、五線譜與鍵盤」，一路推進到「大小調音階、調號五度圈、音程轉位、五聲與藍調、三和弦與七和弦、終止式、歌曲配和聲與四大曲式」，並完整收錄附錄 A–K 與樂理總辭典。
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-block-start:1rem;">
+          <a class="btn btn-primary" href="intro.html">▶ 從「導論：音樂的本質」開始學習</a>
+          <a class="btn" href="ch01-basics.html">直接進入第 1 章：音樂基礎</a>
+          <a class="btn" href="glossary.html">📖 查閱樂理術語總辭典</a>
+        </div>
+      </section>
+
+      <!-- 學習進度總覽儀表板 -->
+      <section class="lesson-section" aria-labelledby="dash-heading">
+        <h2 id="dash-heading">📊 個人學習進度與里程碑檢定 (Focus on Skills 1–7)</h2>
+        <p>
+          Duckworth 在《致學生序 (Preface: To Students)》中強調：<strong>「音樂知識是累積而成的拼圖——學習音樂沒有唯一正確的路徑，但每日持續、多元且主動參與的練習，是讓天賦與知識融合的唯一方法。」</strong>本網站會自動將您的章節閱讀狀態與各章檢定得分儲存於瀏覽器本機。
+        </p>
+        <div class="concept-grid" id="dashboard-stats"></div>
+      </section>
+
+      <!-- 快速互動體驗：直接彈奏與體驗大調音階及和弦 -->
+      <section class="lesson-section" aria-labelledby="quick-studio-heading">
+        <h2 id="quick-studio-heading">🎹 即刻發聲：互動音樂實驗台</h2>
+        <p>
+          全站每一頁皆內建即時 <strong>Web Audio 合成音源</strong>與<strong>向量五線譜渲染引擎</strong>，無須外掛任何檔案即可點擊音符聽見真實音高、節奏脈動、泛音列與吉他刷弦。您也可以隨時點擊右上角的「🎹 隨身鋼琴」在閱讀任何章節時邊學邊彈！
+        </p>
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">聲音預覽：調性音樂的核心元素（旋律、音階與 V7–I 正格終止）</h3>
+            <div class="widget-controls" style="margin:0;">
+              <button type="button" class="btn btn-sm btn-primary" id="demo-scale-btn">▶ 聽 C 大調音階</button>
+              <button type="button" class="btn btn-sm btn-amber" id="demo-cadence-btn">▶ 聽 I – IV – V7 – I 和聲進行</button>
+            </div>
+          </div>
+          <div id="home-demo-piano"></div>
+        </div>
+      </section>
+
+      <!-- 全書 19 個教學單元完整章節地圖 -->
+      <section class="lesson-section" aria-labelledby="syllabus-heading">
+        <h2 id="syllabus-heading">🗺️ 全書章節順序編排總覽（共 19 個互動教學單元 · 全站 20 頁）</h2>
+        <p>點擊任一單元卡片即可進入該章節的完整課文精講、樂譜範例、互動實驗室與課後練習檢定：</p>
+        <div id="syllabus-grid-mount"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const piano = Widgets.createPiano('#home-demo-piano', {
+        startMidi: 48,
+        endMidi: 76,
+        showLandmarks: true
+      });
+
+      document.getElementById('demo-scale-btn')?.addEventListener('click', () => {
+        const scale = CourseData.buildScale('C4', 'major').notes;
+        piano.highlightMidi(scale.map(n => n.midi), 60);
+        AudioEngine.playSequence(scale.map(n => ({ pitch: n, beats: 0.45 })), 100, {
+          onStep: (ev) => piano.flashKey(ev.pitch.midi, 240)
+        });
+      });
+
+      document.getElementById('demo-cadence-btn')?.addEventListener('click', () => {
+        const chords = [
+          ['C3', 'C4', 'E4', 'G4'],
+          ['F3', 'C4', 'F4', 'A4'],
+          ['G3', 'B3', 'F4', 'G4'],
+          ['C3', 'C4', 'E4', 'G4']
+        ];
+        AudioEngine.playSequence(chords.map(c => ({ notes: c, beats: 1.3 })), 88, {
+          onStep: (ev) => {
+            const midis = ev.notes.map(s => CourseData.parsePitch(s).midi);
+            piano.highlightMidi(midis, 60);
+            midis.forEach(m => piano.flashKey(m, 550));
+          }
+        });
+      });
+
+      function renderDashboard() {
+        const prog = CourseData.getProgress();
+        const pages = CourseData.COURSE_PAGES.filter(p => p.id !== 'home');
+        const doneCount = pages.filter(p => prog.completedPages[p.id]).length;
+        const quizEntries = Object.values(prog.quizScores || {});
+        const totalQ = quizEntries.reduce((s, q) => s + q.total, 0);
+        const totalC = quizEntries.reduce((s, q) => s + q.correct, 0);
+
+        document.getElementById('dashboard-stats').innerHTML = `
+          <div class="concept-card">
+            <h3>已完成教學章節</h3>
+            <p style="font-size:1.7rem;font-weight:700;color:var(--brand);font-family:var(--font-mono);">${doneCount} / ${pages.length}</p>
+            <p>涵蓋導論、第 1–15 章、7 大技能檢定與附錄 A–K</p>
+          </div>
+          <div class="concept-card">
+            <h3>已完成檢定題組</h3>
+            <p style="font-size:1.7rem;font-weight:700;color:var(--accent-amber);font-family:var(--font-mono);">${quizEntries.length} 組</p>
+            <p>${totalQ > 0 ? `累計答對率：${Math.round((totalC / totalQ) * 100)}% (${totalC}/${totalQ})` : '完成各章末練習即可累積答對率'}</p>
+          </div>
+          <div class="concept-card">
+            <h3>創作終極目標</h3>
+            <p style="font-size:1.1rem;font-weight:700;color:var(--success);">第 15 章：獨立完成旋律配和聲與歌曲創作</p>
+            <p>「音樂不是上完課才開始做的事——從第一章起，我們就要邊學邊做音樂。」</p>
+          </div>
+        `;
+
+        const groups = new Map();
+        pages.forEach(p => {
+          if (!groups.has(p.group)) groups.set(p.group, []);
+          groups.get(p.group).push(p);
+        });
+
+        let html = '';
+        for (const [gName, items] of groups.entries()) {
+          html += `<h3 style="margin-block:1.4rem 0.6rem;">${gName}</h3><div class="concept-grid">`;
+          for (const item of items) {
+            const isDone = !!prog.completedPages[item.id];
+            html += `
+              <a href="${item.file}" class="concept-card" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;border-color:${isDone ? 'var(--success)' : 'var(--border-subtle)'};">
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.4rem;">
+                    <span class="badge">${item.num}</span>
+                    ${isDone ? '<span style="color:var(--success);font-weight:700;font-size:0.85rem;">✓ 已完成</span>' : '<span style="color:var(--text-muted);font-size:0.82rem;">前往學習 →</span>'}
+                  </div>
+                  <h4 style="margin:0.25rem 0;font-size:1.03rem;">${item.title}</h4>
+                </div>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin-block-start:0.5rem;" lang="en">${item.en}</p>
+              </a>
+            `;
+          }
+          html += `</div>`;
+        }
+        document.getElementById('syllabus-grid-mount').innerHTML = html;
+      }
+
+      renderDashboard();
+      window.addEventListener('course-progress-updated', renderDashboard);
+    });
+  </script>
+</body>
+</html>

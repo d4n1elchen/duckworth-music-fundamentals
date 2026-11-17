@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 3 章：節奏（一）單拍子 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch03">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 3 · 第 3 章</span>
+        <h1 id="main-heading" tabindex="-1">第 3 章：節奏（一）單拍子（Rhythm I: Simple Meter）</h1>
+        <p class="chapter-subtitle">
+          凡是以穩定脈動為基礎的音樂，都可歸納為兩大拍子家族：將基本脈動自然二等分的<strong>單拍子 (Simple Meter)</strong>，以及三等分的<strong>複拍子 (Compound Meter)</strong>。本章先從附點音符與拍號出發，完整掌握單拍子的數拍、指揮、符槓與速度系統。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>掌握<strong>附點音符與附點休止符 (Dotted Notes &amp; Rests)</strong> 將原時值延長一半（<code>× 1.5</code>）的原理。</li>
+            <li>讀懂<strong>拍號 (Time Signatures)</strong> 上下數字的雙重意義，以及普通拍號 <code>C</code> 與切分二二拍 <code>𝄵</code> (Alla breve)。</li>
+            <li>熟練單拍子口語數拍法（<code>1 - &amp;</code> 與 <code>1 - e - &amp; - a</code>）、右手 2/3/4 拍指揮圖示、不跨拍符槓規則與義大利速度術語。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Dotted Notes & Time Signatures -->
+      <section class="lesson-section" aria-labelledby="ch3-dots">
+        <h2 id="ch3-dots">1. 附點音符 (Dotted Notes) 與拍號 (Time Signatures)</h2>
+        <p>
+          寫在符頭（或休止符）右側的小圓點稱為<strong>附點 (Dot)</strong>。無論在哪一種拍號裡，附點的意義永遠不變：<strong>將原本音符（或休止符）的時值延長二分之一（即原時值 ＋ 原時值的一半）</strong>！
+        </p>
+        <ul>
+          <li><strong>附點二分音符 (<code>𝅗𝅥.</code>)：</strong>等於二分音符 ＋ 四分音符 ＝ <strong>3 個四分音符</strong>。</li>
+          <li><strong>附點四分音符 (<code>♩.</code>)：</strong>等於四分音符 ＋ 八分音符 ＝ <strong>3 個八分音符</strong>。</li>
+          <li><strong>附點八分音符 (<code>♪.</code>)：</strong>等於八分音符 ＋ 十六分音符 ＝ <strong>3 個十六分音符</strong>。</li>
+        </ul>
+        <p>
+          樂曲開頭上下疊寫的兩個數字稱為<strong>拍號 (Time Signature / Meter Signature)</strong>——<strong>切記：拍號絕不是數學分數，中間不可畫分數橫線！</strong>
+        </p>
+        <ul>
+          <li><strong>上方數字（單拍子中）：</strong>告訴我們每小節有幾個基本脈動（<code>2</code> = 二拍子 Duple、<code>3</code> = 三拍子 Triple、<code>4</code> = 四拍子 Quadruple）。</li>
+          <li><strong>下方數字（單拍子中）：</strong>代表哪一種音符時值當作 1 拍（<code>2</code> = 二分音符、<code>4</code> = 四分音符、<code>8</code> = 八分音符）。</li>
+        </ul>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="simple-meters-cap">
+          <table class="data-table stack-mobile">
+            <caption id="simple-meters-cap">九種常見單拍子 (Common Simple Meters) 結構一覽表</caption>
+            <thead>
+              <tr>
+                <th scope="col">拍子分類</th>
+                <th scope="col">四分音符為一拍</th>
+                <th scope="col">二分音符為一拍</th>
+                <th scope="col">八分音符為一拍</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">單二拍子 (Simple Duple)</th>
+                <td data-label="四分音符拍"><code>2/4</code>（每拍分為 2 個 ♪）</td>
+                <td data-label="二分音符拍"><code>2/2</code> 或 <code>𝄵</code> (Alla breve)</td>
+                <td data-label="八分音符拍"><code>2/8</code>（每拍分為 2 個 ♬）</td>
+              </tr>
+              <tr>
+                <th scope="row">單三拍子 (Simple Triple)</th>
+                <td data-label="四分音符拍"><code>3/4</code>（每拍分為 2 個 ♪）</td>
+                <td data-label="二分音符拍"><code>3/2</code>（每拍分為 2 個 ♩）</td>
+                <td data-label="八分音符拍"><code>3/8</code>（每拍分為 2 個 ♬）</td>
+              </tr>
+              <tr>
+                <th scope="row">單四拍子 (Simple Quadruple)</th>
+                <td data-label="四分音符拍"><code>4/4</code> 或 <code>C</code> (Common time)</td>
+                <td data-label="二分音符拍"><code>4/2</code>（每拍分為 2 個 ♩）</td>
+                <td data-label="八分音符拍"><code>4/8</code>（每拍分為 2 個 ♬）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 Tips &amp; Tools：普通拍號 C 與二二拍號 Alla Breve (Cut Time)</div>
+          <p>
+            自中世紀沿用至今的符號 <code>C</code> 稱為 <strong>Common Time（普通拍號）</strong>，完全等同於 <code>4/4</code> 拍；若在 <code>C</code> 中央加上一條垂直線（<code>𝄵</code>），則稱為 <strong>Cut Time（簡記二二拍）</strong>或義大利文 <strong>Alla breve</strong>，完全等同於以二分音符為一拍的 <code>2/2</code> 拍，在進行曲 (March) 中極為常見！
+          </p>
+        </div>
+      </section>
+
+      <!-- 2. Counting Method & Beaming in Simple Meter -->
+      <section class="lesson-section" aria-labelledby="ch3-count">
+        <h2 id="ch3-count">2. 單拍子數拍法 (Counting Method) 與符槓連寫原則 (Beaming)</h2>
+        <p>
+          為了將外顯的拍手數拍轉化為演奏時的「內在心算」，Duckworth 推薦以下單拍子音節系統：
+        </p>
+        <ul>
+          <li><strong>基本拍 (Basic Pulse)：</strong>直接唸數字 <code>1 - 2 - 3 - 4</code>。</li>
+          <li><strong>二等分拍 (Division, ½ 拍)：</strong>後半拍加上 <code>and (&amp;)</code>，唸作 <code>1 - &amp; - 2 - &amp; - 3 - &amp; - 4 - &amp;</code>。</li>
+          <li><strong>四等分細分拍 (Subdivision, ¼ 拍)：</strong>加入音節 <code>e</code> 與 <code>a</code>（或 <code>da</code>），唸作 <strong><code>1 - e - &amp; - a - 2 - e - &amp; - a</code></strong>！</li>
+        </ul>
+
+        <p>
+          <strong>單拍子符槓 (Beaming) 鐵則：</strong>器樂譜中應將「屬於同一拍內」的八分與十六分音符用符槓連成一組，<strong>絕不可把符槓跨過拍與拍的邊界而遮蔽拍頭</strong>！請觀察下方常見的一拍組合與《America》民謠數拍示範：
+        </p>
+        <div id="score-simple-beaming"></div>
+        <div id="score-america"></div>
+
+        <!-- 互動單拍子數拍循環器 -->
+        <div class="widget-box">
+          <h3 class="widget-title">🥁 互動單拍子數拍與合奏練習器 (1 - e - &amp; - a)</h3>
+          <p style="font-size:0.9rem;margin-block:0.3rem 0.6rem;">點擊任意拍格可切換「休止 (·) → 發音 (●) → 重音 (&gt;)」，並可拖曳速度滑桿體驗各種義大利速度術語！</p>
+          <div id="ch03-sequencer"></div>
+        </div>
+      </section>
+
+      <!-- 3. Conducting Simple Meters & Tempo -->
+      <section class="lesson-section" aria-labelledby="ch3-conduct">
+        <h2 id="ch3-conduct">3. 單拍子指揮法 (Conducting) 與義大利速度術語 (Tempo)</h2>
+        <p>Duckworth 列出指揮練習的七大要點：</p>
+        <ol>
+          <li><strong>一律使用右手揮拍</strong>（即使是左撇子亦同；左手留作表情與提示）。</li>
+          <li>練習時請站立，圖形中心高度保持在<strong>胸前</strong>而非腰部，讓全團清晰看見。</li>
+          <li>每小節第一拍向下稱為<strong>強拍／下拍 (Downbeat)</strong>；最後一拍向上稱為<strong>弱拍／上拍 (Upbeat)</strong>。</li>
+          <li>手臂動作須流暢連貫，切忌僵硬急停。</li>
+          <li>起拍前務必先給出「目標拍的前一拍」作為無聲的<strong>預備拍 (Preparatory Beat)</strong>。</li>
+          <li>若樂曲由不完整小節的<strong>弱起拍 (Pickup Beat / Anacrusis)</strong> 開始（如《The Yellow Rose of Texas》從第 4 拍後半起唱），預備拍就給在該弱起拍的前一拍！</li>
+        </ol>
+
+        <div class="widget-box">
+          <h3 class="widget-title">🪄 互動右手揮拍軌跡訓練儀（含無聲預備拍示範）</h3>
+          <div id="ch03-conductor"></div>
+        </div>
+
+        <h3>義大利速度術語 (Italian Tempo Terms) 與節拍器 (The Metronome)</h3>
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="tempo-cap">
+          <table class="data-table stack-mobile">
+            <caption id="tempo-cap">重要義大利速度術語與漸變術語對照表</caption>
+            <thead>
+              <tr>
+                <th scope="col">速度類別</th>
+                <th scope="col">義大利文術語</th>
+                <th scope="col">原義與演奏速度感</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">慢速 (Slow)</th>
+                <td data-label="術語"><i lang="it">largo</i> ／ <i lang="it">lento</i> ／ <i lang="it">adagio</i></td>
+                <td data-label="原義">寬廣極慢（largo）／ 緩慢（lento, adagio）</td>
+              </tr>
+              <tr>
+                <th scope="row">中速 (Moderate)</th>
+                <td data-label="術語"><i lang="it">andante</i> ／ <i lang="it">moderato</i></td>
+                <td data-label="原義">緩步慢走速度（andante）／ 適中步行速度（moderato）</td>
+              </tr>
+              <tr>
+                <th scope="row">快速 (Fast)</th>
+                <td data-label="術語"><i lang="it">allegro</i> ／ <i lang="it">vivace</i> ／ <i lang="it">presto</i></td>
+                <td data-label="原義">快速（allegro）／ 活潑輕快（vivace）／ 極快急板（presto）</td>
+              </tr>
+              <tr>
+                <th scope="row">速度漸變</th>
+                <td data-label="術語"><i lang="it">ritardando (rit.)</i> ／ <i lang="it">accelerando (accel.)</i></td>
+                <td data-label="原義">漸慢（rit.）／ 漸快（accel.）。若需精確速度則標示節拍器如 <code>♩ = 60</code>（每分鐘 60 響）。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 4. Practice 3-1 ~ 3-5 -->
+      <section class="lesson-section" aria-labelledby="ch3-quiz-sec">
+        <h2 id="ch3-quiz-sec">📝 Practice 3-1～3-5 單拍子課後練習</h2>
+        <div id="ch03-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      MusicNotation.render('#score-simple-beaming', {
+        title: '單拍子 4/4 中常見的一拍細分與附點八分音符符槓（每拍獨立成組，拍點一目了然）',
+        clef: 'rhythm',
+        time: '4/4',
+        bpm: 76,
+        spacing: 40,
+        notes: [
+          { dur: '8', beam: 1, count: '1' },
+          { dur: '16', beam: 1, count: '&' },
+          { dur: '16', beam: 1, count: 'a' },
+          { dur: '16', beam: 2, count: '2' },
+          { dur: '16', beam: 2, count: 'e' },
+          { dur: '8', beam: 2, count: '&' },
+          { dur: '8', dotted: true, beam: 3, count: '3' },
+          { dur: '16', beam: 3, count: 'a' },
+          { dur: '16', beam: 4, count: '4' },
+          { dur: '8', dotted: true, beam: 4, count: 'e' }
+        ]
+      });
+
+      MusicNotation.render('#score-america', {
+        title: 'Class Practice 民謠《America》數拍示範（3/4 單三拍子，含附點四分音符 1 - 2 - &）',
+        clef: 'treble',
+        key: 'F',
+        time: '3/4',
+        bpm: 92,
+        spacing: 46,
+        notes: [
+          { pitch: 'F4', dur: 'q', lyric: 'My', count: '1' },
+          { pitch: 'F4', dur: 'q', lyric: 'coun-', count: '2' },
+          { pitch: 'G4', dur: 'q', lyric: 'try', count: '3' },
+          { bar: '|' },
+          { pitch: 'E4', dur: 'q', dotted: true, lyric: "'tis", count: '1 - (2)' },
+          { pitch: 'F4', dur: '8', lyric: 'of', count: '&' },
+          { pitch: 'G4', dur: 'q', lyric: 'thee,', count: '3' },
+          { bar: '|' },
+          { pitch: 'A4', dur: 'q', lyric: 'Sweet', count: '1' },
+          { pitch: 'A4', dur: 'q', lyric: 'land', count: '2' },
+          { pitch: 'Bb4', dur: 'q', hideAccidental: true, lyric: 'of', count: '3' },
+          { bar: '|' },
+          { pitch: 'A4', dur: 'q', dotted: true, lyric: 'lib-', count: '1 - (2)' },
+          { pitch: 'G4', dur: '8', lyric: 'er-', count: '&' },
+          { pitch: 'F4', dur: 'q', lyric: 'ty.', count: '3' }
+        ]
+      });
+
+      Widgets.createRhythmSequencer('#ch03-sequencer', {
+        bpm: 86,
+        presets: [
+          {
+            name: '4/4 單四拍子：附點與十六分音符練習 (1 e & a)',
+            stepFactor: 0.25,
+            beatEvery: 4,
+            counts: ['1', 'e', '&', 'a', '2', 'e', '&', 'a', '3', 'e', '&', 'a', '4', 'e', '&', 'a'],
+            tracks: [
+              { name: '上聲部節奏', voice: 'clave', pattern: [2, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0, 1, 1, 0, 0, 0] },
+              { name: '四分音符拍', voice: 'kick',  pattern: [2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0] }
+            ]
+          },
+          {
+            name: '3/4 單三拍子：雙聲部拍擊練習 (1 & 2 & 3 &)',
+            stepFactor: 0.5,
+            beatEvery: 2,
+            counts: ['1', '&', '2', '&', '3', '&', '1', '&', '2', '&', '3', '&'],
+            tracks: [
+              { name: '第一聲部', voice: 'clave', pattern: [2, 0, 0, 1, 1, 0, 2, 1, 1, 1, 1, 0] },
+              { name: '第二聲部', voice: 'snare', pattern: [1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0] }
+            ]
+          }
+        ]
+      });
+
+      Widgets.createConductor('#ch03-conductor', { beats: 4, compound: false });
+
+      Widgets.createQuiz('#ch03-quiz', 'quiz-ch03', 'ch03', [
+        {
+          prompt: '在任何拍號中，一個「附點二分音符 (𝅗𝅥.)」的時值總長等於幾個八分音符 (♪)？',
+          options: ['3 個八分音符', '4 個八分音符', '6 個八分音符', '8 個八分音符'],
+          answer: 2,
+          explanation: '二分音符 = 4 個八分音符；加上附點延長一半（+2 個八分音符），共等於 6 個八分音符（或 3 個四分音符）。'
+        },
+        {
+          prompt: '拍號「3/2」代表的拍子類型與基本脈動音符為何？',
+          options: [
+            '單二拍子，以三分音符為一拍',
+            '單三拍子 (Simple Triple)，每小節 3 拍，以二分音符 (Half note) 為一拍',
+            '複三拍子，每小節 2 拍，以附點二分音符為一拍',
+            '單四拍子，每小節 3 拍'
+          ],
+          answer: 1,
+          explanation: '上方數字 3 代表單三拍子（每小節 3 拍），下方數字 2 代表二分音符當作 1 拍。'
+        },
+        {
+          prompt: '在 4/4 拍中，一拍包含「1 個附點八分音符 ＋ 1 個十六分音符（♪.♬）」，依照 Duckworth 數拍法應唸作哪兩個音節？',
+          options: ['1 與 &', '1 與 e', '1 與 a（中間持續經過 e 與 &）', '1 與 la'],
+          answer: 2,
+          explanation: '附點八分音符佔 3 個十六分音符（涵蓋 1 - e - &），最後一個十六分音符落在該拍最後四分之一「a」！'
+        },
+        {
+          prompt: '樂曲開頭不完整小節的導進弱拍（Pickup beats），在正式樂理與詩學中稱為什麼？',
+          options: ['Alla breve', 'Anacrusis（弱起拍）', 'Ritardando', 'Downbeat'],
+          answer: 1,
+          explanation: 'Anacrusis 指正式強拍小節線之前的不完整弱起導進拍。'
+        },
+        {
+          prompt: '下列哪組義大利速度術語是按照「由最慢到最快」正確排列？',
+          options: [
+            'Presto → Allegro → Andante → Largo',
+            'Largo → Andante → Moderato → Allegro → Presto',
+            'Moderato → Largo → Vivace → Adagio',
+            'Allegro → Lento → Andante → Vivace'
+          ],
+          answer: 1,
+          explanation: 'Largo（廣板極慢）→ Andante（行板慢走）→ Moderato（中板）→ Allegro（快板）→ Presto（急板極快）。'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 8 章：音程識別與轉位 ＋ 焦點技能 5 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch08">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 8 + Focus on Skills 5 · 第 8 章與第五階段檢定</span>
+        <h1 id="main-heading" tabindex="-1">第 8 章：音程識別、複音程與和聲轉位（Intervals）＋ 檢定 5</h1>
+        <p class="chapter-subtitle">
+          音程 (Interval) 是測量兩個音高之間音樂距離的標尺。音階裡的音程模式會直接轉化為旋律與和聲的骨架，更是第 12 章建構三和弦的絕對基礎。兩音同時發聲稱為<strong>和聲音程 (Harmonic Interval)</strong>，先後發聲則稱為<strong>旋律音程 (Melodic Interval)</strong>。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>掌握辨識音程的兩步驟：先算字母總數決定<strong>度數大小 (Interval Size)</strong>，再依大調音階法或半音數決定<strong>性質 (Quality：P, M, m, A, d)</strong>。</li>
+            <li>學會將大於八度的<strong>複音程 (Compound Intervals)</strong> 減去一個八度化簡判讀。</li>
+            <li>精通<strong>音程和聲轉位 (Harmonic Inversion)</strong> 的「度數相加等於 9」與「性質對換規則」，並通過 <strong>Focus on Skills 5</strong>！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Interval Size & Quality -->
+      <section class="lesson-section" aria-labelledby="ch8-size-qual">
+        <h2 id="ch8-size-qual">1. 音程的度數大小 (Size) 與五大性質 (Quality：P, M, m, A, d)</h2>
+        <p>
+          <strong>第一步：計算音程度數 (Size)</strong>——將下方音字母、上方音字母以及中間經過的所有字母全部算進去（每個字母只算一次，忽略升降記號）。五線譜上有極好用的視覺規律：<strong>二度</strong>永遠一線一間緊貼；<strong>三度</strong>永遠線對相鄰線、或間對相鄰間；<strong>五度</strong>也是同在線或同在間（中間隔一條線／間）。
+        </p>
+        <p>
+          <strong>第二步：決定音程性質 (Quality)</strong>——Duckworth 最推薦使用<strong>「大調音階判讀法 (Major-Scale Method)」</strong>：假設下方音是某個大調的主音 (<code>1̂</code>)，若上方音正好屬於該大調音階：
+        </p>
+        <ul>
+          <li><strong>完全音程家族 (Perfect：<code>1, 4, 5, 8</code> 度)：</strong>主音到 1、4、5、8 級永遠是<strong>完全音程 (<code>P1, P4, P5, P8</code>)</strong>。完全音程<strong>絕不可能變成大或小</strong>！保持度數擴大 1 半音變<strong>增音程 (<code>A</code>)</strong>；縮小 1 半音變<strong>減音程 (<code>d</code>)</strong>（唯一例外：同度 <code>P1</code> 可擴大為增一度 <code>A1</code>，但絕無法縮小成減一度！）。</li>
+          <li><strong>大小音程家族 (Major/Minor：<code>2, 3, 6, 7</code> 度)：</strong>主音到 2、3、6、7 級永遠是<strong>大音程 (<code>M2, M3, M6, M7</code>)</strong>。大音程<strong>縮小 1 半音變小音程 (<code>m</code>)</strong>；小音程再縮小 1 半音（比大音程小 2 半音）變<strong>減音程 (<code>d</code>)</strong>；大音程<strong>擴大 1 半音變增音程 (<code>A</code>)</strong>！</li>
+        </ul>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="int-table-cap">
+          <table class="data-table stack-mobile">
+            <caption id="int-table-cap">一個八度內所有常見音程與半音數對照總表</caption>
+            <thead>
+              <tr>
+                <th scope="col">基本音程</th>
+                <th scope="col">半音數</th>
+                <th scope="col">同半音數但度數不同的等音程（注意拼寫！）</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">完全一度 (P1)</th><td data-label="半音數">0</td><td data-label="等音程">（減二度 d2）</td></tr>
+              <tr><th scope="row">小二度 (m2) ／ 大二度 (M2)</th><td data-label="半音數">1 ／ 2</td><td data-label="等音程">m2 = 增一度 (A1)；M2 = 減三度 (d3)</td></tr>
+              <tr><th scope="row">小三度 (m3) ／ 大三度 (M3)</th><td data-label="半音數">3 ／ 4</td><td data-label="等音程">m3 = 增二度 (A2，和聲小調特色音程！)；M3 = 減四度 (d4)</td></tr>
+              <tr><th scope="row">完全四度 (P4)</th><td data-label="半音數">5</td><td data-label="等音程">增三度 (A3)</td></tr>
+              <tr><th scope="row">增四度 (A4) ／ 減五度 (d5)</th><td data-label="半音數">6（三全音）</td><td data-label="等音程">例如 <code>F–B</code> 為 A4（4個字母），<code>B–F</code> 為 d5（5個字母）！</td></tr>
+              <tr><th scope="row">完全五度 (P5)</th><td data-label="半音數">7</td><td data-label="等音程">減六度 (d6)</td></tr>
+              <tr><th scope="row">小六度 (m6) ／ 大六度 (M6)</th><td data-label="半音數">8 ／ 9</td><td data-label="等音程">m6 = 增五度 (A5)；M6 = 減七度 (d7)</td></tr>
+              <tr><th scope="row">小七度 (m7) ／ 大七度 (M7) ／ 完全八度 (P8)</th><td data-label="半音數">10 ／ 11 ／ 12</td><td data-label="等音程">m7 = 增六度 (A6)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Interactive Interval Builder & Inverter -->
+      <section class="lesson-section" aria-labelledby="ch8-lab">
+        <h2 id="ch8-lab">2. 複音程 (Compound Intervals) 與音程和聲轉位 (Inversion = 9)</h2>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3>複音程 (Compound Intervals)</h3>
+            <p>八度以內稱為<strong>單音程 (Simple Intervals)</strong>；超過一個八度（9 度、10 度、11 度、12 度……）稱為<strong>複音程</strong>。判讀時只需<strong>減去一個八度（度數減 7）</strong>，性質完全不變！例如：<strong>大九度 (M9) ＝ 複大二度</strong>、<strong>大十度 (M10) ＝ 複大三度</strong>、<strong>完全十一度 (P11) ＝ 複完全四度</strong>。</p>
+          </div>
+          <div class="concept-card">
+            <h3>音程和聲轉位 (Harmonic Inversion)</h3>
+            <p>保持一音不動，將另一音移高或移低八度使上下顛倒：<br>
+            1. <strong>度數相加永遠等於 9：</strong><code>1↔8</code>、<code>2↔7</code>、<code>3↔6</code>、<code>4↔5</code>。<br>
+            2. <strong>性質對稱互換：</strong><code>P ↔ P</code>（完全不變）、<code>M ↔ m</code>（大小互換）、<code>A ↔ d</code>（增減互換）！例如 <code>M3</code> 轉位必為 <code>m6</code>；<code>A4</code> 轉位必為 <code>d5</code>。</p>
+          </div>
+        </div>
+
+        <!-- 互動音程計算與轉位工作台 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🔬 互動音程建構、複音程與轉位實驗室</h3>
+            <div class="widget-controls" style="margin:0;">
+              <button type="button" class="btn btn-sm btn-primary" id="int-play-harm">▶ 和聲音程發聲</button>
+              <button type="button" class="btn btn-sm" id="int-play-mel">▶ 旋律音程發聲</button>
+              <button type="button" class="btn btn-sm btn-amber" id="int-invert-btn">⇅ 執行八度轉位</button>
+            </div>
+          </div>
+          <div class="widget-controls">
+            <label>下方根音：
+              <select id="int-root">
+                <option value="C4">C4</option>
+                <option value="D4">D4</option>
+                <option value="Eb4">E♭4</option>
+                <option value="F4">F4</option>
+                <option value="F#4">F♯4</option>
+                <option value="G4">G4</option>
+                <option value="A3">A3</option>
+                <option value="Bb3">B♭3</option>
+              </select>
+            </label>
+            <label>音程性質：
+              <select id="int-qual">
+                <option value="P">完全 (P — 限 1,4,5,8,11,12 度)</option>
+                <option value="M" selected>大 (M — 限 2,3,6,7,9,10 度)</option>
+                <option value="m">小 (m — 限 2,3,6,7,9,10 度)</option>
+                <option value="A">增 (A — 擴大半音)</option>
+                <option value="d">減 (d — 縮小半音)</option>
+              </select>
+            </label>
+            <label>度數：
+              <select id="int-size">
+                <option value="2">2 度</option>
+                <option value="3" selected>3 度</option>
+                <option value="4">4 度</option>
+                <option value="5">5 度</option>
+                <option value="6">6 度</option>
+                <option value="7">7 度</option>
+                <option value="8">8 度 (Octave)</option>
+                <option value="9">9 度 (複二度)</option>
+                <option value="10">10 度 (複三度)</option>
+                <option value="11">11 度 (複四度)</option>
+              </select>
+            </label>
+          </div>
+          <p id="int-lab-readout" style="font-weight:700;margin-block:0.5rem;"></p>
+          <div id="int-lab-score"></div>
+        </div>
+
+        <div class="callout callout-ear">
+          <div class="callout-title">🎵 Music in Action：用經典歌曲開頭記住音程！</div>
+          <p style="margin-block-end:0.5rem;">Duckworth 建議用耳熟能詳的旋律開頭前兩個音建立音程記憶錨點（點擊立即試聽）：</p>
+          <div class="widget-controls" style="margin:0;">
+            <button type="button" class="btn btn-sm" data-song-int="C4,D4">大二度 M2（音階起跑）</button>
+            <button type="button" class="btn btn-sm" data-song-int="C4,E4">大三度 M3（明亮號角）</button>
+            <button type="button" class="btn btn-sm" data-song-int="G3,C4">完全四度 P4（婚禮進行曲開頭）</button>
+            <button type="button" class="btn btn-sm" data-song-int="C4,G4">完全五度 P5（《星際大戰 Star Wars》主題）</button>
+            <button type="button" class="btn btn-sm" data-song-int="C4,A4">大六度 M6（《My Bonnie》開頭）</button>
+            <button type="button" class="btn btn-sm" data-song-int="C4,C5">完全八度 P8（《Over the Rainbow》開頭）</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Focus on Skills 5: Intervals -->
+      <section class="lesson-section" aria-labelledby="focus5-heading">
+        <h2 id="focus5-heading">🏆 Focus on Skills 5: Intervals（第五階段：音程綜合檢定）</h2>
+        <p>包含和聲音程判讀、複音程化簡、轉位計算，以及課本招牌「連續音程心算接龍題（Practice 8-15 &amp; Focus 5 Q5–7）」！</p>
+        <div id="focus5-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const rootSel = document.getElementById('int-root');
+      const qualSel = document.getElementById('int-qual');
+      const sizeSel = document.getElementById('int-size');
+      const readout = document.getElementById('int-lab-readout');
+      let lowP = null, highP = null;
+
+      function syncValidQuality() {
+        const sz = Number(sizeSel.value);
+        const simple = sz > 8 ? ((sz - 1) % 7) + 1 : sz;
+        const isPerf = [1, 4, 5, 8].includes(simple);
+        if (isPerf && (qualSel.value === 'M' || qualSel.value === 'm')) {
+          qualSel.value = 'P';
+        } else if (!isPerf && qualSel.value === 'P') {
+          qualSel.value = 'M';
+        }
+      }
+
+      function updateIntervalLab() {
+        syncValidQuality();
+        const rStr = rootSel.value;
+        const q = qualSel.value;
+        const sz = Number(sizeSel.value);
+        lowP = CourseData.parsePitch(rStr);
+        highP = CourseData.buildInterval(lowP, sz, q);
+        const info = CourseData.calcInterval(lowP, highP);
+
+        const compText = info.isCompound
+          ? `（複音程：減去八度後等同單音程 ${info.simpleCode}）`
+          : `（八度轉位後變為：${info.invertedCode}，度數 ${info.size}+${9 - info.size}=9）`;
+
+        readout.textContent = `${lowP.label} → ${highP.label} ＝ ${info.code} [${info.qualityZh} ${info.size} 度，共 ${info.semitones} 個半音] ${compText}`;
+
+        MusicNotation.render('#int-lab-score', {
+          clef: 'treble',
+          playable: false,
+          minWidth: 380,
+          spacing: 80,
+          notes: [
+            { notes: [lowP.ascii, highP.ascii], dur: 'w', topText: `和聲 ${info.code}`, label: `${lowP.name}+${highP.name}` },
+            { bar: '||' },
+            { pitch: lowP.ascii, dur: 'h', label: lowP.label },
+            { pitch: highP.ascii, dur: 'h', topText: `旋律 ${info.code}`, label: highP.label }
+          ]
+        });
+      }
+
+      [rootSel, qualSel, sizeSel].forEach(s => s.addEventListener('change', updateIntervalLab));
+      updateIntervalLab();
+
+      document.getElementById('int-play-harm').addEventListener('click', () => {
+        AudioEngine.playChord([lowP, highP], 1.1);
+      });
+      document.getElementById('int-play-mel').addEventListener('click', () => {
+        AudioEngine.playSequence([{ pitch: lowP, beats: 0.7 }, { pitch: highP, beats: 1.0 }], 96);
+      });
+      document.getElementById('int-invert-btn').addEventListener('click', () => {
+        const sz = Number(sizeSel.value);
+        if (sz > 8) {
+          sizeSel.value = String(((sz - 1) % 7) + 1);
+        } else {
+          const invSz = 9 - sz;
+          const invMap = { P: 'P', M: 'm', m: 'M', A: 'd', d: 'A' };
+          sizeSel.value = String(invSz);
+          qualSel.value = invMap[qualSel.value] || 'P';
+        }
+        updateIntervalLab();
+        AudioEngine.playChord([lowP, highP], 1.0);
+      });
+
+      document.querySelectorAll('[data-song-int]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const [a, b] = btn.dataset.songInt.split(',');
+          AudioEngine.playSequence([{ pitch: a, beats: 0.65 }, { pitch: b, beats: 1.1 }], 96);
+        });
+      });
+
+      Widgets.createQuiz('#focus5-quiz', 'quiz-focus5', 'ch08', [
+        {
+          prompt: '【Practice 8-5 & 8-6】請問下方低音譜表上的和聲音程「E♭3 到 A♭3」是什麼音程？',
+          scoreSpec: { clef: 'bass', playable: false, minWidth: 250, notes: [{ notes: ['Eb3', 'Ab3'], dur: 'w' }] },
+          options: ['完全四度 (P4)', '大四度 (M4)', '增四度 (A4)', '完全五度 (P5)'],
+          answer: 0,
+          explanation: 'E-F-G-A 共 4 個字母（四度）；在 E♭ 大調音階中第 4 級正好是 A♭，故為完全四度 (P4)。'
+        },
+        {
+          prompt: '【等音程辨析】「F4 到 B4」與「B4 到 F5」都包含 6 個半音，它們的正確音程名稱分別為何？',
+          options: [
+            '兩者都是增四度 (A4)',
+            'F4–B4 是增四度 (A4)，B4–F5 是減五度 (d5)',
+            'F4–B4 是減五度 (d5)，B4–F5 是增四度 (A4)',
+            '兩者都是完全五度'
+          ],
+          answer: 1,
+          explanation: 'F-G-A-B 為四度且比 F–B♭ 大半音，為增四度 (A4)；B-C-D-E-F 為五度且比 B–F♯ 小半音，為減五度 (d5)。'
+        },
+        {
+          prompt: '【Focus 5-4 複音程化簡】將複音程「E♭3 到 G4（十度）」減去一個八度化簡後，對應的單音程為何？',
+          options: ['小三度 (m3)', '大三度 (M3)', '完全四度 (P4)', '大六度 (M6)'],
+          answer: 1,
+          explanation: 'G4 降低八度為 G3；E♭3 到 G3 為大三度 (M3)，故原音程為大十度 (M10)。'
+        },
+        {
+          prompt: '【Practice 8-14 音程和聲轉位】將一個「增六度 (A6)」進行和聲八度轉位後，會變成什麼音程？',
+          options: ['減三度 (d3)', '小三度 (m3)', '增三度 (A3)', '減二度 (d2)'],
+          answer: 0,
+          explanation: '轉位度數相加等於 9（9 - 6 = 3 度），且增減互換（A ↔ d），故增六度轉位為減三度 (d3)！'
+        },
+        {
+          prompt: '【Focus 5 Q5 心算接龍題】① 起點想著 G3 → ② 往下走小七度 (m7) → ③ 從新音往下走大三度 (M3) → ④ 從新音往上走完全五度 (P5)。最終抵達哪一個音高？',
+          options: ['C3', 'C♯3', 'D3', 'B♭2'],
+          answer: 0,
+          explanation: '精確推算：G3 往下 m7 = A2；A2 往下 M3 = F2（因為 F2–A2 為大三度）；F2 往上 P5 = C3！'
+        },
+        {
+          prompt: '【聽音練耳 Ear Training】點擊播放這組兩音旋律音程，判斷它是大三度 (M3) 還是完全五度 (P5)？',
+          audioLabel: '🔊 播放音程聽辨題',
+          audioFn: () => AudioEngine.playSequence([{ pitch: 'D4', beats: 0.75 }, { pitch: 'A4', beats: 1.2 }], 92),
+          options: ['大三度 (M3)', '完全五度 (P5，如《Star Wars》主題開頭)'],
+          answer: 1,
+          explanation: 'D4 → A4 相距 7 個半音，具有開闊穩定的號角感，正是完全五度 (P5)！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

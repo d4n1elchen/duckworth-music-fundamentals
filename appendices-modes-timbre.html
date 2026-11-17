@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>附錄 F–K：C 譜號、調式、泛音聲學與吉他和弦庫 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="app-fk">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Appendices F – K · 附錄 F 至 K 進階知識庫</span>
+        <h1 id="main-heading" tabindex="-1">附錄 F–K：C 譜號、七大教會調式、泛音列音色、聲學物理與吉他和弦庫</h1>
+        <p class="chapter-subtitle">
+          完整收錄課本後半部六個高含金量附錄：管弦樂必備的<strong>中音／次中音 C 譜號</strong>、中世紀至爵士樂廣泛運用的<strong>七大教會調式與全音／八音音階</strong>、<strong>16 泛音列合成器</strong>、<strong>聲學頻率示波器</strong>，以及<strong>民謠吉他初學 9 調主屬和弦庫</strong>！
+        </p>
+      </section>
+
+      <!-- Appendix F: The C Clef -->
+      <section class="lesson-section" aria-labelledby="sec-app-f">
+        <h2 id="sec-app-f">附錄 F：可移動的 C 譜號（中音譜號 Alto Clef 與次中音譜號 Tenor Clef）</h2>
+        <p>
+          除了高音與低音譜號，管弦樂與早期複音音樂廣泛使用<strong>C 譜號 (The C Clef)</strong>。C 譜號是一個可移動譜號，<strong>無論放在哪一條線上，它雙弧交會夾住的那條線永遠就是「中央 C (Middle C, C4)」</strong>！現代最常見的兩個位置為：
+        </p>
+        <ul>
+          <li><strong>中音譜號 (Alto Clef，中央 C 在第 3 線)：</strong><strong>中提琴 (Viola)</strong> 的專屬標準譜號。</li>
+          <li><strong>次中音譜號 (Tenor Clef，中央 C 在第 4 線)：</strong><strong>大提琴、低音管與長號</strong>演奏高音域時常用，以避免過多加線。</li>
+          <li>（巴哈清唱劇合唱譜中亦可見中央 C 在第 1 線的<strong>女高音譜號 Soprano Clef</strong>。）</li>
+        </ul>
+        <div id="score-four-clefs-c4"></div>
+      </section>
+
+      <!-- Appendices G & H: Modes, Transposition, Whole-Tone & Octatonic -->
+      <section class="lesson-section" aria-labelledby="sec-app-gh">
+        <h2 id="sec-app-gh">附錄 G ＆ H：七大教會調式與移調法、全音音階與八音（減）音階</h2>
+        <p>
+          西元 900 至 1600 年中世紀與文藝復興音樂建立在<strong>調式 (Modes)</strong> 之上。七個正格調式在白鍵上都由 5 個全音與 2 個半音（<code>E–F</code> 與 <code>B–C</code>）構成，但因為起點結尾音 (<i lang="la">finalis</i>) 不同，產生截然不同的色彩（如英國名曲《Scarborough Fair》表面看是 a 小調，但因第 6 級出現 <strong><code>F♯</code></strong>，實為<strong>A 多利安調式 Dorian</strong>！）。
+        </p>
+        <p>
+          <strong>調式移調記憶秒殺法 (Appendix H)：</strong>① <strong>多利安 Dorian</strong> ＝ 自然小調<strong>升第 6 級</strong>（或大調從第 2 級出發）；② <strong>弗里吉安 Phrygian</strong> ＝ 自然小調<strong>降第 2 級</strong>（大調第 3 級出發）；③ <strong>利底亞 Lydian</strong> ＝ 大調<strong>升第 4 級</strong>；④ <strong>混合利底亞 Mixolydian</strong> ＝ 大調<strong>降第 7 級</strong>！此外，20 世紀德布西喜愛沒有完全四／五度的<strong>全音音階 (Whole-Tone Scale)</strong>，而梅湘、巴爾托克與爵士樂手則愛用全半交替的<strong>八音／減音階 (Octatonic / Diminished Scale)</strong>。
+        </p>
+
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🏛️ 互動調式與現代合成音階移調探索器（Appendices G &amp; H）</h3>
+            <div class="widget-controls" style="margin:0;">
+              <label>起點音 (<i lang="la">Finalis</i>)：
+                <select id="mode-root">
+                  <option value="C">C</option>
+                  <option value="D" selected>D</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="G">G</option>
+                  <option value="A">A</option>
+                  <option value="Bb">B♭</option>
+                </select>
+              </label>
+              <label>調式／音階：
+                <select id="mode-type">
+                  <option value="dorian" selected>多利安 Dorian（小調 ♯6，半音 2-3, 6-7）</option>
+                  <option value="phrygian">弗里吉安 Phrygian（小調 ♭2，半音 1-2, 5-6）</option>
+                  <option value="lydian">利底亞 Lydian（大調 ♯4，半音 4-5, 7-8）</option>
+                  <option value="mixolydian">混合利底亞 Mixolydian（大調 ♭7，半音 3-4, 6-7）</option>
+                  <option value="locrian">洛克里安 Locrian（半音 1-2, 4-5）</option>
+                  <option value="wholeTone">全音音階 Whole-Tone（6 音全為全音）</option>
+                  <option value="octatonic">八音／減音階 Octatonic（W-H 交替 8 音）</option>
+                </select>
+              </label>
+              <button type="button" class="btn btn-sm btn-primary" id="mode-play-btn">▶ 播放調式</button>
+            </div>
+          </div>
+          <p id="mode-readout" style="font-weight:700;margin-block:0.4rem;"></p>
+          <div id="mode-score"></div>
+        </div>
+      </section>
+
+      <!-- Appendices I & J: Timbre, Harmonic Series & Acoustics -->
+      <section class="lesson-section" aria-labelledby="sec-app-ij">
+        <h2 id="sec-app-ij">附錄 I ＆ J：泛音列 (Harmonic Series)、管弦樂／人聲分類與聲學物理</h2>
+        <p>
+          <strong>附錄 I（音色 Timbre）：</strong>當琴弦振動時，除了全長振動產生<strong>基音 (Fundamental)</strong> 外，1/2、1/3、1/4……等分段也會同時微幅振動產生<strong>泛音 (Overtones)</strong>。<strong>「1 個基音 ＋ 前 15 個泛音 ＝ 16 個分音 (Partials)」</strong>構成了自然<strong>泛音列 (Harmonic Series)</strong>。每種樂器因共鳴腔設計強化特定泛音、抑制其他泛音，而擁有獨一無二的音色！管弦樂器依發聲原理分為<strong>弦樂器</strong>、<strong>木管樂器</strong>（無簧吹孔：短笛／長笛；單簧：單簧管；雙簧：雙簧管／英國管／低音管）、<strong>銅管樂器</strong>（號嘴唇振＋按鍵閥或長號滑管）與<strong>打擊樂器</strong>（有固定音高如定音鼓／木琴／鐵琴 vs. 無固定音高如小鼓／大鼓／鈸）；人聲則由高至低分為女高音（花腔／抒情／戲劇）、次女高音、女低音、男高音、男中音、低男中音與男低音。
+        </p>
+        <p>
+          <strong>附錄 J（聲學 Acoustics）：</strong>頻率每<strong>加倍則升高一個八度、減半則降低一個八度</strong>！因此鋼琴上所有的 A 頻率呈完美 2 倍數列：<strong><code>27.5 Hz (A0) → 55 Hz (A1) → 110 Hz (A2) → 220 Hz (A3) → 440 Hz (A4 標準音) → 880 Hz (A5) → 1760 Hz (A6) → 3520 Hz (A7)</code></strong>！（Duckworth 也特別提醒：配戴耳機切勿長期開過大振幅分貝，以免造成不可逆的聽力受損。）
+        </p>
+
+        <!-- 互動泛音列合成器 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎛️ 互動泛音列加法合成器（基音 C2 = 65.4 Hz ＋ 泛音分音 1～8 混音台）</h3>
+            <button type="button" class="btn btn-sm btn-primary" id="play-harmonics-btn">🔊 合成發聲（聽泛音融合成單一音色！）</button>
+          </div>
+          <div id="partials-sliders" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:0.5rem;"></div>
+        </div>
+      </section>
+
+      <!-- Appendix K: Basic Guitar Chords -->
+      <section class="lesson-section" aria-labelledby="sec-app-k">
+        <h2 id="sec-app-k">附錄 K：吉他常用大小調基礎和弦總庫（<code>I – IV – V</code> 實戰伴奏）</h2>
+        <p>
+          因為標準吉他空弦調音為 <code>E-A-D-G-B-E</code>，在<strong>升號調</strong>上彈奏遠比降號調容易上手！學會下方附錄 K 精選的常用大調與小調主、下屬、屬和弦，你就能彈唱本書中絕大多數的歌曲：
+        </p>
+        <div class="widget-box">
+          <div class="widget-controls" id="guitar-key-tabs"></div>
+          <div class="guitar-grid" id="app-k-guitar-grid" style="margin-block-start:0.85rem;"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Appendix F: Same Middle C (C4) in Treble, Alto, Tenor, Bass Clefs
+      const cClefDemo = document.getElementById('score-four-clefs-c4');
+      cClefDemo.style.display = 'grid';
+      cClefDemo.style.gridTemplateColumns = 'repeat(auto-fit, minmax(220px, 1fr))';
+      cClefDemo.style.gap = '0.75rem';
+      [
+        { clef: 'treble', title: '高音譜號：下加一線 = C4' },
+        { clef: 'alto',   title: '中音譜號 (Alto)：第 3 線 = C4' },
+        { clef: 'tenor',  title: '次中音譜號 (Tenor)：第 4 線 = C4' },
+        { clef: 'bass',   title: '低音譜號：上加一線 = C4' }
+      ].forEach(item => {
+        const box = document.createElement('div');
+        cClefDemo.appendChild(box);
+        MusicNotation.render(box, {
+          title: item.title,
+          clef: item.clef,
+          minWidth: 185,
+          spacing: 64,
+          notes: [{ pitch: 'C4', dur: 'w', label: 'C4 (中央C)' }]
+        });
+      });
+
+      // Appendices G & H Mode Explorer
+      const mRoot = document.getElementById('mode-root');
+      const mType = document.getElementById('mode-type');
+      const mRead = document.getElementById('mode-readout');
+      let curMode = null;
+
+      function updateMode() {
+        curMode = CourseData.buildScale(mRoot.value + '4', mType.value);
+        mRead.innerHTML = `${curMode.label}（主音 ${mRoot.value.replace('b','♭')}）：<strong>${curMode.notes.map(n => n.name).join(' – ')}</strong> ｜ ${curMode.formula}`;
+        MusicNotation.render('#mode-score', {
+          clef: 'treble',
+          playable: false,
+          spacing: 54,
+          notes: curMode.notes.map((n, i) => ({
+            pitch: n.ascii,
+            dur: 'w',
+            label: n.name,
+            solfege: curMode.solfege[i] || ''
+          }))
+        });
+      }
+      [mRoot, mType].forEach(el => el.addEventListener('change', updateMode));
+      updateMode();
+
+      document.getElementById('mode-play-btn').addEventListener('click', () => {
+        AudioEngine.playSequence(curMode.notes.map(n => ({ pitch: n, beats: 0.5 })), 106);
+      });
+
+      // Appendices I & J: 8-Partial Additive Harmonic Series Synth
+      const PARTIAL_INFO = [
+        { n: 1, note: 'C2 (基音)', def: 100 },
+        { n: 2, note: 'C3 (第1泛音)', def: 55 },
+        { n: 3, note: 'G3 (五度)', def: 35 },
+        { n: 4, note: 'C4 (兩八度)', def: 25 },
+        { n: 5, note: 'E4 (大三度)', def: 18 },
+        { n: 6, note: 'G4', def: 12 },
+        { n: 7, note: 'B♭4 (自然七)', def: 6 },
+        { n: 8, note: 'C5 (三八度)', def: 8 }
+      ];
+      const pWrap = document.getElementById('partials-sliders');
+      const sliderEls = [];
+      PARTIAL_INFO.forEach(p => {
+        const card = document.createElement('label');
+        card.className = 'concept-card';
+        card.style.padding = '0.65rem';
+        card.style.textAlign = 'center';
+        card.innerHTML = `
+          <div style="font-size:0.76rem;font-weight:700;">第 ${p.n} 分音</div>
+          <div style="font-size:0.75rem;color:var(--brand);margin-block:0.15rem;">${p.note}</div>
+          <input type="range" min="0" max="100" value="${p.def}" style="inline-size:100%;">
+          <button type="button" class="btn btn-sm" style="margin-block-start:0.3rem;inline-size:100%;font-size:0.72rem;">單獨聽 ${Math.round(65.41 * p.n)}Hz</button>
+        `;
+        const inp = card.querySelector('input');
+        sliderEls.push(inp);
+        card.querySelector('button').addEventListener('click', (e) => {
+          e.preventDefault();
+          AudioEngine.playNote(65.406 * p.n, 0.9, 0, { timbre: 'flute' });
+        });
+        pWrap.appendChild(card);
+      });
+
+      document.getElementById('play-harmonics-btn').addEventListener('click', () => {
+        const weights = sliderEls.map(s => Number(s.value) / 100);
+        AudioEngine.playHarmonicPartials(65.406, weights, 1.8);
+      });
+
+      // Appendix K Basic Guitar Chords by Key
+      const CHORDS_LIB = {
+        C:   { frets: [-1,3,2,0,1,0], pitches: ['C3','E3','G3','C4','E4'] },
+        F:   { frets: [-1,-1,3,2,1,1], pitches: ['F3','A3','C4','F4'] },
+        G:   { frets: [3,2,0,0,0,3], pitches: ['G2','B2','D3','G3','B3','G4'] },
+        D:   { frets: [-1,-1,0,2,3,2], pitches: ['D3','A3','D4','F#4'] },
+        A:   { frets: [-1,0,2,2,2,0], pitches: ['A2','E3','A3','C#4','E4'] },
+        E:   { frets: [0,2,2,1,0,0], pitches: ['E2','B2','E3','G#3','B3','E4'] },
+        B:   { frets: [-1,2,4,4,4,2], pitches: ['B2','F#3','B3','D#4','F#4'] },
+        Bb:  { frets: [-1,1,3,3,3,1], pitches: ['Bb2','F3','Bb3','D4','F4'] },
+        Em:  { frets: [0,2,2,0,0,0], pitches: ['E2','B2','E3','G3','B3','E4'] },
+        Am:  { frets: [-1,0,2,2,1,0], pitches: ['A2','E3','A3','C4','E4'] },
+        Dm:  { frets: [-1,-1,0,2,3,1], pitches: ['D3','A3','D4','F4'] },
+        Gm:  { frets: [3,5,5,3,3,3], pitches: ['G2','D3','G3','Bb3','D4','G4'] }
+      };
+
+      const GUITAR_KEYS = [
+        { key: 'C 大調', triads: [['C','I'],['F','IV'],['G','V']] },
+        { key: 'G 大調', triads: [['G','I'],['C','IV'],['D','V']] },
+        { key: 'D 大調', triads: [['D','I'],['G','IV'],['A','V']] },
+        { key: 'A 大調', triads: [['A','I'],['D','IV'],['E','V']] },
+        { key: 'E 大調', triads: [['E','I'],['A','IV'],['B','V']] },
+        { key: 'F 大調', triads: [['F','I'],['Bb','IV'],['C','V']] },
+        { key: 'e 小調', triads: [['Em','i'],['Am','iv'],['B','V']] },
+        { key: 'a 小調', triads: [['Am','i'],['Dm','iv'],['E','V']] },
+        { key: 'd 小調', triads: [['Dm','i'],['Gm','iv'],['A','V']] }
+      ];
+
+      const gkTabs = document.getElementById('guitar-key-tabs');
+      const gkGrid = document.getElementById('app-k-guitar-grid');
+
+      function showGuitarKey(item) {
+        gkGrid.innerHTML = '';
+        item.triads.forEach(([cName, rn]) => {
+          const d = CHORDS_LIB[cName];
+          Widgets.createGuitarChord(gkGrid, {
+            name: cName.replace('b', '♭'),
+            subtitle: `${item.key} 的 ${rn}`,
+            frets: d.frets,
+            pitches: d.pitches
+          });
+        });
+      }
+
+      GUITAR_KEYS.forEach((item, idx) => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn btn-sm' + (idx === 0 ? ' btn-primary' : '');
+        b.textContent = item.key;
+        b.addEventListener('click', () => {
+          gkTabs.querySelectorAll('button').forEach(x => x.classList.remove('btn-primary'));
+          b.classList.add('btn-primary');
+          showGuitarKey(item);
+        });
+        gkTabs.appendChild(b);
+      });
+      showGuitarKey(GUITAR_KEYS[0]);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 7 章：大調調號與五度圈 ＋ 焦點技能 4 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch07">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 7 + Focus on Skills 4 · 第 7 章與第四階段檢定</span>
+        <h1 id="main-heading" tabindex="-1">第 7 章：大調調號與五度圈（Major Key Signatures）＋ 檢定 4</h1>
+        <p class="chapter-subtitle">
+          想像演奏巴哈《平均律》C♯ 大調前奏曲時，如果每一個音符前面都擠滿了升記號，視譜將形同惡夢！因此音樂家發明了<strong>調號 (Key Signature)</strong>——在每行五線譜開頭一次標明該調音階所需的全部升降記號。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>區分「調號中的升降記號（全曲所有八度皆有效）」與「小節內的臨時記號（僅該小節同八度有效）」的關鍵差異。</li>
+            <li>熟記升號順序 <strong><code>F–C–G–D–A–E–B</code></strong> 與降號順序 <strong><code>B–E–A–D–G–C–F</code></strong>、高／低音譜表標準書寫位置及秒判口訣。</li>
+            <li>理解<strong>大調五度圈 (Circle of Fifths)</strong> 與三對<strong>等音調 (Enharmonic Keys)</strong>，並完成 <strong>Focus on Skills 4</strong> 檢定！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Key Signature Rules, Sharp Keys & Flat Keys -->
+      <section class="lesson-section" aria-labelledby="ch7-sigs">
+        <h2 id="ch7-sigs">1. 調號的效力範圍、升號大調與降號大調秒判法則</h2>
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 重要觀念：調號升降 vs. 小節內臨時記號的效力差異</div>
+          <p>
+            • <strong>調號 (Key Signature) 中的記號：</strong>對整首樂曲中<strong>「所有八度」的該字母音全部有效</strong>（例如調號有 <code>F♯</code>，全曲無論高音、低音或加線上的 F 一律彈成 <code>F♯</code>）。<br>
+            • <strong>小節內臨時加入的記號 (Accidental)：</strong>效力<strong>只維持到該小節的小節線為止</strong>（除非被還原記號 <code>♮</code> 提前取消），且<strong>只影響同一八度、同一聲部的那個音</strong>！
+          </p>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <h3>♯ 升號大調 (Sharp Major Keys)</h3>
+            <p><strong>固定順序：</strong><code>F♯ – C♯ – G♯ – D♯ – A♯ – E♯ – B♯</code>（永不改變！）。</p>
+            <p><strong>秒判口訣：</strong>最後加入的那個升號永遠是該大調的第 7 級<strong>導音 (Leading Tone)</strong>！因此<strong>從最後一個升號「往上推一個半音」就是大調名稱</strong>（例如最後一個升號是 <code>G♯</code> → 往上推半音為 <strong>A 大調</strong>）。</p>
+          </div>
+          <div class="concept-card">
+            <h3>♭ 降號大調 (Flat Major Keys)</h3>
+            <p><strong>固定順序：</strong><code>B♭ – E♭ – A♭ – D♭ – G♭ – C♭ – F♭</code>（剛好是升號順序的完全倒序！）。</p>
+            <p><strong>秒判口訣：</strong>最後加入的降號永遠是第 4 級下屬音；而<strong>「倒數第二個降號」本身就是該降號大調的名稱</strong>！（唯一例外：只有 1 個降號 <code>B♭</code> 的是 <strong>F 大調</strong>）。</p>
+          </div>
+        </div>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="keysig-cap">
+          <table class="data-table stack-mobile">
+            <caption id="keysig-cap">全 15 個大調調號升降數量完整對照表</caption>
+            <thead>
+              <tr>
+                <th scope="col">記號數量</th>
+                <th scope="col">升號大調 (Sharp Keys)</th>
+                <th scope="col">包含升號</th>
+                <th scope="col">降號大調 (Flat Keys)</th>
+                <th scope="col">包含降號</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">0 個</th><td data-label="升號大調">C 大調</td><td data-label="包含升號">無</td><td data-label="降號大調">C 大調</td><td data-label="包含降號">無</td></tr>
+              <tr><th scope="row">1 個</th><td data-label="升號大調">G 大調</td><td data-label="包含升號">F♯</td><td data-label="降號大調">F 大調</td><td data-label="包含降號">B♭</td></tr>
+              <tr><th scope="row">2 個</th><td data-label="升號大調">D 大調</td><td data-label="包含升號">F♯, C♯</td><td data-label="降號大調">B♭ 大調</td><td data-label="包含降號">B♭, E♭</td></tr>
+              <tr><th scope="row">3 個</th><td data-label="升號大調">A 大調</td><td data-label="包含升號">F♯, C♯, G♯</td><td data-label="降號大調">E♭ 大調</td><td data-label="包含降號">B♭, E♭, A♭</td></tr>
+              <tr><th scope="row">4 個</th><td data-label="升號大調">E 大調</td><td data-label="包含升號">F♯, C♯, G♯, D♯</td><td data-label="降號大調">A♭ 大調</td><td data-label="包含降號">B♭, E♭, A♭, D♭</td></tr>
+              <tr><th scope="row">5 個</th><td data-label="升號大調">B 大調</td><td data-label="包含升號">F♯–A♯ (5♯)</td><td data-label="降號大調">D♭ 大調</td><td data-label="包含降號">B♭–G♭ (5♭)</td></tr>
+              <tr><th scope="row">6 個</th><td data-label="升號大調">F♯ 大調</td><td data-label="包含升號">F♯–E♯ (6♯)</td><td data-label="降號大調">G♭ 大調</td><td data-label="包含降號">B♭–C♭ (6♭)</td></tr>
+              <tr><th scope="row">7 個</th><td data-label="升號大調">C♯ 大調</td><td data-label="包含升號">全部 7♯</td><td data-label="降號大調">C♭ 大調</td><td data-label="包含降號">全部 7♭</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2. Interactive Circle of Fifths & Enharmonic Keys -->
+      <section class="lesson-section" aria-labelledby="ch7-circle">
+        <h2 id="ch7-circle">2. 大調五度圈 (The Circle of Fifths) 與等音調 (Enharmonic Keys)</h2>
+        <p>
+          將大調按升降記號數量排成圓環，順時針每走一步就往上推進一個<strong>完全五度（7 個半音）並增加 1 個升記號</strong>（<code>C → G → D → A → E → B → F♯ → C♯</code>）；逆時針每走一步則往下推進完全五度並<strong>增加 1 個降記號</strong>（<code>C → F → B♭ → E♭ → A♭ → D♭ → G♭ → C♭</code>）。
+        </p>
+        <p>
+          注意五度圈上<strong>相鄰的兩個調共享 7 個音當中的 6 個共同音</strong>！這意味著作曲家在相鄰近系調之間進行<strong>轉調 (Modulation)</strong> 時會非常自然流暢。而在圓環底部（5、6、7 點鐘方向）則出現了三對聽起來完全相同、寫法不同的<strong>等音調 (Enharmonic Keys)</strong>：
+        </p>
+        <ul>
+          <li><strong><code>B</code> 大調 (5♯) ＝ <code>C♭</code> 大調 (7♭)</strong>（實務上 B 大調較常見）</li>
+          <li><strong><code>F♯</code> 大調 (6♯) ＝ <code>G♭</code> 大調 (6♭)</strong>（兩者出現頻率相當）</li>
+          <li><strong><code>D♭</code> 大調 (5♭) ＝ <code>C♯</code> 大調 (7♯)</strong>（實務上 D♭ 大調較常見）</li>
+        </ul>
+
+        <div class="widget-box">
+          <h3 class="widget-title">🧭 互動大調五度圈與高／低音譜表調號檢視器</h3>
+          <p style="font-size:0.9rem;margin-block:0.3rem 0.8rem;">點擊圓環上任一扇形，立即在右側大譜表查看高音與低音譜號的標準調號排列，並可切換底部三組等音調！</p>
+          <div id="ch07-circle"></div>
+        </div>
+      </section>
+
+      <!-- 3. Focus on Skills 4: Scales 1 -->
+      <section class="lesson-section" aria-labelledby="focus4-heading">
+        <h2 id="focus4-heading">🏆 Focus on Skills 4: Scales 1（第四階段：大調音階與調號綜合檢定）</h2>
+        <p>涵蓋第 6 章（半音音階、大調音階拼寫、音級名稱）與第 7 章（大調調號、五度圈、等音調）：</p>
+        <div id="focus4-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      Widgets.createCircleOfFifths('#ch07-circle', { showMinor: false });
+
+      Widgets.createQuiz('#focus4-quiz', 'quiz-focus4', 'ch07', [
+        {
+          prompt: '【Practice 7-1 升號調號判讀】觀察下方高音譜表的 4 個升記號調號（F♯, C♯, G♯, D♯），請問它代表哪一個大調？',
+          scoreSpec: { clef: 'treble', key: 'E', playable: false, minWidth: 260, notes: [{ pitch: 'E4', dur: 'w', hideAccidental: true }] },
+          options: ['A 大調', 'E 大調', 'B 大調', 'D♯ 大調'],
+          answer: 1,
+          explanation: '最後一個升記號是 D♯（導音），往上推一個半音即為 E 大調（4 個升號）！'
+        },
+        {
+          prompt: '【Practice 7-2 降號調號判讀】觀察下方低音譜表的 4 個降記號調號（B♭, E♭, A♭, D♭），請問它代表哪一個大調？',
+          scoreSpec: { clef: 'bass', key: 'Ab', playable: false, minWidth: 260, notes: [{ pitch: 'Ab2', dur: 'w', hideAccidental: true }] },
+          options: ['D♭ 大調', 'E♭ 大調', 'A♭ 大調', 'F 大調'],
+          answer: 2,
+          explanation: '降號大調看「倒數第二個降號」：B♭ – E♭ – [A♭] – D♭，倒數第二個是 A♭，即 A♭ 大調！'
+        },
+        {
+          prompt: '【Focus 4-4 音級與調性】請問「G♭ 大調音階的上主音 (Supertonic, 2̂)」與「C♯ 大調音階的下屬音 (Subdominant, 4̂)」分別為何？',
+          options: ['A♭ 與 F♯', 'A♮ 與 F♮', 'F 與 G♯', 'D♭ 與 F♯'],
+          answer: 0,
+          explanation: 'G♭ 大調第 2 級（全音上方）是 A♭；C♯ 大調全部 7 個音皆帶升號，第 4 級為 F♯！'
+        },
+        {
+          prompt: '【Focus 4-4 逆向推算】如果「E」是某個大調音階的「屬音 (Dominant, 第 5 級)」，請問這是哪一個大調？它的調號有幾個記號？',
+          options: ['B 大調（5♯）', 'A 大調（3♯）', 'D 大調（2♯）', 'C 大調（0）'],
+          answer: 1,
+          explanation: 'E 是第 5 級屬音，往下推完全五度回到第 1 級主音即為 A 大調（調號含 F♯, C♯, G♯ 共 3 個升號）。'
+        },
+        {
+          prompt: '【等音調 Enharmonic Keys】「C♯ 大調（7 個升記號）」在鍵盤上與哪一個降號大調互為等音調（聽起來完全相同）？',
+          options: ['C♭ 大調（7♭）', 'G♭ 大調（6♭）', 'D♭ 大調（5♭）', 'A♭ 大調（4♭）'],
+          answer: 2,
+          explanation: 'C♯ 與 D♭ 是同一個黑鍵：C♯ 大調（7♯）與 D♭ 大調（5♭）互為等音調（注意升降總數相加剛好 = 12！）。'
+        },
+        {
+          prompt: '在小節中間臨時加上一個升記號（例如在第 2 拍寫了 C♯4），若後面沒有還原記號，它的效力範圍為何？',
+          options: [
+            '從此以後到全曲結束所有八度的 C 都變成 C♯',
+            '只維持到該小節結束（小節線為止），且僅影響同聲部同八度（C4）的音',
+            '只對那單獨一顆音符有效，同一小節第 4 拍的 C4 自動變回 C♮',
+            '會改變下一行的調號'
+          ],
+          answer: 1,
+          explanation: '小節內臨時記號在該小節內持續有效直到小節線，但不會像調號那樣跨八度影響 C5 或 C3。'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

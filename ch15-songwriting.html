@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 15 章：歌曲創作、配和聲與四大曲式 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch15">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 15 · 第 15 章（全書壓軸總成）</span>
+        <h1 id="main-heading" tabindex="-1">第 15 章：歌曲創作、為旋律配和聲六步驟與四大曲式（Writing a Song）</h1>
+        <p class="chapter-subtitle">
+          一首動人的歌曲，是旋律、和聲、節奏與時間結構完美互補的藝術品。本章將整合全書所學，帶你掌握<strong>正三和弦與副三和弦</strong>、<strong>為旋律配和聲的六大實戰步驟</strong>，以及平衡「統一與對比」的<strong>四大經典曲式藍圖</strong>！
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>理解為何<strong>正三和弦 (Primary Triads：<code>I, IV, V</code>)</strong> 已涵蓋全音階七個音，以及<strong>副三和弦 (Secondary Triads：<code>ii, iii, vi, vii°</code>)</strong> 如何增添色彩。</li>
+            <li>親手實踐<strong>為旋律配和聲六大步驟</strong>（解析 Stephen Foster《Old Folks at Home》與互動配和聲工作台）。</li>
+            <li>辨識並運用四大曲式：<strong>反覆曲式 (Strophic / 12-Bar Blues)</strong>、<strong>二段體 (Binary AB)</strong>、<strong>三段體 (Ternary ABA)</strong> 與 <strong>32 小節流行歌曲曲式 (AABA)</strong>！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. Primary vs Secondary Chords & 6 Harmonizing Steps -->
+      <section class="lesson-section" aria-labelledby="ch15-harm">
+        <h2 id="ch15-harm">1. 正／副三和弦與「為旋律配和聲」六大黃金步驟</h2>
+        <p>
+          為什麼第 14 章裡那麼多民謠只用 <code>I, IV, V</code> 三個和弦就能配完一整首歌？請觀察 C 大調的這三個和弦：<code>I (C-E-G)</code> ＋ <code>IV (F-A-C)</code> ＋ <code>V (G-B-D)</code>——把它們的音排在一起正好是 <code>C-D-E-F-G-A-B</code> <strong>完整涵蓋音階全部七個音</strong>！因此 <code>I, IV, V</code> 被稱為<strong>正三和弦 (Primary Triads)</strong>；而其餘四個順階和弦（<code>ii, iii, vi, vii°</code>）則稱為<strong>副三和弦 (Secondary Triads)</strong>，專門用來替換正三和弦以增添細膩色彩（例如以 <code>ii</code> 替代 <code>IV</code>、以 <code>vi</code> 延伸主功能、以 <code>vii°</code> 替代 <code>V</code>）。
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-card"><h3>步驟 1：熟悉旋律</h3><p>反覆彈唱旋律，確認大／小調性，並分辨旋律屬於純自然音還是帶有半音變化。</p></div>
+          <div class="concept-card"><h3>步驟 2：找出樂句結構</h3><p>標出樂句邊界與異同關係（例如《Old Folks at Home》16 小節由四個 4 小節樂句組成 <code>a-a'-b-a'</code> 結構）。</p></div>
+          <div class="concept-card"><h3>步驟 3：先規劃終止式！</h3><p>不先定終止式，和聲就會漫無目的遊蕩！例如第 1 句用半終止 (<code>V</code>)、第 2 句用正格終止 (<code>V–I</code>)、第 3 句改用變格終止 (<code>IV–I</code>) 創造變化、第 4 句用正格終止收尾。</p></div>
+          <div class="concept-card"><h3>步驟 4：判斷和聲節奏</h3><p>觀察和弦多久換一次（Harmonic Rhythm）：掃描旋律是否勾勒出分解和弦輪廓？大多每小節一換，但在終止前常加速為每兩拍一換！</p></div>
+          <div class="concept-card"><h3>步驟 5：先填入正三和弦</h3><p>記住：<strong>音階中任何一顆旋律音都同時屬於 3 個不同的順階三和弦</strong>（分別擔任根音、三音或五音）！先用 <code>I, IV, V</code> 建立穩固骨架。</p></div>
+          <div class="concept-card"><h3>步驟 6：探索副三和弦潤色</h3><p>在適當處將部分正三和弦替換為 <code>vi</code>、<code>ii</code> 或 <code>iii</code>，讓你的和聲進行從「正確」昇華為「動聽且獨特」！</p></div>
+        </div>
+
+        <!-- 互動旋律配和聲創作工作台 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎼 互動配和聲工作坊：親手為 Stephen Foster《Old Folks at Home》配和弦！</h3>
+            <div class="widget-controls" style="margin:0;">
+              <button type="button" class="btn btn-sm btn-primary" id="play-harmonization-btn">▶ 播放「旋律 ＋ 你選配的和弦」</button>
+              <button type="button" class="btn btn-sm btn-amber" id="apply-foster-preset">套用 Duckworth 推薦色彩配法</button>
+            </div>
+          </div>
+          <p style="font-size:0.9rem;margin-block:0.3rem 0.75rem;">
+            下方是《Old Folks at Home》（C 大調）前 8 小節（兩個 4 小節樂句：第 4 小節適合<strong>半終止</strong>，第 8 小節適合<strong>正格終止</strong>）。請為每一小節挑選最適合該小節主幹旋律音的和弦，再點擊播放聆聽你的作品！
+          </p>
+          <div id="harmonizer-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:0.65rem;"></div>
+          <p id="harmonizer-eval" style="margin-block-start:0.85rem;font-weight:600;color:var(--brand);"></p>
+        </div>
+      </section>
+
+      <!-- 2. Four Musical Forms -->
+      <section class="lesson-section" aria-labelledby="ch15-forms">
+        <h2 id="ch15-forms">2. 音樂的建築藍圖：四大經典曲式 (Musical Forms)</h2>
+        <p>
+          所有曲式的終極目標，都是在時間流動中取得<strong>統一性 (Unity / 重複)</strong> 與<strong>多樣性 (Variety / 對比)</strong> 的完美平衡：太過重複會單調乏味，完全不重複則支離破碎。
+        </p>
+
+        <div class="accordion" aria-label="四大經典曲式詳解">
+          <details open>
+            <summary>① 反覆曲式 Strophic Form (<code>A – A – A – A</code>) 與 12 小節藍調內部 <code>AAB</code> 結構</summary>
+            <div class="details-body">
+              <p>最古老簡潔的聲樂曲式（絕大多數民謠如《Barbara Allen》、《Erie Canal》皆屬之）：每一段新歌詞 (Verse) 都套用完全相同的旋律與和聲。雖然宏觀上是 <code>AAAA</code>，但內部常蘊含精巧變化——例如 Bessie Smith 的《Lost Your Head Blues》(1926) 在每段 12 小節內部呈現 <strong><code>A (I) – A (IV→I) – B (V→I)</code></strong> 的三句歌詞問答結構！</p>
+            </div>
+          </details>
+          <details>
+            <summary>② 二段體 Binary Form (<code>A – B</code>，常記為 <code>||: A :||: B :||</code>)</summary>
+            <div class="details-body">
+              <p>探索「對比原則」的兩段式曲式。以課本中貝多芬《D 大調舞曲 (Dance)》為例：A 段（8 小節反覆）以 <code>I–V</code> 為主，和聲節奏較慢（兩小節一換）故左手用琶音維持動能；B 段（8 小節反覆）偏向 <code>I–IV</code> 並加快和聲節奏（一小節一換甚至兩換），左手改用四分音符柱式和弦襯托流動旋律，最後回到原主調結束。</p>
+            </div>
+          </details>
+          <details>
+            <summary>③ 三段體 Ternary Form (<code>A – B – A</code>：呈示 Statement → 離題 Departure → 再現 Return)</summary>
+            <div class="details-body">
+              <p>同時兼顧「對比與再現」的三部曲式！課本以舒曼《圓舞曲 (Waltz)》為典範：<strong>A 段</strong>（1–16 小節）為 <code>a 小調</code>、強音 (<i lang="it">f</i>)、樂句長度富變化；<strong>B 段</strong>（17–28 小節）轉入明亮的 <strong><code>F 大調</code></strong>、轉為弱音 (<i lang="it">p</i>) 與規律四小節樂句；最後第 29–44 小節原封不動<strong>再現 A 段</strong>（<code>a 小調</code>），全曲並由左手圓舞曲「蹦-恰-恰」伴奏統一串聯。</p>
+            </div>
+          </details>
+          <details>
+            <summary>④ 32 小節流行歌曲曲式 32-Bar Song Form (<code>A – A – B – A</code>，8+8+8+8 小節)</summary>
+            <div class="details-body">
+              <p>20 世紀百老匯、爵士標準曲與流行歌最核心的黃金比例（如《Meet the Flintstones》、《Body and Soul》、《Satin Doll》、《Frosty the Snowman》）：四個 8 小節段落組成 <strong>呈示 A(1–8) → 重申 A(9–16) → 對比橋段 Bridge B(17–24) → 再現 A(25–32)</strong>！其中第 17–24 小節的 <strong>Bridge（B 段）</strong>會改變旋律、節奏甚至轉調來製造全曲最高潮的對比，再溫暖回歸最後一次 A 段。</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="callout callout-final">
+          <div class="callout-title">🎓 A Final Note：全書結語與心智練習 (Mental Practice)</div>
+          <p>
+            Duckworth 在第 15 章結尾勉勵每位讀者：即使手邊沒有樂器或課本，隨時隨地在腦中按五度圈拼寫音階、默想和弦與在心裡聽見旋律配法（心智練習 Mental Practice），都能讓你的音樂直覺突飛猛進。音樂基礎永遠不會過時——這本書給了你堅實的地基，接下來請帶著這套語言，去演奏、傾聽並寫出屬於你自己的音樂！
+          </p>
+        </div>
+      </section>
+
+      <!-- 3. Chapter 15 Quiz -->
+      <section class="lesson-section" aria-labelledby="ch15-quiz-sec">
+        <h2 id="ch15-quiz-sec">📝 第 15 章：配和聲策略與曲式結構檢定</h2>
+        <div id="ch15-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Interactive Harmonizer for Stephen Foster's "Old Folks at Home" (Measures 1-8 in C Major)
+      const CHORD_BANK = {
+        I:   { label: 'C (I 主和弦：C-E-G)',     notes: ['C3', 'G3', 'C4'], pcs: ['C', 'E', 'G'] },
+        ii:  { label: 'Dm (ii 副三：D-F-A)',     notes: ['D3', 'A3', 'D4'], pcs: ['D', 'F', 'A'] },
+        iii: { label: 'Em (iii 副三：E-G-B)',    notes: ['E3', 'B3', 'E4'], pcs: ['E', 'G', 'B'] },
+        IV:  { label: 'F (IV 下屬：F-A-C)',      notes: ['F2', 'C3', 'A3'], pcs: ['F', 'A', 'C'] },
+        V:   { label: 'G (V 屬和弦：G-B-D)',     notes: ['G2', 'D3', 'B3'], pcs: ['G', 'B', 'D'] },
+        V7:  { label: 'G7 (V7 屬七：G-B-D-F)',   notes: ['G2', 'F3', 'B3'], pcs: ['G', 'B', 'D', 'F'] },
+        vi:  { label: 'Am (vi 下中：A-C-E)',     notes: ['A2', 'E3', 'C4'], pcs: ['A', 'C', 'E'] }
+      };
+
+      const MEASURES = [
+        { bar: 1, lyric: 'Way down up-on', melDesc: 'E4 – D4 – C4 – E4', mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',   preset: 'I' },
+        { bar: 2, lyric: 'de Swa-nee',      melDesc: 'D4 – C4 – A4 – G4', mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV',  preset: 'IV' },
+        { bar: 3, lyric: 'rib-ber,',        melDesc: 'C5 – G4 – E4 – C4 (勾勒 C 和弦)', mainTone: 'C', melody: [{ p: 'C5', b: 2 }, { p: 'G4', b: 1 }, { p: 'E4', b: 1 }], choice: 'I',   preset: 'I' },
+        { bar: 4, lyric: 'Far, far (第1句尾)', melDesc: 'D4 全音符（半終止點！）', mainTone: 'D', melody: [{ p: 'D4', b: 4 }], choice: 'V',   preset: 'V' },
+        { bar: 5, lyric: "Dere's wha my",   melDesc: 'E4 – D4 – C4 – E4', mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',   preset: 'vi' },
+        { bar: 6, lyric: 'heart is turn-ing', melDesc: 'D4 – C4 – A4 – G4', mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV',  preset: 'ii' },
+        { bar: 7, lyric: 'eb-ber, (加速!)',  melDesc: 'G4–E4–C4 → D4–D4', mainTone: 'D', melody: [{ p: 'G4', b: 1 }, { p: 'E4', b: 1 }, { p: 'D4', b: 2 }], choice: 'V7',  preset: 'V7' },
+        { bar: 8, lyric: 'old folks at home.', melDesc: 'C4 全音符（正格終止！）', mainTone: 'C', melody: [{ p: 'C4', b: 4 }], choice: 'I',   preset: 'I' }
+      ];
+
+      const hGrid = document.getElementById('harmonizer-grid');
+      const hEval = document.getElementById('harmonizer-eval');
+
+      function evaluateHarmony() {
+        let matchCount = 0;
+        MEASURES.forEach(m => {
+          if (CHORD_BANK[m.choice].pcs.includes(m.mainTone)) matchCount++;
+        });
+        const halfCadOk = (MEASURES[3].choice === 'V' || MEASURES[3].choice === 'V7');
+        const authCadOk = ((MEASURES[6].choice === 'V' || MEASURES[6].choice === 'V7') && MEASURES[7].choice === 'I');
+        hEval.textContent = `和聲診斷：${matchCount}/8 小節主幹旋律音與所選和弦完美協和 ｜ 第 4 小節${halfCadOk ? '✓ 構成標準半終止' : '（建議試試 V 形成半終止）'} ｜ 第 7–8 小節${authCadOk ? '✓ 構成完美正格終止！' : '（建議第 7 小節用 V/V7、第 8 小節用 I 收尾）'}`;
+      }
+
+      function renderHarmonizer() {
+        hGrid.innerHTML = '';
+        MEASURES.forEach((m, idx) => {
+          const card = document.createElement('div');
+          card.className = 'concept-card';
+          card.style.padding = '0.85rem';
+          const optsHtml = Object.entries(CHORD_BANK).map(([k, v]) =>
+            `<option value="${k}" ${m.choice === k ? 'selected' : ''}>${v.label}</option>`
+          ).join('');
+          card.innerHTML = `
+            <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-muted);">
+              <span>第 ${m.bar} 小節</span>
+              <span>主幹音：<strong>${m.mainTone}</strong></span>
+            </div>
+            <div style="font-weight:700;font-size:0.9rem;margin-block:0.2rem;">${m.lyric}</div>
+            <div style="font-size:0.78rem;color:var(--text-secondary);margin-block-end:0.45rem;">${m.melDesc}</div>
+            <select aria-label="第 ${m.bar} 小節配和弦" style="inline-size:100%;font-size:0.84rem;">${optsHtml}</select>
+          `;
+          const sel = card.querySelector('select');
+          sel.addEventListener('change', () => {
+            m.choice = sel.value;
+            evaluateHarmony();
+            AudioEngine.playChord([...CHORD_BANK[m.choice].notes, m.melody[0].p], 0.8);
+          });
+          hGrid.appendChild(card);
+        });
+        evaluateHarmony();
+      }
+
+      renderHarmonizer();
+
+      document.getElementById('apply-foster-preset').addEventListener('click', () => {
+        MEASURES.forEach(m => { m.choice = m.preset; });
+        renderHarmonizer();
+      });
+
+      document.getElementById('play-harmonization-btn').addEventListener('click', () => {
+        const events = [];
+        const cards = hGrid.querySelectorAll('.concept-card');
+        MEASURES.forEach((m, mIdx) => {
+          const chNotes = CHORD_BANK[m.choice].notes;
+          m.melody.forEach((mn, nIdx) => {
+            events.push({
+              notes: nIdx === 0 ? [...chNotes, mn.p] : [mn.p],
+              beats: mn.b * 0.55,
+              mIdx
+            });
+          });
+        });
+        AudioEngine.playSequence(events, 98, {
+          onStep: ev => {
+            cards.forEach((c, ci) => {
+              c.style.borderColor = ci === ev.mIdx ? 'var(--accent-amber)' : 'var(--border-subtle)';
+            });
+          },
+          onDone: () => {
+            cards.forEach(c => { c.style.borderColor = 'var(--border-subtle)'; });
+          }
+        });
+      });
+
+      Widgets.createQuiz('#ch15-quiz', 'quiz-ch15', 'ch15', [
+        {
+          prompt: '為什麼 I、IV、V 三個「正三和弦 (Primary Triads)」幾乎可以為任何一首自然音階旋律配和聲？',
+          options: [
+            '因為它們全部都是小三和弦',
+            '因為這三個三和弦合起來正好包含了該調音階的全部 7 個音',
+            '因為它們不包含導音',
+            '因為它們只能用在小調'
+          ],
+          answer: 1,
+          explanation: '例如 C 大調中 I(C-E-G) + IV(F-A-C) + V(G-B-D) 涵蓋了 C, D, E, F, G, A, B 全部七個音級！'
+        },
+        {
+          prompt: '在 C 大調中，旋律出現單音「G」，請問它在順階三和弦中可以屬於哪三個不同的三和弦？',
+          options: [
+            'G 大三 (I/V)、Em 小三 (iii) 與 C 大三 (I) — 即 V(根音)、iii(三音)、I(五音)',
+            '只能配 G 大三和弦',
+            'F 大三、Dm 小三與 Am 小三',
+            'B°、Dm 與 F'
+          ],
+          answer: 0,
+          explanation: '任何一個音階音都可擔任三個順階三和弦的成員：G 是 G(V) 的根音、Em(iii) 的三音、以及 C(I) 的五音！'
+        },
+        {
+          prompt: '為一首新旋律配和聲時，Duckworth 強調在認識旋律與分出樂句之後、填入中間和弦之前，必須「優先規劃」什麼才不會讓和聲漫無目的遊蕩？',
+          options: ['先寫吉他指法圖', '先規劃每個樂句結尾的終止式 (Plan the cadences)', '把每拍都換一個副三和弦', '先轉調三次'],
+          answer: 1,
+          explanation: '先確立各樂句結尾的終止式（如半終止配正格終止），整條和聲進行才有清晰的方向感與呼吸！'
+        },
+        {
+          prompt: '一首 32 小節的流行標準曲（如《Meet the Flintstones》或《Satin Doll》），由四個 8 小節段落組成「呈示 → 重申 → 對比橋段 (Bridge) → 再現」，其曲式代號為何？',
+          options: ['AAAA（反覆曲式）', 'AB（二段體）', 'ABA（三段體）', 'AABA（32 小節流行歌曲曲式）'],
+          answer: 3,
+          explanation: '32-Bar Song Form 標準結構為 A(8) – A(8) – B(8 Bridge 對比段) – A(8)，共 32 小節！'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>

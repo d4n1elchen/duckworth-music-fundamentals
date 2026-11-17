@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+    } catch {}
+  </script>
+  <title>第 2 章：鍵盤基礎 ＋ 焦點技能 1 | 創意音樂基礎 11e</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="ch02">
+  <header id="site-header"></header>
+
+  <div class="app-shell">
+    <aside id="course-sidebar" class="course-sidebar"></aside>
+
+    <main class="lesson-main">
+      <section class="chapter-hero">
+        <span class="chapter-eyebrow">Chapter 2 + Focus on Skills 1 · 第 2 章與第一階段檢定</span>
+        <h1 id="main-heading" tabindex="-1">第 2 章：鍵盤基礎（The Keyboard）＋ 焦點技能檢定 1</h1>
+        <p class="chapter-subtitle">
+          熟悉鋼琴或電子鍵盤能讓你「同時用眼睛看見、用耳朵聽見」音程、音階與三和弦的空間距離。標準鋼琴共有 <strong>88 鍵（52 個白鍵＋36 個黑鍵）</strong>，黑鍵以「兩黑、三黑」交替排列；由左往右音高漸高，由右往左音高漸低。
+        </p>
+        <div class="learning-goals">
+          <h2>本章學習目標 (What Will I Learn Here?)</h2>
+          <ul>
+            <li>利用兩大視覺地標（<strong>C 在兩黑鍵左側</strong>、<strong>F 在三黑鍵左側</strong>）瞬間定位所有白鍵與黑鍵雙重名稱。</li>
+            <li>理解鍵盤上的最小音樂距離<strong>半音 (Half Step)</strong>（含自然半音 vs 變化半音）與<strong>全音 (Whole Step)</strong>。</li>
+            <li>精通五種<strong>臨時記號 (Accidentals：♯, ♭, ♮, 𝄪, 𝄫)</strong> 的譜面精確書寫位置，並通過 <strong>Focus on Skills 1</strong> 綜合檢定！</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 1. White Keys & Black Keys -->
+      <section class="lesson-section" aria-labelledby="ch2-keys">
+        <h2 id="ch2-keys">1. 白鍵地標 (Landmarks C &amp; F) 與黑鍵的雙重命名</h2>
+        <p>
+          鋼琴白鍵由最左端的 <code>A</code> 開始，依序循環排列 <code>A – B – C – D – E – F – G</code>。初學鍵盤最快的方法是記住兩個<strong>地標音 (Landmarks)</strong>：
+        </p>
+        <ul>
+          <li><strong>地標 C：</strong>永遠出現在<strong>「一組兩個黑鍵」的緊鄰左方</strong>（位於鍵盤中央附近者即為中央 C）。</li>
+          <li><strong>地標 F：</strong>永遠出現在<strong>「一組三個黑鍵」的緊鄰左方</strong>。</li>
+        </ul>
+        <p>
+          而每一個<strong>黑鍵</strong>都沒有獨立字母，而是依它左右相鄰的白鍵獲得<strong>兩個名稱</strong>：例如 F 與 G 之間的黑鍵，視為 F 升高半音時稱為 <strong>F sharp (F♯)</strong>，視為 G 降低半音時則稱為 <strong>G flat (G♭)</strong>。
+        </p>
+      </section>
+
+      <!-- 2. Half Steps, Whole Steps, Accidentals -->
+      <section class="lesson-section" aria-labelledby="ch2-steps">
+        <h2 id="ch2-steps">2. 半音 (Half Steps)、全音 (Whole Steps) 與五種臨時記號</h2>
+        <p>
+          兩個音之間的音樂距離稱為<strong>音程 (Interval)</strong>。鍵盤上最小的音程是<strong>半音 (Half Step)</strong>——也就是任意琴鍵到它「緊鄰上一個或下一個琴鍵（無論黑白）」的距離。請特別注意：<strong>每一個八度中有且僅有兩處「白鍵與白鍵直接相鄰（中間沒有黑鍵）」的自然半音：<code>E–F</code> 與 <code>B–C</code>！</strong>
+        </p>
+        <p>
+          <strong>全音 (Whole Step)</strong> 則由兩個半音組成——在鍵盤上，相距全音的兩個琴鍵<strong>中間必定隔著一個琴鍵</strong>（例如 <code>C–D</code> 中間隔著 <code>C♯</code>，<code>E–F♯</code> 中間隔著 <code>F</code>，<code>F♯–G♯</code> 中間隔著 <code>G</code>）。
+        </p>
+
+        <div class="callout callout-tips">
+          <div class="callout-title">💡 Tips &amp; Tools：自然半音 (Diatonic) vs. 變化半音 (Chromatic)</div>
+          <p>
+            雖然鍵盤距離相同，但記譜上分為兩種半音（這在第 10 章小調音階至關重要）：<br>
+            • <strong>自然半音 (Diatonic Half Step)：</strong>使用<strong>相鄰的不同字母</strong>與相鄰線間位置，例如 <code>F – G♭</code>、<code>E – F</code>、<code>G♯ – A</code>。<br>
+            • <strong>變化半音 (Chromatic Half Step)：</strong>使用<strong>相同字母</strong>與同一條線／間位置，例如 <code>F – F♯</code>、<code>B – B♭</code>。
+          </p>
+        </div>
+
+        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="acc-table-cap">
+          <table class="data-table stack-mobile">
+            <caption id="acc-table-cap">五種臨時記號 (Accidentals) 與書寫規則對照表</caption>
+            <thead>
+              <tr>
+                <th scope="col">記號名稱</th>
+                <th scope="col">符號</th>
+                <th scope="col">音高改變效果</th>
+                <th scope="col">鍵盤實例</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">升記號 (Sharp)</th>
+                <td data-label="符號"><code>♯</code></td>
+                <td data-label="效果">將原音升高 1 個半音</td>
+                <td data-label="實例"><code>F → F♯</code>（白鍵到黑鍵）、<code>E → E♯</code>（彈奏白鍵 F）</td>
+              </tr>
+              <tr>
+                <th scope="row">降記號 (Flat)</th>
+                <td data-label="符號"><code>♭</code></td>
+                <td data-label="效果">將原音降低 1 個半音</td>
+                <td data-label="實例"><code>B → B♭</code>、<code>C → C♭</code>（彈奏白鍵 B）</td>
+              </tr>
+              <tr>
+                <th scope="row">還原記號 (Natural)</th>
+                <td data-label="符號"><code>♮</code></td>
+                <td data-label="效果">取消先前的升降記號，恢復白鍵原音</td>
+                <td data-label="實例"><code>F♯ → F♮</code></td>
+              </tr>
+              <tr>
+                <th scope="row">重升記號 (Double Sharp)</th>
+                <td data-label="符號"><code>𝄪</code></td>
+                <td data-label="效果">升高 2 個半音（1 個全音）</td>
+                <td data-label="實例"><code>F → F𝄪</code>（在鍵盤上等同白鍵 <code>G</code>！）</td>
+              </tr>
+              <tr>
+                <th scope="row">重降記號 (Double Flat)</th>
+                <td data-label="符號"><code>𝄫</code></td>
+                <td data-label="效果">降低 2 個半音（1 個全音）</td>
+                <td data-label="實例"><code>E → E𝄫</code>（在鍵盤上等同白鍵 <code>D</code>！）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          <strong>書寫注意：</strong>文字書寫時臨時記號放在字母後面（如 <code>C♯</code> 讀作 C sharp）；但在<strong>五線譜上，所有臨時記號都必須精確寫在音符左方，且正對同一條線或同一個間</strong>！
+        </p>
+
+        <!-- 互動鍵盤距離與重升重降探索儀 -->
+        <div class="widget-box">
+          <div class="widget-header">
+            <h3 class="widget-title">🎹 互動鍵盤實驗室：半音／全音測距儀 ＆ 重升重降定位</h3>
+            <span id="kb-distance-readout" class="badge">依序點擊任兩個琴鍵，自動計算半音／全音距離！</span>
+          </div>
+          <div class="widget-controls">
+            <button type="button" class="btn btn-sm" data-acc-demo="F##4">示範 F𝄪4 (=G4)</button>
+            <button type="button" class="btn btn-sm" data-acc-demo="Ebb4">示範 E𝄫4 (=D4)</button>
+            <button type="button" class="btn btn-sm" data-acc-demo="C##4">示範 C𝄪4 (=D4)</button>
+            <button type="button" class="btn btn-sm" data-acc-demo="Bbb3">示範 B𝄫3 (=A3)</button>
+            <button type="button" class="btn btn-sm btn-primary" id="song-frere-btn">▶ 鍵盤視奏《Frère Jacques》開頭</button>
+          </div>
+          <div id="ch02-piano"></div>
+          <div id="ch02-acc-score"></div>
+        </div>
+      </section>
+
+      <!-- 3. Focus on Skills 1: The Basics Checkpoint -->
+      <section class="lesson-section" aria-labelledby="focus1-heading">
+        <h2 id="focus1-heading">🏆 Focus on Skills 1: The Basics（第一階段綜合技能檢定）</h2>
+        <p>
+          這是課本七大檢定站的第一站，涵蓋導論、第 1 章與第 2 章的所有核心概念（譜號、六大要素、黑白鍵、全半音、重升重降記號與節奏時值換算）。建議答對率達 80% 以上再進入第 3 章！
+        </p>
+        <div id="focus1-quiz"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script defer src="js/course-data.js"></script>
+  <script defer src="js/audio-engine.js"></script>
+  <script defer src="js/notation.js"></script>
+  <script defer src="js/widgets.js"></script>
+  <script defer src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let prevMidi = null;
+      const readout = document.getElementById('kb-distance-readout');
+
+      const piano = Widgets.createPiano('#ch02-piano', {
+        startMidi: 53, // F3
+        endMidi: 77,   // F5
+        showLandmarks: true,
+        onNote: (midi) => {
+          const curP = CourseData.midiToCleanPitch(midi);
+          if (prevMidi !== null && prevMidi !== midi) {
+            const diff = Math.abs(midi - prevMidi);
+            const prevP = CourseData.midiToCleanPitch(prevMidi);
+            const tag = diff === 1 ? '1 個半音 (Half Step, H)' : diff === 2 ? '1 個全音 (Whole Step, W = 2 半音)' : `相距 ${diff} 個半音`;
+            readout.textContent = `${prevP.label} → ${curP.label}：${tag}`;
+            piano.highlightMidi([prevMidi, midi], midi);
+          } else {
+            readout.textContent = `已點選第一音：${curP.label}（請再點選第二個琴鍵比較距離）`;
+            piano.highlightMidi([midi], midi);
+          }
+          prevMidi = midi;
+        }
+      });
+
+      function renderAccDemo(pitchStr) {
+        const p = CourseData.parsePitch(pitchStr);
+        const eq = CourseData.midiToCleanPitch(p.midi);
+        piano.highlightMidi([p.midi], p.midi);
+        AudioEngine.playNote(p.midi, 0.8);
+        readout.textContent = `譜面記號 ${p.label} 在鍵盤上彈奏的位置即為「${eq.label}」琴鍵！`;
+        MusicNotation.render('#ch02-acc-score', {
+          clef: 'treble',
+          playable: false,
+          minWidth: 320,
+          notes: [
+            { pitch: pitchStr, dur: 'h', label: `記譜：${p.label}` },
+            { pitch: eq.ascii, dur: 'h', label: `實際琴鍵：${eq.label}` }
+          ]
+        });
+      }
+
+      document.querySelectorAll('[data-acc-demo]').forEach(btn => {
+        btn.addEventListener('click', () => renderAccDemo(btn.dataset.accDemo));
+      });
+      renderAccDemo('F##4');
+
+      document.getElementById('song-frere-btn').addEventListener('click', () => {
+        const notes = ['F4', 'G4', 'A4', 'F4', 'F4', 'G4', 'A4', 'F4', 'A4', 'Bb4', 'C5'];
+        AudioEngine.playSequence(notes.map((n, i) => ({
+          pitch: n,
+          beats: i === 10 ? 1.6 : 0.75
+        })), 108, {
+          onStep: (ev) => {
+            const m = CourseData.parsePitch(ev.pitch).midi;
+            piano.flashKey(m, 340);
+          }
+        });
+      });
+
+      Widgets.createQuiz('#focus1-quiz', 'quiz-focus1', 'ch02', [
+        {
+          prompt: '【Focus 1-2】下列哪一組完整列出了 Duckworth 所說的「音樂六大基本要素」？',
+          options: [
+            '節奏、旋律、和聲、音色、織體、曲式',
+            '高音譜號、低音譜號、全音符、小節線、升號、降號',
+            '頻率、振幅、分貝、起音、持續、衰減',
+            '二拍子、三拍子、四拍子、快板、慢板、行板'
+          ],
+          answer: 0,
+          explanation: '六大基本要素為 Rhythm（節奏）、Melody（旋律）、Harmony（和聲）、Timbre（音色）、Texture（織體）、Form（曲式）。'
+        },
+        {
+          prompt: '【Focus 1-3 & 2-1】在鋼琴鍵盤上，緊鄰「一組三個黑鍵」正左方的白鍵地標音永遠是什麼音？',
+          options: ['C', 'D', 'F', 'G'],
+          answer: 2,
+          explanation: 'C 位於兩個黑鍵左方；F 永遠位於三個黑鍵左方！'
+        },
+        {
+          prompt: '【Practice 2-4】在鋼琴鍵盤上，白鍵 E 到白鍵 F 之間的距離是什麼？',
+          options: ['全音 (Whole Step)', '自然半音 (Diatonic Half Step)', '變化半音 (Chromatic Half Step)', '大三度'],
+          answer: 1,
+          explanation: 'E 與 F 之間沒有黑鍵，是鍵盤上緊鄰的兩個琴鍵（半音），且使用相鄰的不同字母 E 與 F，故為自然半音 (Diatonic Half Step)。'
+        },
+        {
+          prompt: '【Focus 1-5 重升與重降定位】譜上寫著重降記號「E𝄫 (E double flat)」，在鋼琴鍵盤上應該彈哪一個琴鍵？',
+          options: ['E♭ 黑鍵', 'D 白鍵', 'C♯ 黑鍵', 'F 白鍵'],
+          answer: 1,
+          explanation: '重降記號 (𝄫) 會將原音降低兩個半音（一個全音）：E 往下降半音是 E♭，再降半音就是白鍵 D！'
+        },
+        {
+          prompt: '【Focus 1-5】譜上寫著重升記號「C𝄪 (C double sharp)」，在鋼琴鍵盤上應該彈哪一個琴鍵？',
+          options: ['C♯ 黑鍵', 'D 白鍵', 'D♯ 黑鍵', 'B 白鍵'],
+          answer: 1,
+          explanation: '重升記號 (𝄪) 將 C 升高兩個半音：C → C♯ → D 白鍵。'
+        },
+        {
+          prompt: '【Tips & Tools 概念】「G 到 G♯」與「G 到 A♭」在鍵盤上聽起來一樣，但前者（同字母）稱為什麼半音？',
+          options: ['自然半音 (Diatonic Half Step)', '變化半音 (Chromatic Half Step)', '全音 (Whole Step)', '複音程'],
+          answer: 1,
+          explanation: '相同字母與同一線間位置的半音（如 G–G♯）稱為變化半音 (Chromatic Half Step)；相鄰字母（如 G–A♭）則為自然半音。'
+        },
+        {
+          prompt: '【Focus 1-8 & 1-9】四拍子 (Quadruple meter) 每小節有幾個脈動？且 1 個四分休止符等於幾個十六分休止符？',
+          options: ['4 個脈動；等於 4 個十六分休止符', '4 個脈動；等於 8 個十六分休止符', '2 個脈動；等於 4 個十六分休止符', '3 個脈動；等於 6 個十六分休止符'],
+          answer: 0,
+          explanation: '四拍子每小節有 4 個脈動；1 個四分休止符 = 2 個八分休止符 = 4 個十六分休止符。'
+        }
+      ]);
+    });
+  </script>
+</body>
+</html>
