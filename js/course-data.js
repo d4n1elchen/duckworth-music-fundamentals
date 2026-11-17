@@ -1,39 +1,130 @@
 /* ==========================================================================
-   course-data.js — Full Textbook Syllabus & Enharmonic Music Theory Engine
-   Based on William Duckworth, A Creative Approach to Music Fundamentals, 11e
+   course-data.js — Bilingual i18n Manager, Syllabus & Music Theory Engine
+   Default Language: English ('en') · Persisted in localStorage ('duckworth11e_lang')
    ========================================================================== */
 (function () {
   'use strict';
 
+  /* 0. Bilingual i18n Manager (EN default, ZH toggle, localStorage persistence) */
+  const LANG_KEY = 'duckworth11e_lang';
+
+  function getLang() {
+    try {
+      const v = localStorage.getItem(LANG_KEY);
+      return v === 'zh' ? 'zh' : 'en'; // Default is English!
+    } catch {
+      return document.documentElement.dataset.lang === 'zh' ? 'zh' : 'en';
+    }
+  }
+
+  function isEn() {
+    return getLang() === 'en';
+  }
+
+  function t(enVal, zhVal) {
+    if (enVal && typeof enVal === 'object' && ('en' in enVal || 'zh' in enVal)) {
+      return isEn() ? (enVal.en ?? enVal.zh) : (enVal.zh ?? enVal.en);
+    }
+    return isEn() ? enVal : (zhVal !== undefined ? zhVal : enVal);
+  }
+
+  function pick(val) {
+    if (val && typeof val === 'object' && ('en' in val || 'zh' in val)) {
+      return isEn() ? (val.en ?? val.zh) : (val.zh ?? val.en);
+    }
+    return val;
+  }
+
+  function applyDom(root = document) {
+    const lang = getLang();
+    const enMode = lang === 'en';
+    document.documentElement.dataset.lang = lang;
+    document.documentElement.lang = enMode ? 'en' : 'zh-Hant';
+
+    if (document.body) {
+      if (document.body._enTitle === undefined) {
+        document.body._enTitle = document.title;
+      }
+      if (document.body.dataset.zhTitle) {
+        document.title = enMode ? document.body._enTitle : document.body.dataset.zhTitle;
+      }
+    }
+
+    root.querySelectorAll('[data-zh]').forEach(el => {
+      if (el._enHtml === undefined) el._enHtml = el.innerHTML;
+      el.innerHTML = enMode ? el._enHtml : el.dataset.zh;
+    });
+
+    root.querySelectorAll('[data-zh-placeholder]').forEach(el => {
+      if (el._enPh === undefined) el._enPh = el.getAttribute('placeholder') || '';
+      el.setAttribute('placeholder', enMode ? el._enPh : el.dataset.zhPlaceholder);
+    });
+
+    root.querySelectorAll('[data-zh-aria]').forEach(el => {
+      if (el._enAria === undefined) el._enAria = el.getAttribute('aria-label') || '';
+      el.setAttribute('aria-label', enMode ? el._enAria : el.dataset.zhAria);
+    });
+  }
+
+  function setLang(newLang) {
+    const clean = newLang === 'zh' ? 'zh' : 'en';
+    try { localStorage.setItem(LANG_KEY, clean); } catch {}
+    applyDom(document);
+    window.dispatchEvent(new CustomEvent('lang-changed', { detail: { lang: clean } }));
+  }
+
+  function toggleLang() {
+    setLang(isEn() ? 'zh' : 'en');
+  }
+
+  window.addEventListener('storage', (e) => {
+    if (e.key === LANG_KEY) {
+      applyDom(document);
+      window.dispatchEvent(new CustomEvent('lang-changed', { detail: { lang: getLang() } }));
+    }
+  });
+
+  window.I18n = {
+    LANG_KEY,
+    getLang,
+    isEn,
+    t,
+    pick,
+    applyDom,
+    setLang,
+    toggleLang
+  };
+
+  /* 1. Full 20-Page Course Syllabus (Bilingual EN & ZH) */
   const COURSE_PAGES = [
-    { id: 'home', num: '總覽', file: 'index.html', group: '導讀與基礎', title: '課程總覽與學習儀表板', en: 'Course Hub & Progress' },
-    { id: 'intro', num: 'Intro', file: 'intro.html', group: '導讀與基礎', title: '導論：音樂的本質與練習之道', en: 'Introduction: Sound, Elements & Practice' },
-    { id: 'ch01', num: 'Ch 1', file: 'ch01-basics.html', group: '導讀與基礎', title: '第 1 章：音樂基礎（節奏與五線譜）', en: 'The Basics of Music' },
-    { id: 'ch02', num: 'Ch 2', file: 'ch02-keyboard.html', group: '導讀與基礎', title: '第 2 章：鍵盤基礎 ＋ 技能檢定 1', en: 'The Keyboard & Focus on Skills 1' },
+    { id: 'home', num: 'Hub', numZh: '總覽', file: 'index.html', groupEn: 'Foundations', group: '導讀與基礎', en: 'Interactive Studio Hub', title: '課程總覽與學習儀表板' },
+    { id: 'intro', num: 'Intro', numZh: '導論', file: 'intro.html', groupEn: 'Foundations', group: '導讀與基礎', en: 'Intro: Playing with Sound & Texture', title: '導論：玩轉聲音與織體' },
+    { id: 'ch01', num: 'Ch 1', numZh: 'Ch 1', file: 'ch01-basics.html', groupEn: 'Foundations', group: '導讀與基礎', en: 'Ch 1: The Basics of Music', title: '第 1 章：節奏積木與五線譜' },
+    { id: 'ch02', num: 'Ch 2', numZh: 'Ch 2', file: 'ch02-keyboard.html', groupEn: 'Foundations', group: '導讀與基礎', en: 'Ch 2: The Keyboard + Focus 1', title: '第 2 章：鍵盤跳躍儀 ＋ 檢定 1' },
 
-    { id: 'ch03', num: 'Ch 3', file: 'ch03-simple-meter.html', group: '節奏與音高系統', title: '第 3 章：節奏（一）單拍子', en: 'Rhythm I: Simple Meter' },
-    { id: 'ch04', num: 'Ch 4', file: 'ch04-compound-meter.html', group: '節奏與音高系統', title: '第 4 章：節奏（二）複拍子 ＋ 檢定 2', en: 'Rhythm II: Compound Meter & Focus 2' },
-    { id: 'ch05', num: 'Ch 5', file: 'ch05-pitch.html', group: '節奏與音高系統', title: '第 5 章：音高進階與樂譜地圖 ＋ 檢定 3', en: 'Pitch, Dynamics, Musical Map & Focus 3' },
+    { id: 'ch03', num: 'Ch 3', numZh: 'Ch 3', file: 'ch03-simple-meter.html', groupEn: 'Rhythm & Pitch', group: '節奏與音高系統', en: 'Ch 3: Rhythm I — Simple Meter', title: '第 3 章：單拍子鼓機與指揮' },
+    { id: 'ch04', num: 'Ch 4', numZh: 'Ch 4', file: 'ch04-compound-meter.html', groupEn: 'Rhythm & Pitch', group: '節奏與音高系統', en: 'Ch 4: Rhythm II — Compound Meter + Focus 2', title: '第 4 章：複拍子雷達 ＋ 檢定 2' },
+    { id: 'ch05', num: 'Ch 5', numZh: 'Ch 5', file: 'ch05-pitch.html', groupEn: 'Rhythm & Pitch', group: '節奏與音高系統', en: 'Ch 5: Pitch, Dynamics & Map + Focus 3', title: '第 5 章：八度、力度與導航 ＋ 檢定 3' },
 
-    { id: 'ch06', num: 'Ch 6', file: 'ch06-major-scales.html', group: '大調、調號與音程', title: '第 6 章：大調音階與視唱練耳', en: 'Major Scales, Scale Degrees & Ear Training' },
-    { id: 'ch07', num: 'Ch 7', file: 'ch07-major-keys.html', group: '大調、調號與音程', title: '第 7 章：大調調號與五度圈 ＋ 檢定 4', en: 'Major Key Signatures & Focus 4' },
-    { id: 'ch08', num: 'Ch 8', file: 'ch08-intervals.html', group: '大調、調號與音程', title: '第 8 章：音程識別與轉位 ＋ 檢定 5', en: 'Intervals, Compound & Inversion & Focus 5' },
+    { id: 'ch06', num: 'Ch 6', numZh: 'Ch 6', file: 'ch06-major-scales.html', groupEn: 'Major Keys & Intervals', group: '大調、調號與音程', en: 'Ch 6: Major Scales & Scale Degrees', title: '第 6 章：大調音階階梯與練耳' },
+    { id: 'ch07', num: 'Ch 7', numZh: 'Ch 7', file: 'ch07-major-keys.html', groupEn: 'Major Keys & Intervals', group: '大調、調號與音程', en: 'Ch 7: Major Key Signatures + Focus 4', title: '第 7 章：大調調號與五度圈 ＋ 檢定 4' },
+    { id: 'ch08', num: 'Ch 8', numZh: 'Ch 8', file: 'ch08-intervals.html', groupEn: 'Major Keys & Intervals', group: '大調、調號與音程', en: 'Ch 8: Intervals & Inversion + Focus 5', title: '第 8 章：音程共振與轉位 ＋ 檢定 5' },
 
-    { id: 'ch09', num: 'Ch 9', file: 'ch09-minor-keys.html', group: '小調、五聲與藍調', title: '第 9 章：小調調號（關係調與平行調）', en: 'Minor Key Signatures' },
-    { id: 'ch10', num: 'Ch 10', file: 'ch10-minor-scales.html', group: '小調、五聲與藍調', title: '第 10 章：小調音階的三種形式', en: 'Minor Scales (Natural, Harmonic, Melodic)' },
-    { id: 'ch11', num: 'Ch 11', file: 'ch11-pentatonic-blues.html', group: '小調、五聲與藍調', title: '第 11 章：五聲音階與藍調音階 ＋ 檢定 6', en: 'Pentatonic & Blues Scales & Focus 6' },
+    { id: 'ch09', num: 'Ch 9', numZh: 'Ch 9', file: 'ch09-minor-keys.html', groupEn: 'Minor, Pentatonic & Blues', group: '小調、五聲與藍調', en: 'Ch 9: Minor Key Signatures', title: '第 9 章：小調調號（關係與平行調）' },
+    { id: 'ch10', num: 'Ch 10', numZh: 'Ch 10', file: 'ch10-minor-scales.html', groupEn: 'Minor, Pentatonic & Blues', group: '小調、五聲與藍調', en: 'Ch 10: Minor Scales (3 Forms)', title: '第 10 章：小調三態 DNA 階梯' },
+    { id: 'ch11', num: 'Ch 11', numZh: 'Ch 11', file: 'ch11-pentatonic-blues.html', groupEn: 'Minor, Pentatonic & Blues', group: '小調、五聲與藍調', en: 'Ch 11: Pentatonic & Blues + Focus 6', title: '第 11 章：五聲與藍調即興 ＋ 檢定 6' },
 
-    { id: 'ch12', num: 'Ch 12', file: 'ch12-triads.html', group: '和弦、進行與歌曲創作', title: '第 12 章：三和弦結構與轉位', en: 'Triads, Positions & Inversions' },
-    { id: 'ch13', num: 'Ch 13', file: 'ch13-triads-context.html', group: '和弦、進行與歌曲創作', title: '第 13 章：音樂脈絡中的和弦與七和弦', en: 'Triads in Context, Tablature & V7' },
-    { id: 'ch14', num: 'Ch 14', file: 'ch14-progressions.html', group: '和弦、進行與歌曲創作', title: '第 14 章：和弦進行、終止式與藍調 ＋ 檢定 7', en: 'Chord Progressions, Cadences & Focus 7' },
-    { id: 'ch15', num: 'Ch 15', file: 'ch15-songwriting.html', group: '和弦、進行與歌曲創作', title: '第 15 章：歌曲創作、配和聲與四大曲式', en: 'Writing a Song, Harmonizing & Form' },
+    { id: 'ch12', num: 'Ch 12', numZh: 'Ch 12', file: 'ch12-triads.html', groupEn: 'Harmony & Songwriting', group: '和弦、進行與歌曲創作', en: 'Ch 12: Triads & Inversions', title: '第 12 章：三和弦積木與轉位' },
+    { id: 'ch13', num: 'Ch 13', numZh: 'Ch 13', file: 'ch13-triads-context.html', groupEn: 'Harmony & Songwriting', group: '和弦、進行與歌曲創作', en: 'Ch 13: Triads in Context & V7', title: '第 13 章：和弦代號、吉他與 V7' },
+    { id: 'ch14', num: 'Ch 14', numZh: 'Ch 14', file: 'ch14-progressions.html', groupEn: 'Harmony & Songwriting', group: '和弦、進行與歌曲創作', en: 'Ch 14: Progressions, Cadences & Blues + Focus 7', title: '第 14 章：終止式與 12 小節藍調 ＋ 檢定 7' },
+    { id: 'ch15', num: 'Ch 15', numZh: 'Ch 15', file: 'ch15-songwriting.html', groupEn: 'Harmony & Songwriting', group: '和弦、進行與歌曲創作', en: 'Ch 15: Writing a Song & Form', title: '第 15 章：寫歌工作室與四大曲式' },
 
-    { id: 'app-ae', num: 'App A–E', file: 'appendices-rhythm-melody.html', group: '附錄實練室與總辭典', title: '附錄 A–E：節奏合奏、視唱與鍵盤指法', en: 'Appendices A–E: Rhythms, Solfège & Fingerings' },
-    { id: 'app-fk', num: 'App F–K', file: 'appendices-modes-timbre.html', group: '附錄實練室與總辭典', title: '附錄 F–K：C 譜號、調式、泛音聲學與吉他', en: 'Appendices F–K: C Clef, Modes, Acoustics & Guitar' },
-    { id: 'glossary', num: '辭典', file: 'glossary.html', group: '附錄實練室與總辭典', title: '音樂術語總辭典與經典曲目索引', en: 'Glossary & Index to Musical Examples' }
+    { id: 'app-ae', num: 'App A–E', numZh: '附錄 A–E', file: 'appendices-rhythm-melody.html', groupEn: 'Appendices & Glossary', group: '附錄實練室與總辭典', en: 'Appendices A–E: Polyrhythms, Solfège & Fingerings', title: '附錄 A–E：世界複節奏、唱名與指法' },
+    { id: 'app-fk', num: 'App F–K', numZh: '附錄 F–K', file: 'appendices-modes-timbre.html', groupEn: 'Appendices & Glossary', group: '附錄實練室與總辭典', en: 'Appendices F–K: C Clefs, Modes, Harmonics & Guitar', title: '附錄 F–K：C 譜號、調式、泛音與吉他' },
+    { id: 'glossary', num: 'Glossary', numZh: '辭典', file: 'glossary.html', groupEn: 'Appendices & Glossary', group: '附錄實練室與總辭典', en: 'Glossary Flashcards & Examples Index', title: '術語翻卡與快查總辭典' }
   ];
 
-  /* Enharmonic-exact Music Theory Engine */
+  /* 2. Enharmonic-Exact Music Theory Engine */
   const LETTERS = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
   const BASE_SEMITONES = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
 
@@ -66,10 +157,10 @@
     else if (acc === '#' || acc === '♯') alter = 1;
     else if (acc === 'b' || acc === '♭') alter = -1;
     else if (acc === '𝄫' || acc === 'bb') alter = -2;
-    else alter = 0;
     const explicitNatural = (acc === 'n' || acc === '♮');
-    const diatonicStep = octave * 7 + LETTERS.indexOf(letter); // C4 = 28
-    const midi = (octave + 1) * 12 + BASE_SEMITONES[letter] + alter; // C4 = 60
+    const diatonicStep = octave * 7 + LETTERS.indexOf(letter);
+    const midi = (octave + 1) * 12 + BASE_SEMITONES[letter] + alter;
+    const pitchClass = ((midi % 12) + 12) % 12;
     const freq = 440 * Math.pow(2, (midi - 69) / 12);
     return {
       letter,
@@ -78,6 +169,7 @@
       octave,
       diatonicStep,
       midi,
+      pitchClass,
       freq,
       name: letter + alterToSymbol(alter),
       ascii: letter + alterToAscii(alter) + octave,
@@ -101,105 +193,87 @@
 
   const SCALE_PATTERNS = {
     major: {
-      label: '大調音階 (Major)',
-      steps: [
-        [0, 0], [1, 2], [2, 4], [3, 5], [4, 7], [5, 9], [6, 11], [7, 12]
-      ],
-      formula: 'W - W - H - W - W - W - H',
+      en: 'Major Scale', zh: '大調音階',
+      steps: [[0, 0], [1, 2], [2, 4], [3, 5], [4, 7], [5, 9], [6, 11], [7, 12]],
+      formulaEn: 'W - W - H - W - W - W - H', formulaZh: 'W - W - H - W - W - W - H',
       solfege: ['do', 're', 'mi', 'fa', 'sol', 'la', 'ti', 'do']
     },
     naturalMinor: {
-      label: '自然小調 (Natural Minor)',
-      steps: [
-        [0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 8], [6, 10], [7, 12]
-      ],
-      formula: 'W - H - W - W - H - W - W',
+      en: 'Natural Minor Scale', zh: '自然小調',
+      steps: [[0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 8], [6, 10], [7, 12]],
+      formulaEn: 'W - H - W - W - H - W - W', formulaZh: 'W - H - W - W - H - W - W',
       solfege: ['do', 're', 'me', 'fa', 'sol', 'le', 'te', 'do']
     },
     harmonicMinor: {
-      label: '和聲小調 (Harmonic Minor)',
-      steps: [
-        [0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 8], [6, 11], [7, 12]
-      ],
-      formula: 'W - H - W - W - H - A2(3半音) - H',
+      en: 'Harmonic Minor Scale', zh: '和聲小調',
+      steps: [[0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 8], [6, 11], [7, 12]],
+      formulaEn: 'W - H - W - W - H - A2(3) - H', formulaZh: 'W - H - W - W - H - A2(3半音) - H',
       solfege: ['do', 're', 'me', 'fa', 'sol', 'le', 'ti', 'do']
     },
     melodicMinorAsc: {
-      label: '旋律小調上行 (Melodic Minor Ascending)',
-      steps: [
-        [0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 9], [6, 11], [7, 12]
-      ],
-      formula: 'W - H - W - W - W - W - H（下行還原為自然小調）',
+      en: 'Melodic Minor (Ascending)', zh: '旋律小調上行',
+      steps: [[0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 9], [6, 11], [7, 12]],
+      formulaEn: 'W - H - W - W - W - W - H (descends as natural minor)', formulaZh: 'W - H - W - W - W - W - H（下行還原自然小調）',
       solfege: ['do', 're', 'me', 'fa', 'sol', 'la', 'ti', 'do']
     },
     majorPentatonic: {
-      label: '大調五聲音階 (Major Pentatonic 1-2-3-5-6)',
-      steps: [
-        [0, 0], [1, 2], [2, 4], [4, 7], [5, 9], [7, 12]
-      ],
-      formula: 'W - W - m3 - W - m3（無半音）',
+      en: 'Major Pentatonic (1-2-3-5-6)', zh: '大調五聲第一型 (1-2-3-5-6)',
+      steps: [[0, 0], [1, 2], [2, 4], [4, 7], [5, 9], [7, 12]],
+      formulaEn: 'W - W - m3 - W - m3 (no half steps)', formulaZh: 'W - W - m3 - W - m3（無半音）',
       solfege: ['do', 're', 'mi', 'sol', 'la', 'do']
     },
     majorPentatonicAlt: {
-      label: '大調五聲音階第二型 (1-2-4-5-6)',
-      steps: [
-        [0, 0], [1, 2], [3, 5], [4, 7], [5, 9], [7, 12]
-      ],
-      formula: 'W - m3 - W - W - m3（無半音）',
+      en: 'Major Pentatonic II (1-2-4-5-6)', zh: '大調五聲第二型 (1-2-4-5-6)',
+      steps: [[0, 0], [1, 2], [3, 5], [4, 7], [5, 9], [7, 12]],
+      formulaEn: 'W - m3 - W - W - m3 (no half steps)', formulaZh: 'W - m3 - W - W - m3（無半音）',
       solfege: ['do', 're', 'fa', 'sol', 'la', 'do']
     },
     minorPentatonic: {
-      label: '小調五聲音階 (Minor Pentatonic 1-♭3-4-5-♭7)',
-      steps: [
-        [0, 0], [2, 3], [3, 5], [4, 7], [6, 10], [7, 12]
-      ],
-      formula: 'm3 - W - W - m3 - W（無半音）',
+      en: 'Minor Pentatonic (1-♭3-4-5-♭7)', zh: '小調五聲無半音型',
+      steps: [[0, 0], [2, 3], [3, 5], [4, 7], [6, 10], [7, 12]],
+      formulaEn: 'm3 - W - W - m3 - W', formulaZh: 'm3 - W - W - m3 - W（無半音）',
       solfege: ['do', 'me', 'fa', 'sol', 'te', 'do']
     },
     japanesePentatonic: {
-      label: '含半音小調五聲音階（日本都節《櫻花》型 1-2-♭3-5-♭6）',
-      steps: [
-        [0, 0], [1, 2], [2, 3], [4, 7], [5, 8], [7, 12]
-      ],
-      formula: 'W - H - M3 - H - M3（含兩個半音與兩個大三度）',
+      en: 'Japanese Pentatonic ("Sakura" 1-2-♭3-5-♭6)', zh: '日本櫻花五聲音階 (含半音)',
+      steps: [[0, 0], [1, 2], [2, 3], [4, 7], [5, 8], [7, 12]],
+      formulaEn: 'W - H - M3 - H - M3 (2 half steps)', formulaZh: 'W - H - M3 - H - M3（含兩處半音）',
       solfege: ['do', 're', 'me', 'sol', 'le', 'do']
     },
     blues: {
-      label: '六音藍調音階 (6-Note Blues Scale)',
-      steps: [
-        [0, 0], [2, 3], [3, 5], [4, 6], [4, 7], [6, 10], [7, 12]
-      ],
-      formula: '1 - ♭3 - 4 - ♭5 - 5 - ♭7 - (1)',
+      en: '6-Note Blues Scale', zh: '六音藍調音階',
+      steps: [[0, 0], [2, 3], [3, 5], [4, 6], [4, 7], [6, 10], [7, 12]],
+      formulaEn: '1 - ♭3 - 4 - ♭5 - 5 - ♭7 - (1)', formulaZh: '1 - ♭3 - 4 - ♭5 - 5 - ♭7 - (1)',
       solfege: ['1', '♭3', '4', '♭5', '5', '♭7', '1']
     },
     dorian: {
-      label: '多利安調式 (Dorian Mode)',
+      en: 'Dorian Mode', zh: '多利安調式 (Dorian)',
       steps: [[0, 0], [1, 2], [2, 3], [3, 5], [4, 7], [5, 9], [6, 10], [7, 12]],
-      formula: 'W - H - W - W - W - H - W（自然小調升第 6 級）',
+      formulaEn: 'W - H - W - W - W - H - W (natural minor ♯6)', formulaZh: 'W - H - W - W - W - H - W（小調 ♯6）',
       solfege: ['do', 're', 'me', 'fa', 'sol', 'la', 'te', 'do']
     },
     phrygian: {
-      label: '弗里吉安調式 (Phrygian Mode)',
+      en: 'Phrygian Mode', zh: '弗里吉安調式 (Phrygian)',
       steps: [[0, 0], [1, 1], [2, 3], [3, 5], [4, 7], [5, 8], [6, 10], [7, 12]],
-      formula: 'H - W - W - W - H - W - W（自然小調降第 2 級）',
+      formulaEn: 'H - W - W - W - H - W - W (natural minor ♭2)', formulaZh: 'H - W - W - W - H - W - W（小調 ♭2）',
       solfege: ['do', 'ra', 'me', 'fa', 'sol', 'le', 'te', 'do']
     },
     lydian: {
-      label: '利底亞調式 (Lydian Mode)',
+      en: 'Lydian Mode', zh: '利底亞調式 (Lydian)',
       steps: [[0, 0], [1, 2], [2, 4], [3, 6], [4, 7], [5, 9], [6, 11], [7, 12]],
-      formula: 'W - W - W - H - W - W - H（大調升第 4 級）',
+      formulaEn: 'W - W - W - H - W - W - H (major ♯4)', formulaZh: 'W - W - W - H - W - W - H（大調 ♯4）',
       solfege: ['do', 're', 'mi', 'fi', 'sol', 'la', 'ti', 'do']
     },
     mixolydian: {
-      label: '混合利底亞調式 (Mixolydian Mode)',
+      en: 'Mixolydian Mode', zh: '混合利底亞調式 (Mixolydian)',
       steps: [[0, 0], [1, 2], [2, 4], [3, 5], [4, 7], [5, 9], [6, 10], [7, 12]],
-      formula: 'W - W - H - W - W - H - W（大調降第 7 級）',
+      formulaEn: 'W - W - H - W - W - H - W (major ♭7)', formulaZh: 'W - W - H - W - W - H - W（大調 ♭7）',
       solfege: ['do', 're', 'mi', 'fa', 'sol', 'la', 'te', 'do']
     },
     locrian: {
-      label: '洛克里安調式 (Locrian Mode)',
+      en: 'Locrian Mode', zh: '洛克里安調式 (Locrian)',
       steps: [[0, 0], [1, 1], [2, 3], [3, 5], [4, 6], [5, 8], [6, 10], [7, 12]],
-      formula: 'H - W - W - H - W - W - W（半音於 1–2 與 4–5）',
+      formulaEn: 'H - W - W - H - W - W - W (♭2, ♭5)', formulaZh: 'H - W - W - H - W - W - W（♭2, ♭5）',
       solfege: ['do', 'ra', 'me', 'fa', 'se', 'le', 'te', 'do']
     }
   };
@@ -210,12 +284,11 @@
       const notes = [root];
       for (let i = 1; i <= 6; i++) {
         const midi = root.midi + i * 2;
-        const step = i === 6 ? 7 : i;
         notes.push(i === 6 ? stepPitch(root, 7, 12) : midiToCleanPitch(midi));
       }
       return {
-        label: '全音音階 (Whole-Tone Scale)',
-        formula: 'W - W - W - W - W - W（六音皆相差全音，無完全四/五度）',
+        label: t('Whole-Tone Scale', '全音音階'),
+        formula: t('W - W - W - W - W - W (6 equal whole steps)', 'W - W - W - W - W - W（六音全為全音）'),
         solfege: ['do', 're', 'mi', 'fi', 'si', 'li', 'do'],
         notes
       };
@@ -224,8 +297,8 @@
       const semis = [0, 2, 3, 5, 6, 8, 9, 11, 12];
       const notes = semis.map((s, idx) => idx === 8 ? stepPitch(root, 7, 12) : midiToCleanPitch(root.midi + s));
       return {
-        label: '八音音階 / 減音階 (Octatonic / Diminished Scale)',
-        formula: 'W - H - W - H - W - H - W - H（全音與半音交替）',
+        label: t('Octatonic / Diminished Scale', '八音／減音階'),
+        formula: t('W - H - W - H - W - H - W - H', 'W - H - W - H - W - H - W - H（全半交替）'),
         solfege: ['1', '2', '♭3', '4', '♭5', '♭6', '6', '7', '8'],
         notes
       };
@@ -233,8 +306,8 @@
     const pat = SCALE_PATTERNS[type] || SCALE_PATTERNS.major;
     const notes = pat.steps.map(([dStep, semi]) => stepPitch(root, dStep, semi));
     return {
-      label: pat.label,
-      formula: pat.formula,
+      label: t(pat.en, pat.zh),
+      formula: t(pat.formulaEn, pat.formulaZh),
       solfege: pat.solfege,
       notes
     };
@@ -249,7 +322,6 @@
     return parsePitch(name + octave);
   }
 
-  /* Interval Calculation & Construction */
   const MAJOR_OR_PERFECT_SEMITONES = { 1: 0, 2: 2, 3: 4, 4: 5, 5: 7, 6: 9, 7: 11, 8: 12 };
   const PERFECT_CLASSES = new Set([1, 4, 5, 8]);
 
@@ -267,31 +339,26 @@
     const refSemi = MAJOR_OR_PERFECT_SEMITONES[simpleSize];
     const delta = semiDiff - refSemi;
     let quality = '?';
-    let qualityZh = '重增/重減';
+    let qualityZh = t('Doubly altered', '重增/重減');
     if (PERFECT_CLASSES.has(simpleSize)) {
-      if (delta === 0) { quality = 'P'; qualityZh = '完全 (Perfect)'; }
-      else if (delta === 1) { quality = 'A'; qualityZh = '增 (Augmented)'; }
-      else if (delta === -1 && size > 1) { quality = 'd'; qualityZh = '減 (Diminished)'; }
-      else if (delta > 1) { quality = 'AA'; qualityZh = '倍增'; }
-      else { quality = 'dd'; qualityZh = '倍減'; }
+      if (delta === 0) { quality = 'P'; qualityZh = t('Perfect', '完全 (Perfect)'); }
+      else if (delta === 1) { quality = 'A'; qualityZh = t('Augmented', '增 (Augmented)'); }
+      else if (delta === -1 && size > 1) { quality = 'd'; qualityZh = t('Diminished', '減 (Diminished)'); }
+      else if (delta > 1) { quality = 'AA'; }
+      else { quality = 'dd'; }
     } else {
-      if (delta === 0) { quality = 'M'; qualityZh = '大 (Major)'; }
-      else if (delta === -1) { quality = 'm'; qualityZh = '小 (Minor)'; }
-      else if (delta === 1) { quality = 'A'; qualityZh = '增 (Augmented)'; }
-      else if (delta === -2) { quality = 'd'; qualityZh = '減 (Diminished)'; }
+      if (delta === 0) { quality = 'M'; qualityZh = t('Major', '大 (Major)'); }
+      else if (delta === -1) { quality = 'm'; qualityZh = t('Minor', '小 (Minor)'); }
+      else if (delta === 1) { quality = 'A'; qualityZh = t('Augmented', '增 (Augmented)'); }
+      else if (delta === -2) { quality = 'd'; qualityZh = t('Diminished', '減 (Diminished)'); }
     }
     const invertedSize = simpleSize <= 8 ? 9 - simpleSize : null;
     const invQualMap = { P: 'P', M: 'm', m: 'M', A: 'd', d: 'A' };
     const invertedCode = invertedSize ? (invQualMap[quality] || '?') + invertedSize : null;
     return {
-      low,
-      high,
-      size,
-      simpleSize,
-      isCompound,
+      low, high, size, simpleSize, isCompound,
       semitones: high.midi - low.midi,
-      quality,
-      qualityZh,
+      quality, qualityZh,
       code: quality + size,
       simpleCode: quality + simpleSize,
       invertedCode
@@ -321,37 +388,21 @@
     if (quality === 'minor' || quality === 'm') { thirdSemi = 3; fifthSemi = 7; }
     else if (quality === 'augmented' || quality === 'A') { thirdSemi = 4; fifthSemi = 8; }
     else if (quality === 'diminished' || quality === 'd') { thirdSemi = 3; fifthSemi = 6; }
-    let r = root;
-    let t = stepPitch(root, 2, thirdSemi);
-    let f = stepPitch(root, 4, fifthSemi);
-    let notes = [r, t, f];
-    if (inversion === 1) {
-      notes = [t, f, stepPitch(r, 7, 12)];
-    } else if (inversion === 2) {
-      notes = [f, stepPitch(r, 7, 12), stepPitch(t, 7, 12)];
-    }
-    if (openPos) {
-      // Open position skips one chord tone between adjacent voices
-      notes = [notes[0], notes[2], stepPitch(notes[1], 7, 12)];
-    }
+    const r = root;
+    const trd = stepPitch(root, 2, thirdSemi);
+    const f = stepPitch(root, 4, fifthSemi);
+    let notes = [r, trd, f];
+    if (inversion === 1) notes = [trd, f, stepPitch(r, 7, 12)];
+    else if (inversion === 2) notes = [f, stepPitch(r, 7, 12), stepPitch(trd, 7, 12)];
+    if (openPos) notes = [notes[0], notes[2], stepPitch(notes[1], 7, 12)];
     return notes;
   }
 
   function buildSeventh(rootStr, type, inversion) {
     const root = typeof rootStr === 'string' ? parsePitch(rootStr) : rootStr;
-    const map = {
-      Mm7: [4, 7, 10], // Dominant 7th
-      MM7: [4, 7, 11], // Major 7th
-      mm7: [3, 7, 10], // Minor 7th
-      hd7: [3, 6, 10], // Half-diminished ø7
-      dd7: [3, 6, 9]   // Fully diminished o7
-    };
+    const map = { Mm7: [4, 7, 10], MM7: [4, 7, 11], mm7: [3, 7, 10], hd7: [3, 6, 10], dd7: [3, 6, 9] };
     const [s3, s5, s7] = map[type] || map.Mm7;
-    const r = root;
-    const t = stepPitch(root, 2, s3);
-    const f = stepPitch(root, 4, s5);
-    const sev = stepPitch(root, 6, s7);
-    let notes = [r, t, f, sev];
+    let notes = [root, stepPitch(root, 2, s3), stepPitch(root, 4, s5), stepPitch(root, 6, s7)];
     for (let i = 0; i < (inversion || 0); i++) {
       const lowest = notes.shift();
       notes.push(stepPitch(lowest, 7, 12));
@@ -359,7 +410,6 @@
     return notes;
   }
 
-  /* Circle of Fifths Data (12 clock positions, including Enharmonic equivalents at 5, 6, 7 o'clock) */
   const CIRCLE_OF_FIFTHS = [
     { pos: 0, major: 'C', minor: 'a', accCount: 0, accType: 'none', labelMaj: 'C', labelMin: 'a', sigKey: 'C' },
     { pos: 1, major: 'G', minor: 'e', accCount: 1, accType: 'sharp', labelMaj: 'G', labelMin: 'e', sigKey: 'G' },
@@ -375,7 +425,6 @@
     { pos: 11, major: 'F', minor: 'd', accCount: 1, accType: 'flat', labelMaj: 'F', labelMin: 'd', sigKey: 'F' }
   ];
 
-  /* Progress Persistence Manager */
   const STORAGE_KEY = 'duckworth11e_progress_v1';
 
   function getProgress() {

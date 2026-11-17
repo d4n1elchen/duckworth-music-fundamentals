@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>附錄 F–K：C 譜號快打、調式光譜與泛音合成器 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Appendices F–K: C Clefs, Modes, Harmonics &amp; Guitar | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="app-fk">
+<body data-page="app-fk" data-zh-title="附錄 F–K：C 譜號快打、調式光譜與泛音合成器 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,21 +23,21 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Appendices F – K · 進階聲學與調式實驗室</span>
-        <h1 id="main-heading" tabindex="-1">附錄 F–K：C 譜號快打、調式明暗光譜、泛音波形合成與吉他和弦庫</h1>
-        <p class="chapter-subtitle">
-          挑戰中提琴／大提琴必備的<strong>C 譜號快打</strong>、滑動<strong>七大教會調式明暗光譜</strong>，並親手拉動 8 支分音推桿合成樂器波形！
+        <span class="chapter-eyebrow" data-zh="Appendices F – K · 進階聲學與調式實驗室">Appendices F – K · Modes, Acoustics &amp; Guitar Lab</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="附錄 F–K：C 譜號快打、調式明暗光譜、泛音波形合成與吉他和弦庫">Appendices F–K: C Clefs, Mode Spectrum, Harmonics &amp; Guitar Library</h1>
+        <p class="chapter-subtitle" data-zh="挑戰中提琴／大提琴必備的<strong>C 譜號快打</strong>、滑動<strong>七大教會調式明暗光譜</strong>，並親手拉動 8 支分音推桿合成樂器波形！">
+          Master viola/cello <strong>C clefs</strong>, sweep across the <strong>bright-to-dark Church Mode spectrum</strong>, and sculpt waveforms on an <strong>8-partial Fourier drawbar synth</strong>!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">𝄡 C 譜號中心夾住<strong>中央 C4</strong>（Alto 第3線 · Tenor 第4線）</span>
-          <span class="visual-pill">🌞 調式明暗：<strong>Lydian(♯4) → Ionian → Mixolydian(♭7) → Dorian(♯6) → Aeolian → Phrygian(♭2) → Locrian</strong></span>
-          <span class="visual-pill">🔬 頻率每 ×2 ＝ <strong>升高八度</strong> (<code>A4=440Hz → A5=880Hz</code>)</span>
+          <span class="visual-pill" data-zh="𝄡 C 譜號中心夾住<strong>中央 C4</strong>（Alto 第3線 · Tenor 第4線）">𝄡 C clef indent centers on <strong>Middle C4</strong> (Alto L3 · Tenor L4)</span>
+          <span class="visual-pill" data-zh="🌞 調式明暗：<strong>Lydian(♯4) → Ionian → Mixolydian(♭7) → Dorian(♯6) → Aeolian → Phrygian(♭2) → Locrian</strong>">🌞 Bright→Dark: <strong>Lydian(♯4) → Ionian → Mixolydian(♭7) → Dorian(♯6) → Aeolian → Phrygian(♭2) → Locrian</strong></span>
+          <span class="visual-pill" data-zh="🔬 頻率每 ×2 ＝ <strong>升高八度</strong> (<code>A4=440Hz → A5=880Hz</code>)">🔬 Frequency ×2 = <strong>+1 Octave</strong> (<code>A4=440Hz → A5=880Hz</code>)</span>
         </div>
       </section>
 
       <!-- Appendix F: C Clef 4-Way Comparison + Reflex Game -->
       <section class="lesson-section" aria-labelledby="sec-app-f">
-        <h2 id="sec-app-f">𝄡 附錄 F：四種譜號的同一個中央 C4 ＆ C 譜號快打挑戰</h2>
+        <h2 id="sec-app-f" data-zh="𝄡 附錄 F：四種譜號的同一個中央 C4 ＆ C 譜號快打挑戰">𝄡 Appendix F: Same Middle C4 Across 4 Clefs &amp; C-Clef Reflex Arcade</h2>
         <div id="score-four-clefs-c4" class="concept-grid"></div>
         <div class="widget-box">
           <div id="app-f-reflex"></div>
@@ -43,10 +46,10 @@
 
       <!-- Appendices G & H: Brightness-to-Darkness Mode Spectrum -->
       <section class="lesson-section" aria-labelledby="sec-app-gh">
-        <h2 id="sec-app-gh">🌈 附錄 G ＆ H：教會調式明暗光譜 ＆ 全音／八音音階</h2>
+        <h2 id="sec-app-gh" data-zh="🌈 附錄 G ＆ H：教會調式明暗光譜 ＆ 全音／八音音階">🌈 Appendices G &amp; H: Church Modes Spectrum &amp; Whole-Tone / Octatonic Scales</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <label style="font-weight:800;">主音 (<i lang="la">Finalis</i>)：
+            <label style="font-weight:800;"><span data-zh="主音 (Finalis)：">Final (Tonic): </span>
               <select id="mode-root">
                 <option value="C">C</option>
                 <option value="D" selected>D</option>
@@ -56,7 +59,7 @@
                 <option value="A">A</option>
               </select>
             </label>
-            <button type="button" class="btn btn-sm btn-primary" id="mode-play-btn">▶ 播放當前調式</button>
+            <button type="button" class="btn btn-sm btn-primary" id="mode-play-btn" data-zh="▶ 播放當前調式">▶ Play Current Mode</button>
           </div>
           <div class="jam-pad-grid" id="mode-pads" style="grid-template-columns:repeat(auto-fit, minmax(112px, 1fr));"></div>
           <div id="mode-readout" class="visual-pill"></div>
@@ -66,22 +69,22 @@
 
       <!-- Appendices I & J: 8-Partial Additive Synth + Live Fourier Waveform Canvas -->
       <section class="lesson-section" aria-labelledby="sec-app-ij">
-        <h2 id="sec-app-ij">🎛️ 附錄 I ＆ J：8 分音加法合成拉桿風琴（即時傅立葉波形疊加）</h2>
+        <h2 id="sec-app-ij" data-zh="🎛️ 附錄 I ＆ J：8 分音加法合成拉桿風琴（即時傅立葉波形疊加）">🎛️ Appendices I &amp; J: 8-Partial Harmonic Series Drawbar Synth</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-primary" id="play-harmonics-btn">🔊 合成發聲 (基音 C2 = 65.4 Hz)</button>
-            <button type="button" class="btn btn-sm" data-hpreset="saw">🎻 弦樂豐富泛音</button>
-            <button type="button" class="btn btn-sm" data-hpreset="odd">🎷 單簧管奇次泛音</button>
-            <button type="button" class="btn btn-sm" data-hpreset="pure">🪈 純基音正弦波</button>
+            <button type="button" class="btn btn-primary" id="play-harmonics-btn" data-zh="🔊 合成發聲 (基音 C2 = 65.4 Hz)">🔊 Sound Composite Tone (C2 = 65.4 Hz)</button>
+            <button type="button" class="btn btn-sm" data-hpreset="saw" data-zh="🎻 弦樂豐富泛音">🎻 Rich Strings</button>
+            <button type="button" class="btn btn-sm" data-hpreset="odd" data-zh="🎷 單簧管奇次泛音">🎷 Odd-Partial Clarinet</button>
+            <button type="button" class="btn btn-sm" data-hpreset="pure" data-zh="🪈 純基音正弦波">🪈 Pure Fundamental Sine</button>
           </div>
-          <canvas id="harmonic-canvas" class="visual-canvas" width="640" height="175" aria-label="泛音列合成波形畫布"></canvas>
+          <canvas id="harmonic-canvas" class="visual-canvas" width="640" height="175" aria-label="Harmonic partials composite waveform" data-zh-aria="泛音列合成波形畫布"></canvas>
           <div id="partials-sliders" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(88px, 1fr));gap:0.45rem;margin-block-start:0.65rem;"></div>
         </div>
       </section>
 
       <!-- Appendix K: Guitar Chord Library -->
       <section class="lesson-section" aria-labelledby="sec-app-k">
-        <h2 id="sec-app-k">🎸 附錄 K：9 大常用大小調吉他 <code>I – IV – V</code> 伴奏指法庫</h2>
+        <h2 id="sec-app-k" data-zh="🎸 附錄 K：9 大常用大小調吉他 <code>I – IV – V</code> 伴奏指法庫">🎸 Appendix K: Guitar <code>I – IV – V</code> Chord Library Across 9 Keys</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;" id="guitar-key-tabs"></div>
           <div class="guitar-grid" id="app-k-guitar-grid"></div>
@@ -92,20 +95,23 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       // Appendix F 4-clef C4 + C-clef Reflex Game
       const cClefDemo = document.getElementById('score-four-clefs-c4');
       [
-        { clef: 'treble', title: '𝄞 高音：下加一線 = C4' },
-        { clef: 'alto',   title: '𝄡 中音 Alto：第 3 線 = C4' },
-        { clef: 'tenor',  title: '𝄡 次中音 Tenor：第 4 線 = C4' },
-        { clef: 'bass',   title: '𝄢 低音：上加一線 = C4' }
+        { clef: 'treble', title: { en: '𝄞 Treble: Ledger below = C4', zh: '𝄞 高音：下加一線 = C4' } },
+        { clef: 'alto',   title: { en: '𝄡 Alto: Line 3 = C4',         zh: '𝄡 中音 Alto：第 3 線 = C4' } },
+        { clef: 'tenor',  title: { en: '𝄡 Tenor: Line 4 = C4',        zh: '𝄡 次中音 Tenor：第 4 線 = C4' } },
+        { clef: 'bass',   title: { en: '𝄢 Bass: Ledger above = C4',   zh: '𝄢 低音：上加一線 = C4' } }
       ].forEach(item => {
         const box = document.createElement('div');
         cClefDemo.appendChild(box);
@@ -114,23 +120,23 @@
           clef: item.clef,
           minWidth: 175,
           spacing: 56,
-          notes: [{ pitch: 'C4', dur: 'w', label: 'C4 (中央C)' }]
+          notes: [{ pitch: 'C4', dur: 'w', label: { en: 'Middle C4', zh: 'C4 (中央C)' } }]
         });
       });
 
       Widgets.createNoteReflexGame('#app-f-reflex', { clefs: ['alto', 'tenor', 'treble', 'bass'] });
 
-      // Appendices G & H Modes Spectrum (Brightest -> Darkest + Whole-Tone / Octatonic)
+      // Appendices G & H Modes Spectrum
       const MODE_SPECTRUM = [
-        { id: 'lydian',     name: '☀️ Lydian',     sub: '大調 ♯4 (極亮)', c: '#f59e0b' },
-        { id: 'major',      name: '🌤️ Ionian',     sub: '自然大調',       c: '#eab308' },
-        { id: 'mixolydian', name: '🎸 Mixolydian', sub: '大調 ♭7 (搖滾)', c: '#10b981' },
-        { id: 'dorian',     name: '🎷 Dorian',     sub: '小調 ♯6 (爵士)', c: '#06b6d4' },
-        { id: 'naturalMinor', name: '🌙 Aeolian',  sub: '自然小調',       c: '#3b82f6' },
-        { id: 'phrygian',   name: '💃 Phrygian',   sub: '小調 ♭2 (西班牙)', c: '#8b5cf6' },
-        { id: 'locrian',    name: '🌑 Locrian',    sub: '♭2·♭5 (極暗)',   c: '#64748b' },
-        { id: 'wholeTone',  name: '🌫️ 全音階',     sub: '6音全音 (德布西)', c: '#ec4899' },
-        { id: 'octatonic',  name: '⚡ 八音減音階', sub: 'W-H 交替 8 音',  c: '#ef4444' }
+        { id: 'lydian',       name: { en: '☀️ Lydian',     zh: '☀️ Lydian' },     sub: { en: 'Maj ♯4 (Brightest)', zh: '大調 ♯4 (極亮)' }, c: '#f59e0b' },
+        { id: 'major',        name: { en: '🌤️ Ionian',     zh: '🌤️ Ionian' },     sub: { en: 'Major Scale',        zh: '自然大調' },       c: '#eab308' },
+        { id: 'mixolydian',   name: { en: '🎸 Mixolydian', zh: '🎸 Mixolydian' }, sub: { en: 'Maj ♭7 (Rock/Celtic)', zh: '大調 ♭7 (搖滾)' }, c: '#10b981' },
+        { id: 'dorian',       name: { en: '🎷 Dorian',     zh: '🎷 Dorian' },     sub: { en: 'Min ♯6 (Jazz/Folk)', zh: '小調 ♯6 (爵士)' }, c: '#06b6d4' },
+        { id: 'naturalMinor', name: { en: '🌙 Aeolian',    zh: '🌙 Aeolian' },    sub: { en: 'Natural Minor',      zh: '自然小調' },       c: '#3b82f6' },
+        { id: 'phrygian',     name: { en: '💃 Phrygian',   zh: '💃 Phrygian' },   sub: { en: 'Min ♭2 (Spanish)',   zh: '小調 ♭2 (西班牙)' }, c: '#8b5cf6' },
+        { id: 'locrian',      name: { en: '🌑 Locrian',    zh: '🌑 Locrian' },    sub: { en: '♭2·♭5 (Darkest)',    zh: '♭2·♭5 (極暗)' },   c: '#64748b' },
+        { id: 'wholeTone',    name: { en: '🌫️ Whole-Tone', zh: '🌫️ 全音階' },     sub: { en: '6 Whole Steps',      zh: '6音全音 (德布西)' }, c: '#ec4899' },
+        { id: 'octatonic',    name: { en: '⚡ Octatonic',  zh: '⚡ 八音減音階' }, sub: { en: 'W-H Diminished (8)', zh: 'W-H 交替 8 音' },  c: '#ef4444' }
       ];
 
       const mRoot = document.getElementById('mode-root');
@@ -138,14 +144,16 @@
       const mRead = document.getElementById('mode-readout');
       let activeModeId = 'dorian';
       let curMode = null;
+      let modeScoreApi = null;
 
       function updateMode(playNow) {
         curMode = CourseData.buildScale(mRoot.value + '4', activeModeId);
-        mRead.innerHTML = `🏛️ <strong>${curMode.label}</strong>：${curMode.notes.map(n => n.name).join(' – ')}（${curMode.formula}）`;
-        MusicNotation.render('#mode-score', {
+        mRead.innerHTML = `🏛️ <strong>${curMode.label}</strong>: ${curMode.notes.map(n => n.name).join(' – ')} (${curMode.formula})`;
+        modeScoreApi = MusicNotation.render('#mode-score', {
+          title: curMode.label,
           clef: 'treble',
-          playable: false,
-          spacing: 44,
+          bpm: 110,
+          spacing: 48,
           notes: curMode.notes.map((n, i) => ({
             pitch: n.ascii,
             dur: 'q',
@@ -153,49 +161,59 @@
             solfege: curMode.solfege?.[i] || ''
           }))
         });
-        if (playNow) AudioEngine.playSequence(curMode.notes.map(n => ({ pitch: n, beats: 0.42 })), 110);
+        if (playNow) {
+          if (modeScoreApi?.card) modeScoreApi.card.scrollTo({ left: 0, behavior: 'auto' });
+          AudioEngine.playSequence(curMode.notes.map((n, idx) => ({ pitch: n, beats: 0.42, idx })), 110, {
+            onStep: (ev) => modeScoreApi?.highlightNote?.(ev.idx),
+            onDone: () => modeScoreApi?.resetHighlight?.()
+          });
+        }
       }
 
-      MODE_SPECTRUM.forEach(m => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'jam-pad';
-        b.style.minBlockSize = '62px';
-        b.style.setProperty('--pad-color', m.c);
-        b.innerHTML = `<span style="font-size:0.86rem;">${m.name}</span><span style="font-size:0.7rem;opacity:0.86;">${m.sub}</span>`;
-        b.addEventListener('click', () => {
-          activeModeId = m.id;
-          updateMode(true);
+      function renderModePads() {
+        mPads.innerHTML = '';
+        MODE_SPECTRUM.forEach(m => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'jam-pad';
+          b.style.minBlockSize = '62px';
+          b.style.setProperty('--pad-color', m.c);
+          b.innerHTML = `<span style="font-size:0.86rem;">${pick(m.name)}</span><span style="font-size:0.7rem;opacity:0.86;">${pick(m.sub)}</span>`;
+          b.addEventListener('click', () => {
+            activeModeId = m.id;
+            updateMode(true);
+          });
+          mPads.appendChild(b);
         });
-        mPads.appendChild(b);
-      });
+      }
+      renderModePads();
       mRoot.addEventListener('change', () => updateMode(true));
       document.getElementById('mode-play-btn').addEventListener('click', () => updateMode(true));
       updateMode(false);
 
       // Appendices I & J: 8-Partial Drawbars + Live Composite Waveform Canvas
       const PARTIAL_INFO = [
-        { n: 1, note: 'C2 基音', def: 100 },
-        { n: 2, note: 'C3 八度', def: 55 },
-        { n: 3, note: 'G3 五度', def: 35 },
-        { n: 4, note: 'C4 雙八', def: 25 },
-        { n: 5, note: 'E4 大三', def: 18 },
-        { n: 6, note: 'G4 五度', def: 12 },
-        { n: 7, note: 'B♭4 七度', def: 6 },
-        { n: 8, note: 'C5 三八', def: 8 }
+        { n: 1, note: { en: 'C2 Fund.',  zh: 'C2 基音' }, def: 100 },
+        { n: 2, note: { en: 'C3 Oct.',   zh: 'C3 八度' }, def: 55 },
+        { n: 3, note: { en: 'G3 P5',     zh: 'G3 五度' }, def: 35 },
+        { n: 4, note: { en: 'C4 2×Oct',  zh: 'C4 雙八' }, def: 25 },
+        { n: 5, note: { en: 'E4 M3',     zh: 'E4 大三' }, def: 18 },
+        { n: 6, note: { en: 'G4 P5',     zh: 'G4 五度' }, def: 12 },
+        { n: 7, note: { en: 'B♭4 m7',    zh: 'B♭4 七度' }, def: 6 },
+        { n: 8, note: { en: 'C5 3×Oct',  zh: 'C5 三八' }, def: 8 }
       ];
       const pWrap = document.getElementById('partials-sliders');
       const hCvs = document.getElementById('harmonic-canvas');
       const hc = hCvs.getContext('2d');
-      const sliderEls = [];
+      let partialVals = PARTIAL_INFO.map(p => p.def);
+      let sliderEls = [];
 
       function drawCompositeWave() {
         const w = hCvs.width, h = hCvs.height;
         hc.clearRect(0, 0, w, h);
-        const weights = sliderEls.map(s => Number(s.value) / 100);
+        const weights = partialVals.map(v => v / 100);
         const sumW = Math.max(0.2, weights.reduce((a, b) => a + b, 0));
 
-        // Individual partial faint waves
         weights.forEach((amp, idx) => {
           if (amp < 0.03) return;
           hc.strokeStyle = AudioEngine.PITCH_COLORS[(idx * 2) % 12] + '55';
@@ -209,7 +227,6 @@
           hc.stroke();
         });
 
-        // Bold composite sum wave
         hc.strokeStyle = '#22d3ee';
         hc.lineWidth = 3.2;
         hc.shadowColor = '#22d3ee';
@@ -227,42 +244,50 @@
         hc.shadowBlur = 0;
       }
 
-      PARTIAL_INFO.forEach((p, idx) => {
-        const card = document.createElement('label');
-        card.className = 'concept-card';
-        card.style.padding = '0.55rem 0.4rem';
-        card.style.textAlign = 'center';
-        card.innerHTML = `
-          <div style="font-size:0.74rem;font-weight:800;">#${p.n} (${p.n}f)</div>
-          <div style="font-size:0.72rem;color:var(--brand);margin-block:0.1rem;">${p.note}</div>
-          <input type="range" min="0" max="100" value="${p.def}" style="inline-size:100%;">
-          <button type="button" class="btn btn-sm" style="margin-block-start:0.25rem;inline-size:100%;font-size:0.7rem;">聽 ${Math.round(65.41 * p.n)}Hz</button>
-        `;
-        const inp = card.querySelector('input');
-        inp.addEventListener('input', drawCompositeWave);
-        sliderEls.push(inp);
-        card.querySelector('button').addEventListener('click', (e) => {
-          e.preventDefault();
-          AudioEngine.playNote(65.406 * p.n, 0.75, 0, { timbre: 'flute' });
+      function renderPartialSliders() {
+        pWrap.innerHTML = '';
+        sliderEls = [];
+        PARTIAL_INFO.forEach((p, idx) => {
+          const card = document.createElement('label');
+          card.className = 'concept-card';
+          card.style.padding = '0.55rem 0.4rem';
+          card.style.textAlign = 'center';
+          card.innerHTML = `
+            <div style="font-size:0.74rem;font-weight:800;">#${p.n} (${p.n}f)</div>
+            <div style="font-size:0.72rem;color:var(--brand);margin-block:0.1rem;">${pick(p.note)}</div>
+            <input type="range" min="0" max="100" value="${partialVals[idx]}" style="inline-size:100%;">
+            <button type="button" class="btn btn-sm" style="margin-block-start:0.25rem;inline-size:100%;font-size:0.7rem;">${t('Hear', '聽')} ${Math.round(65.41 * p.n)}Hz</button>
+          `;
+          const inp = card.querySelector('input');
+          inp.addEventListener('input', () => {
+            partialVals[idx] = Number(inp.value);
+            drawCompositeWave();
+          });
+          sliderEls.push(inp);
+          card.querySelector('button').addEventListener('click', (e) => {
+            e.preventDefault();
+            AudioEngine.playNote(65.406 * p.n, 0.75, 0, { timbre: 'flute' });
+          });
+          pWrap.appendChild(card);
         });
-        pWrap.appendChild(card);
-      });
+      }
+      renderPartialSliders();
       drawCompositeWave();
 
       document.querySelectorAll('[data-hpreset]').forEach(btn => {
         btn.addEventListener('click', () => {
           const k = btn.dataset.hpreset;
-          const vals = k === 'pure' ? [100,0,0,0,0,0,0,0]
+          partialVals = k === 'pure' ? [100,0,0,0,0,0,0,0]
             : k === 'odd' ? [100,0,65,0,40,0,22,0]
             : [100,75,55,42,32,25,18,14];
-          sliderEls.forEach((s, i) => { s.value = String(vals[i]); });
+          sliderEls.forEach((s, i) => { s.value = String(partialVals[i]); });
           drawCompositeWave();
           document.getElementById('play-harmonics-btn').click();
         });
       });
 
       document.getElementById('play-harmonics-btn').addEventListener('click', () => {
-        AudioEngine.playHarmonicPartials(65.406, sliderEls.map(s => Number(s.value) / 100), 1.7);
+        AudioEngine.playHarmonicPartials(65.406, partialVals.map(v => v / 100), 1.7);
       });
 
       // Appendix K Guitar Chords
@@ -282,45 +307,59 @@
       };
 
       const GUITAR_KEYS = [
-        { key: 'C 大調', triads: [['C','I'],['F','IV'],['G','V']] },
-        { key: 'G 大調', triads: [['G','I'],['C','IV'],['D','V']] },
-        { key: 'D 大調', triads: [['D','I'],['G','IV'],['A','V']] },
-        { key: 'A 大調', triads: [['A','I'],['D','IV'],['E','V']] },
-        { key: 'E 大調', triads: [['E','I'],['A','IV'],['B','V']] },
-        { key: 'F 大調', triads: [['F','I'],['Bb','IV'],['C','V']] },
-        { key: 'e 小調', triads: [['Em','i'],['Am','iv'],['B','V']] },
-        { key: 'a 小調', triads: [['Am','i'],['Dm','iv'],['E','V']] },
-        { key: 'd 小調', triads: [['Dm','i'],['Gm','iv'],['A','V']] }
+        { key: { en: 'C Major', zh: 'C 大調' }, triads: [['C','I'],['F','IV'],['G','V']] },
+        { key: { en: 'G Major', zh: 'G 大調' }, triads: [['G','I'],['C','IV'],['D','V']] },
+        { key: { en: 'D Major', zh: 'D 大調' }, triads: [['D','I'],['G','IV'],['A','V']] },
+        { key: { en: 'A Major', zh: 'A 大調' }, triads: [['A','I'],['D','IV'],['E','V']] },
+        { key: { en: 'E Major', zh: 'E 大調' }, triads: [['E','I'],['A','IV'],['B','V']] },
+        { key: { en: 'F Major', zh: 'F 大調' }, triads: [['F','I'],['Bb','IV'],['C','V']] },
+        { key: { en: 'e minor', zh: 'e 小調' }, triads: [['Em','i'],['Am','iv'],['B','V']] },
+        { key: { en: 'a minor', zh: 'a 小調' }, triads: [['Am','i'],['Dm','iv'],['E','V']] },
+        { key: { en: 'd minor', zh: 'd 小調' }, triads: [['Dm','i'],['Gm','iv'],['A','V']] }
       ];
 
       const gkTabs = document.getElementById('guitar-key-tabs');
       const gkGrid = document.getElementById('app-k-guitar-grid');
+      let curGuitarKeyIdx = 0;
 
-      function showGuitarKey(item) {
+      function showGuitarKey(idx) {
+        curGuitarKeyIdx = idx;
+        const item = GUITAR_KEYS[idx];
         gkGrid.innerHTML = '';
         item.triads.forEach(([chName, rn]) => {
           const c = CHORDS_LIB[chName];
           Widgets.createGuitarChord(gkGrid, {
             name: chName.replace('b', '♭'),
-            subtitle: `${item.key} · ${rn}`,
+            subtitle: { en: `${item.key.en} · ${rn}`, zh: `${item.key.zh} · ${rn}` },
             frets: c.frets,
             pitches: c.pitches
           });
         });
       }
 
-      GUITAR_KEYS.forEach((gk, idx) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'btn btn-sm' + (idx === 0 ? ' btn-primary' : '');
-        b.textContent = gk.key;
-        b.addEventListener('click', () => {
-          gkTabs.querySelectorAll('button').forEach(x => x.classList.toggle('btn-primary', x === b));
-          showGuitarKey(gk);
+      function renderGuitarKeyTabs() {
+        gkTabs.innerHTML = '';
+        GUITAR_KEYS.forEach((gk, idx) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'btn btn-sm' + (idx === curGuitarKeyIdx ? ' btn-primary' : '');
+          b.textContent = pick(gk.key);
+          b.addEventListener('click', () => {
+            gkTabs.querySelectorAll('button').forEach(x => x.classList.toggle('btn-primary', x === b));
+            showGuitarKey(idx);
+          });
+          gkTabs.appendChild(b);
         });
-        gkTabs.appendChild(b);
+      }
+      renderGuitarKeyTabs();
+      showGuitarKey(0);
+
+      window.addEventListener('lang-changed', () => {
+        renderModePads();
+        updateMode(false);
+        renderPartialSliders();
+        renderGuitarKeyTabs();
       });
-      showGuitarKey(GUITAR_KEYS[0]);
     });
   </script>
 </body>

@@ -302,6 +302,17 @@
     if (!container) return null;
     container.innerHTML = '';
 
+    const _t = window.I18n ? window.I18n.t : (en) => en;
+    const _pick = window.I18n ? window.I18n.pick : (v) => v;
+
+    if (container._notationLangHandler) {
+      window.removeEventListener('lang-changed', container._notationLangHandler);
+    }
+    container._notationLangHandler = () => {
+      if (document.body.contains(container)) render(container, spec);
+    };
+    window.addEventListener('lang-changed', container._notationLangHandler);
+
     const isGrand = !!spec.grand;
     const clefTop = spec.clef || 'treble';
     const clefBot = 'bass';
@@ -310,16 +321,17 @@
     const items = spec.notes || [];
     const bassItems = spec.bassNotes || [];
     const bpm = spec.bpm || 96;
+    const resolvedTitle = _pick(spec.title);
 
     // Optional top caption + Play button wrapper
     const card = document.createElement('div');
     card.className = 'score-card';
 
-    if (spec.title || spec.playable !== false) {
+    if (resolvedTitle || spec.playable !== false) {
       const cap = document.createElement('div');
       cap.className = 'score-caption';
       const titleSpan = document.createElement('span');
-      titleSpan.innerHTML = spec.title ? `<strong>${spec.title}</strong>` : '';
+      titleSpan.innerHTML = resolvedTitle ? `<strong>${resolvedTitle}</strong>` : '';
       cap.appendChild(titleSpan);
 
       if (spec.playable !== false && items.some(it => !it.bar)) {
@@ -329,24 +341,28 @@
         const playBtn = document.createElement('button');
         playBtn.type = 'button';
         playBtn.className = 'btn btn-sm btn-primary';
-        playBtn.textContent = '▶ 播放譜例';
+        playBtn.textContent = _t('▶ Play', '▶ 播放譜例');
         const stopBtn = document.createElement('button');
         stopBtn.type = 'button';
         stopBtn.className = 'btn btn-sm';
-        stopBtn.textContent = '■ 停止';
+        stopBtn.textContent = _t('■ Stop', '■ 停止');
         stopBtn.hidden = true;
         btnWrap.append(playBtn, stopBtn);
         cap.appendChild(btnWrap);
 
         playBtn.addEventListener('click', () => {
           stopBtn.hidden = false;
+          if (card.scrollWidth > card.clientWidth + 4) {
+            card.scrollTo({ left: 0, behavior: 'auto' });
+          }
           playScore(spec, renderedElements, () => {
             stopBtn.hidden = true;
-          });
+            resetHighlight();
+          }, highlightNote);
         });
         stopBtn.addEventListener('click', () => {
           window.AudioEngine.stopAll();
-          renderedElements.forEach(g => g && g.classList.remove('is-playing'));
+          resetHighlight();
           stopBtn.hidden = true;
         });
       }
@@ -388,15 +404,15 @@
 
     const endStaffX = Math.max(noteCursorX + 16, spec.minWidth || 240);
     const totalWidth = endStaffX + 14;
-    const needsScroll = totalWidth > 440;
-    const minSvgW = needsScroll ? Math.min(totalWidth, Math.max(360, Math.round(totalWidth * 0.74))) : 0;
+    const needsScroll = totalWidth > 350;
+    const minSvgW = needsScroll ? Math.min(totalWidth, Math.max(380, Math.round(totalWidth * 0.86))) : 0;
 
     if (needsScroll) {
       const capEl = card.querySelector('.score-caption');
       if (capEl) {
         const hint = document.createElement('span');
         hint.className = 'score-scroll-hint';
-        hint.textContent = '⇆ 可滑動看全譜 · 點擊音符發聲';
+        hint.textContent = _t('⇆ Auto-scrolls on Play · Tap notes', '⇆ 播放時自動捲動 · 點擊音符發聲');
         capEl.appendChild(hint);
       }
     }
@@ -406,7 +422,7 @@
       class: 'music-svg',
       style: minSvgW > 0 ? `min-inline-size: ${minSvgW}px;` : 'min-inline-size: 0;',
       role: 'img',
-      'aria-label': spec.ariaLabel || spec.title || '音樂五線譜範例'
+      'aria-label': _pick(spec.ariaLabel) || resolvedTitle || _t('Musical notation example', '音樂五線譜範例')
     });
 
     // Draw Staff Lines
@@ -686,44 +702,82 @@
 
     function drawAnnotations(svg, item, cx, staffTopY, isBassStaff, bounds) {
       const topRef = bounds ? Math.min(staffTopY - 13, bounds.topMostY - 8) : staffTopY - 13;
-      if (item.chordSymbol || item.topText) {
+      const topStr = _pick(item.chordSymbol) || _pick(item.topText);
+      if (topStr) {
         svg.appendChild(el('text', {
           x: cx, y: Math.max(13, topRef),
           'font-size': '12', 'font-weight': '700',
           fill: 'var(--brand)', 'text-anchor': 'middle'
-        }, item.chordSymbol || item.topText));
+        }, topStr));
       }
-      if (item.tupletText) {
+      const tupStr = _pick(item.tupletText);
+      if (tupStr) {
         svg.appendChild(el('text', {
           x: cx, y: Math.max(13, topRef),
           'font-size': '12', 'font-style': 'italic', 'font-weight': '700',
           fill: 'currentColor', 'text-anchor': 'middle'
-        }, item.tupletText));
+        }, tupStr));
       }
       const staffBottomY = clefTop === 'rhythm' ? staffTopY + 3 * LINE_GAP + 6 : staffTopY + 4 * LINE_GAP;
       const lowClearY = bounds ? Math.max(staffBottomY + 18, bounds.lowY + 20) : staffBottomY + 18;
-      if (item.lyric || item.label) {
+      const lblStr = _pick(item.lyric) || _pick(item.label);
+      if (lblStr) {
         svg.appendChild(el('text', {
           x: cx, y: lowClearY,
           'font-size': '11.5', 'font-weight': '600',
           fill: 'currentColor', 'text-anchor': 'middle'
-        }, item.lyric || item.label));
+        }, lblStr));
       }
-      if (item.solfege || item.count || item.roman) {
+      const subStr = _pick(item.solfege) || _pick(item.count) || _pick(item.roman);
+      if (subStr) {
         svg.appendChild(el('text', {
-          x: cx, y: lowClearY + (item.lyric || item.label ? 15 : 1),
+          x: cx, y: lowClearY + (lblStr ? 15 : 1),
           'font-size': '11.5',
           'font-family': item.count ? 'var(--font-mono)' : 'var(--font-serif)',
           'font-weight': '700',
           fill: 'var(--accent-amber)',
           'text-anchor': 'middle'
-        }, item.solfege || item.count || item.roman));
+        }, subStr));
       }
     }
+
+    // Glowing vertical playhead cursor line
+    const playheadBottomY = (isGrand ? staffTopY2 : staffTopY1) + 4 * LINE_GAP + 10;
+    const playheadLine = el('line', {
+      x1: 0, y1: staffTopY1 - 10, x2: 0, y2: playheadBottomY,
+      class: 'score-playhead',
+      opacity: '0'
+    });
+    svg.appendChild(playheadLine);
 
     renderStaffNotes(items, clefTop, staffTopY1, false);
     if (isGrand && bassItems.length) {
       renderStaffNotes(bassItems, clefBot, staffTopY2, true);
+    }
+
+    function highlightNote(idx) {
+      renderedElements.forEach(g => g && g.classList.remove('is-playing'));
+      const target = renderedElements[idx];
+      if (target) target.classList.add('is-playing');
+      const nx = xPositions[idx];
+      if (nx !== undefined) {
+        playheadLine.setAttribute('transform', `translate(${nx}, 0)`);
+        playheadLine.setAttribute('opacity', '0.88');
+        if (card.scrollWidth > card.clientWidth + 4) {
+          const svgRectW = svg.getBoundingClientRect().width || totalWidth;
+          const notePx = (nx / totalWidth) * svgRectW;
+          const desiredLeft = Math.max(0, Math.min(
+            card.scrollWidth - card.clientWidth,
+            notePx - card.clientWidth * 0.36
+          ));
+          card.scrollTo({ left: desiredLeft, behavior: 'smooth' });
+        }
+      }
+    }
+
+    function resetHighlight() {
+      renderedElements.forEach(g => g && g.classList.remove('is-playing'));
+      playheadLine.setAttribute('opacity', '0');
     }
 
     // Optional 8va / 8vb bracket across range
@@ -748,10 +802,10 @@
 
     card.appendChild(svg);
     container.appendChild(card);
-    return { svg, card };
+    return { svg, card, highlightNote, resetHighlight };
   }
 
-  function playScore(spec, renderedElements, onDone) {
+  function playScore(spec, renderedElements, onDone, onHighlight) {
     const items = spec.notes || [];
     const bassItems = spec.bassNotes || [];
     const clef = spec.clef || 'treble';
@@ -764,7 +818,6 @@
       const bIt = bassItems[i];
       const beats = durToQuarterBeats(it.dur, it.dotted, it.tuplet);
 
-      // Handle tied continuation: merge duration into previous event if previous had tie: true
       if (events.length > 0 && events[events.length - 1]._tieNext) {
         events[events.length - 1].beats += beats;
         events[events.length - 1]._tieNext = !!it.tie;
@@ -791,9 +844,13 @@
 
     window.AudioEngine.playSequence(events, bpm, {
       onStep: (ev) => {
-        renderedElements.forEach(g => g && g.classList.remove('is-playing'));
-        const target = renderedElements[ev.elIdx];
-        if (target) target.classList.add('is-playing');
+        if (onHighlight) {
+          onHighlight(ev.elIdx);
+        } else {
+          renderedElements.forEach(g => g && g.classList.remove('is-playing'));
+          const target = renderedElements[ev.elIdx];
+          if (target) target.classList.add('is-playing');
+        }
       },
       onDone: () => {
         renderedElements.forEach(g => g && g.classList.remove('is-playing'));

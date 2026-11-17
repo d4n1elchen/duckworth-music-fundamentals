@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 3 章：單拍子鼓機與觸控指揮 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 3: Rhythm I — Simple Meter | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch03">
+<body data-page="ch03" data-zh-title="第 3 章：單拍子鼓機與觸控指揮 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,41 +23,41 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 3 · 第 3 章</span>
-        <h1 id="main-heading" tabindex="-1">第 3 章：單拍子、附點比例、MPC 鼓機與觸控指揮</h1>
-        <p class="chapter-subtitle">
-          基本拍自然<strong>二等分</strong>即為<strong>單拍子 (Simple Meter)</strong>。用鼓機與觸控指揮棒把 <code>1 - e - &amp; - a</code> 放進身體！
+        <span class="chapter-eyebrow" data-zh="Chapter 3 · 第 3 章">Chapter 3 · Simple Meter</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 3 章：單拍子、附點比例、MPC 鼓機與觸控指揮">Ch 3: Simple Meter, Dots, Drum Pads &amp; Conducting</h1>
+        <p class="chapter-subtitle" data-zh="基本拍自然<strong>二等分</strong>即為<strong>單拍子 (Simple Meter)</strong>。用鼓機與觸控指揮棒把 <code>1 - e - &amp; - a</code> 放進身體！">
+          When each beat divides naturally into <strong>two equal parts</strong>, you’re in <strong>Simple Meter</strong>. Groove <code>1 - e - &amp; - a</code> on the drum pads and conducting pad!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🟠 <strong>附點 Dot = 原長 × 1.5（加一半）</strong></span>
-          <span class="visual-pill">🔢 <strong>上數＝幾拍 · 下數＝何種音符當 1 拍</strong></span>
-          <span class="visual-pill">🏛️ <strong>C = 4/4 · ₵ (Cut Time) = 2/2</strong></span>
+          <span class="visual-pill" data-zh="🟠 <strong>附點 Dot = 原長 × 1.5（加一半）</strong>">🟠 <strong>Dot = ×1.5 duration (+½ of note)</strong></span>
+          <span class="visual-pill" data-zh="🔢 <strong>上數＝幾拍 · 下數＝何種音符當 1 拍</strong>">🔢 <strong>Top = beats/bar · Bottom = beat unit</strong></span>
+          <span class="visual-pill" data-zh="🏛️ <strong>C = 4/4 · ₵ (Cut Time) = 2/2</strong>">🏛️ <strong>C = 4/4 · ₵ (Cut Time) = 2/2</strong></span>
         </div>
       </section>
 
-      <!-- 1. 附點比例視覺條 & 單拍子拍號解碼器 -->
+      <!-- 1. Dotted Note Ratio Bars & Time Signature Decoder -->
       <section class="lesson-section" aria-labelledby="ch3-dots">
-        <h2 id="ch3-dots">🟠 1. 附點時值 1 + 0.5 視覺比例尺 ＆ 拍號解碼器</h2>
+        <h2 id="ch3-dots" data-zh="🟠 1. 附點時值 1 + 0.5 視覺比例尺 ＆ 拍號解碼器">🟠 1. Dotted Ratio Bars (1 + 0.5) &amp; Time Signature Decoder</h2>
         <div class="concept-grid">
           <button type="button" class="concept-card" data-dot-beats="3" style="text-align:start;cursor:pointer;">
-            <span class="badge">點擊試聽 3 拍</span>
-            <h3 style="margin-block-start:0.3rem;">𝅗𝅥. 附點二分 ＝ 2 + 1 拍</h3>
+            <span class="badge" data-zh="點擊試聽 3 拍">Tap to Hear 3 Beats</span>
+            <h3 style="margin-block-start:0.3rem;" data-zh="𝅗𝅥. 附點二分 ＝ 2 + 1 拍">𝅗𝅥. Dotted Half = 2 + 1 Beats</h3>
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:4px;margin-block-start:0.4rem;">
               <div style="background:var(--brand);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">𝅗𝅥 (2)</div>
               <div style="background:var(--accent-amber);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">+♩ (1)</div>
             </div>
           </button>
           <button type="button" class="concept-card" data-dot-beats="1.5" style="text-align:start;cursor:pointer;">
-            <span class="badge">點擊試聽 1.5 拍</span>
-            <h3 style="margin-block-start:0.3rem;">♩. 附點四分 ＝ 1 + ½ 拍</h3>
+            <span class="badge" data-zh="點擊試聽 1.5 拍">Tap to Hear 1.5 Beats</span>
+            <h3 style="margin-block-start:0.3rem;" data-zh="♩. 附點四分 ＝ 1 + ½ 拍">♩. Dotted Quarter = 1 + ½ Beats</h3>
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:4px;margin-block-start:0.4rem;">
               <div style="background:var(--success);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">♩ (1)</div>
               <div style="background:var(--accent-amber);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">+♪ (½)</div>
             </div>
           </button>
           <button type="button" class="concept-card" data-dot-beats="0.75" style="text-align:start;cursor:pointer;">
-            <span class="badge">點擊試聽 ¾ 拍</span>
-            <h3 style="margin-block-start:0.3rem;">♪. 附點八分 ＝ ½ + ¼ 拍</h3>
+            <span class="badge" data-zh="點擊試聽 ¾ 拍">Tap to Hear ¾ Beat</span>
+            <h3 style="margin-block-start:0.3rem;" data-zh="♪. 附點八分 ＝ ½ + ¼ 拍">♪. Dotted Eighth = ½ + ¼ Beat</h3>
             <div style="display:grid;grid-template-columns:2fr 1fr;gap:4px;margin-block-start:0.4rem;">
               <div style="background:var(--purple);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">♪ (½)</div>
               <div style="background:var(--accent-amber);color:#fff;padding:0.3rem;border-radius:6px;text-align:center;font-weight:800;font-size:0.78rem;">+♬ (¼)</div>
@@ -65,22 +68,22 @@
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;" id="ts-btns">
             <button type="button" class="btn btn-sm btn-primary" data-ts="4/4">4/4 (= C)</button>
-            <button type="button" class="btn btn-sm" data-ts="3/4">3/4 圓舞曲</button>
-            <button type="button" class="btn btn-sm" data-ts="2/4">2/4 進行曲</button>
+            <button type="button" class="btn btn-sm" data-ts="3/4" data-zh="3/4 圓舞曲">3/4 Waltz</button>
+            <button type="button" class="btn btn-sm" data-ts="2/4" data-zh="2/4 進行曲">2/4 March</button>
             <button type="button" class="btn btn-sm" data-ts="cut">₵ (2/2 Alla breve)</button>
-            <button type="button" class="btn btn-sm" data-ts="3/8">3/8 單三拍</button>
+            <button type="button" class="btn btn-sm" data-ts="3/8" data-zh="3/8 單三拍">3/8 Simple Triple</button>
           </div>
-          <div id="ts-info" class="visual-pill"><strong>4/4 普通拍 (C)</strong>：單四拍子 · 每小節 4 個四分音符脈動</div>
+          <div id="ts-info" class="visual-pill"></div>
         </div>
       </section>
 
-      <!-- 2. MPC 1-e-&-a 節奏鼓機 & 連尾規則 -->
+      <!-- 2. MPC 1-e-&-a Sequencer & Beaming Rules -->
       <section class="lesson-section" aria-labelledby="ch3-count">
-        <h2 id="ch3-count">🥁 2. MPC 單拍子節奏鼓機（1 - e - &amp; - a）＆ 符槓原則</h2>
+        <h2 id="ch3-count" data-zh="🥁 2. MPC 單拍子節奏鼓機（1 - e - &amp; - a）＆ 符槓原則">🥁 2. MPC Step Sequencer (1 - e - &amp; - a) &amp; Beaming Rules</h2>
         <div class="pill-row">
-          <span class="visual-pill">二等分：<strong>1 - &amp; - 2 - &amp;</strong></span>
-          <span class="visual-pill">四等分：<strong>1 - e - &amp; - a</strong></span>
-          <span class="visual-pill">鐵則：<strong>符槓以「拍」為單位連寫，絕不跨拍遮蔽拍頭！</strong></span>
+          <span class="visual-pill" data-zh="二等分：<strong>1 - &amp; - 2 - &amp;</strong>">2-way split: <strong>1 - &amp; - 2 - &amp;</strong></span>
+          <span class="visual-pill" data-zh="四等分：<strong>1 - e - &amp; - a</strong>">4-way split: <strong>1 - e - &amp; - a</strong></span>
+          <span class="visual-pill" data-zh="鐵則：<strong>符槓以「拍」為單位連寫，絕不跨拍遮蔽拍頭！</strong>">Rule: <strong>Beam by the beat—keep every beat head visible!</strong></span>
         </div>
         <div class="widget-box">
           <div id="ch03-sequencer"></div>
@@ -89,14 +92,14 @@
         <div id="score-america"></div>
       </section>
 
-      <!-- 3. 觸控右手揮拍軌跡訓練儀 & 速度面板 -->
+      <!-- 3. Conducting Pad & Tempo Pads -->
       <section class="lesson-section" aria-labelledby="ch3-conduct">
-        <h2 id="ch3-conduct">🪄 3. 觸控右手揮拍指揮台 ＆ 義大利速度觸控板</h2>
+        <h2 id="ch3-conduct" data-zh="🪄 3. 觸控右手揮拍指揮台 ＆ 義大利速度觸控板">🪄 3. Touch Conducting Pad &amp; Italian Tempo Pads</h2>
         <div class="pill-row">
-          <span class="visual-pill">右手齊胸揮拍</span>
-          <span class="visual-pill">第 1 拍向下 <strong>Downbeat</strong></span>
-          <span class="visual-pill">最後一拍向上 <strong>Upbeat</strong></span>
-          <span class="visual-pill">弱起拍 <strong>Anacrusis</strong> 前一拍給預備拍</span>
+          <span class="visual-pill" data-zh="右手齊胸揮拍">Right hand at chest level</span>
+          <span class="visual-pill" data-zh="第 1 拍向下 <strong>Downbeat</strong>">Beat 1 drops down (<strong>Downbeat</strong>)</span>
+          <span class="visual-pill" data-zh="最後一拍向上 <strong>Upbeat</strong>">Final beat lifts up (<strong>Upbeat</strong>)</span>
+          <span class="visual-pill" data-zh="弱起拍 <strong>Anacrusis</strong> 前一拍給預備拍">Pickup (<strong>Anacrusis</strong>) preps 1 beat early</span>
         </div>
         <div class="widget-box">
           <div id="ch03-conductor"></div>
@@ -104,29 +107,29 @@
 
         <div class="jam-pad-grid" id="tempo-pads" style="grid-template-columns:repeat(auto-fit, minmax(105px, 1fr));">
           <button type="button" class="jam-pad" data-bpm="46" style="--pad-color:#6366f1;min-block-size:62px;">
-            <span>Largo</span><span style="font-size:0.72rem;">廣板 ♩=46</span>
+            <span>Largo</span><span style="font-size:0.72rem;" data-zh="廣板 ♩=46">Very slow ♩=46</span>
           </button>
           <button type="button" class="jam-pad" data-bpm="62" style="--pad-color:#3b82f6;min-block-size:62px;">
-            <span>Adagio</span><span style="font-size:0.72rem;">柔板 ♩=62</span>
+            <span>Adagio</span><span style="font-size:0.72rem;" data-zh="柔板 ♩=62">Slowly ♩=62</span>
           </button>
           <button type="button" class="jam-pad" data-bpm="78" style="--pad-color:#06b6d4;min-block-size:62px;">
-            <span>Andante</span><span style="font-size:0.72rem;">行板 ♩=78</span>
+            <span>Andante</span><span style="font-size:0.72rem;" data-zh="行板 ♩=78">Walking ♩=78</span>
           </button>
           <button type="button" class="jam-pad" data-bpm="104" style="--pad-color:#10b981;min-block-size:62px;">
-            <span>Moderato</span><span style="font-size:0.72rem;">中板 ♩=104</span>
+            <span>Moderato</span><span style="font-size:0.72rem;" data-zh="中板 ♩=104">Moderate ♩=104</span>
           </button>
           <button type="button" class="jam-pad" data-bpm="136" style="--pad-color:#f59e0b;min-block-size:62px;">
-            <span>Allegro</span><span style="font-size:0.72rem;">快板 ♩=136</span>
+            <span>Allegro</span><span style="font-size:0.72rem;" data-zh="快板 ♩=136">Fast ♩=136</span>
           </button>
           <button type="button" class="jam-pad" data-bpm="176" style="--pad-color:#ef4444;min-block-size:62px;">
-            <span>Presto</span><span style="font-size:0.72rem;">急板 ♩=176</span>
+            <span>Presto</span><span style="font-size:0.72rem;" data-zh="急板 ♩=176">Very fast ♩=176</span>
           </button>
         </div>
       </section>
 
       <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch3-quiz-sec">
-        <h2 id="ch3-quiz-sec">🏆 Practice 3-1～3-5 單拍子檢定</h2>
+        <h2 id="ch3-quiz-sec" data-zh="🏆 Practice 3-1～3-5 單拍子檢定">🏆 Practice 3-1 to 3-5 Checkpoint</h2>
         <div id="ch03-quiz"></div>
       </section>
     </main>
@@ -134,13 +137,15 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       document.querySelectorAll('[data-dot-beats]').forEach(btn => {
         btn.addEventListener('click', () => {
           const b = Number(btn.dataset.dotBeats);
@@ -152,26 +157,49 @@
       });
 
       const TS_DESC = {
-        '4/4': '<strong>4/4 普通拍 (Common Time = C)</strong>：單四拍子 · 每小節 4 個四分音符 (♩) 脈動',
-        '3/4': '<strong>3/4 單三拍子</strong>：每小節 3 個四分音符 (♩) 脈動（強-弱-弱）',
-        '2/4': '<strong>2/4 單二拍子</strong>：每小節 2 個四分音符 (♩) 脈動（強-弱）',
-        'cut': '<strong>₵ 簡記二二拍 (Cut Time / Alla breve = 2/2)</strong>：單二拍子 · 以二分音符 (𝅗𝅥) 當作 1 拍！',
-        '3/8': '<strong>3/8 單三拍子</strong>：每小節 3 個八分音符 (♪) 脈動，每拍二等分為 2 個 ♬'
+        '4/4': {
+          en: '<strong>4/4 Common Time (C)</strong>: Simple Quadruple · 4 quarter-note (♩) beats per bar',
+          zh: '<strong>4/4 普通拍 (Common Time = C)</strong>：單四拍子 · 每小節 4 個四分音符 (♩) 脈動'
+        },
+        '3/4': {
+          en: '<strong>3/4 Simple Triple</strong>: 3 quarter-note (♩) beats per bar (Strong–weak–weak)',
+          zh: '<strong>3/4 單三拍子</strong>：每小節 3 個四分音符 (♩) 脈動（強-弱-弱）'
+        },
+        '2/4': {
+          en: '<strong>2/4 Simple Duple</strong>: 2 quarter-note (♩) beats per bar (Strong–weak)',
+          zh: '<strong>2/4 單二拍子</strong>：每小節 2 個四分音符 (♩) 脈動（強-弱）'
+        },
+        'cut': {
+          en: '<strong>₵ Cut Time / Alla breve (2/2)</strong>: Simple Duple · 2 half-note (𝅗𝅥) beats per bar!',
+          zh: '<strong>₵ 簡記二二拍 (Cut Time / Alla breve = 2/2)</strong>：單二拍子 · 以二分音符 (𝅗𝅥) 當作 1 拍！'
+        },
+        '3/8': {
+          en: '<strong>3/8 Simple Triple</strong>: 3 eighth-note (♪) beats per bar, each dividing into two ♬',
+          zh: '<strong>3/8 單三拍子</strong>：每小節 3 個八分音符 (♪) 脈動，每拍二等分為 2 個 ♬'
+        }
       };
+      let curTs = '4/4';
+      function renderTsInfo() {
+        document.getElementById('ts-info').innerHTML = pick(TS_DESC[curTs]);
+      }
+      renderTsInfo();
+      window.addEventListener('lang-changed', renderTsInfo);
+
       document.querySelectorAll('[data-ts]').forEach(btn => {
         btn.addEventListener('click', () => {
+          curTs = btn.dataset.ts;
           document.querySelectorAll('[data-ts]').forEach(x => x.classList.toggle('btn-primary', x === btn));
-          document.getElementById('ts-info').innerHTML = TS_DESC[btn.dataset.ts];
+          renderTsInfo();
           AudioEngine.playPercussion('clave', true);
         });
       });
 
       MusicNotation.render('#score-simple-beaming', {
-        title: '單拍子 4/4 每拍獨立符槓組合',
+        title: { en: 'Simple 4/4 Beamed Cleanly by the Beat', zh: '單拍子 4/4 每拍獨立符槓組合' },
         clef: 'rhythm',
         time: '4/4',
         bpm: 76,
-        spacing: 38,
+        spacing: 42,
         notes: [
           { dur: '8', beam: 1, count: '1' },
           { dur: '16', beam: 1, count: '&' },
@@ -187,12 +215,12 @@
       });
 
       MusicNotation.render('#score-america', {
-        title: '《America》（3/4 單三拍，含 ♩. = 1-2-&）',
+        title: { en: '“America” (3/4 Simple Triple, featuring ♩. = 1-2-&)', zh: '《America》（3/4 單三拍，含 ♩. = 1-2-&）' },
         clef: 'treble',
         key: 'F',
         time: '3/4',
         bpm: 92,
-        spacing: 40,
+        spacing: 44,
         notes: [
           { pitch: 'F4', dur: 'q', count: '1' },
           { pitch: 'F4', dur: 'q', count: '2' },
@@ -208,23 +236,23 @@
         bpm: 88,
         presets: [
           {
-            name: '4/4 十六分律動 (1 e & a)',
+            name: { en: '4/4 Sixteenth Groove (1 e & a)', zh: '4/4 十六分律動 (1 e & a)' },
             stepFactor: 0.25,
             beatEvery: 4,
             counts: ['1', 'e', '&', 'a', '2', 'e', '&', 'a', '3', 'e', '&', 'a', '4', 'e', '&', 'a'],
             tracks: [
-              { name: '🥁 小鼓/木魚', voice: 'clave', pattern: [2, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0, 1, 1, 0, 1, 0] },
-              { name: '🔊 四分大鼓', voice: 'kick',  pattern: [2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0] }
+              { name: { en: '🥁 Clave / Rim', zh: '🥁 小鼓/木魚' }, voice: 'clave', pattern: [2, 0, 1, 1, 1, 1, 1, 0, 2, 0, 0, 1, 1, 0, 1, 0] },
+              { name: { en: '🔊 Quarter Kick', zh: '🔊 四分大鼓' }, voice: 'kick',  pattern: [2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0] }
             ]
           },
           {
-            name: '3/4 圓舞曲 (1 & 2 & 3 &)',
+            name: { en: '3/4 Waltz (1 & 2 & 3 &)', zh: '3/4 圓舞曲 (1 & 2 & 3 &)' },
             stepFactor: 0.5,
             beatEvery: 2,
             counts: ['1', '&', '2', '&', '3', '&', '1', '&', '2', '&', '3', '&'],
             tracks: [
-              { name: '🥁 旋律節奏', voice: 'clave', pattern: [2, 0, 0, 1, 1, 0, 2, 1, 1, 0, 1, 0] },
-              { name: '🔊 三拍重音', voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 2, 0, 1, 0, 1, 0] }
+              { name: { en: '🥁 Melody Rhythm', zh: '🥁 旋律節奏' }, voice: 'clave', pattern: [2, 0, 0, 1, 1, 0, 2, 1, 1, 0, 1, 0] },
+              { name: { en: '🔊 Triple Pulse', zh: '🔊 三拍重音' }, voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 2, 0, 1, 0, 1, 0] }
             ]
           }
         ]
@@ -244,22 +272,32 @@
 
       Widgets.createQuiz('#ch03-quiz', 'quiz-ch03', 'ch03', [
         {
-          prompt: '1 個「附點四分音符 (♩.)」等於幾個十六分音符 (♬)？',
-          options: ['3 個', '4 個', '6 個', '8 個'],
+          prompt: { en: 'One dotted quarter note (♩.) equals how many sixteenth notes (♬)?', zh: '1 個「附點四分音符 (♩.)」等於幾個十六分音符 (♬)？' },
+          options: ['3', '4', '6', '8'],
           answer: 2,
-          explanation: '♩. = 3 個 ♪ = 6 個十六分音符 (♬)！'
+          explanation: { en: '♩. = 3 eighth notes (♪) = 6 sixteenth notes (♬)!', zh: '♩. = 3 個 ♪ = 6 個十六分音符 (♬)！' }
         },
         {
-          prompt: '拍號「₵ (Cut Time / Alla breve)」代表什麼意義？',
-          options: ['4/4 拍', '2/2 拍（單二拍，以二分音符當 1 拍）', '6/8 拍', '速度減半'],
+          prompt: { en: 'What does the time signature symbol “₵” (Cut Time / Alla breve) mean?', zh: '拍號「₵ (Cut Time / Alla breve)」代表什麼意義？' },
+          options: [
+            { en: '4/4 time', zh: '4/4 拍' },
+            { en: '2/2 time (2 half-note beats per bar)', zh: '2/2 拍（單二拍，以二分音符當 1 拍）' },
+            { en: '6/8 time', zh: '6/8 拍' },
+            { en: 'Play half as fast', zh: '速度減半' }
+          ],
           answer: 1,
-          explanation: 'C 加垂直線即為 2/2 拍 (Alla breve)，進行曲最常使用。'
+          explanation: { en: 'C with a vertical slash stands for 2/2 (Alla breve), common in marches.', zh: 'C 加垂直線即為 2/2 拍 (Alla breve)，進行曲最常使用。' }
         },
         {
-          prompt: '在 4/4 拍中，「附點八分音符＋十六分音符 (♪. ♬)」落在第 1 拍時，兩個音發聲位置數作？',
-          options: ['1 與 &', '1 與 e', '1 與 a', 'e 與 a'],
+          prompt: { en: 'In 4/4 time, when “♪. ♬” (dotted eighth + sixteenth) falls on Beat 1, which syllables sound?', zh: '在 4/4 拍中，「附點八分音符＋十六分音符 (♪. ♬)」落在第 1 拍時，兩個音發聲位置數作？' },
+          options: [
+            { en: '1 and &', zh: '1 與 &' },
+            { en: '1 and e', zh: '1 與 e' },
+            { en: '1 and a', zh: '1 與 a' },
+            { en: 'e and a', zh: 'e 與 a' }
+          ],
           answer: 2,
-          explanation: '♪. 佔前三個十六分音符 (1-e-&)，最後一個 ♬ 精準落在「a」！'
+          explanation: { en: '♪. spans the first three sixteenths (1-e-&), so the final ♬ lands right on “a”!', zh: '♪. 佔前三個十六分音符 (1-e-&)，最後一個 ♬ 精準落在「a」！' }
         }
       ]);
     });

@@ -1,10 +1,30 @@
 /* ==========================================================================
-   app.js — Shared Synth-Studio Shell, Live Oscilloscope HUD, Drawer & Tabs
+   app.js — Bilingual Synth-Studio Shell, Live Oscilloscope HUD, Drawer & Tabs
+   Default Language: English ('en') · Toggle EN / 繁中 persisted in localStorage
    ========================================================================== */
 (function () {
   'use strict';
 
+  const _t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+  const _isEn = () => (window.I18n ? window.I18n.isEn() : true);
+
+  function cleanPageLabel(page) {
+    if (!page) return '';
+    if (_isEn()) {
+      return (page.en || page.title).replace(/^(Ch \d+|Intro|Appendices [A-Z–-]+):\s*/, '');
+    }
+    return page.title.replace(/^(第 \d+ 章|導論|附錄 [A-Z–-]+)：/, '');
+  }
+
+  function pageBadgeNum(page) {
+    if (!page) return '';
+    return _isEn() ? page.num : (page.numZh || page.num);
+  }
+
   function initShell() {
+    // Apply saved or default ('en') language to static page DOM first
+    window.I18n?.applyDom?.(document);
+
     const pageId = document.body.dataset.page || 'home';
     const pages = window.CourseData.COURSE_PAGES;
     const currentIndex = pages.findIndex(p => p.id === pageId);
@@ -19,7 +39,7 @@
     const skip = document.createElement('a');
     skip.href = '#main-heading';
     skip.className = 'skip-link visually-hidden';
-    skip.textContent = '跳至主要內容';
+    skip.textContent = _t('Skip to main content', '跳至主要內容');
     document.body.prepend(skip);
 
     const announcer = document.createElement('div');
@@ -29,41 +49,55 @@
     announcer.setAttribute('aria-atomic', 'true');
     document.body.appendChild(announcer);
 
-    // 2. Render Sticky Studio Header with Live Audio Oscilloscope HUD
+    // 2. Render Sticky Studio Header with Live Audio Oscilloscope HUD + EN/繁 Toggle
     const header = document.getElementById('site-header');
+    function langToggleInnerHtml() {
+      const en = _isEn();
+      return en
+        ? `<span style="color:var(--brand);font-weight:900;">EN</span><span style="opacity:.45">/</span><span style="opacity:.78">繁</span>`
+        : `<span style="opacity:.78">EN</span><span style="opacity:.45">/</span><span style="color:var(--brand);font-weight:900;">繁</span>`;
+    }
+
     if (header) {
       header.className = 'site-header';
       header.innerHTML = `
         <div class="header-inner">
-          <button type="button" class="btn mobile-drawer-btn" id="drawer-open" aria-label="開啟章節目錄" aria-expanded="false" aria-controls="chapter-drawer">
+          <button type="button" class="btn mobile-drawer-btn" id="drawer-open" aria-label="${_t('Open chapter menu', '開啟章節目錄')}" aria-expanded="false" aria-controls="chapter-drawer">
             <span aria-hidden="true">☰</span>
-            <span class="hide-narrow">章節</span>
+            <span class="hide-narrow" id="drawer-open-label">${_t('Chapters', '章節')}</span>
           </button>
           <a class="brand-link" href="index.html">
             <span class="brand-badge" aria-hidden="true">𝄞</span>
-            <span>音樂實驗室<span class="hide-narrow"> · Duckworth 11e</span></span>
+            <span id="brand-title-text">${_t('Music Lab', '音樂實驗室')}<span class="hide-narrow"> · Duckworth 11e</span></span>
           </a>
-          <div class="live-hud" title="即時音訊波形與發音監測">
+          <div class="live-hud" id="live-hud-box" title="${_t('Live audio waveform & note monitor', '即時音訊波形與發音監測')}">
             <canvas id="hud-scope" width="112" height="44" aria-hidden="true"></canvas>
-            <span class="live-hud-note" id="hud-note">♪ 點擊試聽</span>
+            <span class="live-hud-note" id="hud-note" data-idle="1">${_t('♪ Tap to play', '♪ 點擊試聽')}</span>
           </div>
           <div class="header-progress-wrap">
-            <label for="global-course-progress" id="global-progress-label">進度</label>
+            <label for="global-course-progress" id="global-progress-label">${_t('Progress', '進度')}</label>
             <progress id="global-course-progress" max="${pages.length}" value="0"></progress>
             <span id="global-progress-text" style="font-family:var(--font-mono);">0%</span>
           </div>
           <div class="header-actions">
-            <button type="button" class="btn btn-amber" id="open-piano-modal" aria-label="開啟隨身鋼琴">
-              <span aria-hidden="true">🎹</span>
-              <span class="hide-narrow">鋼琴</span>
+            <button type="button" class="btn lang-toggle-btn" id="lang-toggle-btn" aria-label="${_t('Switch language to Traditional Chinese', '切換語言為英文 (Switch to English)')}" title="${_t('Switch EN / 繁體中文', '切換 英文 / 繁體中文')}">
+              ${langToggleInnerHtml()}
             </button>
-            <button type="button" class="btn" id="open-settings-modal" aria-label="外觀與主題設定">
+            <button type="button" class="btn btn-amber" id="open-piano-modal" aria-label="${_t('Open floating synth keyboard', '開啟隨身鋼琴')}">
+              <span aria-hidden="true">🎹</span>
+              <span class="hide-narrow" id="open-piano-label">${_t('Piano', '鋼琴')}</span>
+            </button>
+            <button type="button" class="btn" id="open-settings-modal" aria-label="${_t('Theme, language & progress settings', '外觀、語言與進度設定')}">
               <span aria-hidden="true">⚙</span>
             </button>
           </div>
         </div>
       `;
     }
+
+    document.getElementById('lang-toggle-btn')?.addEventListener('click', () => {
+      window.I18n?.toggleLang?.();
+    });
 
     initLiveHud();
 
@@ -72,8 +106,9 @@
       const prog = window.CourseData.getProgress();
       const groups = new Map();
       pages.forEach(p => {
-        if (!groups.has(p.group)) groups.set(p.group, []);
-        groups.get(p.group).push(p);
+        const gKey = _isEn() ? (p.groupEn || p.group) : p.group;
+        if (!groups.has(gKey)) groups.set(gKey, []);
+        groups.get(gKey).push(p);
       });
 
       let html = '';
@@ -85,9 +120,9 @@
           html += `
             <li>
               <a class="nav-link" href="${item.file}" ${isCur ? 'aria-current="page"' : ''}>
-                <span class="nav-num">${item.num}</span>
-                <span>${item.title.replace(/^第 \d+ 章：/, '')}</span>
-                ${isDone ? '<span class="nav-done-mark" aria-label="已完成">✓</span>' : ''}
+                <span class="nav-num">${pageBadgeNum(item)}</span>
+                <span>${cleanPageLabel(item)}</span>
+                ${isDone ? `<span class="nav-done-mark" aria-label="${_t('Completed', '已完成')}">✓</span>` : ''}
               </a>
             </li>
           `;
@@ -99,7 +134,7 @@
 
     const sidebar = document.getElementById('course-sidebar');
     if (sidebar) {
-      sidebar.innerHTML = `<nav aria-label="課程章節目錄">${buildNavTreeHtml()}</nav>`;
+      sidebar.innerHTML = `<nav aria-label="${_t('Course chapters', '課程章節目錄')}">${buildNavTreeHtml()}</nav>`;
     }
 
     // 4. Mobile Scroll-Snap Drawer (<dialog>)
@@ -111,10 +146,10 @@
       <div class="Drawer-scroller">
         <div class="Drawer-sheet">
           <div class="Drawer-header">
-            <strong id="drawer-title" style="font-size:1rem;">🗺️ 全書 20 頁互動地圖</strong>
-            <button type="button" class="btn btn-sm" id="drawer-close" aria-label="關閉目錄" autofocus>✕</button>
+            <strong id="drawer-title" style="font-size:1rem;">${_t('🗺️ 20-Page Interactive Map', '🗺️ 全書 20 頁互動地圖')}</strong>
+            <button type="button" class="btn btn-sm" id="drawer-close" aria-label="${_t('Close menu', '關閉目錄')}" autofocus>✕</button>
           </div>
-          <nav aria-label="行動版章節目錄" id="drawer-nav-body">${buildNavTreeHtml()}</nav>
+          <nav aria-label="${_t('Mobile chapter menu', '行動版章節目錄')}" id="drawer-nav-body">${buildNavTreeHtml()}</nav>
         </div>
       </div>
     `;
@@ -127,30 +162,51 @@
     pianoDialog.id = 'studio-piano-dialog';
     pianoDialog.setAttribute('closedby', 'any');
     pianoDialog.setAttribute('aria-labelledby', 'piano-modal-title');
+
+    function renderPianoModalControls() {
+      const curTimbre = document.getElementById('global-timbre-select')?.value || 'piano';
+      const curVol = document.getElementById('global-vol-range')?.value || '0.78';
+      const titleEl = pianoDialog.querySelector('#piano-modal-title');
+      const closeBtn = pianoDialog.querySelector('#piano-modal-close');
+      const ctrlWrap = pianoDialog.querySelector('#piano-modal-ctrl-wrap');
+      if (titleEl) titleEl.textContent = _t('🎹 Pocket Synth Keyboard (C3–C6)', '🎹 隨身合成鍵盤 (C3–C6)');
+      if (closeBtn) closeBtn.textContent = _t('✕ Close', '✕ 關閉');
+      if (ctrlWrap) {
+        ctrlWrap.innerHTML = `
+          <label style="font-size:0.84rem;font-weight:700;">${_t('Timbre:', '音色：')}
+            <select id="global-timbre-select">
+              <option value="piano" ${curTimbre === 'piano' ? 'selected' : ''}>${_t('🎹 Grand Piano', '🎹 平台鋼琴')}</option>
+              <option value="flute" ${curTimbre === 'flute' ? 'selected' : ''}>${_t('🪈 Flute', '🪈 長笛')}</option>
+              <option value="clarinet" ${curTimbre === 'clarinet' ? 'selected' : ''}>${_t('🎷 Clarinet', '🎷 單簧管')}</option>
+              <option value="violin" ${curTimbre === 'violin' ? 'selected' : ''}>${_t('🎻 Violin', '🎻 小提琴')}</option>
+              <option value="guitar" ${curTimbre === 'guitar' ? 'selected' : ''}>${_t('🎸 Acoustic Guitar', '🎸 木吉他')}</option>
+              <option value="organ" ${curTimbre === 'organ' ? 'selected' : ''}>${_t('⛪ Pipe Organ', '⛪ 管風琴')}</option>
+            </select>
+          </label>
+          <label style="font-size:0.84rem;font-weight:700;display:inline-flex;align-items:center;gap:0.35rem;">
+            ${_t('Vol:', '音量：')}<input type="range" id="global-vol-range" min="0" max="1" step="0.05" value="${curVol}" style="inline-size:95px;">
+          </label>
+          <span id="floating-last-note" class="visual-pill">${_t('Keys A–K / W–U also play notes', '電腦鍵盤 A–K / W–U 亦可彈奏')}</span>
+        `;
+        ctrlWrap.querySelector('#global-timbre-select')?.addEventListener('change', (e) => {
+          window.AudioEngine.setTimbre(e.target.value);
+        });
+        ctrlWrap.querySelector('#global-vol-range')?.addEventListener('input', (e) => {
+          window.AudioEngine.setVolume(e.target.value);
+        });
+      }
+    }
+
     pianoDialog.innerHTML = `
       <div class="modal-header">
-        <h2 id="piano-modal-title">🎹 隨身合成鍵盤 (C3–C6)</h2>
-        <form method="dialog"><button class="btn btn-sm" value="close" autofocus>✕ 關閉</button></form>
+        <h2 id="piano-modal-title"></h2>
+        <form method="dialog"><button class="btn btn-sm" id="piano-modal-close" value="close" autofocus></button></form>
       </div>
-      <div class="widget-controls" style="margin-block-start:0;">
-        <label style="font-size:0.84rem;font-weight:700;">音色：
-          <select id="global-timbre-select">
-            <option value="piano">🎹 平台鋼琴</option>
-            <option value="flute">🪈 長笛</option>
-            <option value="clarinet">🎷 單簧管</option>
-            <option value="violin">🎻 小提琴</option>
-            <option value="guitar">🎸 木吉他</option>
-            <option value="organ">⛪ 管風琴</option>
-          </select>
-        </label>
-        <label style="font-size:0.84rem;font-weight:700;display:inline-flex;align-items:center;gap:0.35rem;">
-          音量：<input type="range" id="global-vol-range" min="0" max="1" step="0.05" value="0.78" style="inline-size:95px;">
-        </label>
-        <span id="floating-last-note" class="visual-pill">電腦鍵盤 A–K / W–U 亦可彈奏</span>
-      </div>
+      <div class="widget-controls" id="piano-modal-ctrl-wrap" style="margin-block-start:0;"></div>
       <div id="floating-piano-mount"></div>
     `;
     document.body.appendChild(pianoDialog);
+    renderPianoModalControls();
 
     let floatingPiano = null;
     document.getElementById('open-piano-modal')?.addEventListener('click', () => {
@@ -169,13 +225,6 @@
       }
     });
 
-    document.getElementById('global-timbre-select')?.addEventListener('change', (e) => {
-      window.AudioEngine.setTimbre(e.target.value);
-    });
-    document.getElementById('global-vol-range')?.addEventListener('input', (e) => {
-      window.AudioEngine.setVolume(e.target.value);
-    });
-
     const KEY_TO_MIDI = { a: 60, w: 61, s: 62, e: 63, d: 64, f: 65, t: 66, g: 67, y: 68, h: 69, u: 70, j: 71, k: 72 };
     document.addEventListener('keydown', (e) => {
       if (!pianoDialog.open || e.repeat) return;
@@ -184,44 +233,81 @@
       if (m && floatingPiano) floatingPiano.triggerKey(m);
     });
 
-    // 6. Settings & Tri-State Color Scheme Modal (<dialog>)
+    // 6. Settings: Language + Tri-State Color Scheme Modal (<dialog>)
     const settingsDialog = document.createElement('dialog');
     settingsDialog.className = 'modal-dialog';
-    settingsDialog.style.maxInlineSize = '440px';
+    settingsDialog.style.maxInlineSize = '450px';
     settingsDialog.id = 'settings-dialog';
     settingsDialog.setAttribute('closedby', 'any');
     settingsDialog.setAttribute('aria-labelledby', 'settings-modal-title');
     settingsDialog.innerHTML = `
       <div class="modal-header">
-        <h2 id="settings-modal-title">⚙ 主題外觀與進度設定</h2>
+        <h2 id="settings-modal-title"></h2>
         <form method="dialog"><button class="btn btn-sm" value="close" autofocus>✕</button></form>
       </div>
+      <fieldset style="border:1.5px solid var(--border-subtle);border-radius:var(--radius-md);padding:0.85rem;margin-block-end:0.8rem;">
+        <legend id="lang-legend" style="font-weight:800;padding-inline:0.4rem;"></legend>
+        <div style="display:grid;gap:0.5rem;">
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-weight:600;">
+            <input type="radio" name="lang-choice" value="en">
+            <span id="lang-en-label">English (Default)</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-weight:600;">
+            <input type="radio" name="lang-choice" value="zh">
+            <span id="lang-zh-label">繁體中文 (Traditional Chinese)</span>
+          </label>
+        </div>
+      </fieldset>
       <fieldset style="border:1.5px solid var(--border-subtle);border-radius:var(--radius-md);padding:0.85rem;margin-block-end:0.9rem;">
-        <legend style="font-weight:800;padding-inline:0.4rem;">色彩模式</legend>
+        <legend id="theme-legend" style="font-weight:800;padding-inline:0.4rem;"></legend>
         <div style="display:grid;gap:0.5rem;">
           <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-weight:600;">
             <input type="radio" name="theme-choice" value="system">
-            <span id="system-theme-label">跟隨系統預設</span>
+            <span id="system-theme-label"></span>
           </label>
           <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-weight:600;">
             <input type="radio" name="theme-choice" value="light">
-            <span>☀️ 淺色工作室 (Daylight Studio)</span>
+            <span id="light-theme-label"></span>
           </label>
           <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-weight:600;">
             <input type="radio" name="theme-choice" value="dark">
-            <span>🌙 深色霓虹舞台 (Midnight Synth)</span>
+            <span id="dark-theme-label"></span>
           </label>
         </div>
       </fieldset>
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-        <span style="font-size:0.84rem;color:var(--text-secondary);">重置本機閱讀與闖關紀錄：</span>
-        <button type="button" class="btn btn-sm" id="reset-all-progress-btn">↺ 清除紀錄</button>
+        <span id="reset-progress-desc" style="font-size:0.84rem;color:var(--text-secondary);"></span>
+        <button type="button" class="btn btn-sm" id="reset-all-progress-btn"></button>
       </div>
     `;
     document.body.appendChild(settingsDialog);
 
-    wireColorSchemeSettings(settingsDialog);
+    const updateSysThemeLabel = wireColorSchemeSettings(settingsDialog);
+    wireLanguageSettings(settingsDialog);
     wireDialogLightDismissFallback([pianoDialog, settingsDialog]);
+
+    function renderSettingsText() {
+      const sTitle = settingsDialog.querySelector('#settings-modal-title');
+      const langLeg = settingsDialog.querySelector('#lang-legend');
+      const langEnL = settingsDialog.querySelector('#lang-en-label');
+      const langZhL = settingsDialog.querySelector('#lang-zh-label');
+      const thLeg = settingsDialog.querySelector('#theme-legend');
+      const lThL = settingsDialog.querySelector('#light-theme-label');
+      const dThL = settingsDialog.querySelector('#dark-theme-label');
+      const rDesc = settingsDialog.querySelector('#reset-progress-desc');
+      const rBtn = settingsDialog.querySelector('#reset-all-progress-btn');
+      if (sTitle) sTitle.textContent = _t('⚙ Language, Theme & Progress', '⚙ 語言、外觀與進度設定');
+      if (langLeg) langLeg.textContent = _t('🌐 Language / 介面語言', '🌐 介面語言 / Language');
+      if (langEnL) langEnL.textContent = _t('English (Default · Remembered)', 'English (預設語言 · 自動記住設定)');
+      if (langZhL) langZhL.textContent = _t('繁體中文 (Traditional Chinese)', '繁體中文 (自動記住設定)');
+      if (thLeg) thLeg.textContent = _t('🎨 Color Theme', '🎨 色彩模式');
+      if (lThL) lThL.textContent = _t('☀️ Daylight Studio (Light)', '☀️ 淺色工作室 (Daylight Studio)');
+      if (dThL) dThL.textContent = _t('🌙 Midnight Synth (Dark)', '🌙 深色霓虹舞台 (Midnight Synth)');
+      if (rDesc) rDesc.textContent = _t('Reset local chapter & quiz progress:', '重置本機閱讀與闖關紀錄：');
+      if (rBtn) rBtn.textContent = _t('↺ Reset Progress', '↺ 清除紀錄');
+      updateSysThemeLabel();
+    }
+    renderSettingsText();
 
     document.getElementById('open-settings-modal')?.addEventListener('click', () => settingsDialog.showModal());
     document.getElementById('reset-all-progress-btn')?.addEventListener('click', () => {
@@ -232,34 +318,40 @@
 
     // 7. Bottom Prev/Next Navigation
     const mainEl = document.querySelector('main.lesson-main');
-    if (mainEl && currentIndex >= 0) {
+    let footerNav = null;
+    function renderFooterNav() {
+      if (!mainEl || currentIndex < 0) return;
+      if (!footerNav) {
+        footerNav = document.createElement('nav');
+        footerNav.className = 'chapter-footer-nav';
+        mainEl.appendChild(footerNav);
+      }
+      footerNav.setAttribute('aria-label', _t('Previous and next chapter navigation', '章節前後頁導覽'));
+
       const prev = currentIndex > 0 ? pages[currentIndex - 1] : null;
       const next = currentIndex < pages.length - 1 ? pages[currentIndex + 1] : null;
 
-      const footerNav = document.createElement('nav');
-      footerNav.className = 'chapter-footer-nav';
-      footerNav.setAttribute('aria-label', '章節前後頁導覽');
-
       const prevHtml = prev
-        ? `<a class="btn" href="${prev.file}">← ${prev.num} ${prev.title.replace(/^第 \d+ 章：/, '')}</a>`
+        ? `<a class="btn" href="${prev.file}">← ${pageBadgeNum(prev)} ${cleanPageLabel(prev)}</a>`
         : `<span></span>`;
       const nextHtml = next
-        ? `<a class="btn btn-primary" href="${next.file}">${next.num} ${next.title.replace(/^第 \d+ 章：/, '')} →</a>`
-        : `<a class="btn btn-primary" href="index.html">回到互動總覽 →</a>`;
+        ? `<a class="btn btn-primary" href="${next.file}">${pageBadgeNum(next)} ${cleanPageLabel(next)} →</a>`
+        : `<a class="btn btn-primary" href="index.html">${_t('Back to Hub →', '回到互動總覽 →')}</a>`;
 
       const doneBtnHtml = pageId !== 'home'
-        ? `<button type="button" class="btn" id="toggle-page-done-btn" aria-pressed="false">○ 標記完成本章</button>`
+        ? `<button type="button" class="btn" id="toggle-page-done-btn" aria-pressed="false"></button>`
         : '';
 
       footerNav.innerHTML = `${prevHtml}${doneBtnHtml}${nextHtml}`;
-      mainEl.appendChild(footerNav);
 
-      const doneBtn = document.getElementById('toggle-page-done-btn');
+      const doneBtn = footerNav.querySelector('#toggle-page-done-btn');
       if (doneBtn) {
         const syncDoneBtn = () => {
           const isDone = !!window.CourseData.getProgress().completedPages[pageId];
           doneBtn.setAttribute('aria-pressed', isDone ? 'true' : 'false');
-          doneBtn.textContent = isDone ? '✓ 已通關本章' : '○ 標記完成本章';
+          doneBtn.textContent = isDone
+            ? _t('✓ Chapter Completed', '✓ 已通關本章')
+            : _t('○ Mark Chapter Complete', '○ 標記完成本章');
         };
         syncDoneBtn();
         doneBtn.addEventListener('click', () => {
@@ -268,16 +360,24 @@
           if (!cur) window.AudioEngine.playChord(['C5', 'E5', 'G5', 'C6'], 0.45);
           syncDoneBtn();
         });
-        window.addEventListener('course-progress-updated', syncDoneBtn);
       }
     }
+    renderFooterNav();
+    window.addEventListener('course-progress-updated', renderFooterNav);
 
     // 8. Footer
     const siteFooter = document.getElementById('site-footer');
-    if (siteFooter) {
+    function renderSiteFooter() {
+      if (!siteFooter) return;
       siteFooter.className = 'site-footer';
-      siteFooter.innerHTML = `<p>🎹 Duckworth《<cite lang="en">A Creative Approach to Music Fundamentals</cite>》(11e) 互動音樂實驗室 · <strong>${currentPage.num} ${currentPage.title}</strong></p>`;
+      const pageLabel = _isEn()
+        ? `${currentPage.num} · ${currentPage.en || currentPage.title}`
+        : `${currentPage.numZh || currentPage.num} · ${currentPage.title}`;
+      siteFooter.innerHTML = _isEn()
+        ? `<p>🎹 Duckworth’s <cite>A Creative Approach to Music Fundamentals</cite> (11e) Interactive Music Lab · <strong>${pageLabel}</strong></p>`
+        : `<p>🎹 Duckworth《<cite lang="en">A Creative Approach to Music Fundamentals</cite>》(11e) 互動音樂實驗室 · <strong>${pageLabel}</strong></p>`;
     }
+    renderSiteFooter();
 
     // 9. Progress Bar Sync
     function refreshProgressUI() {
@@ -289,7 +389,7 @@
       const txt = document.getElementById('global-progress-text');
       if (bar) { bar.max = learnablePages.length; bar.value = doneCount; }
       if (txt) txt.textContent = `${pct}%`;
-      if (sidebar) sidebar.innerHTML = `<nav aria-label="課程章節目錄">${buildNavTreeHtml()}</nav>`;
+      if (sidebar) sidebar.innerHTML = `<nav aria-label="${_t('Course chapters', '課程章節目錄')}">${buildNavTreeHtml()}</nav>`;
       const dBody = document.getElementById('drawer-nav-body');
       if (dBody) dBody.innerHTML = buildNavTreeHtml();
     }
@@ -297,7 +397,50 @@
     refreshProgressUI();
     window.addEventListener('course-progress-updated', refreshProgressUI);
 
-    // 10. Tabs
+    // 10. Live Language Switch Listener (updates entire shell without page reload)
+    window.addEventListener('lang-changed', () => {
+      skip.textContent = _t('Skip to main content', '跳至主要內容');
+      const dOpen = document.getElementById('drawer-open');
+      if (dOpen) dOpen.setAttribute('aria-label', _t('Open chapter menu', '開啟章節目錄'));
+      const dOpenLbl = document.getElementById('drawer-open-label');
+      if (dOpenLbl) dOpenLbl.textContent = _t('Chapters', '章節');
+      const brandTxt = document.getElementById('brand-title-text');
+      if (brandTxt) brandTxt.innerHTML = `${_t('Music Lab', '音樂實驗室')}<span class="hide-narrow"> · Duckworth 11e</span>`;
+      const hudBox = document.getElementById('live-hud-box');
+      if (hudBox) hudBox.title = _t('Live audio waveform & note monitor', '即時音訊波形與發音監測');
+      const hudNote = document.getElementById('hud-note');
+      if (hudNote && hudNote.dataset.idle === '1') {
+        hudNote.textContent = _t('♪ Tap to play', '♪ 點擊試聽');
+      }
+      const pLbl = document.getElementById('global-progress-label');
+      if (pLbl) pLbl.textContent = _t('Progress', '進度');
+      const langBtn = document.getElementById('lang-toggle-btn');
+      if (langBtn) {
+        langBtn.innerHTML = langToggleInnerHtml();
+        langBtn.setAttribute('aria-label', _t('Switch language to Traditional Chinese', '切換語言為英文 (Switch to English)'));
+      }
+      const oPiano = document.getElementById('open-piano-modal');
+      if (oPiano) oPiano.setAttribute('aria-label', _t('Open floating synth keyboard', '開啟隨身鋼琴'));
+      const oPianoLbl = document.getElementById('open-piano-label');
+      if (oPianoLbl) oPianoLbl.textContent = _t('Piano', '鋼琴');
+      const oSet = document.getElementById('open-settings-modal');
+      if (oSet) oSet.setAttribute('aria-label', _t('Theme, language & progress settings', '外觀、語言與進度設定'));
+
+      const dTitle = document.getElementById('drawer-title');
+      if (dTitle) dTitle.textContent = _t('🗺️ 20-Page Interactive Map', '🗺️ 全書 20 頁互動地圖');
+      const dClose = document.getElementById('drawer-close');
+      if (dClose) dClose.setAttribute('aria-label', _t('Close menu', '關閉目錄'));
+      const dNav = document.getElementById('drawer-nav-body');
+      if (dNav) dNav.setAttribute('aria-label', _t('Mobile chapter menu', '行動版章節目錄'));
+
+      renderPianoModalControls();
+      renderSettingsText();
+      refreshProgressUI();
+      renderFooterNav();
+      renderSiteFooter();
+    });
+
+    // 11. Tabs
     wireTabs();
   }
 
@@ -315,6 +458,7 @@
       const d = e.detail || {};
       if (d.color) activeColor = d.color;
       if (noteEl && d.label) {
+        noteEl.dataset.idle = '0';
         noteEl.textContent = d.label;
         noteEl.style.color = activeColor;
       }
@@ -347,7 +491,6 @@
         }
       }
 
-      // Gentle breathing idle wave
       idlePhase += 0.05;
       for (let x = 0; x <= w; x += 4) {
         const y = h / 2 + Math.sin(x * 0.12 + idlePhase) * 3;
@@ -428,6 +571,21 @@
     });
   }
 
+  function wireLanguageSettings(dialog) {
+    const radios = dialog.querySelectorAll('input[name="lang-choice"]');
+    function syncLangRadios() {
+      const cur = window.I18n ? window.I18n.getLang() : 'en';
+      radios.forEach(r => { r.checked = (r.value === cur); });
+    }
+    syncLangRadios();
+    radios.forEach(r => {
+      r.addEventListener('change', () => {
+        if (r.checked) window.I18n?.setLang?.(r.value);
+      });
+    });
+    window.addEventListener('lang-changed', syncLangRadios);
+  }
+
   function wireColorSchemeSettings(dialog) {
     const meta = document.querySelector('meta[name="color-scheme"]');
     const radios = dialog.querySelectorAll('input[name="theme-choice"]');
@@ -435,7 +593,10 @@
     const mql = window.matchMedia('(prefers-color-scheme: dark)');
 
     function updateSysLabel() {
-      if (sysLabel) sysLabel.textContent = `跟隨系統預設（目前為${mql.matches ? '深色' : '淺色'}）`;
+      if (!sysLabel) return;
+      sysLabel.textContent = _isEn()
+        ? `Follow system default (currently ${mql.matches ? 'dark' : 'light'})`
+        : `跟隨系統預設（目前為${mql.matches ? '深色' : '淺色'}）`;
     }
     updateSysLabel();
     mql.addEventListener('change', updateSysLabel);
@@ -465,6 +626,8 @@
     window.addEventListener('storage', (e) => {
       if (e.key === 'color-scheme') syncRadiosFromStorage();
     });
+
+    return updateSysLabel;
   }
 
   function wireDialogLightDismissFallback(dialogs) {

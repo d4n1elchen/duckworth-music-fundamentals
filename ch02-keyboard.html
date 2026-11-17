@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 2 章：鍵盤跳躍儀 ＋ 焦點技能 1 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 2: The Keyboard + Focus 1 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch02">
+<body data-page="ch02" data-zh-title="第 2 章：鍵盤跳躍儀 ＋ 焦點技能 1 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,54 +23,59 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 2 + Focus on Skills 1</span>
-        <h1 id="main-heading" tabindex="-1">第 2 章：黑白鍵地標、全半音跳躍與五種臨時記號</h1>
-        <p class="chapter-subtitle">
-          88 鍵鋼琴（52 白＋36 黑）是你看見樂理距離的最佳地圖。用下方<strong>全半音跳躍儀</strong>一秒看穿所有變化音！
+        <span class="chapter-eyebrow" data-zh="Chapter 2 + Focus on Skills 1 · 第 2 章＋檢定 1">Chapter 2 + Focus on Skills 1</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 2 章：黑白鍵地標、全半音跳躍與五種臨時記號">Ch 2: Keyboard Landmarks, Steps &amp; Accidentals</h1>
+        <p class="chapter-subtitle" data-zh="88 鍵鋼琴（52 白＋36 黑）是你看見樂理距離的最佳地圖。用下方<strong>全半音跳躍儀</strong>一秒看穿所有變化音！">
+          The 88-key piano (52 white + 36 black) makes musical distance visible. Hop half &amp; whole steps on the synth below!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">📍 <strong>C 在兩黑鍵左 · F 在三黑鍵左</strong></span>
-          <span class="visual-pill">⚡ 白鍵自然半音僅兩處：<strong>E–F 與 B–C</strong></span>
-          <span class="visual-pill">🎼 譜面記號寫音符<strong>左方</strong>：<code>♯F</code> 讀作 <code>F♯</code></span>
+          <span class="visual-pill" data-zh="📍 <strong>C 在兩黑鍵左 · F 在三黑鍵左</strong>">📍 <strong>C left of 2 blacks · F left of 3 blacks</strong></span>
+          <span class="visual-pill" data-zh="⚡ 白鍵自然半音僅兩處：<strong>E–F 與 B–C</strong>">⚡ Natural white-key half steps: <strong>E–F &amp; B–C</strong></span>
+          <span class="visual-pill" data-zh="🎼 譜面記號寫音符<strong>左方</strong>：<code>♯F</code> 讀作 <code>F♯</code>">🎼 Written <strong>before</strong> the notehead: <code>♯F</code> is spoken <code>F♯</code></span>
         </div>
       </section>
 
-      <!-- 1. 互動全半音跳躍儀 & 雙鍵測距鋼琴 -->
+      <!-- 1. Step Jumper & Distance Meter -->
       <section class="lesson-section" aria-labelledby="ch2-jumper">
-        <h2 id="ch2-jumper">🐸 1. 半音／全音跳躍儀 ＆ 雙鍵測距鍵盤</h2>
+        <h2 id="ch2-jumper" data-zh="🐸 1. 半音／全音跳躍儀 ＆ 雙鍵測距鍵盤">🐸 1. Half / Whole Step Jumper &amp; Distance Meter</h2>
         <div class="widget-box">
           <div class="widget-header">
-            <span id="kb-distance-readout" class="visual-pill">🎯 點選任意琴鍵，再用下方按鈕跳躍半音 (H) 或全音 (W)！</span>
+            <span id="kb-distance-readout" class="visual-pill" data-zh="🎯 點選任意琴鍵，再用按鈕跳躍半音 (H) 或全音 (W)！">🎯 Tap any key, then hop Half (H) or Whole (W) steps!</span>
             <div class="widget-controls" style="margin:0;">
-              <button type="button" class="btn btn-sm" id="jump-h-down">◀ -H 半音</button>
-              <button type="button" class="btn btn-sm btn-primary" id="jump-h-up">+H 半音 ▶</button>
-              <button type="button" class="btn btn-sm" id="jump-w-down">◀◀ -W 全音</button>
-              <button type="button" class="btn btn-sm btn-primary" id="jump-w-up">+W 全音 ▶▶</button>
-              <button type="button" class="btn btn-sm btn-amber" id="flash-white-hs">⚡ 閃爍 E–F / B–C</button>
+              <button type="button" class="btn btn-sm" id="jump-h-down" data-zh="◀ -H 半音">◀ -H Half</button>
+              <button type="button" class="btn btn-sm btn-primary" id="jump-h-up" data-zh="+H 半音 ▶">+H Half ▶</button>
+              <button type="button" class="btn btn-sm" id="jump-w-down" data-zh="◀◀ -W 全音">◀◀ -W Whole</button>
+              <button type="button" class="btn btn-sm btn-primary" id="jump-w-up" data-zh="+W 全音 ▶▶">+W Whole ▶▶</button>
+              <button type="button" class="btn btn-sm btn-amber" id="flash-white-hs" data-zh="⚡ 閃爍 E–F / B–C">⚡ Flash E–F / B–C</button>
             </div>
           </div>
           <div id="ch02-piano"></div>
         </div>
       </section>
 
-      <!-- 2. 五種臨時記號 & 自然/變化半音互動面板 -->
+      <!-- 2. Five Accidentals & Diatonic vs Chromatic Half Steps -->
       <section class="lesson-section" aria-labelledby="ch2-acc">
-        <h2 id="ch2-acc">🎛️ 2. 五種臨時記號變形實驗室（♯ · ♭ · ♮ · 𝄪 · 𝄫）</h2>
-        <div class="jam-pad-grid" id="acc-pads" style="grid-template-columns:repeat(auto-fit, minmax(110px, 1fr));">
+        <h2 id="ch2-acc" data-zh="🎛️ 2. 五種臨時記號變形實驗室（♯ · ♭ · ♮ · 𝄪 · 𝄫）">🎛️ 2. Five Accidentals Lab (♯ · ♭ · ♮ · 𝄪 · 𝄫)</h2>
+        <div class="jam-pad-grid" id="acc-pads" style="grid-template-columns:repeat(auto-fit, minmax(115px, 1fr));">
           <button type="button" class="jam-pad" data-acc="F#4" style="--pad-color:#3b82f6;">
-            <span style="font-size:1.3rem;">♯ 升記號</span><span style="font-size:0.75rem;">+1 半音 (F♯4)</span>
+            <span style="font-size:1.25rem;" data-zh="♯ 升記號">♯ Sharp</span>
+            <span style="font-size:0.74rem;" data-zh="+1 半音 (F♯4)">+1 half step (F♯4)</span>
           </button>
           <button type="button" class="jam-pad" data-acc="Bb4" style="--pad-color:#10b981;">
-            <span style="font-size:1.3rem;">♭ 降記號</span><span style="font-size:0.75rem;">-1 半音 (B♭4)</span>
+            <span style="font-size:1.25rem;" data-zh="♭ 降記號">♭ Flat</span>
+            <span style="font-size:0.74rem;" data-zh="-1 半音 (B♭4)">-1 half step (B♭4)</span>
           </button>
           <button type="button" class="jam-pad" data-acc="Fn4" style="--pad-color:#64748b;">
-            <span style="font-size:1.3rem;">♮ 還原記號</span><span style="font-size:0.75rem;">取消升降 (F♮4)</span>
+            <span style="font-size:1.25rem;" data-zh="♮ 還原記號">♮ Natural</span>
+            <span style="font-size:0.74rem;" data-zh="取消升降 (F♮4)">Cancels ♯/♭ (F♮4)</span>
           </button>
           <button type="button" class="jam-pad" data-acc="F##4" style="--pad-color:#f59e0b;">
-            <span style="font-size:1.3rem;">𝄪 重升記號</span><span style="font-size:0.75rem;">+2 半音 (F𝄪=G)</span>
+            <span style="font-size:1.25rem;" data-zh="𝄪 重升記號">𝄪 Double Sharp</span>
+            <span style="font-size:0.74rem;" data-zh="+2 半音 (F𝄪=G)">+2 half steps (F𝄪=G)</span>
           </button>
           <button type="button" class="jam-pad" data-acc="Ebb4" style="--pad-color:#ec4899;">
-            <span style="font-size:1.3rem;">𝄫 重降記號</span><span style="font-size:0.75rem;">-2 半音 (E𝄫=D)</span>
+            <span style="font-size:1.25rem;" data-zh="𝄫 重降記號">𝄫 Double Flat</span>
+            <span style="font-size:0.74rem;" data-zh="-2 半音 (E𝄫=D)">-2 half steps (E𝄫=D)</span>
           </button>
         </div>
 
@@ -75,21 +83,21 @@
 
         <div class="concept-grid">
           <button type="button" class="concept-card" id="demo-diatonic-hs" style="text-align:start;cursor:pointer;">
-            <span class="badge">點擊聽辨</span>
-            <h3 style="margin-block-start:0.3rem;">自然半音 Diatonic Half Step</h3>
-            <p><strong>不同字母</strong>相鄰線間：如 <code>F4 → G♭4</code>、<code>E4 → F4</code></p>
+            <span class="badge" data-zh="點擊聽辨">Tap to Hear</span>
+            <h3 style="margin-block-start:0.3rem;" data-zh="自然半音 Diatonic Half Step">Diatonic Half Step</h3>
+            <p data-zh="<strong>不同字母</strong>相鄰線間：如 <code>F4 → G♭4</code>、<code>E4 → F4</code>"><strong>Adjacent letters</strong> on neighbor staff steps: <code>F4 → G♭4</code>, <code>E4 → F4</code></p>
           </button>
           <button type="button" class="concept-card" id="demo-chromatic-hs" style="text-align:start;cursor:pointer;">
-            <span class="badge">點擊聽辨</span>
-            <h3 style="margin-block-start:0.3rem;">變化半音 Chromatic Half Step</h3>
-            <p><strong>相同字母</strong>同一線間：如 <code>F4 → F♯4</code>、<code>B4 → B♭4</code></p>
+            <span class="badge" data-zh="點擊聽辨">Tap to Hear</span>
+            <h3 style="margin-block-start:0.3rem;" data-zh="變化半音 Chromatic Half Step">Chromatic Half Step</h3>
+            <p data-zh="<strong>相同字母</strong>同一線間：如 <code>F4 → F♯4</code>、<code>B4 → B♭4</code>"><strong>Same letter</strong> on the same line/space: <code>F4 → F♯4</code>, <code>B4 → B♭4</code></p>
           </button>
         </div>
       </section>
 
       <!-- 3. Focus on Skills 1 -->
       <section class="lesson-section" aria-labelledby="focus1-heading">
-        <h2 id="focus1-heading">🏆 Focus on Skills 1：第一階段綜合闖關檢定</h2>
+        <h2 id="focus1-heading" data-zh="🏆 Focus on Skills 1：第一階段綜合闖關檢定">🏆 Focus on Skills 1 Checkpoint</h2>
         <div id="focus1-quiz"></div>
       </section>
     </main>
@@ -97,13 +105,15 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+
       let curMidi = 60;
       let prevMidi = null;
       const readout = document.getElementById('kb-distance-readout');
@@ -117,11 +127,15 @@
           if (prevMidi !== null && prevMidi !== midi) {
             const diff = Math.abs(midi - prevMidi);
             const prevP = CourseData.midiToCleanPitch(prevMidi);
-            const tag = diff === 1 ? '1 半音 (H)' : diff === 2 ? '1 全音 (W = 2 半音)' : `${diff} 個半音`;
-            readout.innerHTML = `📏 <strong>${prevP.label} → ${curP.label}</strong>：相距 <strong>${tag}</strong>`;
+            const tag = diff === 1
+              ? t('1 Half Step (H)', '1 半音 (H)')
+              : diff === 2
+                ? t('1 Whole Step (W = 2H)', '1 全音 (W = 2 半音)')
+                : t(`${diff} half steps`, `${diff} 個半音`);
+            readout.innerHTML = `📏 <strong>${prevP.label} → ${curP.label}</strong>: <strong>${tag}</strong>`;
             piano.highlightMidi([prevMidi, midi], midi);
           } else {
-            readout.innerHTML = `🎯 目前基準音：<strong>${curP.label}</strong>`;
+            readout.innerHTML = `🎯 ${t('Anchor note:', '目前基準音：')} <strong>${curP.label}</strong>`;
             piano.highlightMidi([midi], midi);
           }
           prevMidi = midi;
@@ -129,7 +143,7 @@
         }
       });
 
-      function stepJump(delta, label) {
+      function stepJump(delta, enTag, zhTag) {
         const from = curMidi;
         const to = Math.max(53, Math.min(77, from + delta));
         prevMidi = from;
@@ -140,51 +154,55 @@
         AudioEngine.playSequence([{ pitch: from, beats: 0.35 }, { pitch: to, beats: 0.65 }], 110, {
           onStep: (ev) => piano.flashKey(ev.pitch, 260)
         });
-        readout.innerHTML = `🐸 ${label}：<strong>${p1.label} → ${p2.label}</strong>`;
+        readout.innerHTML = `🐸 ${t(enTag, zhTag)}: <strong>${p1.label} → ${p2.label}</strong>`;
       }
 
-      document.getElementById('jump-h-up').addEventListener('click', () => stepJump(1, '+1 半音 (H)'));
-      document.getElementById('jump-h-down').addEventListener('click', () => stepJump(-1, '-1 半音 (H)'));
-      document.getElementById('jump-w-up').addEventListener('click', () => stepJump(2, '+1 全音 (W)'));
-      document.getElementById('jump-w-down').addEventListener('click', () => stepJump(-2, '-1 全音 (W)'));
+      document.getElementById('jump-h-up').addEventListener('click', () => stepJump(1, '+1 Half Step (H)', '+1 半音 (H)'));
+      document.getElementById('jump-h-down').addEventListener('click', () => stepJump(-1, '-1 Half Step (H)', '-1 半音 (H)'));
+      document.getElementById('jump-w-up').addEventListener('click', () => stepJump(2, '+1 Whole Step (W)', '+1 全音 (W)'));
+      document.getElementById('jump-w-down').addEventListener('click', () => stepJump(-2, '-1 Whole Step (W)', '-1 全音 (W)'));
 
       document.getElementById('flash-white-hs').addEventListener('click', () => {
-        const targets = [64, 65, 71, 72]; // E4-F4, B4-C5
+        const targets = [64, 65, 71, 72];
         piano.highlightMidi(targets, 64);
         AudioEngine.playSequence([
           { pitch: 64, beats: 0.4 }, { pitch: 65, beats: 0.6 },
           { pitch: 71, beats: 0.4 }, { pitch: 72, beats: 0.6 }
         ], 105, { onStep: (ev) => piano.flashKey(ev.pitch, 260) });
-        readout.innerHTML = `⚡ 白鍵相鄰無黑鍵的自然半音：<strong>E4–F4</strong> 與 <strong>B4–C5</strong>！`;
+        readout.innerHTML = t(
+          '⚡ White-key half steps (no black key between): <strong>E4–F4</strong> &amp; <strong>B4–C5</strong>!',
+          '⚡ 白鍵相鄰無黑鍵的自然半音：<strong>E4–F4</strong> 與 <strong>B4–C5</strong>！'
+        );
       });
 
-      function renderAccDemo(code) {
+      function renderAccDemo(code, playSound = true) {
         const isNat = code === 'Fn4';
         const pStr = isNat ? 'F4' : code;
         const p = CourseData.parsePitch(pStr);
         const eq = CourseData.midiToCleanPitch(p.midi);
         piano.highlightMidi([p.midi], p.midi);
-        AudioEngine.playNote(p.midi, 0.75);
+        if (playSound) AudioEngine.playNote(p.midi, 0.75);
         MusicNotation.render('#ch02-acc-score', {
+          title: { en: 'Written Accidental vs. Sounding Key (Enharmonic)', zh: '譜面記號 vs 實際彈奏琴鍵（同音異名）' },
           clef: 'treble',
           playable: false,
           minWidth: 260,
           notes: [
-            { pitch: pStr, explicitNatural: isNat, dur: 'h', label: isNat ? '記譜：F♮4' : `記譜：${p.label}` },
-            { pitch: eq.ascii, dur: 'h', label: `琴鍵：${eq.label}` }
+            { pitch: pStr, explicitNatural: isNat, dur: 'h', label: { en: isNat ? 'Written: F♮4' : `Written: ${p.label}`, zh: isNat ? '記譜：F♮4' : `記譜：${p.label}` } },
+            { pitch: eq.ascii, dur: 'h', label: { en: `Key: ${eq.label}`, zh: `琴鍵：${eq.label}` } }
           ]
         });
       }
 
       document.querySelectorAll('[data-acc]').forEach(btn => {
-        btn.addEventListener('click', () => renderAccDemo(btn.dataset.acc));
+        btn.addEventListener('click', () => renderAccDemo(btn.dataset.acc, true));
       });
-      renderAccDemo('F##4');
+      renderAccDemo('F##4', false);
 
       document.getElementById('demo-diatonic-hs').addEventListener('click', () => {
         AudioEngine.playSequence([{ pitch: 'F4', beats: 0.5 }, { pitch: 'Gb4', beats: 0.7 }], 100);
         MusicNotation.render('#ch02-acc-score', {
-          title: '自然半音 Diatonic Half Step（不同字母 F4 → G♭4）',
+          title: { en: 'Diatonic Half Step (Different letters: F4 → G♭4)', zh: '自然半音 Diatonic Half Step（不同字母 F4 → G♭4）' },
           clef: 'treble', playable: false, minWidth: 260,
           notes: [{ pitch: 'F4', dur: 'h', label: 'F4' }, { pitch: 'Gb4', dur: 'h', label: 'G♭4' }]
         });
@@ -193,7 +211,7 @@
       document.getElementById('demo-chromatic-hs').addEventListener('click', () => {
         AudioEngine.playSequence([{ pitch: 'F4', beats: 0.5 }, { pitch: 'F#4', beats: 0.7 }], 100);
         MusicNotation.render('#ch02-acc-score', {
-          title: '變化半音 Chromatic Half Step（相同字母 F4 → F♯4）',
+          title: { en: 'Chromatic Half Step (Same letter: F4 → F♯4)', zh: '變化半音 Chromatic Half Step（相同字母 F4 → F♯4）' },
           clef: 'treble', playable: false, minWidth: 260,
           notes: [{ pitch: 'F4', dur: 'h', label: 'F4' }, { pitch: 'F#4', dur: 'h', label: 'F♯4' }]
         });
@@ -201,28 +219,43 @@
 
       Widgets.createQuiz('#focus1-quiz', 'quiz-focus1', 'ch02', [
         {
-          prompt: '在鋼琴鍵盤上，緊鄰「三個黑鍵」正左方的白鍵地標音永遠是？',
+          prompt: { en: 'On the piano, which white key sits immediately to the LEFT of the 3-black-key group?', zh: '在鋼琴鍵盤上，緊鄰「三個黑鍵」正左方的白鍵地標音永遠是？' },
           options: ['C', 'D', 'F', 'G'],
           answer: 2,
-          explanation: 'C 在兩黑鍵左；F 永遠在三黑鍵左！'
+          explanation: { en: 'C sits left of 2 black keys; F always sits left of 3 black keys!', zh: 'C 在兩黑鍵左；F 永遠在三黑鍵左！' }
         },
         {
-          prompt: '白鍵 E 到白鍵 F 屬於哪一種音程？',
-          options: ['全音 (Whole Step)', '自然半音 (Diatonic Half Step)', '變化半音 (Chromatic Half Step)', '大三度'],
+          prompt: { en: 'White key E to white key F forms what kind of step?', zh: '白鍵 E 到白鍵 F 屬於哪一種音程？' },
+          options: [
+            { en: 'Whole step', zh: '全音 (Whole Step)' },
+            { en: 'Diatonic half step', zh: '自然半音 (Diatonic Half Step)' },
+            { en: 'Chromatic half step', zh: '變化半音 (Chromatic Half Step)' },
+            { en: 'Major third', zh: '大三度' }
+          ],
           answer: 1,
-          explanation: 'E–F 中間無黑鍵（半音），且為相鄰不同字母，故為自然半音。'
+          explanation: { en: 'No black key sits between E and F (half step), and E/F are adjacent letters (diatonic).', zh: 'E–F 中間無黑鍵（半音），且為相鄰不同字母，故為自然半音。' }
         },
         {
-          prompt: '譜上寫「E𝄫 (重降 E)」，實際上要彈哪一個琴鍵？',
-          options: ['E♭ 黑鍵', 'D 白鍵', 'C♯ 黑鍵', 'F 白鍵'],
+          prompt: { en: 'Which key sounds enharmonically the same as E𝄫 (E double flat)?', zh: '譜上寫「E𝄫 (重降 E)」，實際上要彈哪一個琴鍵？' },
+          options: [
+            { en: 'E♭ black key', zh: 'E♭ 黑鍵' },
+            { en: 'D white key', zh: 'D 白鍵' },
+            { en: 'C♯ black key', zh: 'C♯ 黑鍵' },
+            { en: 'F white key', zh: 'F 白鍵' }
+          ],
           answer: 1,
-          explanation: '𝄫 降低兩個半音：E → E♭ → D 白鍵！'
+          explanation: { en: '𝄫 lowers a pitch by 2 half steps: E → E♭ → D!', zh: '𝄫 降低兩個半音：E → E♭ → D 白鍵！' }
         },
         {
-          prompt: '譜上寫「C𝄪 (重升 C)」，實際上要彈哪一個琴鍵？',
-          options: ['C♯ 黑鍵', 'D 白鍵', 'D♯ 黑鍵', 'B 白鍵'],
+          prompt: { en: 'Which key sounds enharmonically the same as C𝄪 (C double sharp)?', zh: '譜上寫「C𝄪 (重升 C)」，實際上要彈哪一個琴鍵？' },
+          options: [
+            { en: 'C♯ black key', zh: 'C♯ 黑鍵' },
+            { en: 'D white key', zh: 'D 白鍵' },
+            { en: 'D♯ black key', zh: 'D♯ 黑鍵' },
+            { en: 'B white key', zh: 'B 白鍵' }
+          ],
           answer: 1,
-          explanation: '𝄪 升高兩個半音：C → C♯ → D 白鍵！'
+          explanation: { en: '𝄪 raises a pitch by 2 half steps: C → C♯ → D!', zh: '𝄪 升高兩個半音：C → C♯ → D 白鍵！' }
         }
       ]);
     });

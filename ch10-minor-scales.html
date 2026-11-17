@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 10 章：小調三態 DNA 變形階梯 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 10: Minor Scales (Natural, Harmonic &amp; Melodic) | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch10">
+<body data-page="ch10" data-zh-title="第 10 章：小調三態 DNA 變形階梯 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,42 +23,42 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 10 · 第 10 章</span>
-        <h1 id="main-heading" tabindex="-1">第 10 章：自然、和聲與旋律小調 DNA 變形階梯</h1>
-        <p class="chapter-subtitle">
-          世上只有一個小調，關鍵全在<strong>第 6 級與第 7 級的開關</strong>！切換下方三個按鈕，親眼觀察階梯高度與增二度 <code>A2</code> 的變化！
+        <span class="chapter-eyebrow" data-zh="Chapter 10 · 第 10 章">Chapter 10 · Three Minor Forms</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 10 章：自然、和聲與旋律小調 DNA 變形階梯">Ch 10: Natural, Harmonic &amp; Melodic Minor Staircase</h1>
+        <p class="chapter-subtitle" data-zh="世上只有一個小調，關鍵全在<strong>第 6 級與第 7 級的開關</strong>！切換下方三個按鈕，親眼觀察階梯高度與增二度 <code>A2</code> 的變化！">
+          Think of minor as one flexible scale controlled by <strong>degrees 6̂ and 7̂</strong>! Toggle all three forms below to hear and see the exotic <code>A2</code> leap!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🌿 <strong>自然小調</strong>：純依調號（第 7 級為全音下主音 <code>te</code>）</span>
-          <span class="visual-pill">🔥 <strong>和聲小調</strong>：升 <code>7̂</code> 造導音 <code>ti</code>（6–7 級產生 <strong>A2 增二度</strong>！）</span>
-          <span class="visual-pill">🌊 <strong>旋律小調</strong>：上行升 <code>6̂, 7̂</code> 消除 A2 · 下行還原自然小調</span>
+          <span class="visual-pill" data-zh="🌿 <strong>自然小調</strong>：純依調號（第 7 級為全音下主音 <code>te</code>）">🌿 <strong>Natural</strong>: Pure key signature (whole-step subtonic <code>te</code>)</span>
+          <span class="visual-pill" data-zh="🔥 <strong>和聲小調</strong>：升 <code>7̂</code> 造導音 <code>ti</code>（6–7 級產生 <strong>A2 增二度</strong>！）">🔥 <strong>Harmonic</strong>: Raise <code>7̂</code> to leading tone <code>ti</code> (creates <strong>A2</strong> at 6̂–7̂!)</span>
+          <span class="visual-pill" data-zh="🌊 <strong>旋律小調</strong>：上行升 <code>6̂, 7̂</code> 消除 A2 · 下行還原自然小調">🌊 <strong>Melodic</strong>: Raise <code>6̂, 7̂</code> ascending · revert to natural descending</span>
         </div>
       </section>
 
-      <!-- 1. 互動小調三態變形階梯 + 樂譜 + 鋼琴 -->
+      <!-- 1. Three Minor Forms Interactive Staircase + Score + Piano -->
       <section class="lesson-section" aria-labelledby="ch10-lab">
-        <h2 id="ch10-lab">🧬 1. 小調三態即時切換實驗室（含 <code>g♯ / d♯</code> 重升記號示範）</h2>
+        <h2 id="ch10-lab" data-zh="🧬 1. 小調三態即時切換實驗室（含 <code>g♯ / d♯</code> 重升記號示範）">🧬 1. Live Minor Forms Lab (Including <code>g♯ / d♯</code> Double Sharps)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <label style="font-weight:800;">主音：
+            <label style="font-weight:800;"><span data-zh="主音：">Tonic: </span>
               <select id="min-root-sel">
-                <option value="A">a 小調 (0)</option>
-                <option value="E">e 小調 (1♯)</option>
-                <option value="B">b 小調 (2♯)</option>
-                <option value="F#">f♯ 小調 (3♯)</option>
-                <option value="C#">c♯ 小調 (4♯)</option>
-                <option value="G#">g♯ 小調 (5♯ · 觀察 F𝄪!)</option>
-                <option value="D#">d♯ 小調 (6♯ · 觀察 C𝄪!)</option>
-                <option value="D">d 小調 (1♭)</option>
-                <option value="G">g 小調 (2♭)</option>
-                <option value="C">c 小調 (3♭)</option>
-                <option value="F">f 小調 (4♭)</option>
+                <option value="A" data-zh="a 小調 (0)">a minor (0)</option>
+                <option value="E" data-zh="e 小調 (1♯)">e minor (1♯)</option>
+                <option value="B" data-zh="b 小調 (2♯)">b minor (2♯)</option>
+                <option value="F#" data-zh="f♯ 小調 (3♯)">f♯ minor (3♯)</option>
+                <option value="C#" data-zh="c♯ 小調 (4♯)">c♯ minor (4♯)</option>
+                <option value="G#" data-zh="g♯ 小調 (5♯ · 觀察 F𝄪!)">g♯ minor (5♯ · see F𝄪!)</option>
+                <option value="D#" data-zh="d♯ 小調 (6♯ · 觀察 C𝄪!)">d♯ minor (6♯ · see C𝄪!)</option>
+                <option value="D" data-zh="d 小調 (1♭)">d minor (1♭)</option>
+                <option value="G" data-zh="g 小調 (2♭)">g minor (2♭)</option>
+                <option value="C" data-zh="c 小調 (3♭)">c minor (3♭)</option>
+                <option value="F" data-zh="f 小調 (4♭)">f minor (4♭)</option>
               </select>
             </label>
-            <button type="button" class="btn btn-sm" data-mform="naturalMinor">🌿 自然 Natural</button>
-            <button type="button" class="btn btn-sm btn-primary" data-mform="harmonicMinor">🔥 和聲 Harmonic (+♯7)</button>
-            <button type="button" class="btn btn-sm" data-mform="melodicFull">🌊 旋律上下行 (+♯6♯7 / ♮)</button>
-            <button type="button" class="btn btn-sm btn-amber" id="play-minor-btn">▶ 播放音階</button>
+            <button type="button" class="btn btn-sm" data-mform="naturalMinor" data-zh="🌿 自然 Natural">🌿 Natural</button>
+            <button type="button" class="btn btn-sm btn-primary" data-mform="harmonicMinor" data-zh="🔥 和聲 Harmonic (+♯7)">🔥 Harmonic (+♯7)</button>
+            <button type="button" class="btn btn-sm" data-mform="melodicFull" data-zh="🌊 旋律上下行 (+♯6♯7 / ♮)">🌊 Melodic (Asc/Desc)</button>
+            <button type="button" class="btn btn-sm btn-amber" id="play-minor-btn" data-zh="▶ 播放音階">▶ Play Scale</button>
           </div>
           <div id="min-lab-readout" class="visual-pill"></div>
           <div id="min-stairs"></div>
@@ -64,14 +67,14 @@
         </div>
 
         <div class="pill-row">
-          <span class="visual-pill">💡 真實作品（如 Bach、Scarlatti）會在同一曲內<strong>自由混用</strong>三種小調！</span>
-          <span class="visual-pill">🎤 視唱兩派皆通：<strong>do–re–me–fa–sol–le–te/ti</strong> 或 <strong>la–ti–do–re–mi–fa–sol/si</strong></span>
+          <span class="visual-pill" data-zh="💡 真實作品（如 Bach、Scarlatti）會在同一曲內<strong>自由混用</strong>三種小調！">💡 Real pieces (Bach, Scarlatti) <strong>blend all three forms freely</strong> inside one key!</span>
+          <span class="visual-pill" data-zh="🎤 視唱兩派皆通：<strong>do–re–me–fa–sol–le–te/ti</strong> 或 <strong>la–ti–do–re–mi–fa–sol/si</strong>">🎤 Solfège: <strong>do–re–me–fa–sol–le–te/ti</strong> or <strong>la-based minor</strong></span>
         </div>
       </section>
 
-      <!-- 2. 四種音階盲聽 + 檢定 -->
+      <!-- 2. Blind Scale Ear Check + Quiz -->
       <section class="lesson-section" aria-labelledby="ch10-quiz-sec">
-        <h2 id="ch10-quiz-sec">🏆 四種音階盲聽挑戰 ＆ Practice 10-1～10-15 檢定</h2>
+        <h2 id="ch10-quiz-sec" data-zh="🏆 四種音階盲聽挑戰 ＆ Practice 10-1～10-15 檢定">🏆 Scale Ear Challenge &amp; Practice 10-1 to 10-15</h2>
         <div id="ch10-quiz"></div>
       </section>
     </main>
@@ -79,13 +82,15 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+
       const piano = Widgets.createPiano('#min-lab-piano', { startMidi: 57, endMidi: 84 });
       const stairs = Widgets.createStepStaircase('#min-stairs');
       const rootSel = document.getElementById('min-root-sel');
@@ -93,6 +98,7 @@
       let curForm = 'harmonicMinor';
       let playSeqNotes = [];
       let stairInfo = null;
+      let scoreApi = null;
 
       function updateMinorLab() {
         const r = rootSel.value + '4';
@@ -101,12 +107,16 @@
           const desc = [...CourseData.buildScale(r, 'naturalMinor').notes].reverse();
           playSeqNotes = [...asc.notes, ...desc.slice(1)];
           stairInfo = stairs.renderScale(r, 'melodicMinorAsc');
-          readout.innerHTML = `🌊 <strong>上行升 6·7：</strong>${asc.notes.map(n => n.name).join('–')} ｜ <strong>下行還原：</strong>${desc.map(n => n.name).join('–')}`;
+          readout.innerHTML = t(
+            `🌊 <strong>Asc (+♯6·♯7):</strong> ${asc.notes.map(n => n.name).join('–')} ｜ <strong>Desc (natural):</strong> ${desc.map(n => n.name).join('–')}`,
+            `🌊 <strong>上行升 6·7：</strong>${asc.notes.map(n => n.name).join('–')} ｜ <strong>下行還原：</strong>${desc.map(n => n.name).join('–')}`
+          );
 
-          MusicNotation.render('#min-lab-score', {
+          scoreApi = MusicNotation.render('#min-lab-score', {
+            title: { en: `${asc.notes[0].name} Melodic Minor (Ascending & Descending)`, zh: `${asc.notes[0].name} 旋律小調（上下行完整版）` },
             clef: 'treble',
-            playable: false,
-            spacing: 38,
+            bpm: 112,
+            spacing: 42,
             notes: [
               ...asc.notes.map((n, i) => ({ pitch: n.ascii, dur: 'q', label: n.name, solfege: asc.solfege[i] })),
               { bar: '||' },
@@ -119,13 +129,20 @@
           playSeqNotes = sc.notes;
           stairInfo = stairs.renderScale(r, curForm);
           readout.innerHTML = curForm === 'harmonicMinor'
-            ? `🔥 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong>（6–7 級異國增二度 A2：<strong>${sc.notes[5].name} → ${sc.notes[6].name}</strong>！）`
-            : `🌿 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong>（第 7 級為全音距離的下主音 Subtonic）`;
+            ? t(
+              `🔥 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong> (Exotic A2 at 6̂–7̂: <strong>${sc.notes[5].name} → ${sc.notes[6].name}</strong>!)`,
+              `🔥 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong>（6–7 級異國增二度 A2：<strong>${sc.notes[5].name} → ${sc.notes[6].name}</strong>！）`
+            )
+            : t(
+              `🌿 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong> (7̂ is a whole-step Subtonic)`,
+              `🌿 <strong>${sc.notes.map(n => n.name).join(' – ')}</strong>（第 7 級為全音距離的下主音 Subtonic）`
+            );
 
-          MusicNotation.render('#min-lab-score', {
+          scoreApi = MusicNotation.render('#min-lab-score', {
+            title: sc.label,
             clef: 'treble',
-            playable: false,
-            spacing: 46,
+            bpm: 110,
+            spacing: 48,
             notes: sc.notes.map((n, i) => ({
               pitch: n.ascii,
               dur: 'q',
@@ -147,41 +164,63 @@
         });
       });
       rootSel.addEventListener('change', updateMinorLab);
+      window.addEventListener('lang-changed', updateMinorLab);
       updateMinorLab();
 
       document.getElementById('play-minor-btn').addEventListener('click', () => {
+        if (scoreApi?.card) scoreApi.card.scrollTo({ left: 0, behavior: 'auto' });
         AudioEngine.playSequence(playSeqNotes.map((n, idx) => ({ pitch: n, beats: 0.42, idx })), 110, {
           onStep: (ev) => {
             piano.flashKey(ev.pitch.midi, 220);
+            const scoreIdx = (curForm === 'melodicFull' && ev.idx >= 8) ? ev.idx + 1 : ev.idx;
+            scoreApi?.highlightNote?.(scoreIdx);
             if (ev.idx < 8) stairInfo?.colEls?.forEach((c, ci) => c.classList.toggle('is-playing', ci === ev.idx));
           },
-          onDone: () => stairInfo?.colEls?.forEach(c => c.classList.remove('is-playing'))
+          onDone: () => {
+            scoreApi?.resetHighlight?.();
+            stairInfo?.colEls?.forEach(c => c.classList.remove('is-playing'));
+          }
         });
       });
 
       Widgets.createQuiz('#ch10-quiz', 'quiz-ch10', 'ch10', [
         {
-          prompt: '「和聲小調」在第 6 級與升高的第 7 級之間形成了哪一個長達 3 個半音的特色音程？',
-          options: ['大二度 (M2)', '增二度 (A2)', '小三度 (m3)', '增四度 (A4)'],
+          prompt: { en: 'In Harmonic Minor, what 3-semitone interval forms between 6̂ and raised 7̂?', zh: '「和聲小調」在第 6 級與升高的第 7 級之間形成了哪一個長達 3 個半音的特色音程？' },
+          options: [
+            { en: 'Major second (M2)', zh: '大二度 (M2)' },
+            { en: 'Augmented second (A2)', zh: '增二度 (A2)' },
+            { en: 'Minor third (m3)', zh: '小三度 (m3)' },
+            { en: 'Augmented fourth (A4)', zh: '增四度 (A4)' }
+          ],
           answer: 1,
-          explanation: '例如 a 和聲小調的 F 到 G♯ 為 3 個半音、相鄰字母 → 增二度 (A2)！'
+          explanation: { en: 'For example, F to G♯ in a harmonic minor spans 3 semitones across adjacent letters → Augmented second (A2)!', zh: '例如 a 和聲小調的 F 到 G♯ 為 3 個半音、相鄰字母 → 增二度 (A2)！' }
         },
         {
-          prompt: '拼寫「g♯ 和聲小調」時，為了將原本的第 7 級 F♯ 再升高半音，必須寫成什麼？',
-          options: ['G♮', 'F𝄪（重升 F）', 'G♯', 'E𝄪'],
+          prompt: { en: 'In “g♯ harmonic minor”, raising the diatonic 7̂ (F♯) by a half step requires spelling it as:', zh: '拼寫「g♯ 和聲小調」時，為了將原本的第 7 級 F♯ 再升高半音，必須寫成什麼？' },
+          options: [
+            { en: 'G♮', zh: 'G♮' },
+            { en: 'F𝄪 (F double sharp)', zh: 'F𝄪（重升 F）' },
+            { en: 'G♯', zh: 'G♯' },
+            { en: 'E𝄪', zh: 'E𝄪' }
+          ],
           answer: 1,
-          explanation: '第 7 個字母必須維持 F，因此 F♯ 再升半音必寫為重升記號 F𝄪！'
+          explanation: { en: 'Scale degree 7̂ must keep the letter F, so raising F♯ a half step requires F𝄪!', zh: '第 7 個字母必須維持 F，因此 F♯ 再升半音必寫為重升記號 F𝄪！' }
         },
         {
-          prompt: '🔊 聽音辨識：點擊播放，聽聽這是哪一種音階？（注意 6–7 級是否有中東風增二度跳躍！）',
-          audioLabel: '🔊 播放神秘音階',
+          prompt: { en: '🔊 Blind Ear Test: Tap Play and identify which scale form you hear.', zh: '🔊 聽音辨識：點擊播放，聽聽這是哪一種音階？（注意 6–7 級是否有中東風增二度跳躍！）' },
+          audioLabel: { en: '🔊 Play Mystery Scale', zh: '🔊 播放神秘音階' },
           audioFn: () => {
             const sc = CourseData.buildScale('A4', 'harmonicMinor').notes;
             AudioEngine.playSequence(sc.map(n => ({ pitch: n, beats: 0.45 })), 104);
           },
-          options: ['大調音階', '自然小調', '和聲小調 (Harmonic Minor)', '五聲音階'],
+          options: [
+            { en: 'Major scale', zh: '大調音階' },
+            { en: 'Natural minor', zh: '自然小調' },
+            { en: 'Harmonic minor', zh: '和聲小調 (Harmonic Minor)' },
+            { en: 'Pentatonic scale', zh: '五聲音階' }
+          ],
           answer: 2,
-          explanation: 'F → G♯ → A 的增二度跳接半音導音，正是和聲小調的招牌聲響！'
+          explanation: { en: 'The wide F → G♯ A2 leap resolving to A is the unmistakable signature of Harmonic Minor!', zh: 'F → G♯ → A 的增二度跳接半音導音，正是和聲小調的招牌聲響！' }
         }
       ]);
     });

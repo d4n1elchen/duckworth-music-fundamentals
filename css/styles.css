@@ -384,6 +384,13 @@ code, kbd {
   text-overflow: ellipsis;
 }
 
+.brand-link > span:last-child {
+  min-inline-size: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .brand-badge {
   display: inline-grid;
   place-content: center;
@@ -428,9 +435,18 @@ code, kbd {
   text-overflow: ellipsis;
 }
 
-@media (width < 460px) {
-  .live-hud canvas { inline-size: 40px; }
+@media (width < 480px) {
+  .live-hud { padding: 0.16rem 0.38rem; }
+  .live-hud canvas { inline-size: 32px; block-size: 20px; }
   .live-hud-note { display: none; }
+  .header-inner { gap: 0.28rem; padding-inline: 0.5rem; }
+  .brand-badge { inline-size: 1.65rem; block-size: 1.65rem; font-size: 0.98rem; }
+  .brand-link { gap: 0.3rem; font-size: 0.84rem; }
+  .header-actions { gap: 0.26rem; }
+}
+
+@media (width < 420px) {
+  .live-hud { display: none; }
 }
 
 @media (width < 580px) {
@@ -1032,6 +1048,8 @@ button.concept-card:hover {
 }
 
 .score-caption {
+  position: sticky;
+  inset-inline-start: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1040,6 +1058,7 @@ button.concept-card:hover {
   font-size: 0.84rem;
   color: var(--text-secondary);
   margin-block-end: 0.4rem;
+  z-index: 2;
 }
 
 .score-scroll-hint {
@@ -1665,7 +1684,7 @@ button.concept-card:hover {
   inline-size: 100%;
   background: var(--bg-surface);
   border-block-start: 1px solid var(--border-subtle);
-  padding: 1.15rem 0.85rem;
+  padding: 1.15rem 0.85rem calc(3.2rem + env(safe-area-inset-bottom, 0px));
   text-align: center;
   font-size: 0.82rem;
   color: var(--text-muted);
@@ -1742,6 +1761,32 @@ input[type="range"] {
   background: var(--bg-subtle);
   color: var(--text-secondary);
   border: 1px solid var(--border-subtle);
+}
+
+/* Score Glowing Vertical Playhead & Bilingual Helpers */
+.score-playhead {
+  stroke: var(--cyan);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px var(--cyan));
+  transition: transform 0.14s linear, opacity 0.15s;
+}
+
+.lang-toggle-btn {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  gap: 0.12rem;
+  white-space: nowrap;
+  padding-inline: 0.44rem;
+  min-inline-size: 40px;
+  flex-shrink: 0;
+}
+
+:root:not([data-lang="zh"]) [data-only="zh"],
+:root[data-lang="zh"] [data-only="en"] {
+  display: none !important;
 }
 
 @media (forced-colors: active) {

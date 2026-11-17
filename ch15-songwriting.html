@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 15 章：寫歌編曲工作室與四大曲式積木 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 15: Writing a Song — Harmonizing &amp; Musical Form | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch15">
+<body data-page="ch15" data-zh-title="第 15 章：寫歌編曲工作室與四大曲式積木 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,49 +23,49 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 15 · 全書總成創作工作坊</span>
-        <h1 id="main-heading" tabindex="-1">第 15 章：寫一首歌 — 旋律配和聲工作台與四大曲式積木</h1>
-        <p class="chapter-subtitle">
-          恭喜來到最終章！正三和弦 <code>I·IV·V</code> 涵蓋全音階 7 音，副三和弦 <code>ii·iii·vi</code> 增添色彩。現在換你親手寫旋律、配和聲！
+        <span class="chapter-eyebrow" data-zh="Chapter 15 · 全書總成創作工作坊">Chapter 15 · Capstone Songwriting Studio</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 15 章：寫一首歌 — 旋律配和聲工作台與四大曲式積木">Ch 15: Writing a Song — Harmonizer &amp; Form Blocks</h1>
+        <p class="chapter-subtitle" data-zh="恭喜來到最終章！正三和弦 <code>I·IV·V</code> 涵蓋全音階 7 音，副三和弦 <code>ii·iii·vi</code> 增添色彩。現在換你親手寫旋律、配和聲！">
+          Welcome to the finale! Primary triads <code>I·IV·V</code> cover all 7 scale tones, while secondary triads <code>ii·iii·vi</code> add rich color. Compose and harmonize your own music below!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">1️⃣ 先定<strong>樂句終止式</strong></span>
-          <span class="visual-pill">2️⃣ 觀察<strong>和聲節奏</strong></span>
-          <span class="visual-pill">3️⃣ 先填<strong>正三 I·IV·V</strong></span>
-          <span class="visual-pill">4️⃣ 再換<strong>副三 ii·vi</strong> 潤色</span>
+          <span class="visual-pill" data-zh="1️⃣ 先定<strong>樂句終止式</strong>">1️⃣ Plan <strong>phrase cadences</strong> first</span>
+          <span class="visual-pill" data-zh="2️⃣ 觀察<strong>和聲節奏</strong>">2️⃣ Set <strong>harmonic rhythm</strong></span>
+          <span class="visual-pill" data-zh="3️⃣ 先填<strong>正三 I·IV·V</strong>">3️⃣ Sketch <strong>primary I·IV·V</strong></span>
+          <span class="visual-pill" data-zh="4️⃣ 再換<strong>副三 ii·vi</strong> 潤色">4️⃣ Substitute <strong>ii·vi</strong> for color</span>
         </div>
       </section>
 
-      <!-- 1. 自由寫歌 8x8 編曲機 -->
+      <!-- 1. 8x8 Song Maker -->
       <section class="lesson-section" aria-labelledby="ch15-studio">
-        <h2 id="ch15-studio">🎨 1. 自由創作工作台：8×8 旋律畫布 ＋ 和弦伴奏軌</h2>
+        <h2 id="ch15-studio" data-zh="🎨 1. 自由創作工作台：8×8 旋律畫布 ＋ 和弦伴奏軌">🎨 1. Free Song Studio: 8×8 Melody Canvas + Chord Track</h2>
         <div class="widget-box">
           <div id="ch15-song-maker"></div>
         </div>
       </section>
 
-      <!-- 2. Stephen Foster《Old Folks at Home》8 小節配和聲實戰 -->
+      <!-- 2. Stephen Foster Harmonization Challenge -->
       <section class="lesson-section" aria-labelledby="ch15-harm">
-        <h2 id="ch15-harm">🎼 2. 實戰配和聲挑戰：為《Old Folks at Home》8 小節選配和弦</h2>
+        <h2 id="ch15-harm" data-zh="🎼 2. 實戰配和聲挑戰：為《Old Folks at Home》8 小節選配和弦">🎼 2. Harmonization Challenge: 8 Bars of <em>Old Folks at Home</em></h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-primary" id="play-harmonization-btn">▶ 播放「旋律 ＋ 你選配的和弦」</button>
-            <button type="button" class="btn btn-sm btn-amber" id="apply-foster-preset">✨ 套用 Duckworth 色彩配法 (含 vi·ii)</button>
+            <button type="button" class="btn btn-primary" id="play-harmonization-btn" data-zh="▶ 播放「旋律 ＋ 你選配的和弦」">▶ Play Melody + Your Chords</button>
+            <button type="button" class="btn btn-sm btn-amber" id="apply-foster-preset" data-zh="✨ 套用 Duckworth 色彩配法 (含 vi·ii)">✨ Apply Duckworth Voicing (with vi·ii)</button>
           </div>
           <div id="harmonizer-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 180px), 1fr));gap:0.55rem;margin-block:0.65rem;"></div>
           <div id="harmonizer-eval" class="visual-pill"></div>
         </div>
       </section>
 
-      <!-- 3. 四大經典曲式動態積木播放器 -->
+      <!-- 3. Four Classic Musical Forms -->
       <section class="lesson-section" aria-labelledby="ch15-forms">
-        <h2 id="ch15-forms">🏗️ 3. 四大曲式建築積木（點擊試聽「統一 vs 對比」結構！）</h2>
+        <h2 id="ch15-forms" data-zh="🏗️ 3. 四大曲式建築積木（點擊試聽「統一 vs 對比」結構！）">🏗️ 3. Four Classic Form Blueprints (Tap to Hear Unity vs. Contrast!)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-sm btn-primary" data-form="strophic">① 反覆曲式 A–A–A</button>
-            <button type="button" class="btn btn-sm" data-form="binary">② 二段體 A–B</button>
-            <button type="button" class="btn btn-sm" data-form="ternary">③ 三段體 A–B–A</button>
-            <button type="button" class="btn btn-sm" data-form="aaba">④ 32 小節流行 A–A–B–A</button>
+            <button type="button" class="btn btn-sm" data-form="strophic" data-zh="① 反覆曲式 A–A–A">① Strophic A–A–A</button>
+            <button type="button" class="btn btn-sm" data-form="binary" data-zh="② 二段體 A–B">② Binary A–B</button>
+            <button type="button" class="btn btn-sm" data-form="ternary" data-zh="③ 三段體 A–B–A">③ Ternary A–B–A</button>
+            <button type="button" class="btn btn-sm btn-primary" data-form="aaba" data-zh="④ 32 小節流行 A–A–B–A">④ 32-Bar Pop A–A–B–A</button>
           </div>
           <div id="form-blocks" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(72px, 1fr));gap:0.5rem;margin-block:0.65rem;"></div>
           <div id="form-desc" class="visual-pill"></div>
@@ -71,7 +74,7 @@
 
       <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch15-quiz-sec">
-        <h2 id="ch15-quiz-sec">🏆 第 15 章：配和聲與曲式總檢定</h2>
+        <h2 id="ch15-quiz-sec" data-zh="🏆 第 15 章：配和聲與曲式總檢定">🏆 Chapter 15: Harmonization &amp; Form Checkpoint</h2>
         <div id="ch15-quiz"></div>
       </section>
     </main>
@@ -79,13 +82,16 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       Widgets.createSongGrid('#ch15-song-maker');
 
       const CHORD_BANK = {
@@ -99,14 +105,14 @@
       };
 
       const MEASURES = [
-        { bar: 1, tag: '主音 E4', mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',  preset: 'I' },
-        { bar: 2, tag: '骨幹 A4', mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV', preset: 'IV' },
-        { bar: 3, tag: '琶音 C-G-E', mainTone: 'C', melody: [{ p: 'C5', b: 2 }, { p: 'G4', b: 1 }, { p: 'E4', b: 1 }], choice: 'I',  preset: 'I' },
-        { bar: 4, tag: '第1句尾 D4 (半終止?)', mainTone: 'D', melody: [{ p: 'D4', b: 4 }], choice: 'V',  preset: 'V' },
-        { bar: 5, tag: '重申 E4 (可換副三!)', mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',  preset: 'vi' },
-        { bar: 6, tag: '骨幹 A4 (可換 ii!)', mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV', preset: 'ii' },
-        { bar: 7, tag: '終止加速 D4', mainTone: 'D', melody: [{ p: 'G4', b: 1 }, { p: 'E4', b: 1 }, { p: 'D4', b: 2 }], choice: 'V7', preset: 'V7' },
-        { bar: 8, tag: '全段終點 C4 (正格!)', mainTone: 'C', melody: [{ p: 'C4', b: 4 }], choice: 'I',  preset: 'I' }
+        { bar: 1, tag: { en: 'Main E4', zh: '主音 E4' }, mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',  preset: 'I' },
+        { bar: 2, tag: { en: 'Anchor A4', zh: '骨幹 A4' }, mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV', preset: 'IV' },
+        { bar: 3, tag: { en: 'Arp C-G-E', zh: '琶音 C-G-E' }, mainTone: 'C', melody: [{ p: 'C5', b: 2 }, { p: 'G4', b: 1 }, { p: 'E4', b: 1 }], choice: 'I',  preset: 'I' },
+        { bar: 4, tag: { en: 'Phrase 1 D4 (Half?)', zh: '第1句尾 D4 (半終止?)' }, mainTone: 'D', melody: [{ p: 'D4', b: 4 }], choice: 'V',  preset: 'V' },
+        { bar: 5, tag: { en: 'Restate E4 (try vi!)', zh: '重申 E4 (可換副三!)' }, mainTone: 'E', melody: [{ p: 'E4', b: 2 }, { p: 'D4', b: 1 }, { p: 'C4', b: 1 }], choice: 'I',  preset: 'vi' },
+        { bar: 6, tag: { en: 'Anchor A4 (try ii!)', zh: '骨幹 A4 (可換 ii!)' }, mainTone: 'A', melody: [{ p: 'D4', b: 1 }, { p: 'C4', b: 1 }, { p: 'A4', b: 1 }, { p: 'G4', b: 1 }], choice: 'IV', preset: 'ii' },
+        { bar: 7, tag: { en: 'Cadence push D4', zh: '終止加速 D4' }, mainTone: 'D', melody: [{ p: 'G4', b: 1 }, { p: 'E4', b: 1 }, { p: 'D4', b: 2 }], choice: 'V7', preset: 'V7' },
+        { bar: 8, tag: { en: 'Final C4 (Authentic!)', zh: '全段終點 C4 (正格!)' }, mainTone: 'C', melody: [{ p: 'C4', b: 4 }], choice: 'I',  preset: 'I' }
       ];
 
       const hGrid = document.getElementById('harmonizer-grid');
@@ -117,21 +123,24 @@
         MEASURES.forEach(m => { if (CHORD_BANK[m.choice].pcs.includes(m.mainTone)) matchCount++; });
         const halfOk = (MEASURES[3].choice === 'V' || MEASURES[3].choice === 'V7');
         const authOk = (MEASURES[7].choice === 'I');
-        hEval.innerHTML = `📊 旋律骨幹吻合：<strong>${matchCount}/8</strong> 小節 · 第 4 小節半終止：<strong>${halfOk ? '✓' : '建議 V'}</strong> · 第 8 小節正格終止：<strong>${authOk ? '✓' : '建議 I'}</strong>`;
+        hEval.innerHTML = t(
+          `📊 Melody-tone fit: <strong>${matchCount}/8</strong> bars · Bar 4 Half Cadence: <strong>${halfOk ? '✓' : 'Try V'}</strong> · Bar 8 Authentic: <strong>${authOk ? '✓' : 'Try I'}</strong>`,
+          `📊 旋律骨幹吻合：<strong>${matchCount}/8</strong> 小節 · 第 4 小節半終止：<strong>${halfOk ? '✓' : '建議 V'}</strong> · 第 8 小節正格終止：<strong>${authOk ? '✓' : '建議 I'}</strong>`
+        );
       }
 
       let barCards = [];
       function renderHarmonizer() {
         hGrid.innerHTML = '';
         barCards = [];
-        MEASURES.forEach((m, idx) => {
+        MEASURES.forEach((m) => {
           const card = document.createElement('div');
           card.className = 'concept-card';
           card.style.padding = '0.7rem';
           const sel = document.createElement('select');
           sel.style.inlineSize = '100%';
           sel.style.marginBlockStart = '0.35rem';
-          sel.setAttribute('aria-label', `第 ${m.bar} 小節和弦`);
+          sel.setAttribute('aria-label', t(`Bar ${m.bar} chord`, `第 ${m.bar} 小節和弦`));
           Object.entries(CHORD_BANK).forEach(([k, v]) => {
             const o = document.createElement('option');
             o.value = k; o.textContent = v.label;
@@ -143,7 +152,7 @@
             AudioEngine.playChord(CHORD_BANK[m.choice].notes, 0.65);
             evaluateHarmony();
           });
-          card.innerHTML = `<div style="display:flex;justify-content:space-between;font-size:0.78rem;"><strong>M${m.bar}</strong><span style="color:var(--brand);font-weight:700;">${m.tag}</span></div>`;
+          card.innerHTML = `<div style="display:flex;justify-content:space-between;font-size:0.78rem;"><strong>M${m.bar}</strong><span style="color:var(--brand);font-weight:700;">${pick(m.tag)}</span></div>`;
           card.appendChild(sel);
           hGrid.appendChild(card);
           barCards.push(card);
@@ -183,33 +192,58 @@
       // Visual Form Blocks Player
       const FORMS = {
         strophic: {
-          blocks: [{ s: 'A1', c: '#3b82f6', p: ['C4', 'E4', 'G4'] }, { s: 'A2', c: '#3b82f6', p: ['C4', 'E4', 'G4'] }, { s: 'A3', c: '#3b82f6', p: ['C4', 'E4', 'G4'] }],
-          desc: '🔁 反覆曲式 Strophic (A–A–A)：每段歌詞套用同一段音樂（民謠與 12 小節藍調最常用）。'
+          blocks: [
+            { s: { en: 'A1', zh: 'A1' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
+            { s: { en: 'A2', zh: 'A2' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
+            { s: { en: 'A3', zh: 'A3' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] }
+          ],
+          desc: {
+            en: '🔁 Strophic Form (A–A–A): Every verse sets new lyrics to the same music (folk songs & 12-bar blues).',
+            zh: '🔁 反覆曲式 Strophic (A–A–A)：每段歌詞套用同一段音樂（民謠與 12 小節藍調最常用）。'
+          }
         },
         binary: {
-          blocks: [{ s: 'A (呈示)', c: '#3b82f6', p: ['D4', 'F#4', 'A4'] }, { s: 'B (對比)', c: '#f59e0b', p: ['G4', 'B4', 'D5'] }],
-          desc: '⚖️ 二段體 Binary (A–B)：如貝多芬《舞曲》，兩段各具鮮明伴奏與和聲節奏對比。'
+          blocks: [
+            { s: { en: 'A (Statement)', zh: 'A (呈示)' }, c: '#3b82f6', p: ['D4', 'F#4', 'A4'] },
+            { s: { en: 'B (Contrast)',  zh: 'B (對比)' }, c: '#f59e0b', p: ['G4', 'B4', 'D5'] }
+          ],
+          desc: {
+            en: '⚖️ Binary Form (A–B): Two contrasting sections with distinct textures and harmonic rhythm.',
+            zh: '⚖️ 二段體 Binary (A–B)：如貝多芬《舞曲》，兩段各具鮮明伴奏與和聲節奏對比。'
+          }
         },
         ternary: {
-          blocks: [{ s: 'A (呈示)', c: '#8b5cf6', p: ['A3', 'C4', 'E4'] }, { s: 'B (離題轉調!)', c: '#10b981', p: ['F4', 'A4', 'C5'] }, { s: 'A (再現)', c: '#8b5cf6', p: ['A3', 'C4', 'E4'] }],
-          desc: '🏛️ 三段體 Ternary (A–B–A)：如舒曼《圓舞曲》a 小調 → F 大調對比 → 再現 a 小調！'
+          blocks: [
+            { s: { en: 'A (Home)',      zh: 'A (呈示)' },       c: '#8b5cf6', p: ['A3', 'C4', 'E4'] },
+            { s: { en: 'B (New Key!)',  zh: 'B (離題轉調!)' }, c: '#10b981', p: ['F4', 'A4', 'C5'] },
+            { s: { en: 'A (Return)',    zh: 'A (再現)' },       c: '#8b5cf6', p: ['A3', 'C4', 'E4'] }
+          ],
+          desc: {
+            en: '🏛️ Ternary Form (A–B–A): Statement → contrasting middle section (e.g. a minor → F Major) → return to A!',
+            zh: '🏛️ 三段體 Ternary (A–B–A)：如舒曼《圓舞曲》a 小調 → F 大調對比 → 再現 a 小調！'
+          }
         },
         aaba: {
           blocks: [
-            { s: 'A (8小節)', c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
-            { s: 'A (8小節)', c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
-            { s: 'B Bridge!', c: '#ef4444', p: ['F4', 'A4', 'C5'] },
-            { s: 'A (8小節)', c: '#3b82f6', p: ['C4', 'E4', 'G4'] }
+            { s: { en: 'A (8 bars)', zh: 'A (8小節)' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
+            { s: { en: 'A (8 bars)', zh: 'A (8小節)' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] },
+            { s: { en: 'B Bridge!',  zh: 'B Bridge!' },  c: '#ef4444', p: ['F4', 'A4', 'C5'] },
+            { s: { en: 'A (8 bars)', zh: 'A (8小節)' }, c: '#3b82f6', p: ['C4', 'E4', 'G4'] }
           ],
-          desc: '🌟 32 小節流行曲式 (A–A–B–A)：第 17–24 小節 Bridge 橋段創造全曲對比高潮！'
+          desc: {
+            en: '🌟 32-Bar Song Form (A–A–B–A): Bars 17–24 form the contrasting Bridge before returning home!',
+            zh: '🌟 32 小節流行曲式 (A–A–B–A)：第 17–24 小節 Bridge 橋段創造全曲對比高潮！'
+          }
         }
       };
 
+      let curFormKey = 'aaba';
       function showForm(key, play) {
+        curFormKey = key;
         document.querySelectorAll('[data-form]').forEach(x => x.classList.toggle('btn-primary', x.dataset.form === key));
         const f = FORMS[key];
         const mount = document.getElementById('form-blocks');
-        document.getElementById('form-desc').textContent = f.desc;
+        document.getElementById('form-desc').textContent = pick(f.desc);
         mount.innerHTML = '';
         const els = f.blocks.map(b => {
           const d = document.createElement('div');
@@ -220,7 +254,7 @@
           d.style.fontWeight = '800';
           d.style.textAlign = 'center';
           d.style.transition = 'transform 0.15s';
-          d.textContent = b.s;
+          d.textContent = pick(b.s);
           mount.appendChild(d);
           return d;
         });
@@ -233,31 +267,47 @@
       }
 
       document.querySelectorAll('[data-form]').forEach(btn => {
-        btn.addEventListener('click', () => {
-          document.querySelectorAll('[data-form]').forEach(x => x.classList.toggle('btn-primary', x === btn));
-          showForm(btn.dataset.form, true);
-        });
+        btn.addEventListener('click', () => showForm(btn.dataset.form, true));
       });
       showForm('aaba', false);
+      window.addEventListener('lang-changed', () => {
+        renderHarmonizer();
+        showForm(curFormKey, false);
+      });
 
       Widgets.createQuiz('#ch15-quiz', 'quiz-ch15', 'ch15', [
         {
-          prompt: '為什麼「I、IV、V」三個正三和弦就足以配完一首自然音民謠？',
-          options: ['因為不能用小和弦', '因為 I + IV + V 剛好涵蓋了該調音階的全部 7 個音！', '因為它們沒有五音', '因為只有它們能轉位'],
+          prompt: { en: 'Why are the three primary triads “I, IV, and V” enough to harmonize any diatonic melody?', zh: '為什麼「I、IV、V」三個正三和弦就足以配完一首自然音民謠？' },
+          options: [
+            { en: 'Minor chords are forbidden', zh: '因為不能用小和弦' },
+            { en: 'Together, I + IV + V contain all 7 pitches of the scale!', zh: '因為 I + IV + V 剛好涵蓋了該調音階的全部 7 個音！' },
+            { en: 'They omit the fifth', zh: '因為它們沒有五音' },
+            { en: 'Only they can invert', zh: '因為只有它們能轉位' }
+          ],
           answer: 1,
-          explanation: '例如 C 大調 CEG + FAC + GBD 包含了 C-D-E-F-G-A-B 全部七音！'
+          explanation: { en: 'In C Major, CEG + FAC + GBD include every single pitch from C to B!', zh: '例如 C 大調 CEG + FAC + GBD 包含了 C-D-E-F-G-A-B 全部七音！' }
         },
         {
-          prompt: '為旋律配和聲時，Duckworth 強調必須在填入中間和弦「之前」先決定哪一件事？',
-          options: ['先填滿七和弦', '先找出樂句邊界並規劃每個樂句結尾的「終止式 (Cadences)」！', '先轉調', '先寫吉他譜'],
+          prompt: { en: 'Before filling in middle chords when harmonizing a melody, what does Duckworth advise planning FIRST?', zh: '為旋律配和聲時，Duckworth 強調必須在填入中間和弦「之前」先決定哪一件事？' },
+          options: [
+            { en: 'Add 7th chords everywhere', zh: '先填滿七和弦' },
+            { en: 'Locate phrase endings and plan the Cadences first!', zh: '先找出樂句邊界並規劃每個樂句結尾的「終止式 (Cadences)」！' },
+            { en: 'Modulate immediately', zh: '先轉調' },
+            { en: 'Write guitar tab first', zh: '先寫吉他譜' }
+          ],
           answer: 1,
-          explanation: '先確立各樂句的終止式目標，中間的和聲進行才有明確方向！'
+          explanation: { en: 'Establishing phrase cadences first gives every progression a clear destination!', zh: '先確立各樂句的終止式目標，中間的和聲進行才有明確方向！' }
         },
         {
-          prompt: '「32 小節流行曲式 (A–A–B–A)」中，第 17–24 小節負責提供對比的 B 段稱為什麼？',
-          options: ['Coda 尾奏', 'Bridge（橋段）', 'Anacrusis 弱起', 'Ostinato'],
+          prompt: { en: 'In 32-Bar Popular Song Form (A–A–B–A), what is the contrasting B section (bars 17–24) called?', zh: '「32 小節流行曲式 (A–A–B–A)」中，第 17–24 小節負責提供對比的 B 段稱為什麼？' },
+          options: [
+            { en: 'Coda', zh: 'Coda 尾奏' },
+            { en: 'The Bridge', zh: 'Bridge（橋段）' },
+            { en: 'Anacrusis', zh: 'Anacrusis 弱起' },
+            { en: 'Ostinato', zh: 'Ostinato' }
+          ],
           answer: 1,
-          explanation: 'AABA 的 B 段即為著名的 Bridge（橋段）！'
+          explanation: { en: 'The contrasting B section of AABA song form is the Bridge!', zh: 'AABA 的 B 段即為著名的 Bridge（橋段）！' }
         }
       ]);
     });

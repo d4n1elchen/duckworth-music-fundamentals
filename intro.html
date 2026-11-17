@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>導論：玩轉聲音與織體 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Intro: Playing with Sound &amp; Texture | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="intro">
+<body data-page="intro" data-zh-title="導論：玩轉聲音與織體 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,41 +23,41 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Introduction · 導論</span>
-        <h1 id="main-heading" tabindex="-1">導論：玩轉聲音、織體與練習曲線</h1>
-        <p class="chapter-subtitle">
-          不論古典、搖滾或嘻哈，一切音樂都共享<strong>聲音 4 大物理特性</strong>與<strong>音樂 6 大 DNA 要素</strong>。直接拖動滑桿看見並聽見它們！
+        <span class="chapter-eyebrow" data-zh="Introduction · 導論">Introduction · Sound &amp; Texture</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="導論：玩轉聲音、織體與練習曲線">Intro: Sound Physics, Texture &amp; Practice Curves</h1>
+        <p class="chapter-subtitle" data-zh="不論古典、搖滾或嘻哈，一切音樂都共享<strong>聲音 4 大物理特性</strong>與<strong>音樂 6 大 DNA 要素</strong>。直接拖動滑桿看見並聽見它們！">
+          Classical, rock, or hip-hop—every style shares <strong>4 properties of sound</strong> and <strong>6 elements of music</strong>. Drag the sliders to see and hear them live!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🌊 <strong>音高 Hz</strong></span>
-          <span class="visual-pill">📢 <strong>振幅 dB</strong></span>
-          <span class="visual-pill">⏱️ <strong>包絡 ADSR</strong></span>
-          <span class="visual-pill">🎨 <strong>泛音音色</strong></span>
-          <span class="visual-pill">🧶 <strong>三大織體</strong></span>
+          <span class="visual-pill" data-zh="🌊 <strong>音高 Hz</strong>">🌊 <strong>Pitch (Hz)</strong></span>
+          <span class="visual-pill" data-zh="📢 <strong>振幅 dB</strong>">📢 <strong>Volume (dB)</strong></span>
+          <span class="visual-pill" data-zh="⏱️ <strong>包絡 ADSR</strong>">⏱️ <strong>Envelope (ADSR)</strong></span>
+          <span class="visual-pill" data-zh="🎨 <strong>泛音音色</strong>">🎨 <strong>Timbre Harmonics</strong></span>
+          <span class="visual-pill" data-zh="🧶 <strong>三大織體</strong>">🧶 <strong>3 Musical Textures</strong></span>
         </div>
       </section>
 
-      <!-- 1. 即時聲波與包絡示波器 -->
+      <!-- 1. Wave Lab -->
       <section class="lesson-section" aria-labelledby="sec-four-char">
-        <h2 id="sec-four-char">🎛️ 聲音四大特性示波器（Pitch · Volume · Duration · Timbre）</h2>
+        <h2 id="sec-four-char" data-zh="🎛️ 聲音四大特性示波器（Pitch · Volume · Duration · Timbre）">🎛️ Four Properties Oscilloscope (Pitch · Volume · Duration · Timbre)</h2>
         <div id="intro-wave-lab"></div>
       </section>
 
-      <!-- 2. 音樂六大要素晶片 + 三大織體視覺畫布 -->
+      <!-- 2. Six Elements + 3 Textures Canvas -->
       <section class="lesson-section" aria-labelledby="sec-six-elem">
-        <h2 id="sec-six-elem">🧶 六大要素與三大織體動態畫布</h2>
+        <h2 id="sec-six-elem" data-zh="🧶 六大要素與三大織體動態畫布">🧶 Six Elements &amp; Three Musical Textures Canvas</h2>
         <div class="concept-grid" style="margin-block-end:0.9rem;">
           <div class="concept-card">
-            <h3>⏳ 時間軸：節奏 × 曲式</h3>
-            <p><strong>Rhythm</strong> 推進律動；<strong>Form</strong> 構築全曲統一與對比。</p>
+            <h3 data-zh="⏳ 時間軸：節奏 × 曲式">⏳ Time Axis: Rhythm × Form</h3>
+            <p data-zh="<strong>Rhythm</strong> 推進律動；<strong>Form</strong> 構築全曲統一與對比。"><strong>Rhythm</strong> drives pulse; <strong>Form</strong> balances unity &amp; contrast.</p>
           </div>
           <div class="concept-card">
-            <h3>🎹 音高軸：旋律 × 和聲</h3>
-            <p><strong>Melody</strong> 水平歌唱線條；<strong>Harmony</strong> 垂直和弦張力。</p>
+            <h3 data-zh="🎹 音高軸：旋律 × 和聲">🎹 Pitch Axis: Melody × Harmony</h3>
+            <p data-zh="<strong>Melody</strong> 水平歌唱線條；<strong>Harmony</strong> 垂直和弦張力。"><strong>Melody</strong> sings horizontally; <strong>Harmony</strong> stacks vertical chords.</p>
           </div>
           <div class="concept-card">
-            <h3>🌈 空間軸：音色 × 織體</h3>
-            <p><strong>Timbre</strong> 樂器色彩；<strong>Texture</strong> 聲部交織密度。</p>
+            <h3 data-zh="🌈 空間軸：音色 × 織體">🌈 Space Axis: Timbre × Texture</h3>
+            <p data-zh="<strong>Timbre</strong> 樂器色彩；<strong>Texture</strong> 聲部交織密度。"><strong>Timbre</strong> colors tone; <strong>Texture</strong> weaves voice density.</p>
           </div>
         </div>
         <div class="widget-box">
@@ -62,40 +65,40 @@
         </div>
       </section>
 
-      <!-- 3. 兩種記譜哲學對照 -->
+      <!-- 3. Two Notation Philosophies -->
       <section class="lesson-section" aria-labelledby="sec-looking">
-        <h2 id="sec-looking">👀 兩種樂譜哲學：精確藍圖 vs 即興功能譜</h2>
+        <h2 id="sec-looking" data-zh="👀 兩種樂譜哲學：精確藍圖 vs 即興功能譜">👀 Two Score Philosophies: Exact Blueprint vs. Lead Sheet</h2>
         <div class="concept-grid">
           <div class="concept-card">
-            <span class="badge">古典精確記譜</span>
-            <h3 style="margin-block-start:0.35rem;">貝多芬《月光奏鳴曲》</h3>
-            <p>音高、三連音織體、力度 <code>pp</code> 全部精確鎖定。</p>
+            <span class="badge" data-zh="古典精確記譜">Classical Exact Score</span>
+            <h3 style="margin-block-start:0.35rem;" data-zh="貝多芬《月光奏鳴曲》">Beethoven’s <em>Moonlight Sonata</em></h3>
+            <p data-zh="音高、三連音織體、力度 <code>pp</code> 全部精確鎖定。">Every pitch, triplet arpeggio, and <code>pp</code> dynamic is specified.</p>
             <div id="score-moonlight"></div>
           </div>
           <div class="concept-card">
-            <span class="badge">流行 Lead Sheet</span>
-            <h3 style="margin-block-start:0.35rem;">民謠《Careless Love》</h3>
-            <p>只給旋律＋和弦代號（<code>F, C7, B♭</code>），自由即興伴奏！</p>
+            <span class="badge" data-zh="流行 Lead Sheet">Pop / Folk Lead Sheet</span>
+            <h3 style="margin-block-start:0.35rem;" data-zh="民謠《Careless Love》">Folk Song <em>Careless Love</em></h3>
+            <p data-zh="只給旋律＋和弦代號（<code>F, C7, B♭</code>），自由即興伴奏！">Melody + chord symbols (<code>F, C7, B♭</code>)—improvise your own backing!</p>
             <div id="score-careless"></div>
           </div>
         </div>
       </section>
 
-      <!-- 4. 互動高原期練習曲線模擬器 -->
+      <!-- 4. Practice Plateau Simulator -->
       <section class="lesson-section" aria-labelledby="sec-practice">
-        <h2 id="sec-practice">📈 練習高原期模擬器（每日 20 分鐘 vs 週末爆肝 3 小時）</h2>
+        <h2 id="sec-practice" data-zh="📈 練習高原期模擬器（每日 20 分鐘 vs 週末爆肝 3 小時）">📈 Practice Plateau Simulator (20 Min Daily vs. 3 Hr Cram)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-primary btn-sm" id="sim-daily">🚀 每日規律 20 分鐘（階梯高原突破）</button>
-            <button type="button" class="btn btn-sm" id="sim-cram">🥀 週末臨時抱佛腳 3 小時（反覆遺忘）</button>
+            <button type="button" class="btn btn-primary btn-sm" id="sim-daily" data-zh="🚀 每日規律 20 分鐘（階梯高原突破）">🚀 20 Min Daily (Plateau Breakthrough)</button>
+            <button type="button" class="btn btn-sm" id="sim-cram" data-zh="🥀 週末臨時抱佛腳 3 小時（反覆遺忘）">🥀 3 Hr Weekend Cram (Spike &amp; Decay)</button>
           </div>
-          <canvas id="plateau-canvas" class="visual-canvas" width="620" height="180" aria-label="練習高原期成長曲線圖"></canvas>
+          <canvas id="plateau-canvas" class="visual-canvas" width="620" height="180" aria-label="Practice plateau growth curve" data-zh-aria="練習高原期成長曲線圖"></canvas>
         </div>
       </section>
 
       <!-- Quiz -->
       <section class="lesson-section" aria-labelledby="sec-quiz">
-        <h2 id="sec-quiz">⚡ 導論快問快答</h2>
+        <h2 id="sec-quiz" data-zh="⚡ 導論快問快答">⚡ Intro Quick Check</h2>
         <div id="intro-quiz"></div>
       </section>
     </main>
@@ -103,23 +106,25 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+
       Widgets.createWaveLab('#intro-wave-lab');
       Widgets.createTextureCanvas('#intro-texture-canvas');
 
       MusicNotation.render('#score-moonlight', {
-        title: '月光奏鳴曲（精確三連音）',
+        title: { en: 'Moonlight Sonata (Exact Triplets)', zh: '月光奏鳴曲（精確三連音）' },
         clef: 'treble',
         key: 'c#',
         time: 'C',
         bpm: 64,
-        spacing: 38,
+        spacing: 42,
         notes: [
           { pitch: 'G#3', dur: '8', beam: 1, tuplet: 3, tupletText: '3' },
           { pitch: 'C#4', dur: '8', beam: 1, tuplet: 3 },
@@ -131,12 +136,12 @@
       });
 
       MusicNotation.render('#score-careless', {
-        title: 'Careless Love（功能譜）',
+        title: { en: 'Careless Love (Lead Sheet)', zh: 'Careless Love（功能譜）' },
         clef: 'treble',
         key: 'F',
         time: '4/4',
         bpm: 92,
-        spacing: 42,
+        spacing: 44,
         notes: [
           { pitch: 'A4', dur: 'h', dotted: true, chordSymbol: 'F', lyric: 'Love,' },
           { pitch: 'F4', dur: 'q', lyric: 'oh' },
@@ -149,7 +154,9 @@
       // Plateau Curve Simulator
       const pCvs = document.getElementById('plateau-canvas');
       const pc = pCvs.getContext('2d');
+      let plateauDaily = true;
       function drawPlateau(isDaily) {
+        plateauDaily = isDaily;
         const w = pCvs.width, h = pCvs.height;
         pc.clearRect(0, 0, w, h);
         pc.strokeStyle = 'rgba(148,163,184,0.2)';
@@ -167,13 +174,11 @@
           const x = 35 + u * (w - 60);
           let val;
           if (isDaily) {
-            // Staircase plateaus (Consolidation + Leap!)
             const step = Math.floor(u * 4);
             const rem = (u * 4) % 1;
             const rise = rem < 0.35 ? (rem / 0.35) : 1;
             val = (step + rise) / 4;
           } else {
-            // Spike & decay cramming
             const wave = ((u * 3) % 1);
             val = 0.12 + u * 0.18 + (wave < 0.15 ? wave * 2.2 : Math.exp(-(wave - 0.15) * 4) * 0.33);
           }
@@ -184,17 +189,24 @@
 
         pc.fillStyle = '#e2e8f0';
         pc.font = 'bold 13px sans-serif';
-        pc.fillText(isDaily ? '✨ 高原期也是大腦神經內化的必經階段 — 持續小步練習必迎來躍升！' : '⚠️ 久久爆練一次會在隔週快速衰退，難以突破高原期！', 36, 24);
+        pc.fillText(
+          isDaily
+            ? t('✨ Plateaus consolidate neural memory — short daily sessions unlock leaps!', '✨ 高原期也是大腦神經內化的必經階段 — 持續小步練習必迎來躍升！')
+            : t('⚠️ Rare marathon cramming decays quickly between sessions!', '⚠️ 久久爆練一次會在隔週快速衰退，難以突破高原期！'),
+          36, 24
+        );
       }
       drawPlateau(true);
+      window.addEventListener('lang-changed', () => drawPlateau(plateauDaily));
+
       document.getElementById('sim-daily').addEventListener('click', (e) => {
-        e.target.classList.add('btn-primary');
+        e.currentTarget.classList.add('btn-primary');
         document.getElementById('sim-cram').classList.remove('btn-primary');
         AudioEngine.playSequence([{ pitch: 'C4', beats: 0.25 }, { pitch: 'E4', beats: 0.25 }, { pitch: 'G4', beats: 0.25 }, { pitch: 'C5', beats: 0.5 }], 120);
         drawPlateau(true);
       });
       document.getElementById('sim-cram').addEventListener('click', (e) => {
-        e.target.classList.add('btn-primary');
+        e.currentTarget.classList.add('btn-primary');
         document.getElementById('sim-daily').classList.remove('btn-primary');
         AudioEngine.playSequence([{ pitch: 'G4', beats: 0.3 }, { pitch: 'Eb4', beats: 0.3 }, { pitch: 'C4', beats: 0.6 }], 110);
         drawPlateau(false);
@@ -202,22 +214,37 @@
 
       Widgets.createQuiz('#intro-quiz', 'quiz-intro', 'intro', [
         {
-          prompt: '決定樂音「音高 (Pitch)」高低的物理量是什麼？',
-          options: ['振幅 (Amplitude / dB)', '振動頻率 (Frequency / Hz)', '起音時間 (Attack)', '樂譜紙張大小'],
+          prompt: { en: 'Which physical property determines musical Pitch?', zh: '決定樂音「音高 (Pitch)」高低的物理量是什麼？' },
+          options: [
+            { en: 'Amplitude (dB)', zh: '振幅 (Amplitude / dB)' },
+            { en: 'Frequency of vibration (Hz)', zh: '振動頻率 (Frequency / Hz)' },
+            { en: 'Attack time', zh: '起音時間 (Attack)' },
+            { en: 'Staff paper size', zh: '樂譜紙張大小' }
+          ],
           answer: 1,
-          explanation: '每秒規則振動次數（頻率 Hz）越快音越高，例如 A4 = 440 Hz。'
+          explanation: { en: 'Faster regular vibrations (Hz) produce higher pitches — e.g., A4 = 440 Hz.', zh: '每秒規則振動次數（頻率 Hz）越快音越高，例如 A4 = 440 Hz。' }
         },
         {
-          prompt: '「上方一條清楚主旋律，下方配以和弦伴奏」屬於哪種音樂織體？',
-          options: ['單音織體 (Monophonic)', '主音織體 (Homophonic)', '複音織體 (Polyphonic)', '無調性織體'],
+          prompt: { en: 'A clear melody supported by chordal accompaniment describes which texture?', zh: '「上方一條清楚主旋律，下方配以和弦伴奏」屬於哪種音樂織體？' },
+          options: [
+            { en: 'Monophonic', zh: '單音織體 (Monophonic)' },
+            { en: 'Homophonic', zh: '主音織體 (Homophonic)' },
+            { en: 'Polyphonic', zh: '複音織體 (Polyphonic)' },
+            { en: 'Atonal', zh: '無調性織體' }
+          ],
           answer: 1,
-          explanation: '旋律＋和弦支撐即為主音織體 (Homophonic)。'
+          explanation: { en: 'Melody + chordal support is Homophonic texture.', zh: '旋律＋和弦支撐即為主音織體 (Homophonic)。' }
         },
         {
-          prompt: '面對練習「高原期 (Plateaus)」，最有效的方式是？',
-          options: ['月底一次練 6 小時', '每日短時間規律練習＋多元素材', '只看譜不出聲', '放棄換樂器'],
+          prompt: { en: 'What is the best strategy to overcome learning plateaus?', zh: '面對練習「高原期 (Plateaus)」，最有效的方式是？' },
+          options: [
+            { en: 'Cram 6 hours once a month', zh: '月底一次練 6 小時' },
+            { en: 'Short, consistent daily sessions with varied material', zh: '每日短時間規律練習＋多元素材' },
+            { en: 'Read silently without playing', zh: '只看譜不出聲' },
+            { en: 'Switch instruments immediately', zh: '放棄換樂器' }
+          ],
           answer: 1,
-          explanation: '少量多次、每日規律練習才能讓肌肉與聽覺神經穩定內化。'
+          explanation: { en: 'Short, regular daily practice lets motor and ear skills consolidate steadily.', zh: '少量多次、每日規律練習才能讓肌肉與聽覺神經穩定內化。' }
         }
       ]);
     });

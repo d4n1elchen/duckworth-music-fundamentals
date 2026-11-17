@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>互動音樂實驗室 | Duckworth 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Interactive Music Lab | Duckworth Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="home">
+<body data-page="home" data-zh-title="互動音樂實驗室 | Duckworth 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,31 +23,31 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">🎹 Interactive Music Lab · Duckworth 11e</span>
-        <h1 id="main-heading" tabindex="-1">用耳朵與手指玩懂樂理</h1>
-        <p class="chapter-subtitle">
-          拋開死背課文！全書 15 章＋7 大檢定站＋附錄全部濃縮成<strong>可彈、可畫、可聽、可闖關</strong>的視覺聲音玩具。
+        <span class="chapter-eyebrow" data-zh="🎹 互動音樂實驗室 · Duckworth 11e">🎹 Interactive Music Lab · Duckworth 11e</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="用耳朵與手指玩懂樂理">Play, See &amp; Hear Music Theory</h1>
+        <p class="chapter-subtitle" data-zh="拋開死背課文！全書 15 章＋7 大檢定站＋附錄全部濃縮成<strong>可彈、可畫、可聽、可闖關</strong>的視覺聲音玩具。">
+          Skip dry memorization—all 15 chapters, 7 Focus checkpoints, and Appendices turned into <strong>playable, visual synth playgrounds</strong>.
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🎛️ <strong>即時聲波合成</strong></span>
-          <span class="visual-pill">🎼 <strong>十二音色彩樂譜</strong></span>
-          <span class="visual-pill">🥁 <strong>MPC 節奏鼓機</strong></span>
-          <span class="visual-pill">🎯 <strong>極速識譜闖關</strong></span>
+          <span class="visual-pill" data-zh="🎛️ <strong>即時聲波合成</strong>">🎛️ <strong>Live Synth Audio</strong></span>
+          <span class="visual-pill" data-zh="🎼 <strong>自動捲動色彩樂譜</strong>">🎼 <strong>Auto-Scrolling Scores</strong></span>
+          <span class="visual-pill" data-zh="🥁 <strong>MPC 節奏鼓機</strong>">🥁 <strong>MPC Step Drum Pads</strong></span>
+          <span class="visual-pill" data-zh="🎯 <strong>極速識譜闖關</strong>">🎯 <strong>Arcade Sight-Reading</strong></span>
         </div>
         <div class="widget-controls" style="margin-block-start:0.85rem;">
-          <a class="btn btn-primary" href="intro.html">🚀 開始闖關：導論</a>
-          <a class="btn" href="ch01-basics.html">第 1 章：節奏與譜號</a>
-          <a class="btn" href="glossary.html">📖 術語快查</a>
+          <a class="btn btn-primary" href="intro.html" data-zh="🚀 開始闖關：導論">🚀 Start Quest: Intro</a>
+          <a class="btn" href="ch01-basics.html" data-zh="第 1 章：節奏與譜號">Ch 1: Rhythm &amp; Clefs</a>
+          <a class="btn" href="glossary.html" data-zh="📖 術語快查">📖 Glossary Cards</a>
         </div>
       </section>
 
-      <!-- 即刻創作體驗：8x8 旋律方塊 + 滑奏鋼琴 -->
+      <!-- Instant Play: 8x8 Song Grid + Synth Keyboard -->
       <section class="lesson-section" aria-labelledby="instant-play-heading">
-        <h2 id="instant-play-heading">✨ 10 秒上手：點格子寫歌 ＆ 滑奏彩虹鍵盤</h2>
+        <h2 id="instant-play-heading" data-zh="✨ 10 秒上手：點格子寫歌 ＆ 滑奏彩虹鍵盤">✨ Instant Jam: 8×8 Song Matrix &amp; Glissando Synth</h2>
         <div class="tabs">
-          <div class="tablist" focusgroup="tablist nomemory" aria-label="首頁互動體驗切換">
-            <button type="button" id="tab-song" aria-selected="true" focusgroupstart>🎨 8×8 旋律創作方格</button>
-            <button type="button" id="tab-kb" aria-selected="false">🎹 滑奏合成鍵盤</button>
+          <div class="tablist" focusgroup="tablist nomemory" aria-label="Home interactive demo tabs" data-zh-aria="首頁互動體驗切換">
+            <button type="button" id="tab-song" aria-selected="true" focusgroupstart data-zh="🎨 8×8 旋律方格">🎨 8×8 Song Matrix</button>
+            <button type="button" id="tab-kb" aria-selected="false" data-zh="🎹 滑奏合成鍵盤">🎹 Synth Keyboard</button>
           </div>
           <div role="tabpanel" aria-labelledby="tab-song">
             <div class="tabpanel-inner">
@@ -54,8 +57,8 @@
           <div role="tabpanel" aria-labelledby="tab-kb" hidden="until-found">
             <div class="tabpanel-inner">
               <div class="widget-controls" style="margin-block-start:0;">
-                <button type="button" class="btn btn-sm btn-primary" id="demo-scale-btn">▶ C 大調音階</button>
-                <button type="button" class="btn btn-sm btn-amber" id="demo-cadence-btn">▶ I – IV – V7 – I 終止式</button>
+                <button type="button" class="btn btn-sm btn-primary" id="demo-scale-btn" data-zh="▶ C 大調音階">▶ C Major Scale</button>
+                <button type="button" class="btn btn-sm btn-amber" id="demo-cadence-btn" data-zh="▶ I – IV – V7 – I 終止式">▶ I – IV – V7 – I Cadence</button>
               </div>
               <div id="home-demo-piano"></div>
             </div>
@@ -63,15 +66,15 @@
         </div>
       </section>
 
-      <!-- 闖關進度儀表板 -->
+      <!-- Progress Dashboard -->
       <section class="lesson-section" aria-labelledby="dash-heading">
-        <h2 id="dash-heading">🏆 闖關進度儀表板</h2>
+        <h2 id="dash-heading" data-zh="🏆 闖關進度儀表板">🏆 Quest Progress Dashboard</h2>
         <div class="concept-grid" id="dashboard-stats"></div>
       </section>
 
-      <!-- 全書 19 個互動單元地圖 -->
+      <!-- 20-Page Course Map -->
       <section class="lesson-section" aria-labelledby="syllabus-heading">
-        <h2 id="syllabus-heading">🗺️ 全書章節闖關地圖（19 個互動單元 · 全站 20 頁）</h2>
+        <h2 id="syllabus-heading" data-zh="🗺️ 全書章節闖關地圖（19 個互動單元 · 全站 20 頁）">🗺️ Interactive Syllabus Map (19 Units · 20 Pages)</h2>
         <div id="syllabus-grid-mount"></div>
       </section>
     </main>
@@ -79,13 +82,16 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+      const isEn = () => (window.I18n ? window.I18n.isEn() : true);
+
       Widgets.createSongGrid('#home-song-grid');
 
       const piano = Widgets.createPiano('#home-demo-piano', {
@@ -137,7 +143,7 @@
               <text x="28" y="32" text-anchor="middle" font-size="12" font-weight="800" fill="var(--text-primary)">${pct}%</text>
             </svg>
             <div>
-              <h3 style="margin:0;">已通關單元</h3>
+              <h3 style="margin:0;">${t('Units Completed', '已通關單元')}</h3>
               <p style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:var(--brand);margin:0.1rem 0;">${doneCount} / ${pages.length}</p>
             </div>
           </div>
@@ -149,20 +155,21 @@
               <text x="28" y="32" text-anchor="middle" font-size="12" font-weight="800" fill="var(--text-primary)">${qPct}%</text>
             </svg>
             <div>
-              <h3 style="margin:0;">檢定答對率</h3>
-              <p style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:var(--accent-amber);margin:0.1rem 0;">${quizEntries.length} 組已測</p>
+              <h3 style="margin:0;">${t('Quiz Accuracy', '檢定答對率')}</h3>
+              <p style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:var(--accent-amber);margin:0.1rem 0;">${isEn() ? `${quizEntries.length} Quizzes` : `${quizEntries.length} 組已測`}</p>
             </div>
           </div>
           <div class="concept-card">
-            <h3 style="margin:0;">🎯 終極任務</h3>
-            <p style="font-weight:700;color:var(--success);margin-block:0.25rem 0;">Ch 15 獨立為旋律配和聲與寫歌！</p>
+            <h3 style="margin:0;">${t('🎯 Final Boss Goal', '🎯 終極任務')}</h3>
+            <p style="font-weight:700;color:var(--success);margin-block:0.25rem 0;">${t('Ch 15: Harmonize a melody & compose your own song!', 'Ch 15 獨立為旋律配和聲與寫歌！')}</p>
           </div>
         `;
 
         const groups = new Map();
         pages.forEach(p => {
-          if (!groups.has(p.group)) groups.set(p.group, []);
-          groups.get(p.group).push(p);
+          const gKey = isEn() ? (p.groupEn || p.group) : p.group;
+          if (!groups.has(gKey)) groups.set(gKey, []);
+          groups.get(gKey).push(p);
         });
 
         let html = '';
@@ -173,16 +180,19 @@
             const isDone = !!prog.completedPages[item.id];
             const accent = AudioEngine.PITCH_COLORS[gIdx % 12];
             gIdx++;
+            const mainTitle = isEn() ? item.en : item.title;
+            const subTitle = isEn() ? item.title : item.en;
+            const badgeNum = isEn() ? item.num : (item.numZh || item.num);
             html += `
               <a href="${item.file}" class="concept-card" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;border-inline-start:4px solid ${isDone ? 'var(--success)' : accent};">
                 <div>
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.3rem;">
-                    <span class="badge">${item.num}</span>
-                    ${isDone ? '<span style="color:var(--success);font-weight:800;font-size:0.8rem;">✓ 完成</span>' : '<span style="color:var(--brand);font-weight:700;font-size:0.8rem;">PLAY →</span>'}
+                    <span class="badge">${badgeNum}</span>
+                    ${isDone ? `<span style="color:var(--success);font-weight:800;font-size:0.8rem;">${t('✓ Done', '✓ 完成')}</span>` : '<span style="color:var(--brand);font-weight:700;font-size:0.8rem;">PLAY →</span>'}
                   </div>
-                  <h4 style="margin:0.15rem 0;font-size:0.98rem;">${item.title}</h4>
+                  <h4 style="margin:0.15rem 0;font-size:0.98rem;">${mainTitle}</h4>
                 </div>
-                <span style="font-size:0.76rem;color:var(--text-muted);margin-block-start:0.35rem;" lang="en">${item.en}</span>
+                <span style="font-size:0.76rem;color:var(--text-muted);margin-block-start:0.35rem;">${subTitle}</span>
               </a>
             `;
           }
@@ -193,6 +203,7 @@
 
       renderDashboard();
       window.addEventListener('course-progress-updated', renderDashboard);
+      window.addEventListener('lang-changed', renderDashboard);
     });
   </script>
 </body>

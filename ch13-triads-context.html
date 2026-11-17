@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 13 章：和弦代號、吉他譜與屬七和弦 (V7) | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 13: Triads in Context, Guitar &amp; Dominant 7th (V7) | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch13">
+<body data-page="ch13" data-zh-title="第 13 章：和弦代號、吉他譜與屬七和弦 (V7) | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,29 +23,29 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 13 · 第 13 章</span>
-        <h1 id="main-heading" tabindex="-1">第 13 章：羅馬數字、吉他指法、屬七和弦 (V7) 與伴奏織體</h1>
-        <p class="chapter-subtitle">
-          古典分析用<strong>羅馬數字</strong>、爵士流行用<strong>和弦代號 (<code>F/A</code>)</strong>、吉他手看<strong>六線指法圖</strong>——一頁貫通三種和弦語言！
+        <span class="chapter-eyebrow" data-zh="Chapter 13 · 第 13 章">Chapter 13 · Triads in Context &amp; V7</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 13 章：羅馬數字、吉他指法、屬七和弦 (V7) 與伴奏織體">Ch 13: Roman Numerals, Guitar Boxes, V7 &amp; Texture</h1>
+        <p class="chapter-subtitle" data-zh="古典分析用<strong>羅馬數字</strong>、爵士流行用<strong>和弦代號 (<code>F/A</code>)</strong>、吉他手看<strong>六線指法圖</strong>——一頁貫通三種和弦語言！">
+          Classical <strong>Roman numerals</strong>, pop/jazz <strong>slash chord symbols (<code>F/A</code>)</strong>, and <strong>6-string guitar chord boxes</strong>—all three chord languages on one stage!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🏛️ 大寫 <code>I, IV, V</code>＝大三 · 小寫 <code>ii, vi</code>＝小三 · <code>vii°</code>＝減三</span>
-          <span class="visual-pill">🎸 斜線和弦 <strong>F/A ＝ 以 A 為最低音的 F 和弦（第一轉位）</strong></span>
-          <span class="visual-pill">🔥 屬七 <strong>V7 ＝ 大三＋小七</strong>（轉位：<code>7 · 6/5 · 4/3 · 4/2</code>）</span>
+          <span class="visual-pill" data-zh="🏛️ 大寫 <code>I, IV, V</code>＝大三 · 小寫 <code>ii, vi</code>＝小三 · <code>vii°</code>＝減三">🏛️ Uppercase <code>I, IV, V</code> = Maj · lowercase <code>ii, vi</code> = min · <code>vii°</code> = dim</span>
+          <span class="visual-pill" data-zh="🎸 斜線和弦 <strong>F/A ＝ 以 A 為最低音的 F 和弦（第一轉位）</strong>">🎸 Slash chord <strong>F/A = F chord over A in the bass (1st inv)</strong></span>
+          <span class="visual-pill" data-zh="🔥 屬七 <strong>V7 ＝ 大三＋小七</strong>（轉位：<code>7 · 6/5 · 4/3 · 4/2</code>）">🔥 Dominant 7th <strong>V7 = Maj triad + m7</strong> (<code>7 · 6/5 · 4/3 · 4/2</code>)</span>
         </div>
       </section>
 
-      <!-- 1. 吉他指法刷奏台 + 斜線和弦比較 -->
+      <!-- 1. Guitar Strum Deck -->
       <section class="lesson-section" aria-labelledby="ch13-guitar">
-        <h2 id="ch13-guitar">🎸 1. 《Worried Man Blues》吉他和弦刷奏台（空弦 E-A-D-G-B-E）</h2>
+        <h2 id="ch13-guitar" data-zh="🎸 1. 《Worried Man Blues》吉他和弦刷奏台（空弦 E-A-D-G-B-E）">🎸 1. <em>Worried Man Blues</em> Guitar Strum Deck (E–A–D–G–B–E)</h2>
         <div class="widget-box">
           <div class="guitar-grid" id="ch13-guitar-demo"></div>
         </div>
       </section>
 
-      <!-- 2. 五種七和弦色彩 & V7 四種位置切換器 -->
+      <!-- 2. Five 7th Chord Qualities & V7 Inversions -->
       <section class="lesson-section" aria-labelledby="ch13-v7">
-        <h2 id="ch13-v7">🔥 2. 五大七和弦色彩 ＆ 屬七和弦 <code>V7</code> 轉位實驗室</h2>
+        <h2 id="ch13-v7" data-zh="🔥 2. 五大七和弦色彩 ＆ 屬七和弦 <code>V7</code> 轉位實驗室">🔥 2. Five Seventh-Chord Colors &amp; <code>V7</code> Inversions Lab</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;" id="sev-type-btns"></div>
           <div id="sev-readout" class="visual-pill"></div>
@@ -50,14 +53,14 @@
         </div>
       </section>
 
-      <!-- 3. 伴奏型態變形機：柱式 vs 阿爾貝堤低音 vs 流行分解琶音 -->
+      <!-- 3. Accompaniment Texture Morphing -->
       <section class="lesson-section" aria-labelledby="ch13-texture">
-        <h2 id="ch13-texture">🎹 3. 伴奏型態變形機（同一組 <code>C – Am – Dm – G7</code> 三種彈法！）</h2>
+        <h2 id="ch13-texture" data-zh="🎹 3. 伴奏型態變形機（同一組 <code>C – Am – Dm – G7</code> 三種彈法！）">🎹 3. Accompaniment Morpher (Same <code>C – Am – Dm – G7</code> in 3 Styles!)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-sm btn-primary" id="play-block-style">🧱 柱式和弦 Block Chords</button>
-            <button type="button" class="btn btn-sm btn-amber" id="play-arp-style">🌊 分解琶音 Arpeggiated</button>
-            <button type="button" class="btn btn-sm" id="play-alberti-style">🏛️ 莫札特阿爾貝堤低音 Alberti</button>
+            <button type="button" class="btn btn-sm btn-primary" id="play-block-style" data-zh="🧱 柱式和弦 Block Chords">🧱 Block Chords</button>
+            <button type="button" class="btn btn-sm btn-amber" id="play-arp-style" data-zh="🌊 分解琶音 Arpeggiated">🌊 Arpeggiated</button>
+            <button type="button" class="btn btn-sm" id="play-alberti-style" data-zh="🏛️ 莫札特阿爾貝堤低音 Alberti">🏛️ Mozart Alberti Bass</button>
           </div>
           <div id="block-arp-score"></div>
         </div>
@@ -65,7 +68,7 @@
 
       <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch13-quiz-sec">
-        <h2 id="ch13-quiz-sec">🏆 Practice 13-1～13-7 闖關檢定</h2>
+        <h2 id="ch13-quiz-sec" data-zh="🏆 Practice 13-1～13-7 闖關檢定">🏆 Practice 13-1 to 13-7 Checkpoint</h2>
         <div id="ch13-quiz"></div>
       </section>
     </main>
@@ -73,64 +76,78 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       [
-        { name: 'G',  subtitle: 'I 主和弦',    frets: [3, 2, 0, 0, 0, 3],  pitches: ['G2', 'B2', 'D3', 'G3', 'B3', 'G4'] },
-        { name: 'C',  subtitle: 'IV 下屬和弦', frets: [-1, 3, 2, 0, 1, 0], pitches: ['C3', 'E3', 'G3', 'C4', 'E4'] },
-        { name: 'D7', subtitle: 'V7 屬七和弦', frets: [-1, -1, 0, 2, 1, 2], pitches: ['D3', 'A3', 'C4', 'F#4'] },
-        { name: 'Em', subtitle: 'vi 副三和弦', frets: [0, 2, 2, 0, 0, 0],  pitches: ['E2', 'B2', 'E3', 'G3', 'B3', 'E4'] }
+        { name: 'G',  subtitle: { en: 'I Tonic',          zh: 'I 主和弦' },    frets: [3, 2, 0, 0, 0, 3],   pitches: ['G2', 'B2', 'D3', 'G3', 'B3', 'G4'] },
+        { name: 'C',  subtitle: { en: 'IV Subdominant',   zh: 'IV 下屬和弦' }, frets: [-1, 3, 2, 0, 1, 0],  pitches: ['C3', 'E3', 'G3', 'C4', 'E4'] },
+        { name: 'D7', subtitle: { en: 'V7 Dominant 7th',  zh: 'V7 屬七和弦' }, frets: [-1, -1, 0, 2, 1, 2], pitches: ['D3', 'A3', 'C4', 'F#4'] },
+        { name: 'Em', subtitle: { en: 'vi Submediant',    zh: 'vi 副三和弦' }, frets: [0, 2, 2, 0, 0, 0],   pitches: ['E2', 'B2', 'E3', 'G3', 'B3', 'E4'] }
       ].forEach(ch => Widgets.createGuitarChord('#ch13-guitar-demo', ch));
 
       const SEV_ITEMS = [
-        { label: '🔥 G7 屬七原位 (V7)', notes: ['G4', 'B4', 'D5', 'F5'], desc: '大三＋小七 (Mm7)：B–F 三全音強烈渴望解決回 C-E！' },
-        { label: 'G7 第一轉位 (V6/5)', notes: ['B3', 'D4', 'F4', 'G4'], desc: '三音 B 在最低音（導音上行推向主音 C 最順暢！）' },
-        { label: 'G7 第二轉位 (V4/3)', notes: ['D4', 'F4', 'G4', 'B4'], desc: '五音 D 在最低音' },
-        { label: 'G7 第三轉位 (V4/2)', notes: ['F4', 'G4', 'B4', 'D5'], desc: '七音 F 在最低音（強烈下行解決至 E = I6！）' },
-        { label: '✨ Cmaj7 大七', notes: ['C4', 'E4', 'G4', 'B4'], desc: '大三＋大七 (MM7)：都會爵士夢幻色彩' },
-        { label: '🌙 Dm7 小七', notes: ['D4', 'F4', 'A4', 'C5'], desc: '小三＋小七 (mm7)：柔和溫暖 ii7' },
-        { label: '⚡ Bø7 半減七', notes: ['B3', 'D4', 'F4', 'A4'], desc: '減三＋小七 (dm7)' },
-        { label: '🌩️ B°7 全減七', notes: ['B3', 'D4', 'F4', 'Ab4'], desc: '減三＋減七 (dd7)：戲劇化懸疑感' }
+        { label: { en: '🔥 G7 Root (V7)',       zh: '🔥 G7 屬七原位 (V7)' }, notes: ['G4', 'B4', 'D5', 'F5'], desc: { en: 'Major triad + minor 7th (Mm7): the B–F tritone pulls strongly to C–E!', zh: '大三＋小七 (Mm7)：B–F 三全音強烈渴望解決回 C-E！' } },
+        { label: { en: 'G7 1st Inv (V6/5)',     zh: 'G7 第一轉位 (V6/5)' }, notes: ['B3', 'D4', 'F4', 'G4'], desc: { en: '3rd (B) in bass — smooth half-step bass motion up to C!', zh: '三音 B 在最低音（導音上行推向主音 C 最順暢！）' } },
+        { label: { en: 'G7 2nd Inv (V4/3)',     zh: 'G7 第二轉位 (V4/3)' }, notes: ['D4', 'F4', 'G4', 'B4'], desc: { en: '5th (D) in bass', zh: '五音 D 在最低音' } },
+        { label: { en: 'G7 3rd Inv (V4/2)',     zh: 'G7 第三轉位 (V4/2)' }, notes: ['F4', 'G4', 'B4', 'D5'], desc: { en: '7th (F) in bass — resolves down by step to E (I6)!', zh: '七音 F 在最低音（強烈下行解決至 E = I6！）' } },
+        { label: { en: '✨ Cmaj7 Major 7th',    zh: '✨ Cmaj7 大七' },      notes: ['C4', 'E4', 'G4', 'B4'], desc: { en: 'Major triad + Major 7th (MM7): lush jazz color', zh: '大三＋大七 (MM7)：都會爵士夢幻色彩' } },
+        { label: { en: '🌙 Dm7 Minor 7th',      zh: '🌙 Dm7 小七' },        notes: ['D4', 'F4', 'A4', 'C5'], desc: { en: 'Minor triad + minor 7th (mm7): warm, mellow ii7', zh: '小三＋小七 (mm7)：柔和溫暖 ii7' } },
+        { label: { en: '⚡ Bø7 Half-Dim 7th',   zh: '⚡ Bø7 半減七' },      notes: ['B3', 'D4', 'F4', 'A4'], desc: { en: 'Diminished triad + minor 7th (dm7)', zh: '減三＋小七 (dm7)' } },
+        { label: { en: '🌩️ B°7 Fully Dim 7th', zh: '🌩️ B°7 全減七' },     notes: ['B3', 'D4', 'F4', 'Ab4'], desc: { en: 'Diminished triad + diminished 7th (dd7): dramatic suspense', zh: '減三＋減七 (dd7)：戲劇化懸疑感' } }
       ];
 
       const sevBtns = document.getElementById('sev-type-btns');
       const sevReadout = document.getElementById('sev-readout');
+      let curSevIdx = 0;
 
-      function showSev(item, play) {
-        sevReadout.innerHTML = `<strong>${item.label}</strong>（${item.notes.join('–')}）：${item.desc}`;
+      function showSev(idx, play) {
+        curSevIdx = idx;
+        const item = SEV_ITEMS[idx];
+        const lbl = pick(item.label);
+        sevReadout.innerHTML = `<strong>${lbl}</strong> (${item.notes.join('–')}): ${pick(item.desc)}`;
         MusicNotation.render('#sev-score', {
           clef: 'treble',
           playable: false,
           minWidth: 240,
-          notes: [{ notes: item.notes, dur: 'w', label: item.label.split(' ')[1] || item.label }]
+          notes: [{ notes: item.notes, dur: 'w', label: lbl.replace(/^[🔥✨🌙⚡🌩️]\s*/, '') }]
         });
         if (play) AudioEngine.playChord(item.notes, 1.05);
       }
 
-      SEV_ITEMS.forEach((it, idx) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'btn btn-sm' + (idx === 0 ? ' btn-primary' : '');
-        b.textContent = it.label;
-        b.addEventListener('click', () => {
-          sevBtns.querySelectorAll('button').forEach(x => x.classList.toggle('btn-primary', x === b));
-          showSev(it, true);
+      function renderSevBtns() {
+        sevBtns.innerHTML = '';
+        SEV_ITEMS.forEach((it, idx) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'btn btn-sm' + (idx === curSevIdx ? ' btn-primary' : '');
+          b.textContent = pick(it.label);
+          b.addEventListener('click', () => {
+            sevBtns.querySelectorAll('button').forEach(x => x.classList.toggle('btn-primary', x === b));
+            showSev(idx, true);
+          });
+          sevBtns.appendChild(b);
         });
-        sevBtns.appendChild(b);
+      }
+      renderSevBtns();
+      showSev(0, false);
+      window.addEventListener('lang-changed', () => {
+        renderSevBtns();
+        showSev(curSevIdx, false);
       });
-      showSev(SEV_ITEMS[0], false);
 
       function renderBlockMode() {
-        MusicNotation.render('#block-arp-score', {
-          title: '柱式和弦 Block Chords：C → Am → Dm → G7',
+        return MusicNotation.render('#block-arp-score', {
+          title: { en: 'Block Chords: C → Am → Dm → G7', zh: '柱式和弦 Block Chords：C → Am → Dm → G7' },
           clef: 'treble',
-          playable: false,
-          spacing: 56,
+          bpm: 104,
+          spacing: 60,
           notes: [
             { notes: ['C4', 'E4', 'G4'], dur: 'h', chordSymbol: 'C (I)' },
             { notes: ['A3', 'C4', 'E4'], dur: 'h', chordSymbol: 'Am (vi)' },
@@ -143,31 +160,40 @@
       renderBlockMode();
 
       document.getElementById('play-block-style').addEventListener('click', () => {
-        renderBlockMode();
+        const api = renderBlockMode();
+        const elIndices = [0, 1, 3, 4];
         AudioEngine.playSequence([
-          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 1.5 },
-          { notes: ['A2', 'A3', 'C4', 'E4'], beats: 1.5 },
-          { notes: ['D3', 'D4', 'F4', 'A4'], beats: 1.5 },
-          { notes: ['G2', 'B3', 'D4', 'F4'], beats: 1.5 },
-          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 2 }
-        ], 104);
+          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 1.5, si: 0 },
+          { notes: ['A2', 'A3', 'C4', 'E4'], beats: 1.5, si: 1 },
+          { notes: ['D3', 'D4', 'F4', 'A4'], beats: 1.5, si: 2 },
+          { notes: ['G2', 'B3', 'D4', 'F4'], beats: 1.5, si: 3 },
+          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 2, si: 0 }
+        ], 104, {
+          onStep: (ev) => api?.highlightNote?.(elIndices[ev.si]),
+          onDone: () => api?.resetHighlight?.()
+        });
       });
 
       document.getElementById('play-arp-style').addEventListener('click', () => {
-        MusicNotation.render('#block-arp-score', {
-          title: '分解琶音伴奏 Arpeggiated：水平流動推進',
+        const api = MusicNotation.render('#block-arp-score', {
+          title: { en: 'Arpeggiated Texture: Flowing Broken Chords', zh: '分解琶音伴奏 Arpeggiated：水平流動推進' },
           clef: 'treble',
-          playable: false,
-          spacing: 34,
+          bpm: 116,
+          spacing: 38,
           notes: [
             { pitch: 'C4', dur: '8', beam: 1, chordSymbol: 'C' }, { pitch: 'E4', dur: '8', beam: 1 }, { pitch: 'G4', dur: '8', beam: 1 }, { pitch: 'C5', dur: '8', beam: 1 },
             { pitch: 'A3', dur: '8', beam: 2, chordSymbol: 'Am' }, { pitch: 'C4', dur: '8', beam: 2 }, { pitch: 'E4', dur: '8', beam: 2 }, { pitch: 'A4', dur: '8', beam: 2 },
             { bar: '|' },
-            { pitch: 'D4', dur: '8', beam: 3, chordSymbol: 'Dm' }, { pitch: 'F4', dur: '8', beam: 3 }, { pitch: 'A4', dur: '8', beam: 3 }, { pitch: 'G3', dur: '8', beam: 4, chordSymbol: 'G7' }, { pitch: 'B3', dur: '8', beam: 4 }, { pitch: 'F4', dur: '8', beam: 4 }
+            { pitch: 'D4', dur: '8', beam: 3, chordSymbol: 'Dm' }, { pitch: 'F4', dur: '8', beam: 3 }, { pitch: 'A4', dur: '8', beam: 3 },
+            { pitch: 'G3', dur: '8', beam: 4, chordSymbol: 'G7' }, { pitch: 'B3', dur: '8', beam: 4 }, { pitch: 'F4', dur: '8', beam: 4 }
           ]
         });
-        const arp = ['C3', 'G3', 'C4', 'E4', 'A2', 'E3', 'A3', 'C4', 'D3', 'A3', 'D4', 'F4', 'G2', 'D3', 'B3', 'F4', 'C3'];
-        AudioEngine.playSequence(arp.map((p, i) => ({ pitch: p, beats: i === arp.length - 1 ? 2 : 0.45 })), 116);
+        const arp = ['C4', 'E4', 'G4', 'C5', 'A3', 'C4', 'E4', 'A4', 'D4', 'F4', 'A4', 'G3', 'B3', 'F4'];
+        if (api?.card) api.card.scrollTo({ left: 0, behavior: 'auto' });
+        AudioEngine.playSequence(arp.map((p, i) => ({ pitch: p, beats: 0.45, idx: i >= 8 ? i + 1 : i })), 116, {
+          onStep: (ev) => api?.highlightNote?.(ev.idx),
+          onDone: () => api?.resetHighlight?.()
+        });
       });
 
       document.getElementById('play-alberti-style').addEventListener('click', () => {
@@ -177,22 +203,32 @@
 
       Widgets.createQuiz('#ch13-quiz', 'quiz-ch13', 'ch13', [
         {
-          prompt: '流行和弦代號「F/A」代表什麼意思？',
-          options: ['同時彈 F 與 A 兩個和弦', '以三音 A 為最低音的 F 大三和弦（第一轉位 I6）', 'A 小三和弦', 'F 屬七和弦'],
+          prompt: { en: 'What does the pop slash chord symbol “F/A” indicate?', zh: '流行和弦代號「F/A」代表什麼意思？' },
+          options: [
+            { en: 'Play F and A chords together', zh: '同時彈 F 與 A 兩個和弦' },
+            { en: 'An F major triad with A (its 3rd) in the bass (1st inversion)', zh: '以三音 A 為最低音的 F 大三和弦（第一轉位 I6）' },
+            { en: 'An A minor triad', zh: 'A 小三和弦' },
+            { en: 'An F dominant 7th chord', zh: 'F 屬七和弦' }
+          ],
           answer: 1,
-          explanation: '斜線左邊為和弦 F，右邊指定最低音 A（三音在底＝第一轉位）！'
+          explanation: { en: 'Left of the slash = chord (F); right of the slash = bass note (A = 1st inversion)!', zh: '斜線左邊為和弦 F，右邊指定最低音 A（三音在底＝第一轉位）！' }
         },
         {
-          prompt: '在「c 小調」中建構屬七和弦 (V7 = G7)，為維持大三＋小七結構，哪一音必須臨時升高？',
-          options: ['G♯', 'B♮（升高第 7 級導音！）', 'D♯', 'F♯'],
+          prompt: { en: 'When building V7 (G7) in “c minor”, which note must be raised with an accidental?', zh: '在「c 小調」中建構屬七和弦 (V7 = G7)，為維持大三＋小七結構，哪一音必須臨時升高？' },
+          options: [
+            { en: 'G♯', zh: 'G♯' },
+            { en: 'B♮ (raised 7̂ leading tone!)', zh: 'B♮（升高第 7 級導音！）' },
+            { en: 'D♯', zh: 'D♯' },
+            { en: 'F♯', zh: 'F♯' }
+          ],
           answer: 1,
-          explanation: 'c 小調調號有 B♭，寫 V7 (G-B♮-D-F) 時必須還原升高 B♮ 成為導音！'
+          explanation: { en: 'c minor has B♭ in the key signature, so G7 (G–B♮–D–F) raises 7̂ to the leading tone B♮!', zh: 'c 小調調號有 B♭，寫 V7 (G-B♮-D-F) 時必須還原升高 B♮ 成為導音！' }
         },
         {
-          prompt: '屬七和弦「七音在最低音」的第三轉位數字低音標記為何？',
-          options: ['V7', 'V6/5', 'V4/3', 'V4/2（或 V2）'],
+          prompt: { en: 'What is the figured-bass symbol for a Dominant 7th chord in THIRD inversion (7th in the bass)?', zh: '屬七和弦「七音在最低音」的第三轉位數字低音標記為何？' },
+          options: ['V7', 'V6/5', 'V4/3', { en: 'V4/2 (or V2)', zh: 'V4/2（或 V2）' }],
           answer: 3,
-          explanation: '原位 7 → 一轉 6/5 → 二轉 4/3 → 三轉（七音在底）為 4/2！'
+          explanation: { en: 'Root = 7 → 1st = 6/5 → 2nd = 4/3 → 3rd inversion (7th in bass) = 4/2!', zh: '原位 7 → 一轉 6/5 → 二轉 4/3 → 三轉（七音在底）為 4/2！' }
         }
       ]);
     });

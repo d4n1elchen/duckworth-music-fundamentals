@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 14 章：終止式標點台與 12 小節藍調 ＋ 焦點技能 7 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 14: Progressions, Cadences &amp; 12-Bar Blues + Focus 7 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch14">
+<body data-page="ch14" data-zh-title="第 14 章：終止式標點台與 12 小節藍調 ＋ 焦點技能 7 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,34 +23,35 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 14 + Focus on Skills 7</span>
-        <h1 id="main-heading" tabindex="-1">第 14 章：四大和聲終止式標點台 ＆ 12 小節藍調循環機</h1>
-        <p class="chapter-subtitle">
-          終止式就是樂句結尾的<strong>標點符號（<code>.</code> · <code>🙏</code> · <code>?</code> · <code>!</code>）</strong>！點擊四張情緒卡直接聽辨張力與解決。
+        <span class="chapter-eyebrow" data-zh="Chapter 14 + Focus on Skills 7 · 第 14 章＋檢定 7">Chapter 14 + Focus on Skills 7</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 14 章：四大和聲終止式標點台 ＆ 12 小節藍調循環機">Ch 14: Four Cadences &amp; 12-Bar Blues Groove Looper</h1>
+        <p class="chapter-subtitle" data-zh="終止式就是樂句結尾的<strong>標點符號（<code>.</code> · <code>🙏</code> · <code>?</code> · <code>!</code>）</strong>！點擊四張情緒卡直接聽辨張力與解決。">
+          Cadences act as <strong>musical punctuation (<code>.</code> · <code>🙏</code> · <code>?</code> · <code>!</code>)</strong> at phrase endings! Tap all 4 cards to hear tension and resolution.
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🧲 最強引力：<strong>V7 → I（導音 7̂→1̂ · 七音 4̂→3̂）</strong></span>
-          <span class="visual-pill">⚠️ 關鍵：<strong>唯有出現在「樂句結尾停頓處」才算終止式！</strong></span>
+          <span class="visual-pill" data-zh="🧲 最強引力：<strong>V7 → I（導音 7̂→1̂ · 七音 4̂→3̂）</strong>">🧲 Strongest pull: <strong>V7 → I (7̂→1̂ &amp; 4̂→3̂)</strong></span>
+          <span class="visual-pill" data-zh="⚠️ 關鍵：<strong>唯有出現在「樂句結尾停頓處」才算終止式！</strong>">⚠️ Key rule: <strong>A cadence occurs ONLY at a phrase resting point!</strong></span>
         </div>
       </section>
 
-      <!-- 1. 四大終止式標點觸控卡 + 四部和聲譜 -->
+      <!-- 1. Four Cadences Pads + Score -->
       <section class="lesson-section" aria-labelledby="ch14-cadences">
-        <h2 id="ch14-cadences">🎬 1. 四大終止式標點試聽台（C 大調四聲部示範）</h2>
+        <h2 id="ch14-cadences" data-zh="🎬 1. 四大終止式標點試聽台（C 大調四聲部示範）">🎬 1. Four Cadence Punctuation Pads (4-Part Voicing in C)</h2>
         <div class="jam-pad-grid" id="cadence-btns" style="grid-template-columns:repeat(auto-fit, minmax(135px, 1fr));"></div>
         <div id="cadence-desc" class="visual-pill"></div>
         <div id="cadence-score"></div>
       </section>
 
-      <!-- 2. 12 小節藍調亮燈循環機 (Mobile-Responsive Grid!) -->
+      <!-- 2. 12-Bar Blues Looper -->
       <section class="lesson-section" aria-labelledby="ch14-blues12">
-        <h2 id="ch14-blues12">🎷 2. 12 小節藍調亮燈循環機（F 大調 Walking Bass + 和弦）</h2>
+        <h2 id="ch14-blues12" data-zh="🎷 2. 12 小節藍調亮燈循環機（F 大調 Walking Bass + 和弦）">🎷 2. 12-Bar Blues Looper (Key of F · Walking Bass + Chords)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-primary" id="play-12bar-btn">▶ 啟動 12 小節藍調樂團</button>
-            <button type="button" class="btn btn-sm" id="stop-12bar-btn">■ 停止</button>
+            <button type="button" class="btn btn-primary" id="play-12bar-btn" data-zh="▶ 啟動 12 小節藍調樂團">▶ Launch 12-Bar Blues Band</button>
+            <button type="button" class="btn btn-sm" id="stop-12bar-btn" data-zh="■ 停止">■ Stop</button>
             <label style="font-size:0.84rem;font-weight:700;display:inline-flex;align-items:center;gap:0.35rem;">
-              <input type="checkbox" id="blues-rnb-var" checked> 第 10 小節 R&amp;B 變體 (<code>V → IV</code>)
+              <input type="checkbox" id="blues-rnb-var" checked>
+              <span data-zh="第 10 小節 R&amp;B 變體 (<code>V → IV</code>)">Bar 10 R&amp;B Variation (<code>V → IV</code>)</span>
             </label>
           </div>
           <div id="blues-12-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 118px), 1fr));gap:0.5rem;margin-block-start:0.65rem;"></div>
@@ -56,7 +60,7 @@
 
       <!-- 3. Focus on Skills 7 -->
       <section class="lesson-section" aria-labelledby="focus7-heading">
-        <h2 id="focus7-heading">🏆 Focus on Skills 7：和弦與終止式最終檢定</h2>
+        <h2 id="focus7-heading" data-zh="🏆 Focus on Skills 7：和弦與終止式最終檢定">🏆 Focus on Skills 7: Chords &amp; Cadences Final Checkpoint</h2>
         <div id="focus7-quiz"></div>
       </section>
     </main>
@@ -64,33 +68,42 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       const CADENCES = [
         {
-          icon: '● 句號',
-          title: '正格終止 Authentic',
+          icon: { en: '● Period', zh: '● 句號' },
+          title: { en: 'Authentic', zh: '正格終止 Authentic' },
           sub: 'V7 → I',
           color: '#10b981',
-          desc: '✅ 正格終止 (V7 → I)：導音 B→C、七音 F→E，最圓滿的完結句號！',
+          desc: {
+            en: '✅ Authentic Cadence (V7 → I): Leading tone B→C & 7th F→E give a decisive final period!',
+            zh: '✅ 正格終止 (V7 → I)：導音 B→C、七音 F→E，最圓滿的完結句號！'
+          },
           chords: [
             { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
             { top: ['F4', 'A4', 'C5'], bot: ['F3'], rn: 'IV', sym: 'F' },
             { top: ['F4', 'G4', 'B4'], bot: ['G2'], rn: 'V7', sym: 'G7' },
-            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C (正格)' }
+            { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: { en: 'C (Authentic)', zh: 'C (正格)' } }
           ]
         },
         {
-          icon: '🙏 阿們',
-          title: '變格終止 Plagal',
+          icon: { en: '🙏 Amen', zh: '🙏 阿們' },
+          title: { en: 'Plagal', zh: '變格終止 Plagal' },
           sub: 'IV → I',
           color: '#3b82f6',
-          desc: '🙏 變格終止 (IV → I)：溫暖柔順無導音尖銳感，又稱聖詩「阿們終止 (Amen)」！',
+          desc: {
+            en: '🙏 Plagal Cadence (IV → I): Warm, gentle “Amen” resolution with no leading-tone bite!',
+            zh: '🙏 變格終止 (IV → I)：溫暖柔順無導音尖銳感，又稱聖詩「阿們終止 (Amen)」！'
+          },
           chords: [
             { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
             { top: ['D4', 'G4', 'B4'], bot: ['G2'], rn: 'V', sym: 'G' },
@@ -99,24 +112,30 @@
           ]
         },
         {
-          icon: '❓ 問號',
-          title: '半終止 Half',
+          icon: { en: '❓ Question', zh: '❓ 問號' },
+          title: { en: 'Half', zh: '半終止 Half' },
           sub: '? → V',
           color: '#f59e0b',
-          desc: '❓ 半終止 (? → V)：懸停在緊繃的屬和弦 V 上，等待下一句回答，絕不能結束全曲！',
+          desc: {
+            en: '❓ Half Cadence (? → V): Pauses unresolved on V, asking a question that awaits the next phrase!',
+            zh: '❓ 半終止 (? → V)：懸停在緊繃的屬和弦 V 上，等待下一句回答，絕不能結束全曲！'
+          },
           chords: [
             { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
             { top: ['F4', 'A4', 'D5'], bot: ['D3'], rn: 'ii', sym: 'Dm' },
             { top: ['E4', 'G4', 'C5'], bot: ['G2'], rn: 'I6/4', sym: 'C/G' },
-            { top: ['D4', 'G4', 'B4'], bot: ['G2'], rn: 'V', sym: 'G (半終止?)' }
+            { top: ['D4', 'G4', 'B4'], bot: ['G2'], rn: 'V', sym: { en: 'G (Half?)', zh: 'G (半終止?)' } }
           ]
         },
         {
-          icon: '❗ 驚喜',
-          title: '假終止 Deceptive',
+          icon: { en: '❗ Surprise', zh: '❗ 驚喜' },
+          title: { en: 'Deceptive', zh: '假終止 Deceptive' },
           sub: 'V7 → vi',
           color: '#ec4899',
-          desc: '❗ 假終止 (V7 → vi)：耳朵以為要回 I，卻意外轉入小調色彩 vi (Am)，製造迷人轉折！',
+          desc: {
+            en: '❗ Deceptive Cadence (V7 → vi): Your ear expects I, but lands unexpectedly on minor vi (Am)!',
+            zh: '❗ 假終止 (V7 → vi)：耳朵以為要回 I，卻意外轉入小調色彩 vi (Am)，製造迷人轉折！'
+          },
           chords: [
             { top: ['E4', 'G4', 'C5'], bot: ['C3'], rn: 'I', sym: 'C' },
             { top: ['F4', 'A4', 'C5'], bot: ['F3'], rn: 'IV', sym: 'F' },
@@ -128,13 +147,16 @@
 
       const cadMount = document.getElementById('cadence-btns');
       const cadDesc = document.getElementById('cadence-desc');
+      let curCadIdx = 0;
 
-      function selectCadence(cad, playNow) {
-        cadDesc.innerHTML = cad.desc;
-        MusicNotation.render('#cadence-score', {
+      function selectCadence(idx, playNow) {
+        curCadIdx = idx;
+        const cad = CADENCES[idx];
+        cadDesc.innerHTML = pick(cad.desc);
+        const api = MusicNotation.render('#cadence-score', {
           grand: true,
           time: '4/4',
-          playable: false,
+          bpm: 92,
           spacing: 64,
           notes: cad.chords.map((c, i) => ({
             notes: c.top,
@@ -151,22 +173,30 @@
         if (playNow) {
           AudioEngine.playSequence(cad.chords.map((c, i) => ({
             notes: [...c.bot, ...c.top],
-            beats: i === 3 ? 2.2 : 1.25
-          })), 92);
+            beats: i === 3 ? 2.2 : 1.25,
+            idx: i
+          })), 92, {
+            onStep: (ev) => api?.highlightNote?.(ev.idx),
+            onDone: () => api?.resetHighlight?.()
+          });
         }
       }
 
-      CADENCES.forEach((cad, idx) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'jam-pad';
-        b.style.minBlockSize = '72px';
-        b.style.setProperty('--pad-color', cad.color);
-        b.innerHTML = `<span style="font-size:0.78rem;">${cad.icon}</span><span style="font-size:0.96rem;">${cad.title}</span><span style="font-family:var(--font-mono);font-size:0.76rem;">${cad.sub}</span>`;
-        b.addEventListener('click', () => selectCadence(cad, true));
-        cadMount.appendChild(b);
-      });
-      selectCadence(CADENCES[0], false);
+      function renderCadenceBtns() {
+        cadMount.innerHTML = '';
+        CADENCES.forEach((cad, idx) => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'jam-pad';
+          b.style.minBlockSize = '72px';
+          b.style.setProperty('--pad-color', cad.color);
+          b.innerHTML = `<span style="font-size:0.78rem;">${pick(cad.icon)}</span><span style="font-size:0.96rem;">${pick(cad.title)}</span><span style="font-family:var(--font-mono);font-size:0.76rem;">${cad.sub}</span>`;
+          b.addEventListener('click', () => selectCadence(idx, true));
+          cadMount.appendChild(b);
+        });
+      }
+      renderCadenceBtns();
+      selectCadence(0, false);
 
       // 12-Bar Blues Grid in F
       const bluesGrid = document.getElementById('blues-12-grid');
@@ -183,11 +213,10 @@
         return ['I', 'I', 'I', 'I', 'IV', 'IV', 'I', 'I', 'V', rnbCheck.checked ? 'IV' : 'V', 'I', 'I'];
       }
 
-      let barEls = [];
       function renderBluesBars(activeBar = -1) {
         const list = get12Chords();
         bluesGrid.innerHTML = '';
-        barEls = list.map((code, i) => {
+        list.forEach((code, i) => {
           const d = document.createElement('button');
           d.type = 'button';
           d.className = 'concept-card';
@@ -198,14 +227,18 @@
           d.style.background = isAct ? 'var(--brand)' : 'var(--bg-surface)';
           d.style.color = isAct ? '#fff' : 'var(--text-primary)';
           d.style.borderColor = isAct ? 'var(--accent-amber)' : 'var(--border-subtle)';
-          d.innerHTML = `<div style="font-size:0.72rem;opacity:0.75;">第 ${i + 1} 小節</div><div style="font-weight:800;font-size:1rem;font-family:var(--font-mono);">${F_BLUES_VOICINGS[code].rn}</div>`;
+          d.innerHTML = `<div style="font-size:0.72rem;opacity:0.75;">${t(`Bar ${i + 1}`, `第 ${i + 1} 小節`)}</div><div style="font-weight:800;font-size:1rem;font-family:var(--font-mono);">${F_BLUES_VOICINGS[code].rn}</div>`;
           d.addEventListener('click', () => AudioEngine.playChord(F_BLUES_VOICINGS[code].notes, 0.85));
           bluesGrid.appendChild(d);
-          return d;
         });
       }
       rnbCheck.addEventListener('change', () => renderBluesBars(-1));
       renderBluesBars(-1);
+      window.addEventListener('lang-changed', () => {
+        renderCadenceBtns();
+        selectCadence(curCadIdx, false);
+        renderBluesBars(-1);
+      });
 
       function stopBlues() {
         if (bluesTimer) clearInterval(bluesTimer);
@@ -239,22 +272,37 @@
 
       Widgets.createQuiz('#focus7-quiz', 'quiz-focus7', 'ch14', [
         {
-          prompt: '樂句結尾停在「IV → I」（聖詩阿們感）稱為什麼終止式？',
-          options: ['正格終止 Authentic', '變格終止 Plagal', '半終止 Half', '假終止 Deceptive'],
+          prompt: { en: 'A phrase ending with “IV → I” (the hymn “Amen” progression) is called a:', zh: '樂句結尾停在「IV → I」（聖詩阿們感）稱為什麼終止式？' },
+          options: [
+            { en: 'Authentic Cadence', zh: '正格終止 Authentic' },
+            { en: 'Plagal Cadence', zh: '變格終止 Plagal' },
+            { en: 'Half Cadence', zh: '半終止 Half' },
+            { en: 'Deceptive Cadence', zh: '假終止 Deceptive' }
+          ],
           answer: 1,
-          explanation: 'IV → I 為變格終止 (Plagal / Amen Cadence)！'
+          explanation: { en: 'IV → I is the Plagal (“Amen”) Cadence!', zh: 'IV → I 為變格終止 (Plagal / Amen Cadence)！' }
         },
         {
-          prompt: '樂句結尾進行為「V7 → vi」，聽眾預期回主和弦卻意外轉入小三和弦，稱為？',
-          options: ['正格終止', '半終止', '假終止 (Deceptive Cadence)', '變格終止'],
+          prompt: { en: 'When a phrase ends “V7 → vi”, thwarting the expected return to tonic I, it is a:', zh: '樂句結尾進行為「V7 → vi」，聽眾預期回主和弦卻意外轉入小三和弦，稱為？' },
+          options: [
+            { en: 'Authentic Cadence', zh: '正格終止' },
+            { en: 'Half Cadence', zh: '半終止' },
+            { en: 'Deceptive Cadence', zh: '假終止 (Deceptive Cadence)' },
+            { en: 'Plagal Cadence', zh: '變格終止' }
+          ],
           answer: 2,
-          explanation: 'V(7) → vi (小調中為 VI) 即為製造轉折驚喜的假終止！'
+          explanation: { en: 'V(7) → vi (or VI in minor) is the surprise Deceptive Cadence!', zh: 'V(7) → vi (小調中為 VI) 即為製造轉折驚喜的假終止！' }
         },
         {
-          prompt: '標準 12 小節藍調進行中，第 1～4 小節與第 5～6 小節分別使用哪兩個和弦？',
-          options: ['I (4小節) → IV (2小節)', 'I (4小節) → V (2小節)', 'IV (4小節) → V (2小節)', 'ii → V'],
+          prompt: { en: 'In a standard 12-Bar Blues, which chords occupy Bars 1–4 and Bars 5–6?', zh: '標準 12 小節藍調進行中，第 1～4 小節與第 5～6 小節分別使用哪兩個和弦？' },
+          options: [
+            { en: 'I (4 bars) → IV (2 bars)', zh: 'I (4小節) → IV (2小節)' },
+            { en: 'I (4 bars) → V (2 bars)', zh: 'I (4小節) → V (2小節)' },
+            { en: 'IV (4 bars) → V (2 bars)', zh: 'IV (4小節) → V (2小節)' },
+            { en: 'ii → V', zh: 'ii → V' }
+          ],
           answer: 0,
-          explanation: '前 4 小節穩立主和弦 I，第 5–6 小節進入下屬和弦 IV 再回 I！'
+          explanation: { en: 'Four bars of tonic I establish home, followed by two bars of subdominant IV before returning to I!', zh: '前 4 小節穩立主和弦 I，第 5–6 小節進入下屬和弦 IV 再回 I！' }
         }
       ]);
     });

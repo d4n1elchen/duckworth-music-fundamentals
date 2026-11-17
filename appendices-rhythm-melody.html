@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>附錄 A–E：世界複節奏雷達、唱名卡與鍵盤指法 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Appendices A–E: World Polyrhythms, Solfège &amp; Fingerings | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="app-ae">
+<body data-page="app-ae" data-zh-title="附錄 A–E：世界複節奏雷達、唱名卡與鍵盤指法 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,21 +23,21 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Appendices A – E · 實戰暖身實驗室</span>
-        <h1 id="main-heading" tabindex="-1">附錄 A–E：不對稱拍、世界複節奏雷達、唱名發聲卡與鍵盤指法</h1>
-        <p class="chapter-subtitle">
-          把課本附錄 A–E 變成每日暖身遊樂場：轉動<strong>世界複節奏雷達</strong>、點擊<strong>首調唱名卡</strong>、跟著<strong>琴鍵橘色指法</strong>練穿指！
+        <span class="chapter-eyebrow" data-zh="Appendices A – E · 實戰暖身實驗室">Appendices A – E · Warmup &amp; Musicianship Lab</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="附錄 A–E：不對稱拍、世界複節奏雷達、唱名發聲卡與鍵盤指法">Appendices A–E: Asymmetric Meter, World Polyrhythms, Solfège &amp; Fingerings</h1>
+        <p class="chapter-subtitle" data-zh="把課本附錄 A–E 變成每日暖身遊樂場：轉動<strong>世界複節奏雷達</strong>、點擊<strong>首調唱名卡</strong>、跟著<strong>琴鍵橘色指法</strong>練穿指！">
+          Turn Appendices A–E into a daily musicianship playground: spin the <strong>world polyrhythm radar</strong>, sing along with <strong>movable-do cards</strong>, and follow <strong>thumb-under piano badges</strong>!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🌍 混合拍：<strong>5/8 · 7/8 (2+2+3 / 3+2+2)</strong></span>
-          <span class="visual-pill">🎤 升音唱 <strong>-i (di·fi·si)</strong> · 降音唱 <strong>-e/-a (te·le·me·ra)</strong></span>
-          <span class="visual-pill">🖐️ 雙手大拇指永遠編號 <strong>1</strong>（避開黑鍵！）</span>
+          <span class="visual-pill" data-zh="🌍 混合拍：<strong>5/8 · 7/8 (2+2+3 / 3+2+2)</strong>">🌍 Asymmetric meters: <strong>5/8 · 7/8 (2+2+3 / 3+2+2)</strong></span>
+          <span class="visual-pill" data-zh="🎤 升音唱 <strong>-i (di·fi·si)</strong> · 降音唱 <strong>-e/-a (te·le·me·ra)</strong>">🎤 Raised = <strong>-i (di·fi·si)</strong> · Lowered = <strong>-e/-a (te·le·me·ra)</strong></span>
+          <span class="visual-pill" data-zh="🖐️ 雙手大拇指永遠編號 <strong>1</strong>（避開黑鍵！）">🖐️ Both thumbs = <strong>Finger 1</strong> (keep thumbs off black keys!)</span>
         </div>
       </section>
 
       <!-- Appendix A & B: World Polyrhythm Radar + Multi-Track Drum Machine -->
       <section class="lesson-section" aria-labelledby="sec-app-ab">
-        <h2 id="sec-app-ab">🌍 附錄 A ＆ B：世界複節奏幾何雷達 ＆ 多聲部混音鼓機</h2>
+        <h2 id="sec-app-ab" data-zh="🌍 附錄 A ＆ B：世界複節奏幾何雷達 ＆ 多聲部混音鼓機">🌍 Appendices A &amp; B: World Polyrhythm Radar &amp; Multi-Track Drum Machine</h2>
         <div class="widget-box">
           <div id="app-ab-radar"></div>
         </div>
@@ -45,7 +48,7 @@
 
       <!-- Appendix C & D: Solfege Audio Cards & Graded Melodies -->
       <section class="lesson-section" aria-labelledby="sec-app-cd">
-        <h2 id="sec-app-cd">🎤 附錄 C ＆ D：一鍵跟唱首調唱名卡 ＆ 分級視唱曲</h2>
+        <h2 id="sec-app-cd" data-zh="🎤 附錄 C ＆ D：一鍵跟唱首調唱名卡 ＆ 分級視唱曲">🎤 Appendices C &amp; D: Movable-Do Solfège Pads &amp; Sight-Singing Melodies</h2>
         <div class="jam-pad-grid" id="solfege-cards" style="grid-template-columns:repeat(auto-fit, minmax(min(100%, 190px), 1fr));"></div>
         <div id="app-d-melody-1"></div>
         <div id="app-d-melody-2"></div>
@@ -53,17 +56,17 @@
 
       <!-- Appendix E: Keyboard Scale Fingerings -->
       <section class="lesson-section" aria-labelledby="sec-app-e">
-        <h2 id="sec-app-e">🖐️ 附錄 E：互動鍵盤穿指／跨指顯示儀（1＝大拇指）</h2>
+        <h2 id="sec-app-e" data-zh="🖐️ 附錄 E：互動鍵盤穿指／跨指顯示儀（1＝大拇指）">🖐️ Appendix E: Piano Scale Fingerings &amp; Thumb-Under Visualizer (1 = Thumb)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <select id="finger-scale-sel" aria-label="選擇音階指法">
-              <option value="C_RH">C/G/D/A/E 大調 右手：1-2-3-[穿1]-2-3-4-5</option>
-              <option value="C_LH">C/G/D/A/E 大調 左手：5-4-3-2-1-[跨3]-2-1</option>
-              <option value="F_RH">F 大調 右手（避開B♭黑鍵）：1-2-3-4-[穿1]-2-3-4</option>
-              <option value="B_LH">B 大調 左手：4-3-2-1-4-3-2-1</option>
-              <option value="CHROM_RH">半音音階 右手：黑鍵全用 3 指 · 白鍵 1/2 指</option>
+            <select id="finger-scale-sel" aria-label="Select scale fingering" data-zh-aria="選擇音階指法">
+              <option value="C_RH" data-zh="C/G/D/A/E 大調 右手：1-2-3-[穿1]-2-3-4-5">C/G/D/A/E Major RH: 1-2-3-[thumb 1]-2-3-4-5</option>
+              <option value="C_LH" data-zh="C/G/D/A/E 大調 左手：5-4-3-2-1-[跨3]-2-1">C/G/D/A/E Major LH: 5-4-3-2-1-[cross 3]-2-1</option>
+              <option value="F_RH" data-zh="F 大調 右手（避開B♭黑鍵）：1-2-3-4-[穿1]-2-3-4">F Major RH (thumb off B♭): 1-2-3-4-[thumb 1]-2-3-4</option>
+              <option value="B_LH" data-zh="B 大調 左手：4-3-2-1-4-3-2-1">B Major LH: 4-3-2-1-4-3-2-1</option>
+              <option value="CHROM_RH" data-zh="半音音階 右手：黑鍵全用 3 指 · 白鍵 1/2 指">Chromatic Scale RH: Finger 3 on blacks · 1/2 on whites</option>
             </select>
-            <button type="button" class="btn btn-sm btn-primary" id="play-fingering-btn">▶ 按指法順序彈奏</button>
+            <button type="button" class="btn btn-sm btn-primary" id="play-fingering-btn" data-zh="▶ 按指法順序彈奏">▶ Play Fingering</button>
           </div>
           <div id="finger-desc" class="visual-pill"></div>
           <div id="finger-piano"></div>
@@ -74,40 +77,42 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       Widgets.createPolyrhythmRadar('#app-ab-radar', {
         presets: [
           {
-            name: '西非 12/8 牛鈴 vs 大鼓複節奏',
+            name: { en: 'West African 12/8 Bell vs. Cross-Pulse', zh: '西非 12/8 牛鈴 vs 大鼓複節奏' },
             totalSteps: 12,
             bpm: 185,
             rings: [
-              { label: '西非牛鈴 Bell', hits: [0, 2, 4, 5, 7, 9, 11], color: '#fbbf24', voice: 'clave' },
-              { label: '四分對拍 Cross', hits: [0, 3, 6, 9], color: '#22d3ee', voice: 'kick' }
+              { label: { en: 'Agogo Bell', zh: '西非牛鈴 Bell' }, hits: [0, 2, 4, 5, 7, 9, 11], color: '#fbbf24', voice: 'clave' },
+              { label: { en: '4-Pulse Cross', zh: '四分對拍 Cross' }, hits: [0, 3, 6, 9], color: '#22d3ee', voice: 'kick' }
             ]
           },
           {
-            name: '東歐 7/8 不對稱舞曲（2+2+3 vs 3+2+2）',
+            name: { en: 'Balkan 7/8 Asymmetric Dance (2+2+3 vs. 3+2+2)', zh: '東歐 7/8 不對稱舞曲（2+2+3 vs 3+2+2）' },
             totalSteps: 7,
             bpm: 170,
             rings: [
-              { label: '2+2+3 重音', hits: [0, 2, 4], color: '#f43f5e', voice: 'clave' },
-              { label: '3+2+2 重音', hits: [0, 3, 5], color: '#a855f7', voice: 'kick' }
+              { label: { en: '2+2+3 Accents', zh: '2+2+3 重音' }, hits: [0, 2, 4], color: '#f43f5e', voice: 'clave' },
+              { label: { en: '3+2+2 Accents', zh: '3+2+2 重音' }, hits: [0, 3, 5], color: '#a855f7', voice: 'kick' }
             ]
           },
           {
-            name: '古巴 Son Clave 3-2 切分律動 (16格)',
+            name: { en: 'Cuban 3-2 Son Clave (16 steps)', zh: '古巴 Son Clave 3-2 切分律動 (16格)' },
             totalSteps: 16,
             bpm: 210,
             rings: [
-              { label: '3-2 Clave 木棒', hits: [0, 3, 6, 10, 12], color: '#10b981', voice: 'clave' },
-              { label: '四拍正拍大鼓', hits: [0, 4, 8, 12], color: '#3b82f6', voice: 'kick' }
+              { label: { en: '3-2 Clave', zh: '3-2 Clave 木棒' }, hits: [0, 3, 6, 10, 12], color: '#10b981', voice: 'clave' },
+              { label: { en: '4/4 Beat Pulse', zh: '四拍正拍大鼓' }, hits: [0, 4, 8, 12], color: '#3b82f6', voice: 'kick' }
             ]
           }
         ]
@@ -117,18 +122,18 @@
         bpm: 100,
         presets: [
           {
-            name: '西非三聲部 6/8 合奏',
+            name: { en: 'West African 3-Part 6/8 Ensemble', zh: '西非三聲部 6/8 合奏' },
             stepFactor: 0.35,
             beatEvery: 3,
             counts: ['1', 'la', 'le', '2', 'la', 'le', '1', 'la', 'le', '2', 'la', 'le'],
             tracks: [
-              { name: '🔔 牛鈴', voice: 'clave', pattern: [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 1, 0] },
-              { name: '🪘 中鼓', voice: 'snare', pattern: [0, 1, 0, 2, 0, 1, 0, 1, 0, 2, 0, 1] },
-              { name: '🔊 低鼓', voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
+              { name: { en: '🔔 Bell', zh: '🔔 牛鈴' }, voice: 'clave', pattern: [2, 0, 1, 0, 1, 1, 2, 0, 1, 0, 1, 0] },
+              { name: { en: '🪘 Mid Drum', zh: '🪘 中鼓' }, voice: 'snare', pattern: [0, 1, 0, 2, 0, 1, 0, 1, 0, 2, 0, 1] },
+              { name: { en: '🔊 Low Drum', zh: '🔊 低鼓' }, voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
             ]
           },
           {
-            name: '拉丁 Clave 切分合奏 (4/4)',
+            name: { en: 'Afro-Cuban Clave & Tumbao (4/4)', zh: '拉丁 Clave 切分合奏 (4/4)' },
             stepFactor: 0.25,
             beatEvery: 4,
             counts: ['1', 'e', '&', 'a', '2', 'e', '&', 'a', '3', 'e', '&', 'a', '4', 'e', '&', 'a'],
@@ -141,34 +146,38 @@
       });
 
       const SOLF_CARDS = [
-        { name: '☀️ 大調 Major', syl: 'do re mi fa sol la ti do', notes: CourseData.buildScale('C4', 'major').notes, c: '#f59e0b' },
-        { name: '🌿 自然小調', syl: 'do re me fa sol le te do', notes: CourseData.buildScale('C4', 'naturalMinor').notes, c: '#3b82f6' },
-        { name: '🔥 和聲小調', syl: 'do re me fa sol le ti do', notes: CourseData.buildScale('C4', 'harmonicMinor').notes, c: '#ef4444' },
-        { name: '🌊 旋律小調上行', syl: 'do re me fa sol la ti do', notes: CourseData.buildScale('C4', 'melodicMinorAsc').notes, c: '#10b981' },
-        { name: '🏛️ 多利安 Dorian', syl: 'do re me fa sol la te do', notes: CourseData.buildScale('C4', 'dorian').notes, c: '#8b5cf6' },
-        { name: '✨ 利底亞 Lydian', syl: 'do re mi fi sol la ti do', notes: CourseData.buildScale('C4', 'lydian').notes, c: '#06b6d4' },
-        { name: '🧗 半音上行', syl: 'do di re ri mi fa fi sol...', notes: ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4','C5'], c: '#ec4899' },
-        { name: '🪂 半音下行', syl: 'do ti te la le sol se fa...', notes: ['C5','B4','Bb4','A4','Ab4','G4','Gb4','F4','E4','Eb4','D4','Db4','C4'], c: '#6366f1' }
+        { name: { en: '☀️ Major', zh: '☀️ 大調 Major' }, syl: 'do re mi fa sol la ti do', notes: CourseData.buildScale('C4', 'major').notes, c: '#f59e0b' },
+        { name: { en: '🌿 Natural Minor', zh: '🌿 自然小調' }, syl: 'do re me fa sol le te do', notes: CourseData.buildScale('C4', 'naturalMinor').notes, c: '#3b82f6' },
+        { name: { en: '🔥 Harmonic Minor', zh: '🔥 和聲小調' }, syl: 'do re me fa sol le ti do', notes: CourseData.buildScale('C4', 'harmonicMinor').notes, c: '#ef4444' },
+        { name: { en: '🌊 Melodic Minor Asc', zh: '🌊 旋律小調上行' }, syl: 'do re me fa sol la ti do', notes: CourseData.buildScale('C4', 'melodicMinorAsc').notes, c: '#10b981' },
+        { name: { en: '🏛️ Dorian Mode', zh: '🏛️ 多利安 Dorian' }, syl: 'do re me fa sol la te do', notes: CourseData.buildScale('C4', 'dorian').notes, c: '#8b5cf6' },
+        { name: { en: '✨ Lydian Mode', zh: '✨ 利底亞 Lydian' }, syl: 'do re mi fi sol la ti do', notes: CourseData.buildScale('C4', 'lydian').notes, c: '#06b6d4' },
+        { name: { en: '🧗 Chromatic Asc', zh: '🧗 半音上行' }, syl: 'do di re ri mi fa fi sol...', notes: ['C4','C#4','D4','D#4','E4','F4','F#4','G4','G#4','A4','A#4','B4','C5'], c: '#ec4899' },
+        { name: { en: '🪂 Chromatic Desc', zh: '🪂 半音下行' }, syl: 'do ti te la le sol se fa...', notes: ['C5','B4','Bb4','A4','Ab4','G4','Gb4','F4','E4','Eb4','D4','Db4','C4'], c: '#6366f1' }
       ];
 
       const scMount = document.getElementById('solfege-cards');
-      SOLF_CARDS.forEach(row => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'jam-pad';
-        b.style.minBlockSize = '70px';
-        b.style.padding = '0.55rem';
-        b.style.setProperty('--pad-color', row.c);
-        b.innerHTML = `<span style="font-size:0.9rem;">▶ ${row.name}</span><span style="font-family:var(--font-mono);font-size:0.7rem;opacity:0.88;">${row.syl}</span>`;
-        b.addEventListener('click', () => {
-          AudioEngine.playSequence(row.notes.map(n => ({ pitch: n, beats: 0.4 })), 110);
+      function renderSolfCards() {
+        scMount.innerHTML = '';
+        SOLF_CARDS.forEach(row => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'jam-pad';
+          b.style.minBlockSize = '70px';
+          b.style.padding = '0.55rem';
+          b.style.setProperty('--pad-color', row.c);
+          b.innerHTML = `<span style="font-size:0.9rem;">▶ ${pick(row.name)}</span><span style="font-family:var(--font-mono);font-size:0.7rem;opacity:0.88;">${row.syl}</span>`;
+          b.addEventListener('click', () => {
+            AudioEngine.playSequence(row.notes.map(n => ({ pitch: n, beats: 0.4 })), 110);
+          });
+          scMount.appendChild(b);
         });
-        scMount.appendChild(b);
-      });
+      }
+      renderSolfCards();
 
       MusicNotation.render('#app-d-melody-1', {
-        title: '附錄 D：G 大調視唱曲',
-        clef: 'treble', key: 'G', time: '4/4', bpm: 98, spacing: 40,
+        title: { en: 'Appendix D: G Major Sight-Singing Melody', zh: '附錄 D：G 大調視唱曲' },
+        clef: 'treble', key: 'G', time: '4/4', bpm: 98, spacing: 44,
         notes: [
           { pitch: 'G4', dur: 'q', solfege: 'do' }, { pitch: 'A4', dur: 'q', solfege: 're' },
           { pitch: 'B4', dur: 'q', solfege: 'mi' }, { pitch: 'G4', dur: 'q', solfege: 'do' },
@@ -183,25 +192,40 @@
       });
 
       MusicNotation.render('#app-d-melody-2', {
-        title: '附錄 D：d 和聲小調視唱曲（注意導音 C♯ = ti）',
-        clef: 'treble', key: 'd', time: '3/4', bpm: 96, spacing: 42,
+        title: { en: 'Appendix D: d Harmonic Minor Melody (Leading Tone C♯ = ti)', zh: '附錄 D：d 和聲小調視唱曲（注意導音 C♯ = ti）' },
+        clef: 'treble', key: 'd', time: '3/4', bpm: 96, spacing: 46,
         notes: [
           { pitch: 'D4', dur: 'q', solfege: 'do' }, { pitch: 'F4', dur: 'q', solfege: 'me' }, { pitch: 'A4', dur: 'q', solfege: 'sol' },
           { bar: '|' },
           { pitch: 'Bb4', dur: 'h', hideAccidental: true, solfege: 'le' }, { pitch: 'A4', dur: 'q', solfege: 'sol' },
           { bar: '|' },
-          { pitch: 'C#4', dur: 'h', solfege: 'ti(導音)' }, { pitch: 'D4', dur: 'q', solfege: 'do' }
+          { pitch: 'C#4', dur: 'h', solfege: { en: 'ti (LT)', zh: 'ti(導音)' } }, { pitch: 'D4', dur: 'q', solfege: 'do' }
         ]
       });
 
       // Appendix E Fingerings
       const fPiano = Widgets.createPiano('#finger-piano', { startMidi: 59, endMidi: 77, showLandmarks: true });
       const FINGER_DATA = {
-        C_RH: { desc: '右手 3 指彈完 E 後，大拇指 (1) 從掌心下穿過彈 F！', seq: [[60,'R1'],[62,'R2'],[64,'R3'],[65,'R1'],[67,'R2'],[69,'R3'],[71,'R4'],[72,'R5']] },
-        C_LH: { desc: '左手大拇指 (1) 彈到 G 後，中指 (3) 跨過大拇指彈 A！', seq: [[60,'L5'],[62,'L4'],[64,'L3'],[65,'L2'],[67,'L1'],[69,'L3'],[71,'L2'],[72,'L1']] },
-        F_RH: { desc: '為避免大拇指上黑鍵 B♭，改在 4 指彈完 B♭ 後穿 1 指彈 C！', seq: [[65,'R1'],[67,'R2'],[69,'R3'],[70,'R4'],[72,'R1'],[74,'R2'],[76,'R3'],[77,'R4']] },
-        B_LH: { desc: 'B 大調左手起點改用 4 指，完美避開黑鍵落大拇指！', seq: [[59,'L4'],[61,'L3'],[63,'L2'],[64,'L1'],[66,'L4'],[68,'L3'],[70,'L2'],[71,'L1']] },
-        CHROM_RH: { desc: '半音階鐵則：黑鍵一律 3 指，白鍵 1 指，E–F 與 B–C 用 1–2 指！', seq: [[60,'1'],[61,'3'],[62,'1'],[63,'3'],[64,'1'],[65,'2'],[66,'3'],[67,'1'],[68,'3'],[69,'1'],[70,'3'],[71,'1'],[72,'2']] }
+        C_RH: {
+          desc: { en: 'RH: After finger 3 plays E, pass thumb (1) smoothly under the palm to F!', zh: '右手 3 指彈完 E 後，大拇指 (1) 從掌心下穿過彈 F！' },
+          seq: [[60,'R1'],[62,'R2'],[64,'R3'],[65,'R1'],[67,'R2'],[69,'R3'],[71,'R4'],[72,'R5']]
+        },
+        C_LH: {
+          desc: { en: 'LH: Play 5-4-3-2-1 up to G, then cross middle finger (3) over the thumb to A!', zh: '左手大拇指 (1) 彈到 G 後，中指 (3) 跨過大拇指彈 A！' },
+          seq: [[60,'L5'],[62,'L4'],[64,'L3'],[65,'L2'],[67,'L1'],[69,'L3'],[71,'L2'],[72,'L1']]
+        },
+        F_RH: {
+          desc: { en: 'F Major RH: Keep thumb off black key B♭ — play B♭ with 4, then tuck thumb (1) to C!', zh: '為避免大拇指上黑鍵 B♭，改在 4 指彈完 B♭ 後穿 1 指彈 C！' },
+          seq: [[65,'R1'],[67,'R2'],[69,'R3'],[70,'R4'],[72,'R1'],[74,'R2'],[76,'R3'],[77,'R4']]
+        },
+        B_LH: {
+          desc: { en: 'B Major LH: Start on finger 4 on B so the thumb lands naturally on white keys E and B!', zh: 'B 大調左手起點改用 4 指，完美避開黑鍵落大拇指！' },
+          seq: [[59,'L4'],[61,'L3'],[63,'L2'],[64,'L1'],[66,'L4'],[68,'L3'],[70,'L2'],[71,'L1']]
+        },
+        CHROM_RH: {
+          desc: { en: 'Chromatic RH rule: Finger 3 on every black key, 1 on white keys, and 1–2 on E–F / B–C!', zh: '半音階鐵則：黑鍵一律 3 指，白鍵 1 指，E–F 與 B–C 用 1–2 指！' },
+          seq: [[60,'1'],[61,'3'],[62,'1'],[63,'3'],[64,'1'],[65,'2'],[66,'3'],[67,'1'],[68,'3'],[69,'1'],[70,'3'],[71,'1'],[72,'2']]
+        }
       };
 
       const fSel = document.getElementById('finger-scale-sel');
@@ -209,12 +233,16 @@
 
       function updateFingers() {
         const d = FINGER_DATA[fSel.value];
-        fDesc.textContent = `🖐️ ${d.desc}`;
+        fDesc.textContent = `🖐️ ${pick(d.desc)}`;
         const badgeMap = {};
         d.seq.forEach(([m, fg]) => { badgeMap[m] = fg; });
         fPiano.highlightMidi(d.seq.map(x => x[0]), d.seq[0][0], badgeMap);
       }
       fSel.addEventListener('change', updateFingers);
+      window.addEventListener('lang-changed', () => {
+        renderSolfCards();
+        updateFingers();
+      });
       updateFingers();
 
       document.getElementById('play-fingering-btn').addEventListener('click', () => {

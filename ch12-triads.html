@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 12 章：三和弦積木塔與轉位翻轉機 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 12: Triads &amp; Inversions | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch12">
+<body data-page="ch12" data-zh-title="第 12 章：三和弦積木塔與轉位翻轉機 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,23 +23,23 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 12 · 第 12 章</span>
-        <h1 id="main-heading" tabindex="-1">第 12 章：三和弦積木塔、開密位置與轉位翻轉機</h1>
-        <p class="chapter-subtitle">
-          兩個三度疊成一座<strong>三和弦積木塔</strong>！直接切換四種性質、翻轉第一／二轉位（<code>6</code> · <code>6/4</code>），親眼看見四度藏在哪裡！
+        <span class="chapter-eyebrow" data-zh="Chapter 12 · 第 12 章">Chapter 12 · Triads &amp; Inversions</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 12 章：三和弦積木塔、開密位置與轉位翻轉機">Ch 12: Triad Brick Towers, Spacing &amp; Inversion Flipper</h1>
+        <p class="chapter-subtitle" data-zh="兩個三度疊成一座<strong>三和弦積木塔</strong>！直接切換四種性質、翻轉第一／二轉位（<code>6</code> · <code>6/4</code>），親眼看見四度藏在哪裡！">
+          Stack two thirds into a <strong>Triad Tower</strong>! Toggle all 4 qualities, flip 1st/2nd inversions (<code>6</code> · <code>6/4</code>), and spot where the hidden fourth hides!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🔤 三度口訣：<strong>ACE · CEG · EGB · GBD · BDF · DFA · FAC</strong></span>
-          <span class="visual-pill">🔍 秒找轉位根音：<strong>找到四度音程 → 上方那顆音就是根音！</strong></span>
+          <span class="visual-pill" data-zh="🔤 三度口訣：<strong>ACE · CEG · EGB · GBD · BDF · DFA · FAC</strong>">🔤 Triad cycle: <strong>ACE · CEG · EGB · GBD · BDF · DFA · FAC</strong></span>
+          <span class="visual-pill" data-zh="🔍 秒找轉位根音：<strong>找到四度音程 → 上方那顆音就是根音！</strong>">🔍 Spot the root: <strong>Find the 4th interval → its upper note is the Root!</strong></span>
         </div>
       </section>
 
-      <!-- 1. 四種三和弦積木高度視覺化 + 轉位翻轉工廠 -->
+      <!-- 1. Triad Factory -->
       <section class="lesson-section" aria-labelledby="ch12-factory">
-        <h2 id="ch12-factory">🧱 1. 三和弦積木工廠（M · m · + · ° ／ 轉位翻轉 ／ 開密位置）</h2>
+        <h2 id="ch12-factory" data-zh="🧱 1. 三和弦積木工廠（M · m · + · ° ／ 轉位翻轉 ／ 開密位置）">🧱 1. Triad Brick Factory (M · m · + · ° / Inversions / Open &amp; Close)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <label style="font-weight:800;">根音：
+            <label style="font-weight:800;"><span data-zh="根音：">Root: </span>
               <select id="tr-root">
                 <option value="C4">C</option>
                 <option value="D4">D</option>
@@ -47,18 +50,17 @@
                 <option value="Bb3">B♭</option>
               </select>
             </label>
-            <button type="button" class="btn btn-sm btn-primary" data-tqual="major">☀️ 大三 M (4+3)</button>
-            <button type="button" class="btn btn-sm" data-tqual="minor">🌙 小三 m (3+4)</button>
-            <button type="button" class="btn btn-sm" data-tqual="augmented">🚀 增三 + (4+4)</button>
-            <button type="button" class="btn btn-sm" data-tqual="diminished">⚡ 減三 ° (3+3)</button>
+            <button type="button" class="btn btn-sm btn-primary" data-tqual="major" data-zh="☀️ 大三 M (4+3)">☀️ Major M (4+3)</button>
+            <button type="button" class="btn btn-sm" data-tqual="minor" data-zh="🌙 小三 m (3+4)">🌙 Minor m (3+4)</button>
+            <button type="button" class="btn btn-sm" data-tqual="augmented" data-zh="🚀 增三 + (4+4)">🚀 Augmented + (4+4)</button>
+            <button type="button" class="btn btn-sm" data-tqual="diminished" data-zh="⚡ 減三 ° (3+3)">⚡ Diminished ° (3+3)</button>
           </div>
           <div class="widget-controls">
-            <button type="button" class="btn btn-sm btn-amber" id="tr-flip-inv">🔄 翻轉轉位：原位 (Root)</button>
-            <button type="button" class="btn btn-sm" id="tr-toggle-open">↔️ 密集位置 Close</button>
-            <button type="button" class="btn btn-sm btn-primary" id="triad-play-btn">🔊 擊弦試聽</button>
+            <button type="button" class="btn btn-sm btn-amber" id="tr-flip-inv"></button>
+            <button type="button" class="btn btn-sm" id="tr-toggle-open"></button>
+            <button type="button" class="btn btn-sm btn-primary" id="triad-play-btn" data-zh="🔊 擊弦試聽">🔊 Play Triad</button>
           </div>
 
-          <!-- 視覺三度積木條 -->
           <div id="tr-blocks" style="display:grid;grid-template-columns:1fr 1fr;gap:0.45rem;margin-block:0.55rem;"></div>
           <div id="tr-readout" class="visual-pill"></div>
           <div id="tr-score"></div>
@@ -66,15 +68,15 @@
         </div>
       </section>
 
-      <!-- 2. C 大調七個音級順階三和弦觸控排 -->
+      <!-- 2. Seven Diatonic Triads in C Major -->
       <section class="lesson-section" aria-labelledby="ch12-diatonic">
-        <h2 id="ch12-diatonic">🌈 2. 自然大調七級順階三和弦觸控列（3 大 · 3 小 · 1 減）</h2>
+        <h2 id="ch12-diatonic" data-zh="🌈 2. 自然大調七級順階三和弦觸控列（3 大 · 3 小 · 1 減）">🌈 2. Seven Diatonic Triads in Major (3 Major · 3 Minor · 1 Dim)</h2>
         <div class="jam-pad-grid" id="diatonic-pads" style="grid-template-columns:repeat(auto-fit, minmax(105px, 1fr));"></div>
       </section>
 
       <!-- 3. Quiz -->
       <section class="lesson-section" aria-labelledby="ch12-quiz-sec">
-        <h2 id="ch12-quiz-sec">🏆 Practice 12-1～12-11 三和弦與數字低音檢定</h2>
+        <h2 id="ch12-quiz-sec" data-zh="🏆 Practice 12-1～12-11 三和弦與數字低音檢定">🏆 Practice 12-1 to 12-11 Checkpoint</h2>
         <div id="ch12-quiz"></div>
       </section>
     </main>
@@ -82,13 +84,16 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       const piano = Widgets.createPiano('#tr-piano', { startMidi: 48, endMidi: 79 });
       const rootSel = document.getElementById('tr-root');
       const flipBtn = document.getElementById('tr-flip-inv');
@@ -102,10 +107,22 @@
       let currentVoicing = [];
 
       const BLOCK_META = {
-        major:      [{ txt: '下層：大三度 M3 (4 半音)', bg: '#f59e0b' }, { txt: '上層：小三度 m3 (3 半音)', bg: '#3b82f6' }],
-        minor:      [{ txt: '下層：小三度 m3 (3 半音)', bg: '#3b82f6' }, { txt: '上層：大三度 M3 (4 半音)', bg: '#f59e0b' }],
-        augmented:  [{ txt: '下層：大三度 M3 (4 半音)', bg: '#ef4444' }, { txt: '上層：大三度 M3 (4 半音)', bg: '#ef4444' }],
-        diminished: [{ txt: '下層：小三度 m3 (3 半音)', bg: '#8b5cf6' }, { txt: '上層：小三度 m3 (3 半音)', bg: '#8b5cf6' }]
+        major: [
+          { txt: { en: 'Lower: Major 3rd M3 (4 semitones)', zh: '下層：大三度 M3 (4 半音)' }, bg: '#f59e0b' },
+          { txt: { en: 'Upper: Minor 3rd m3 (3 semitones)', zh: '上層：小三度 m3 (3 半音)' }, bg: '#3b82f6' }
+        ],
+        minor: [
+          { txt: { en: 'Lower: Minor 3rd m3 (3 semitones)', zh: '下層：小三度 m3 (3 半音)' }, bg: '#3b82f6' },
+          { txt: { en: 'Upper: Major 3rd M3 (4 semitones)', zh: '上層：大三度 M3 (4 半音)' }, bg: '#f59e0b' }
+        ],
+        augmented: [
+          { txt: { en: 'Lower: Major 3rd M3 (4 semitones)', zh: '下層：大三度 M3 (4 半音)' }, bg: '#ef4444' },
+          { txt: { en: 'Upper: Major 3rd M3 (4 semitones)', zh: '上層：大三度 M3 (4 半音)' }, bg: '#ef4444' }
+        ],
+        diminished: [
+          { txt: { en: 'Lower: Minor 3rd m3 (3 semitones)', zh: '下層：小三度 m3 (3 半音)' }, bg: '#8b5cf6' },
+          { txt: { en: 'Upper: Minor 3rd m3 (3 semitones)', zh: '上層：小三度 m3 (3 半音)' }, bg: '#8b5cf6' }
+        ]
       };
 
       function updateTriad(playNow = false) {
@@ -129,16 +146,21 @@
           currentVoicing = [currentVoicing[0], currentVoicing[2], raisedMid];
         }
 
-        const invLabels = ['原位 (無數字)', '第一轉位 (6 · 三音在底)', '第二轉位 (6/4 · 五音在底)'];
-        flipBtn.textContent = `🔄 轉位：${invLabels[curInv].split(' ')[0]}`;
-        openBtn.textContent = isOpen ? '↔️ 開放位置 Open' : '↔️ 密集位置 Close';
+        const invLabels = [
+          t('Root Position (no figure)', '原位 (無數字)'),
+          t('1st Inversion (6 · 3rd in bass)', '第一轉位 (6 · 三音在底)'),
+          t('2nd Inversion (6/4 · 5th in bass)', '第二轉位 (6/4 · 五音在底)')
+        ];
+        const invShort = [t('Root', '原位'), t('1st Inv (6)', '第一轉位 (6)'), t('2nd Inv (6/4)', '第二轉位 (6/4)')];
+        flipBtn.textContent = `🔄 ${t('Inversion:', '轉位：')} ${invShort[curInv]}`;
+        openBtn.textContent = isOpen ? t('↔️ Open Position', '↔️ 開放位置 Open') : t('↔️ Close Position', '↔️ 密集位置 Close');
 
         const bm = BLOCK_META[curQual];
-        blocksEl.innerHTML = bm.map(b => `<div style="background:${b.bg};color:#fff;padding:0.45rem 0.6rem;border-radius:8px;font-size:0.8rem;font-weight:800;text-align:center;">${b.txt}</div>`).join('');
+        blocksEl.innerHTML = bm.map(b => `<div style="background:${b.bg};color:#fff;padding:0.45rem 0.6rem;border-radius:8px;font-size:0.8rem;font-weight:800;text-align:center;">${pick(b.txt)}</div>`).join('');
 
         const qSuffix = { major: '', minor: 'm', augmented: '+', diminished: '°' }[curQual];
         const fig = ['', '6', '6/4'][curInv];
-        readout.innerHTML = `🎯 <strong>${base[0].name}${qSuffix}</strong> · ${invLabels[curInv]} · 由下而上：<strong>${currentVoicing.map(x => x.label).join(' – ')}</strong>`;
+        readout.innerHTML = `🎯 <strong>${base[0].name}${qSuffix}</strong> · ${invLabels[curInv]} · ${t('Low→High:', '由下而上：')} <strong>${currentVoicing.map(x => x.label).join(' – ')}</strong>`;
 
         MusicNotation.render('#tr-score', {
           grand: isOpen,
@@ -147,7 +169,7 @@
           minWidth: 240,
           notes: [isOpen
             ? { notes: [currentVoicing[1].ascii, currentVoicing[2].ascii], dur: 'w', label: `${base[0].name}${qSuffix} ${fig}` }
-            : { notes: currentVoicing.map(x => x.ascii), dur: 'w', label: `${base[0].name}${qSuffix} (${fig || '原位'})` }
+            : { notes: currentVoicing.map(x => x.ascii), dur: 'w', label: { en: `${base[0].name}${qSuffix} (${fig || 'Root'})`, zh: `${base[0].name}${qSuffix} (${fig || '原位'})` } }
           ],
           bassNotes: isOpen ? [{ pitch: currentVoicing[0].ascii, dur: 'w' }] : []
         });
@@ -167,51 +189,72 @@
       openBtn.addEventListener('click', () => { isOpen = !isOpen; openBtn.classList.toggle('btn-primary', isOpen); updateTriad(true); });
       rootSel.addEventListener('change', () => updateTriad(true));
       document.getElementById('triad-play-btn').addEventListener('click', () => AudioEngine.playChord(currentVoicing, 1.0));
+      window.addEventListener('lang-changed', () => updateTriad(false));
       updateTriad(false);
 
       // 7 Diatonic Triads in C Major
       const DIATONIC = [
-        { rn: 'I',    sym: 'C (大)',   notes: ['C4', 'E4', 'G4'], c: '#ef4444' },
-        { rn: 'ii',   sym: 'Dm (小)',  notes: ['D4', 'F4', 'A4'], c: '#f59e0b' },
-        { rn: 'iii',  sym: 'Em (小)',  notes: ['E4', 'G4', 'B4'], c: '#84cc16' },
-        { rn: 'IV',   sym: 'F (大)',   notes: ['F4', 'A4', 'C5'], c: '#10b981' },
-        { rn: 'V',    sym: 'G (大)',   notes: ['G4', 'B4', 'D5'], c: '#3b82f6' },
-        { rn: 'vi',   sym: 'Am (小)',  notes: ['A4', 'C5', 'E5'], c: '#8b5cf6' },
-        { rn: 'vii°', sym: 'B° (減)',  notes: ['B4', 'D5', 'F5'], c: '#ec4899' }
+        { rn: 'I',    sym: { en: 'C (Maj)',  zh: 'C (大)' },  notes: ['C4', 'E4', 'G4'], c: '#ef4444' },
+        { rn: 'ii',   sym: { en: 'Dm (min)', zh: 'Dm (小)' }, notes: ['D4', 'F4', 'A4'], c: '#f59e0b' },
+        { rn: 'iii',  sym: { en: 'Em (min)', zh: 'Em (小)' }, notes: ['E4', 'G4', 'B4'], c: '#84cc16' },
+        { rn: 'IV',   sym: { en: 'F (Maj)',  zh: 'F (大)' },  notes: ['F4', 'A4', 'C5'], c: '#10b981' },
+        { rn: 'V',    sym: { en: 'G (Maj)',  zh: 'G (大)' },  notes: ['G4', 'B4', 'D5'], c: '#3b82f6' },
+        { rn: 'vi',   sym: { en: 'Am (min)', zh: 'Am (小)' }, notes: ['A4', 'C5', 'E5'], c: '#8b5cf6' },
+        { rn: 'vii°', sym: { en: 'B° (dim)', zh: 'B° (減)' }, notes: ['B4', 'D5', 'F5'], c: '#ec4899' }
       ];
       const diaMount = document.getElementById('diatonic-pads');
-      DIATONIC.forEach(d => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.className = 'jam-pad';
-        b.style.minBlockSize = '66px';
-        b.style.setProperty('--pad-color', d.c);
-        b.innerHTML = `<span style="font-size:1.05rem;">${d.rn}</span><span style="font-size:0.74rem;">${d.sym}</span>`;
-        b.addEventListener('click', () => {
-          AudioEngine.playChord(d.notes, 0.85);
-          piano.highlightMidi(d.notes.map(s => CourseData.parsePitch(s).midi), CourseData.parsePitch(d.notes[0]).midi);
+      function renderDiatonicPads() {
+        diaMount.innerHTML = '';
+        DIATONIC.forEach(d => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'jam-pad';
+          b.style.minBlockSize = '66px';
+          b.style.setProperty('--pad-color', d.c);
+          b.innerHTML = `<span style="font-size:1.05rem;">${d.rn}</span><span style="font-size:0.74rem;">${pick(d.sym)}</span>`;
+          b.addEventListener('click', () => {
+            AudioEngine.playChord(d.notes, 0.85);
+            piano.highlightMidi(d.notes.map(s => CourseData.parsePitch(s).midi), CourseData.parsePitch(d.notes[0]).midi);
+          });
+          diaMount.appendChild(b);
         });
-        diaMount.appendChild(b);
-      });
+      }
+      renderDiatonicPads();
+      window.addEventListener('lang-changed', renderDiatonicPads);
 
       Widgets.createQuiz('#ch12-quiz', 'quiz-ch12', 'ch12', [
         {
-          prompt: '「小三和弦 (Minor Triad)」由下而上的三度疊置結構為何？',
-          options: ['大三度＋小三度', '小三度 (3半音)＋大三度 (4半音)', '小三度＋小三度', '大三度＋大三度'],
+          prompt: { en: 'From bottom to top, what stacked thirds build a Minor Triad?', zh: '「小三和弦 (Minor Triad)」由下而上的三度疊置結構為何？' },
+          options: [
+            { en: 'Major 3rd + Minor 3rd', zh: '大三度＋小三度' },
+            { en: 'Minor 3rd (3 semitones) + Major 3rd (4 semitones)', zh: '小三度 (3半音)＋大三度 (4半音)' },
+            { en: 'Minor 3rd + Minor 3rd', zh: '小三度＋小三度' },
+            { en: 'Major 3rd + Major 3rd', zh: '大三度＋大三度' }
+          ],
           answer: 1,
-          explanation: '下方小三度＋上方大三度（外圍仍為完全五度 7 半音）即為小三和弦！'
+          explanation: { en: 'A lower m3 + upper M3 (outer P5 = 7 semitones) builds a Minor Triad!', zh: '下方小三度＋上方大三度（外圍仍為完全五度 7 半音）即為小三和弦！' }
         },
         {
-          prompt: '密集三和弦由下而上排成「G4 – C5 – E5」，它的根音與轉位數字低音標記為何？',
-          options: ['G 大三原位', 'C 大三第一轉位 (6)', 'C 大三第二轉位 (6/4)', 'E 小三第一轉位'],
+          prompt: { en: 'A close-position triad is voiced “G4 – C5 – E5” from bottom to top. What are its root and figured bass?', zh: '密集三和弦由下而上排成「G4 – C5 – E5」，它的根音與轉位數字低音標記為何？' },
+          options: [
+            { en: 'G Major root position', zh: 'G 大三原位' },
+            { en: 'C Major 1st inversion (6)', zh: 'C 大三第一轉位 (6)' },
+            { en: 'C Major 2nd inversion (6/4)', zh: 'C 大三第二轉位 (6/4)' },
+            { en: 'E minor 1st inversion', zh: 'E 小三第一轉位' }
+          ],
           answer: 2,
-          explanation: 'G4–C5 為四度 → 上方音 C 即為根音！最低音是五音 G，故為第二轉位 6/4！'
+          explanation: { en: 'G4–C5 is a 4th → upper note C is the root! With 5th G in the bass, it is 2nd inversion (6/4)!', zh: 'G4–C5 為四度 → 上方音 C 即為根音！最低音是五音 G，故為第二轉位 6/4！' }
         },
         {
-          prompt: '在大調音階的七個音級上建立順階三和弦，唯一的一個「減三和弦 (°)」落在第幾級？',
-          options: ['第 2 級', '第 3 級', '第 6 級', '第 7 級導音 (vii°)'],
+          prompt: { en: 'Among the seven diatonic triads in a major key, on which scale degree does the single diminished triad (°) occur?', zh: '在大調音階的七個音級上建立順階三和弦，唯一的一個「減三和弦 (°)」落在第幾級？' },
+          options: [
+            { en: '2̂', zh: '第 2 級' },
+            { en: '3̂', zh: '第 3 級' },
+            { en: '6̂', zh: '第 6 級' },
+            { en: '7̂ Leading Tone (vii°)', zh: '第 7 級導音 (vii°)' }
+          ],
           answer: 3,
-          explanation: '大調 1·4·5 為大三，2·3·6 為小三，第 7 級 (B-D-F) 為唯一的減三和弦 vii°！'
+          explanation: { en: 'In major: I, IV, V are major; ii, iii, vi are minor; 7̂ (B–D–F in C) is the sole diminished triad vii°!', zh: '大調 1·4·5 為大三，2·3·6 為小三，第 7 級 (B-D-F) 為唯一的減三和弦 vii°！' }
         }
       ]);
     });

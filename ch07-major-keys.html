@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 7 章：調號推桿與彩色五度圈 ＋ 焦點技能 4 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 7: Major Key Signatures &amp; Circle of Fifths + Focus 4 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch07">
+<body data-page="ch07" data-zh-title="第 7 章：調號推桿與彩色五度圈 ＋ 焦點技能 4 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,27 +23,27 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 7 + Focus on Skills 4</span>
-        <h1 id="main-heading" tabindex="-1">第 7 章：大調調號推桿、秒判口訣與彩色五度圈</h1>
-        <p class="chapter-subtitle">
-          調號對<strong>全曲所有八度</strong>有效；小節內臨時記號只管<strong>該小節同八度</strong>。拉動推桿親眼看升降記號依序登場！
+        <span class="chapter-eyebrow" data-zh="Chapter 7 + Focus on Skills 4 · 第 7 章＋檢定 4">Chapter 7 + Focus on Skills 4</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 7 章：大調調號推桿、秒判口訣與彩色五度圈">Ch 7: Key Signature Fader, Shortcuts &amp; Circle of Fifths</h1>
+        <p class="chapter-subtitle" data-zh="調號對<strong>全曲所有八度</strong>有效；小節內臨時記號只管<strong>該小節同八度</strong>。拉動推桿親眼看升降記號依序登場！">
+          Key signatures apply to <strong>every octave throughout a piece</strong>; bar accidentals apply only to <strong>that octave inside one measure</strong>. Drag the fader to watch sharps and flats stack in order!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">♯ 順序：<strong>F–C–G–D–A–E–B</strong>（最後升號 +半音 ＝ 大調）</span>
-          <span class="visual-pill">♭ 順序：<strong>B–E–A–D–G–C–F</strong>（倒數第 2 降號 ＝ 大調）</span>
-          <span class="visual-pill">🔁 等音調：<strong>B=C♭ · F♯=G♭ · D♭=C♯</strong></span>
+          <span class="visual-pill" data-zh="♯ 順序：<strong>F–C–G–D–A–E–B</strong>（最後升號 +半音 ＝ 大調）">♯ Order: <strong>F–C–G–D–A–E–B</strong> (last ♯ + half step = Major key)</span>
+          <span class="visual-pill" data-zh="♭ 順序：<strong>B–E–A–D–G–C–F</strong>（倒數第 2 降號 ＝ 大調）">♭ Order: <strong>B–E–A–D–G–C–F</strong> (next-to-last ♭ = Major key)</span>
+          <span class="visual-pill" data-zh="🔁 等音調：<strong>B=C♭ · F♯=G♭ · D♭=C♯</strong>">🔁 Enharmonic keys: <strong>B=C♭ · F♯=G♭ · D♭=C♯</strong></span>
         </div>
       </section>
 
-      <!-- 1. 互動升降調號推桿解碼器 -->
+      <!-- 1. Interactive Key Signature Fader -->
       <section class="lesson-section" aria-labelledby="ch7-slider-sec">
-        <h2 id="ch7-slider-sec">🎚️ 1. 調號推桿產生器（-7♭ ← 0 → +7♯）</h2>
+        <h2 id="ch7-slider-sec" data-zh="🎚️ 1. 調號推桿產生器（-7♭ ← 0 → +7♯）">🎚️ 1. Key Signature Fader (-7♭ ← 0 → +7♯)</h2>
         <div class="widget-box">
           <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;">
-            <strong id="ks-title" style="font-size:1.1rem;color:var(--brand);">C 大調（0 升降）</strong>
-            <span id="ks-shortcut" class="visual-pill">全白鍵無升降</span>
+            <strong id="ks-title" style="font-size:1.1rem;color:var(--brand);"></strong>
+            <span id="ks-shortcut" class="visual-pill"></span>
           </div>
-          <input type="range" id="ks-slider" min="-7" max="7" step="1" value="0" aria-label="調號升降數量推桿" style="inline-size:100%;margin-block:0.65rem;">
+          <input type="range" id="ks-slider" min="-7" max="7" step="1" value="0" aria-label="Key signature sharps and flats fader" data-zh-aria="調號升降數量推桿" style="inline-size:100%;margin-block:0.65rem;">
           <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.75rem;color:var(--text-muted);">
             <span>7♭ (C♭)</span><span>4♭ (A♭)</span><span>0 (C)</span><span>4♯ (E)</span><span>7♯ (C♯)</span>
           </div>
@@ -48,9 +51,9 @@
         </div>
       </section>
 
-      <!-- 2. 彩色互動五度圈 -->
+      <!-- 2. Interactive Circle of Fifths -->
       <section class="lesson-section" aria-labelledby="ch7-circle">
-        <h2 id="ch7-circle">🎡 2. 彩色大調五度圈（順時針 +♯ · 逆時針 +♭ · 相鄰共享 6 音）</h2>
+        <h2 id="ch7-circle" data-zh="🎡 2. 彩色大調五度圈（順時針 +♯ · 逆時針 +♭ · 相鄰共享 6 音）">🎡 2. Color Circle of Fifths (Clockwise +♯ · Counterclockwise +♭)</h2>
         <div class="widget-box">
           <div id="ch07-circle"></div>
         </div>
@@ -58,7 +61,7 @@
 
       <!-- 3. Focus on Skills 4 -->
       <section class="lesson-section" aria-labelledby="focus4-heading">
-        <h2 id="focus4-heading">🏆 Focus on Skills 4：大調音階與調號闖關檢定</h2>
+        <h2 id="focus4-heading" data-zh="🏆 Focus on Skills 4：大調音階與調號闖關檢定">🏆 Focus on Skills 4: Major Scales &amp; Key Signatures</h2>
         <div id="focus4-quiz"></div>
       </section>
     </main>
@@ -66,13 +69,15 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+
       const SHARP_KEYS = ['C', 'G', 'D', 'A', 'E', 'B', 'F#', 'C#'];
       const FLAT_KEYS  = ['C', 'F', 'Bb', 'Eb', 'Ab', 'Db', 'Gb', 'Cb'];
       const SHARPS_ORD = ['F♯', 'C♯', 'G♯', 'D♯', 'A♯', 'E♯', 'B♯'];
@@ -88,19 +93,25 @@
         const disp = keyCode.replace('#', '♯').replace('b', '♭');
 
         if (v === 0) {
-          ksTitle.textContent = 'C 大調（0 個升降記號）';
-          ksShort.innerHTML = '💡 唯一全白鍵無升降的大調';
+          ksTitle.textContent = t('C Major (0 sharps / flats)', 'C 大調（0 個升降記號）');
+          ksShort.innerHTML = t('💡 All white keys — no sharps or flats', '💡 唯一全白鍵無升降的大調');
         } else if (v > 0) {
           const list = SHARPS_ORD.slice(0, v);
-          ksTitle.textContent = `${disp} 大調（${v} 個升記號：${list.join(' ')}）`;
-          ksShort.innerHTML = `⚡ 秒判：最後升號 <strong>${list[v - 1]}</strong> + 半音 ＝ <strong>${disp} 大調</strong>！`;
+          ksTitle.textContent = t(`${disp} Major (${v}♯: ${list.join(' ')})`, `${disp} 大調（${v} 個升記號：${list.join(' ')}）`);
+          ksShort.innerHTML = t(
+            `⚡ Shortcut: Last sharp <strong>${list[v - 1]}</strong> + half step = <strong>${disp} Major</strong>!`,
+            `⚡ 秒判：最後升號 <strong>${list[v - 1]}</strong> + 半音 ＝ <strong>${disp} 大調</strong>！`
+          );
         } else {
           const n = -v;
           const list = FLATS_ORD.slice(0, n);
-          ksTitle.textContent = `${disp} 大調（${n} 個降記號：${list.join(' ')}）`;
+          ksTitle.textContent = t(`${disp} Major (${n}♭: ${list.join(' ')})`, `${disp} 大調（${n} 個降記號：${list.join(' ')}）`);
           ksShort.innerHTML = n === 1
-            ? `⚡ 特例記憶：1 個降號 (B♭) ＝ <strong>F 大調</strong>`
-            : `⚡ 秒判：倒數第 2 個降號 <strong>${list[n - 2]}</strong> ＝ <strong>${disp} 大調</strong>！`;
+            ? t('⚡ Memorize: 1 flat (B♭) = <strong>F Major</strong>', '⚡ 特例記憶：1 個降號 (B♭) ＝ <strong>F 大調</strong>')
+            : t(
+              `⚡ Shortcut: Penultimate flat <strong>${list[n - 2]}</strong> = <strong>${disp} Major</strong>!`,
+              `⚡ 秒判：倒數第 2 個降號 <strong>${list[n - 2]}</strong> ＝ <strong>${disp} 大調</strong>！`
+            );
         }
 
         const tonicP = CourseData.parsePitch(keyCode + '4');
@@ -109,7 +120,7 @@
           key: keyCode,
           playable: false,
           minWidth: 260,
-          notes: [{ pitch: tonicP.ascii, dur: 'w', hideAccidental: true, label: `主音 ${disp}` }],
+          notes: [{ pitch: tonicP.ascii, dur: 'w', hideAccidental: true, label: { en: `Tonic ${disp}`, zh: `主音 ${disp}` } }],
           bassNotes: [{ pitch: keyCode + '2', dur: 'w', hideAccidental: true }]
         });
 
@@ -121,36 +132,57 @@
 
       slider.addEventListener('input', () => updateSlider(false));
       slider.addEventListener('change', () => updateSlider(true));
+      window.addEventListener('lang-changed', () => updateSlider(false));
       updateSlider(false);
 
       Widgets.createCircleOfFifths('#ch07-circle', { showMinor: false });
 
       Widgets.createQuiz('#focus4-quiz', 'quiz-focus4', 'ch07', [
         {
-          prompt: '觀察下方高音譜表 4 個升記號調號（F♯, C♯, G♯, D♯），請問代表哪一個大調？',
+          prompt: { en: 'Look at this 4-sharp treble key signature (F♯, C♯, G♯, D♯). Which major key is it?', zh: '觀察下方高音譜表 4 個升記號調號（F♯, C♯, G♯, D♯），請問代表哪一個大調？' },
           scoreSpec: { clef: 'treble', key: 'E', playable: false, minWidth: 220, notes: [{ pitch: 'E4', dur: 'w', hideAccidental: true }] },
-          options: ['A 大調', 'E 大調', 'B 大調', 'D♯ 大調'],
+          options: [
+            { en: 'A Major', zh: 'A 大調' },
+            { en: 'E Major', zh: 'E 大調' },
+            { en: 'B Major', zh: 'B 大調' },
+            { en: 'D♯ Major', zh: 'D♯ 大調' }
+          ],
           answer: 1,
-          explanation: '最後升號 D♯ + 半音 = E 大調！'
+          explanation: { en: 'Last sharp D♯ + half step up = E Major!', zh: '最後升號 D♯ + 半音 = E 大調！' }
         },
         {
-          prompt: '觀察下方低音譜表 4 個降記號調號（B♭, E♭, A♭, D♭），請問代表哪一個大調？',
+          prompt: { en: 'Look at this 4-flat bass key signature (B♭, E♭, A♭, D♭). Which major key is it?', zh: '觀察下方低音譜表 4 個降記號調號（B♭, E♭, A♭, D♭），請問代表哪一個大調？' },
           scoreSpec: { clef: 'bass', key: 'Ab', playable: false, minWidth: 220, notes: [{ pitch: 'Ab2', dur: 'w', hideAccidental: true }] },
-          options: ['D♭ 大調', 'E♭ 大調', 'A♭ 大調', 'F 大調'],
+          options: [
+            { en: 'D♭ Major', zh: 'D♭ 大調' },
+            { en: 'E♭ Major', zh: 'E♭ 大調' },
+            { en: 'A♭ Major', zh: 'A♭ 大調' },
+            { en: 'F Major', zh: 'F 大調' }
+          ],
           answer: 2,
-          explanation: '倒數第二個降號是 A♭ → A♭ 大調！'
+          explanation: { en: 'The second-to-last flat is A♭ → A♭ Major!', zh: '倒數第二個降號是 A♭ → A♭ 大調！' }
         },
         {
-          prompt: '若「E」是某個大調的「第 5 級屬音 (Dominant)」，這是哪一個大調？',
-          options: ['B 大調 (5♯)', 'A 大調 (3♯)', 'D 大調 (2♯)', 'E 大調 (4♯)'],
+          prompt: { en: 'If “E” is scale degree 5̂ (Dominant) of a major key, which major key are you in?', zh: '若「E」是某個大調的「第 5 級屬音 (Dominant)」，這是哪一個大調？' },
+          options: [
+            { en: 'B Major (5♯)', zh: 'B 大調 (5♯)' },
+            { en: 'A Major (3♯)', zh: 'A 大調 (3♯)' },
+            { en: 'D Major (2♯)', zh: 'D 大調 (2♯)' },
+            { en: 'E Major (4♯)', zh: 'E 大調 (4♯)' }
+          ],
           answer: 1,
-          explanation: 'E 往下完全五度回到主音 A → A 大調（3♯）。'
+          explanation: { en: 'Count down a perfect fifth from E to tonic A → A Major (3♯).', zh: 'E 往下完全五度回到主音 A → A 大調（3♯）。' }
         },
         {
-          prompt: '「C♯ 大調 (7♯)」與哪一個降號大調互為鍵盤同音的等音調？',
-          options: ['C♭ 大調 (7♭)', 'G♭ 大調 (6♭)', 'D♭ 大調 (5♭)', 'A♭ 大調 (4♭)'],
+          prompt: { en: '“C♯ Major (7♯)” is enharmonically equivalent to which flat major key?', zh: '「C♯ 大調 (7♯)」與哪一個降號大調互為鍵盤同音的等音調？' },
+          options: [
+            { en: 'C♭ Major (7♭)', zh: 'C♭ 大調 (7♭)' },
+            { en: 'G♭ Major (6♭)', zh: 'G♭ 大調 (6♭)' },
+            { en: 'D♭ Major (5♭)', zh: 'D♭ 大調 (5♭)' },
+            { en: 'A♭ Major (4♭)', zh: 'A♭ 大調 (4♭)' }
+          ],
           answer: 2,
-          explanation: 'C♯ = D♭，7♯ + 5♭ = 12，互為等音調！'
+          explanation: { en: 'C♯ = D♭ on the keyboard, and 7♯ + 5♭ = 12!', zh: 'C♯ = D♭，7♯ + 5♭ = 12，互為等音調！' }
         }
       ]);
     });

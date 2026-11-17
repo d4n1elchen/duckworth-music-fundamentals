@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 9 章：關係調與平行調切換門 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 9: Minor Key Signatures — Relative &amp; Parallel Keys | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch09">
+<body data-page="ch09" data-zh-title="第 9 章：關係調與平行調切換門 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,32 +23,32 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 9 · 第 9 章</span>
-        <h1 id="main-heading" tabindex="-1">第 9 章：小調調號、關係調與平行調任意門</h1>
-        <p class="chapter-subtitle">
-          不用重背新調號！每個小調都與一個大調共用調號。一鍵切換<strong>關係調</strong>與<strong>平行調</strong>，用耳朵分辨色彩轉換！
+        <span class="chapter-eyebrow" data-zh="Chapter 9 · 第 9 章">Chapter 9 · Minor Key Signatures</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 9 章：小調調號、關係調與平行調任意門">Ch 9: Minor Key Signatures, Relative &amp; Parallel Portals</h1>
+        <p class="chapter-subtitle" data-zh="不用重背新調號！每個小調都與一個大調共用調號。一鍵切換<strong>關係調</strong>與<strong>平行調</strong>，用耳朵分辨色彩轉換！">
+          No new key signatures to memorize! Every minor key shares a signature with its relative major. Tap below to hear <strong>Relative</strong> vs. <strong>Parallel</strong> color shifts!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">👯 <strong>關係大小調 Relative</strong>：同調號 · 主音差小三度 (<code>C ↔ a</code>)</span>
-          <span class="visual-pill">🪞 <strong>平行大小調 Parallel</strong>：同主音 · 調號差 3 記號 (<code>C ↔ c(3♭)</code>)</span>
+          <span class="visual-pill" data-zh="👯 <strong>關係大小調 Relative</strong>：同調號 · 主音差小三度 (<code>C ↔ a</code>)">👯 <strong>Relative</strong>: Same key signature · tonics a m3 apart (<code>C ↔ a</code>)</span>
+          <span class="visual-pill" data-zh="🪞 <strong>平行大小調 Parallel</strong>：同主音 · 調號差 3 記號 (<code>C ↔ c(3♭)</code>)">🪞 <strong>Parallel</strong>: Same tonic · key sigs differ by 3 accidentals (<code>C ↔ c(3♭)</code>)</span>
         </div>
       </section>
 
-      <!-- 1. 關係調 vs 平行調 一鍵色彩切換門 -->
+      <!-- 1. Relative vs Parallel Portal -->
       <section class="lesson-section" aria-labelledby="ch9-portal">
-        <h2 id="ch9-portal">🚪 1. 關係調 vs 平行調色彩傳送門</h2>
+        <h2 id="ch9-portal" data-zh="🚪 1. 關係調 vs 平行調色彩傳送門">🚪 1. Relative vs. Parallel Color Portal</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <label style="font-weight:800;">基準大調：
+            <label style="font-weight:800;"><span data-zh="基準大調：">Anchor Major Key: </span>
               <select id="portal-root">
-                <option value="C">C 大調 (0)</option>
-                <option value="G">G 大調 (1♯)</option>
-                <option value="D">D 大調 (2♯)</option>
-                <option value="A">A 大調 (3♯)</option>
-                <option value="E">E 大調 (4♯)</option>
-                <option value="F">F 大調 (1♭)</option>
-                <option value="Bb">B♭ 大調 (2♭)</option>
-                <option value="Eb">E♭ 大調 (3♭)</option>
+                <option value="C" data-zh="C 大調 (0)">C Major (0)</option>
+                <option value="G" data-zh="G 大調 (1♯)">G Major (1♯)</option>
+                <option value="D" data-zh="D 大調 (2♯)">D Major (2♯)</option>
+                <option value="A" data-zh="A 大調 (3♯)">A Major (3♯)</option>
+                <option value="E" data-zh="E 大調 (4♯)">E Major (4♯)</option>
+                <option value="F" data-zh="F 大調 (1♭)">F Major (1♭)</option>
+                <option value="Bb" data-zh="B♭ 大調 (2♭)">B♭ Major (2♭)</option>
+                <option value="Eb" data-zh="E♭ 大調 (3♭)">E♭ Major (3♭)</option>
               </select>
             </label>
           </div>
@@ -53,27 +56,27 @@
         </div>
       </section>
 
-      <!-- 2. 雙層大小調五度圈 -->
+      <!-- 2. Double-Ring Circle of Fifths -->
       <section class="lesson-section" aria-labelledby="ch9-circle-sec">
-        <h2 id="ch9-circle-sec">🧭 2. 雙層大小調五度圈（外圈大調 · 內圈關係小調）</h2>
+        <h2 id="ch9-circle-sec" data-zh="🧭 2. 雙層大小調五度圈（外圈大調 · 內圈關係小調）">🧭 2. Dual-Ring Circle of Fifths (Outer Major · Inner Relative Minor)</h2>
         <div class="widget-box">
           <div id="ch09-circle"></div>
         </div>
       </section>
 
-      <!-- 3. 樂譜調性偵探 -->
+      <!-- 3. Score Key Detective -->
       <section class="lesson-section" aria-labelledby="ch9-detective">
-        <h2 id="ch9-detective">🕵️ 3. 兩步驟調性偵探：看「尾音」＋抓「升高第 7 級導音」！</h2>
+        <h2 id="ch9-detective" data-zh="🕵️ 3. 兩步驟調性偵探：看「尾音」＋抓「升高第 7 級導音」！">🕵️ 3. Two-Clue Key Detective: Check Final Note + Raised 7̂!</h2>
         <div class="pill-row">
-          <span class="visual-pill">線索 ①：<strong>全曲最後一音 ≈ 主音 Tonic</strong></span>
-          <span class="visual-pill">線索 ②：<strong>譜內頻繁出現臨時升高的第 7 級音 → 必為小調！</strong></span>
+          <span class="visual-pill" data-zh="線索 ①：<strong>全曲最後一音 ≈ 主音 Tonic</strong>">Clue ①: <strong>Final melody/bass note ≈ Tonic</strong></span>
+          <span class="visual-pill" data-zh="線索 ②：<strong>譜內頻繁出現臨時升高的第 7 級音 → 必為小調！</strong>">Clue ②: <strong>Frequent raised 7̂ accidental inside bars → Minor key!</strong></span>
         </div>
         <div id="score-key-detective"></div>
       </section>
 
       <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch9-quiz-sec">
-        <h2 id="ch9-quiz-sec">🏆 Practice 9-1～9-6 闖關檢定</h2>
+        <h2 id="ch9-quiz-sec" data-zh="🏆 Practice 9-1～9-6 闖關檢定">🏆 Practice 9-1 to 9-6 Checkpoint</h2>
         <div id="ch09-quiz"></div>
       </section>
     </main>
@@ -81,22 +84,24 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const t = (en, zh) => (window.I18n ? window.I18n.t(en, zh) : en);
+
       const PORTAL_MAP = {
-        C:  { majSig: '0 升降', rel: 'A', relDisp: 'a 小調', parDisp: 'c 小調', parSig: '3♭' },
-        G:  { majSig: '1♯',     rel: 'E', relDisp: 'e 小調', parDisp: 'g 小調', parSig: '2♭' },
-        D:  { majSig: '2♯',     rel: 'B', relDisp: 'b 小調', parDisp: 'd 小調', parSig: '1♭' },
-        A:  { majSig: '3♯',     rel: 'F#', relDisp: 'f♯ 小調', parDisp: 'a 小調', parSig: '0 升降' },
-        E:  { majSig: '4♯',     rel: 'C#', relDisp: 'c♯ 小調', parDisp: 'e 小調', parSig: '1♯' },
-        F:  { majSig: '1♭',     rel: 'D', relDisp: 'd 小調', parDisp: 'f 小調', parSig: '4♭' },
-        Bb: { majSig: '2♭',     rel: 'G', relDisp: 'g 小調', parDisp: 'b♭ 小調', parSig: '5♭' },
-        Eb: { majSig: '3♭',     rel: 'C', relDisp: 'c 小調', parDisp: 'e♭ 小調', parSig: '6♭' }
+        C:  { majSigEn: '0 ♯/♭', majSigZh: '0 升降', rel: 'A',  relEn: 'a minor',  relZh: 'a 小調',  parEn: 'c minor',  parZh: 'c 小調',  parSigEn: '3♭', parSigZh: '3♭' },
+        G:  { majSigEn: '1♯',    majSigZh: '1♯',     rel: 'E',  relEn: 'e minor',  relZh: 'e 小調',  parEn: 'g minor',  parZh: 'g 小調',  parSigEn: '2♭', parSigZh: '2♭' },
+        D:  { majSigEn: '2♯',    majSigZh: '2♯',     rel: 'B',  relEn: 'b minor',  relZh: 'b 小調',  parEn: 'd minor',  parZh: 'd 小調',  parSigEn: '1♭', parSigZh: '1♭' },
+        A:  { majSigEn: '3♯',    majSigZh: '3♯',     rel: 'F#', relEn: 'f♯ minor', relZh: 'f♯ 小調', parEn: 'a minor',  parZh: 'a 小調',  parSigEn: '0 ♯/♭', parSigZh: '0 升降' },
+        E:  { majSigEn: '4♯',    majSigZh: '4♯',     rel: 'C#', relEn: 'c♯ minor', relZh: 'c♯ 小調', parEn: 'e minor',  parZh: 'e 小調',  parSigEn: '1♯', parSigZh: '1♯' },
+        F:  { majSigEn: '1♭',    majSigZh: '1♭',     rel: 'D',  relEn: 'd minor',  relZh: 'd 小調',  parEn: 'f minor',  parZh: 'f 小調',  parSigEn: '4♭', parSigZh: '4♭' },
+        Bb: { majSigEn: '2♭',    majSigZh: '2♭',     rel: 'G',  relEn: 'g minor',  relZh: 'g 小調',  parEn: 'b♭ minor', parZh: 'b♭ 小調', parSigEn: '5♭', parSigZh: '5♭' },
+        Eb: { majSigEn: '3♭',    majSigZh: '3♭',     rel: 'C',  relEn: 'c minor',  relZh: 'c 小調',  parEn: 'e♭ minor', parZh: 'e♭ 小調', parSigEn: '6♭', parSigZh: '6♭' }
       };
 
       const pSel = document.getElementById('portal-root');
@@ -106,18 +111,20 @@
         const k = pSel.value;
         const info = PORTAL_MAP[k];
         const dispMaj = k.replace('b', '♭');
+        const mSig = t(info.majSigEn, info.majSigZh);
+        const pSig = t(info.parSigEn, info.parSigZh);
         pCards.innerHTML = `
           <button type="button" class="jam-pad" id="p-btn-maj" style="--pad-color:#f59e0b;min-block-size:86px;">
-            <span style="font-size:1.08rem;">☀️ ${dispMaj} 大調</span>
-            <span style="font-size:0.76rem;">調號：${info.majSig}（點擊聽主三和弦）</span>
+            <span style="font-size:1.06rem;">☀️ ${t(`${dispMaj} Major`, `${dispMaj} 大調`)}</span>
+            <span style="font-size:0.75rem;">${t(`Key sig: ${mSig} (Tap for triad)`, `調號：${mSig}（點擊聽主三和弦）`)}</span>
           </button>
           <button type="button" class="jam-pad" id="p-btn-rel" style="--pad-color:#8b5cf6;min-block-size:86px;">
-            <span style="font-size:1.08rem;">👯 關係：${info.relDisp}</span>
-            <span style="font-size:0.76rem;">同調號 ${info.majSig} · 主音降小三度</span>
+            <span style="font-size:1.06rem;">👯 ${t(`Relative: ${info.relEn}`, `關係：${info.relZh}`)}</span>
+            <span style="font-size:0.75rem;">${t(`Same sig (${mSig}) · down m3`, `同調號 ${mSig} · 主音降小三度`)}</span>
           </button>
           <button type="button" class="jam-pad" id="p-btn-par" style="--pad-color:#06b6d4;min-block-size:86px;">
-            <span style="font-size:1.08rem;">🪞 平行：${info.parDisp}</span>
-            <span style="font-size:0.76rem;">同主音 ${dispMaj} · 調號變 ${info.parSig}</span>
+            <span style="font-size:1.06rem;">🪞 ${t(`Parallel: ${info.parEn}`, `平行：${info.parZh}`)}</span>
+            <span style="font-size:0.75rem;">${t(`Same tonic ${dispMaj} · sig = ${pSig}`, `同主音 ${dispMaj} · 調號變 ${pSig}`)}</span>
           </button>
         `;
 
@@ -135,49 +142,68 @@
         });
       }
       pSel.addEventListener('change', renderPortal);
+      window.addEventListener('lang-changed', renderPortal);
       renderPortal();
 
       Widgets.createCircleOfFifths('#ch09-circle', { showMinor: true });
 
       MusicNotation.render('#score-key-detective', {
-        title: '巴哈《g 小調小步舞曲》（調號 2♭ + 臨時導音 F♯ + 尾音 G = g 小調！）',
+        title: {
+          en: 'Bach Minuet in g minor (2♭ sig + raised leading tone F♯ + final G = g minor!)',
+          zh: '巴哈《g 小調小步舞曲》（調號 2♭ + 臨時導音 F♯ + 尾音 G = g 小調！）'
+        },
         clef: 'treble',
         key: 'Bb',
         time: '3/4',
         bpm: 104,
-        spacing: 42,
+        spacing: 44,
         notes: [
           { pitch: 'Bb4', dur: 'q', hideAccidental: true },
           { pitch: 'A4',  dur: 'q' },
           { pitch: 'G4',  dur: 'q' },
           { bar: '|' },
-          { pitch: 'F#4', dur: 'h', topText: '導音 F♯!' },
+          { pitch: 'F#4', dur: 'h', topText: { en: 'Leading F♯!', zh: '導音 F♯!' } },
           { pitch: 'D4',  dur: 'q' },
           { bar: '|' },
           { pitch: 'A4',  dur: 'q' },
           { pitch: 'F#4', dur: 'q' },
-          { pitch: 'G4',  dur: 'q', topText: '主音 G!' }
+          { pitch: 'G4',  dur: 'q', topText: { en: 'Tonic G!', zh: '主音 G!' } }
         ]
       });
 
       Widgets.createQuiz('#ch09-quiz', 'quiz-ch09', 'ch09', [
         {
-          prompt: '「E 大調 (4♯)」的關係小調 (Relative Minor) 是哪一個小調？',
-          options: ['e 小調', 'c♯ 小調', 'c 小調', 'g♯ 小調'],
+          prompt: { en: 'What is the Relative Minor of “E Major (4♯)”?', zh: '「E 大調 (4♯)」的關係小調 (Relative Minor) 是哪一個小調？' },
+          options: [
+            { en: 'e minor', zh: 'e 小調' },
+            { en: 'c♯ minor', zh: 'c♯ 小調' },
+            { en: 'c minor', zh: 'c 小調' },
+            { en: 'g♯ minor', zh: 'g♯ 小調' }
+          ],
           answer: 1,
-          explanation: 'E 往下數小三度（3 半音、兩字母）= c♯ 小調（同為 4♯）！'
+          explanation: { en: 'Down a minor third (3 semitones, 2 letter steps) from E = c♯ minor (4♯)!', zh: 'E 往下數小三度（3 半音、兩字母）= c♯ 小調（同為 4♯）！' }
         },
         {
-          prompt: '「D 大調 (2♯)」的平行小調「d 小調」調號是什麼？',
-          options: ['2♯', '1♭ (B♭)', '3♭', '0 升降'],
+          prompt: { en: 'What is the key signature of “d minor”, the Parallel Minor of D Major (2♯)?', zh: '「D 大調 (2♯)」的平行小調「d 小調」調號是什麼？' },
+          options: [
+            { en: '2♯', zh: '2♯' },
+            { en: '1♭ (B♭)', zh: '1♭ (B♭)' },
+            { en: '3♭', zh: '3♭' },
+            { en: '0 sharps/flats', zh: '0 升降' }
+          ],
           answer: 1,
-          explanation: '平行大小調差 3 個記號：2♯ 逆時針退三格 → 1♭ (B♭)！'
+          explanation: { en: 'Parallel major/minor differ by 3 accidentals: 2♯ − 3 steps = 1♭ (B♭)!', zh: '平行大小調差 3 個記號：2♯ 逆時針退三格 → 1♭ (B♭)！' }
         },
         {
-          prompt: '調號為「1 個升記號 (F♯)」，譜內頻繁出現「D♯」且尾音停在 E，此曲為？',
-          options: ['G 大調', 'e 小調', 'D 大調', 'b 小調'],
+          prompt: { en: 'A piece has a 1-sharp key signature (F♯), frequent D♯ accidentals, and ends on E. What key is it?', zh: '調號為「1 個升記號 (F♯)」，譜內頻繁出現「D♯」且尾音停在 E，此曲為？' },
+          options: [
+            { en: 'G Major', zh: 'G 大調' },
+            { en: 'e minor', zh: 'e 小調' },
+            { en: 'D Major', zh: 'D 大調' },
+            { en: 'b minor', zh: 'b 小調' }
+          ],
           answer: 1,
-          explanation: '1♯ 且有升導音 D♯ 並收在主音 E → e 小調！'
+          explanation: { en: '1♯ with raised leading tone D♯ resolving to tonic E → e minor!', zh: '1♯ 且有升導音 D♯ 並收在主音 E → e 小調！' }
         }
       ]);
     });

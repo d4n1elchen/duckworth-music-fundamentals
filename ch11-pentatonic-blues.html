@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 11 章：五聲與藍調推弦即興台 ＋ 焦點技能 6 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 11: Pentatonic &amp; Blues Solo Pads + Focus 6 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch11">
+<body data-page="ch11" data-zh-title="第 11 章：五聲與藍調推弦即興台 ＋ 焦點技能 6 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,32 +23,32 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 11 + Focus on Skills 6</span>
-        <h1 id="main-heading" tabindex="-1">第 11 章：五聲音階、日本櫻花音階與藍調即興台</h1>
-        <p class="chapter-subtitle">
-          按下伴奏鼓點，直接用手指在<strong>五聲／櫻花／藍調推弦打擊墊</strong>上即興獨奏——怎麼彈都不會錯音！
+        <span class="chapter-eyebrow" data-zh="Chapter 11 + Focus on Skills 6 · 第 11 章＋檢定 6">Chapter 11 + Focus on Skills 6</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 11 章：五聲音階、日本櫻花音階與藍調即興台">Ch 11: Pentatonic, Sakura &amp; Blues Pitch-Bend Solo Pads</h1>
+        <p class="chapter-subtitle" data-zh="按下伴奏鼓點，直接用手指在<strong>五聲／櫻花／藍調推弦打擊墊</strong>上即興獨奏——怎麼彈都不會錯音！">
+          Start the backing groove and improvise freely on the <strong>Pentatonic, Sakura &amp; Blues pitch-bend pads</strong>—every note fits!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">☀️ 大調五聲：<strong>1–2–3–5–6</strong>（抽掉 4·7 半音）</span>
-          <span class="visual-pill">🌸 日本櫻花五聲：<strong>1–2–♭3–5–♭6</strong>（含半音！）</span>
-          <span class="visual-pill">🎷 六音藍調：<strong>1–♭3–4–♭5–5–♭7</strong>（三個藍調音）</span>
+          <span class="visual-pill" data-zh="☀️ 大調五聲：<strong>1–2–3–5–6</strong>（抽掉 4·7 半音）">☀️ Major Pentatonic: <strong>1–2–3–5–6</strong> (omits 4̂ &amp; 7̂ half steps)</span>
+          <span class="visual-pill" data-zh="🌸 日本櫻花五聲：<strong>1–2–♭3–5–♭6</strong>（含半音！）">🌸 Japanese Sakura: <strong>1–2–♭3–5–♭6</strong> (includes half steps!)</span>
+          <span class="visual-pill" data-zh="🎷 六音藍調：<strong>1–♭3–4–♭5–5–♭7</strong>（三個藍調音）">🎷 6-Note Blues: <strong>1–♭3–4–♭5–5–♭7</strong> (3 Blue Notes)</span>
         </div>
       </section>
 
-      <!-- 1. 即興觸控打擊墊 + 伴奏鼓組 -->
+      <!-- 1. Jam Pad with Backing Beat & Blues Bends -->
       <section class="lesson-section" aria-labelledby="ch11-jam">
-        <h2 id="ch11-jam">🎛️ 1. 觸控即興獨奏台（含自動伴奏律動 ＆ 藍調推弦彎音！）</h2>
+        <h2 id="ch11-jam" data-zh="🎛️ 1. 觸控即興獨奏台（含自動伴奏律動 ＆ 藍調推弦彎音！）">🎛️ 1. Touch Solo Jam Pads (With Backing Groove &amp; Blue-Note Bends!)</h2>
         <div class="widget-box">
           <div id="ch11-jampad"></div>
         </div>
       </section>
 
-      <!-- 2. 多調性五聲與藍調音階鍵盤映射 + 名曲對照 -->
+      <!-- 2. Multi-Key Pentatonic & Blues Explorer + Folk Melodies -->
       <section class="lesson-section" aria-labelledby="ch11-lab">
-        <h2 id="ch11-lab">🎹 2. 五種五聲／藍調音階全調性檢視器</h2>
+        <h2 id="ch11-lab" data-zh="🎹 2. 五種五聲／藍調音階全調性檢視器">🎹 2. All-Key Pentatonic &amp; Blues Scale Explorer</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <label style="font-weight:800;">主音：
+            <label style="font-weight:800;"><span data-zh="主音：">Tonic: </span>
               <select id="pb-root">
                 <option value="C">C</option>
                 <option value="D">D</option>
@@ -56,16 +59,16 @@
                 <option value="Bb">B♭</option>
               </select>
             </label>
-            <label style="font-weight:800;">類型：
+            <label style="font-weight:800;"><span data-zh="類型：">Scale Type: </span>
               <select id="pb-type">
-                <option value="blues" selected>🎷 六音藍調 (1-♭3-4-♭5-5-♭7)</option>
-                <option value="majorPentatonic">☀️ 大調五聲 I (1-2-3-5-6)</option>
-                <option value="majorPentatonicAlt">🌤️ 大調五聲 II (1-2-4-5-6)</option>
-                <option value="minorPentatonic">🌙 小調五聲無半音 (1-♭3-4-5-♭7)</option>
-                <option value="japanesePentatonic">🌸 日本五聲含半音 (櫻花)</option>
+                <option value="blues" selected data-zh="🎷 六音藍調 (1-♭3-4-♭5-5-♭7)">🎷 6-Note Blues (1-♭3-4-♭5-5-♭7)</option>
+                <option value="majorPentatonic" data-zh="☀️ 大調五聲 I (1-2-3-5-6)">☀️ Major Pentatonic I (1-2-3-5-6)</option>
+                <option value="majorPentatonicAlt" data-zh="🌤️ 大調五聲 II (1-2-4-5-6)">🌤️ Major Pentatonic II (1-2-4-5-6)</option>
+                <option value="minorPentatonic" data-zh="🌙 小調五聲無半音 (1-♭3-4-5-♭7)">🌙 Minor Pentatonic (1-♭3-4-5-♭7)</option>
+                <option value="japanesePentatonic" data-zh="🌸 日本五聲含半音 (櫻花)">🌸 Japanese Pentatonic (Sakura)</option>
               </select>
             </label>
-            <button type="button" class="btn btn-sm btn-primary" id="pb-play-btn">▶ 播放音階</button>
+            <button type="button" class="btn btn-sm btn-primary" id="pb-play-btn" data-zh="▶ 播放音階">▶ Play Scale</button>
           </div>
           <div id="pb-readout" class="visual-pill"></div>
           <div id="pb-score"></div>
@@ -76,7 +79,7 @@
 
       <!-- 3. Focus on Skills 6 -->
       <section class="lesson-section" aria-labelledby="focus6-heading">
-        <h2 id="focus6-heading">🏆 Focus on Skills 6：小調、五聲與藍調綜合檢定</h2>
+        <h2 id="focus6-heading" data-zh="🏆 Focus on Skills 6：小調、五聲與藍調綜合檢定">🏆 Focus on Skills 6: Minor, Pentatonic &amp; Blues Checkpoint</h2>
         <div id="focus6-quiz"></div>
       </section>
     </main>
@@ -84,20 +87,20 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       Widgets.createJamPad('#ch11-jampad', { defaultMode: 'blues' });
 
       MusicNotation.render('#score-auld-sakura', {
-        title: '大調五聲《Auld Lang Syne》 vs 日本含半音五聲《Sakura》',
+        title: { en: 'Major Pentatonic “Auld Lang Syne” vs. Half-Step Pentatonic “Sakura”', zh: '大調五聲《Auld Lang Syne》 vs 日本含半音五聲《Sakura》' },
         clef: 'treble',
         bpm: 96,
-        spacing: 38,
+        spacing: 42,
         notes: [
           { pitch: 'G3', dur: 'q', lyric: 'Should' },
           { pitch: 'C4', dur: 'q', dotted: true, lyric: 'auld' },
@@ -121,14 +124,16 @@
       const typeSel = document.getElementById('pb-type');
       const readout = document.getElementById('pb-readout');
       let curScale = null;
+      let scoreApi = null;
 
       function updatePB() {
         curScale = CourseData.buildScale(rootSel.value + '4', typeSel.value);
         readout.innerHTML = `🎵 <strong>${curScale.notes.map(n => n.name).join(' – ')}</strong>`;
-        MusicNotation.render('#pb-score', {
+        scoreApi = MusicNotation.render('#pb-score', {
+          title: curScale.label,
           clef: 'treble',
-          playable: false,
-          spacing: 46,
+          bpm: 108,
+          spacing: 50,
           notes: curScale.notes.map(n => ({ pitch: n.ascii, dur: 'q', label: n.name }))
         });
         piano.highlightMidi(curScale.notes.map(n => n.midi), curScale.notes[0].midi);
@@ -138,29 +143,44 @@
       updatePB();
 
       document.getElementById('pb-play-btn').addEventListener('click', () => {
-        AudioEngine.playSequence(curScale.notes.map(n => ({ pitch: n, beats: 0.45 })), 108, {
-          onStep: (ev) => piano.flashKey(ev.pitch.midi, 220)
+        if (scoreApi?.card) scoreApi.card.scrollTo({ left: 0, behavior: 'auto' });
+        AudioEngine.playSequence(curScale.notes.map((n, idx) => ({ pitch: n, beats: 0.45, idx })), 108, {
+          onStep: (ev) => {
+            piano.flashKey(ev.pitch.midi, 220);
+            scoreApi?.highlightNote?.(ev.idx);
+          },
+          onDone: () => scoreApi?.resetHighlight?.()
         });
       });
 
       Widgets.createQuiz('#focus6-quiz', 'quiz-focus6', 'ch11', [
         {
-          prompt: '六音藍調音階（如 C – E♭ – F – G♭ – G – B♭ – C）中的三個「藍調音 (Blue Notes)」是哪三個音級？',
+          prompt: { en: 'In the 6-note blues scale (e.g., C–E♭–F–G♭–G–B♭–C), which three degrees are the “Blue Notes”?', zh: '六音藍調音階（如 C – E♭ – F – G♭ – G – B♭ – C）中的三個「藍調音 (Blue Notes)」是哪三個音級？' },
           options: ['2, 4, 6', '♭3, ♭5, ♭7', '♯4, ♯5, ♯7', '♭2, ♭3, ♭6'],
           answer: 1,
-          explanation: '降三音 (♭3)、降五音 (♭5) 與降七音 (♭7) 即為藍調三大靈魂 Blue Notes！'
+          explanation: { en: 'Lowered 3rd (♭3), lowered 5th (♭5), and lowered 7th (♭7) are the signature Blue Notes!', zh: '降三音 (♭3)、降五音 (♭5) 與降七音 (♭7) 即為藍調三大靈魂 Blue Notes！' }
         },
         {
-          prompt: '以 C 為起點的「大調五聲音階第一型 (1-2-3-5-6)」，抽掉了大調音階中的哪兩個音級以消除半音？',
-          options: ['第 2 與第 5 級', '第 4 與第 7 級（F 與 B）', '第 3 與第 6 級', '第 1 與第 5 級'],
+          prompt: { en: 'The C Major Pentatonic scale (1-2-3-5-6) omits which two major-scale degrees to remove all half steps?', zh: '以 C 為起點的「大調五聲音階第一型 (1-2-3-5-6)」，抽掉了大調音階中的哪兩個音級以消除半音？' },
+          options: [
+            { en: '2̂ and 5̂', zh: '第 2 與第 5 級' },
+            { en: '4̂ and 7̂ (F and B)', zh: '第 4 與第 7 級（F 與 B）' },
+            { en: '3̂ and 6̂', zh: '第 3 與第 6 級' },
+            { en: '1̂ and 5̂', zh: '第 1 與第 5 級' }
+          ],
           answer: 1,
-          explanation: '抽掉製造半音的第 4 級與第 7 級，留下 C–D–E–G–A！'
+          explanation: { en: 'Omitting 4̂ (F) and 7̂ (B) eliminates every half step, leaving C–D–E–G–A!', zh: '抽掉製造半音的第 4 級與第 7 級，留下 C–D–E–G–A！' }
         },
         {
-          prompt: '日本民謠《櫻花 Sakura》（A–B–C–E–F–A）屬於哪一種音階？',
-          options: ['無半音大調五聲', '含兩個半音的小調五聲音階', '六音藍調音階', '全音音階'],
+          prompt: { en: 'The traditional Japanese melody “Sakura” (A–B–C–E–F–A) uses what kind of scale?', zh: '日本民謠《櫻花 Sakura》（A–B–C–E–F–A）屬於哪一種音階？' },
+          options: [
+            { en: 'Anhemitonic major pentatonic', zh: '無半音大調五聲' },
+            { en: 'Pentatonic scale containing half steps', zh: '含兩個半音的小調五聲音階' },
+            { en: '6-note blues scale', zh: '六音藍調音階' },
+            { en: 'Whole-tone scale', zh: '全音音階' }
+          ],
           answer: 1,
-          explanation: 'A–B–C–E–F–A 包含 B–C 與 E–F 兩處半音，屬於含半音的小調五聲音階！'
+          explanation: { en: 'A–B–C–E–F–A contains two half steps (B–C and E–F) inside a 5-note minor-colored pentatonic!', zh: 'A–B–C–E–F–A 包含 B–C 與 E–F 兩處半音，屬於含半音的小調五聲音階！' }
         }
       ]);
     });

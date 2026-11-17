@@ -219,8 +219,9 @@
     const g = audio.createGain();
     g.connect(masterGain);
 
+    const _t = window.I18n ? window.I18n.t : (en) => en;
     emitActivity({
-      label: accent ? '⚡ 重拍' : '● 節拍',
+      label: accent ? _t('⚡ Accent', '⚡ 重拍') : _t('● Beat', '● 節拍'),
       freq: accent ? 880 : 440,
       color: accent ? '#f59e0b' : '#38bdf8',
       kind: 'perc'
@@ -280,7 +281,8 @@
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + durationSec);
     g.connect(masterGain);
 
-    emitActivity({ label: `泛音合成 ${Math.round(fundamentalHz)}Hz`, freq: fundamentalHz, color: '#a855f7', kind: 'harmonic' });
+    const _t = window.I18n ? window.I18n.t : (en) => en;
+    emitActivity({ label: _t(`Harmonics ${Math.round(fundamentalHz)}Hz`, `泛音合成 ${Math.round(fundamentalHz)}Hz`), freq: fundamentalHz, color: '#a855f7', kind: 'harmonic' });
 
     partialWeights.forEach((amp, idx) => {
       if (amp <= 0.001) return;

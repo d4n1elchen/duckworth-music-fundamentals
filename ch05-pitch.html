@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 5 章：八度音域、力度球與樂譜導航 ＋ 焦點技能 3 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 5: Pitch, Dynamics &amp; Navigation + Focus 3 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch05">
+<body data-page="ch05" data-zh-title="第 5 章：八度音域、力度球與樂譜導航 ＋ 焦點技能 3 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,68 +23,68 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 5 + Focus on Skills 3</span>
-        <h1 id="main-heading" tabindex="-1">第 5 章：同音異名、A0–C8 八度、力度奏法與樂譜導航</h1>
-        <p class="chapter-subtitle">
-          把視野擴展至整台 88 鍵鋼琴，親手玩轉<strong>白鍵等音、力度能量球、奏法觸控板</strong>與<strong>反覆跳躍導航機</strong>！
+        <span class="chapter-eyebrow" data-zh="Chapter 5 + Focus on Skills 3 · 第 5 章＋檢定 3">Chapter 5 + Focus on Skills 3</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 5 章：同音異名、A0–C8 八度、力度奏法與樂譜導航">Ch 5: Enharmonics, Octaves, Dynamics &amp; Score Roadmap</h1>
+        <p class="chapter-subtitle" data-zh="把視野擴展至整台 88 鍵鋼琴，親手玩轉<strong>白鍵等音、力度能量球、奏法觸控板</strong>與<strong>反覆跳躍導航機</strong>！">
+          Zoom out across all 88 keys—test <strong>white-key enharmonics, dynamic faders, articulation pads</strong>, and an <strong>animated repeat roadmap</strong>!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🔁 白鍵等音：<strong>E♯=F · F♭=E · B♯=C · C♭=B</strong></span>
-          <span class="visual-pill">🎹 八度從 C 起算：<strong>C4–B4（中央C = C4）</strong></span>
-          <span class="visual-pill">📏 第 3 線以上符桿朝<strong>下</strong> · 以下朝<strong>上</strong></span>
+          <span class="visual-pill" data-zh="🔁 白鍵等音：<strong>E♯=F · F♭=E · B♯=C · C♭=B</strong>">🔁 White-key enharmonics: <strong>E♯=F · F♭=E · B♯=C · C♭=B</strong></span>
+          <span class="visual-pill" data-zh="🎹 八度從 C 起算：<strong>C4–B4（中央C = C4）</strong>">🎹 Octaves reset on C: <strong>C4–B4 (Middle C = C4)</strong></span>
+          <span class="visual-pill" data-zh="📏 第 3 線以上符桿朝<strong>下</strong> · 以下朝<strong>上</strong>">📏 Above Line 3 stems go <strong>down</strong> · below go <strong>up</strong></span>
         </div>
       </section>
 
-      <!-- 1. 白鍵等音 + 加線 & 8va 切換器 -->
+      <!-- 1. White-Key Enharmonics + 8va -->
       <section class="lesson-section" aria-labelledby="ch5-enh">
-        <h2 id="ch5-enh">🔁 1. 白鍵同音異名 ＆ <code>8va</code> 八度折疊視譜</h2>
+        <h2 id="ch5-enh" data-zh="🔁 1. 白鍵同音異名 ＆ <code>8va</code> 八度折疊視譜">🔁 1. White-Key Enharmonics &amp; <code>8va</code> Octave Sign</h2>
         <div class="jam-pad-grid" id="enh-pads" style="grid-template-columns:repeat(auto-fit, minmax(115px, 1fr));">
           <button type="button" class="jam-pad" data-p1="E#4" data-p2="F4" style="--pad-color:#10b981;min-block-size:60px;">
-            <span>E♯4 ＝ F4</span><span style="font-size:0.72rem;">同一白鍵</span>
+            <span>E♯4 ＝ F4</span><span style="font-size:0.72rem;" data-zh="同一白鍵">Same white key</span>
           </button>
           <button type="button" class="jam-pad" data-p1="Fb4" data-p2="E4" style="--pad-color:#84cc16;min-block-size:60px;">
-            <span>F♭4 ＝ E4</span><span style="font-size:0.72rem;">同一白鍵</span>
+            <span>F♭4 ＝ E4</span><span style="font-size:0.72rem;" data-zh="同一白鍵">Same white key</span>
           </button>
           <button type="button" class="jam-pad" data-p1="B#3" data-p2="C4" style="--pad-color:#ef4444;min-block-size:60px;">
-            <span>B♯3 ＝ C4</span><span style="font-size:0.72rem;">跨越八度編號!</span>
+            <span>B♯3 ＝ C4</span><span style="font-size:0.72rem;" data-zh="跨越八度編號!">Crosses octave #!</span>
           </button>
           <button type="button" class="jam-pad" data-p1="Cb4" data-p2="B3" style="--pad-color:#ec4899;min-block-size:60px;">
-            <span>C♭4 ＝ B3</span><span style="font-size:0.72rem;">跨越八度編號!</span>
+            <span>C♭4 ＝ B3</span><span style="font-size:0.72rem;" data-zh="跨越八度編號!">Crosses octave #!</span>
           </button>
         </div>
         <div id="score-ledger-8va"></div>
       </section>
 
-      <!-- 2. A0-C8 八度雷達 + 力度與奏法觸控台 -->
+      <!-- 2. Dynamics Fader + Articulation Pads + Octave Jumper -->
       <section class="lesson-section" aria-labelledby="ch5-dyn">
-        <h2 id="ch5-dyn">💥 2. <code>pp → ff</code> 力度能量推桿 ＆ 四大奏法觸控板</h2>
+        <h2 id="ch5-dyn" data-zh="💥 2. <code>pp → ff</code> 力度能量推桿 ＆ 四大奏法觸控板">💥 2. <code>pp → ff</code> Dynamics Fader &amp; Articulation Pads</h2>
         <div class="widget-box">
           <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
             <label style="flex:1;min-inline-size:180px;font-weight:800;">
-              <span>力度推桿 Dynamics：<strong id="dyn-label" style="color:var(--brand);font-size:1.15rem;">mf (中強)</strong></span>
+              <span><span data-zh="力度推桿 Dynamics：">Dynamics Fader: </span><strong id="dyn-label" style="color:var(--brand);font-size:1.15rem;">mf</strong></span>
               <input type="range" id="dyn-slider" min="0" max="5" step="1" value="3" style="inline-size:100%;margin-block-start:0.4rem;">
             </label>
-            <button type="button" class="btn btn-primary" id="dyn-play">🔊 彈奏和弦感受力度</button>
+            <button type="button" class="btn btn-primary" id="dyn-play" data-zh="🔊 彈奏和弦感受力度">🔊 Play Chord at Dynamic</button>
           </div>
           <div class="jam-pad-grid" style="margin-block-start:0.85rem;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));">
             <button type="button" class="jam-pad" data-art="staccato" style="--pad-color:#06b6d4;min-block-size:64px;">
-              <span>· Staccato</span><span style="font-size:0.72rem;">短促跳音斷奏</span>
+              <span>· Staccato</span><span style="font-size:0.72rem;" data-zh="短促跳音斷奏">Short &amp; detached</span>
             </button>
             <button type="button" class="jam-pad" data-art="legato" style="--pad-color:#8b5cf6;min-block-size:64px;">
-              <span>⌒ Legato</span><span style="font-size:0.72rem;">綿密圓滑連奏</span>
+              <span>⌒ Legato</span><span style="font-size:0.72rem;" data-zh="綿密圓滑連奏">Smooth &amp; connected</span>
             </button>
             <button type="button" class="jam-pad" data-art="tenuto" style="--pad-color:#10b981;min-block-size:64px;">
-              <span>— Tenuto</span><span style="font-size:0.72rem;">保持唱滿時值</span>
+              <span>— Tenuto</span><span style="font-size:0.72rem;" data-zh="保持唱滿時值">Held full value</span>
             </button>
             <button type="button" class="jam-pad" data-art="sfz" style="--pad-color:#ef4444;min-block-size:64px;">
-              <span>sf Sforzando</span><span style="font-size:0.72rem;">猛烈突強重音!</span>
+              <span>sf Sforzando</span><span style="font-size:0.72rem;" data-zh="猛烈突強重音!">Sudden sharp accent!</span>
             </button>
           </div>
         </div>
 
         <div class="widget-box">
           <div class="widget-header">
-            <h3 class="widget-title">🔭 A1–C6 八度編號跳躍器</h3>
+            <h3 class="widget-title" data-zh="🔭 A1–C6 八度編號跳躍器">🔭 A1–C6 Octave Register Jumper</h3>
             <span id="oct-readout" class="visual-pill">C4 = 261.6 Hz</span>
           </div>
           <div class="widget-controls" id="oct-btns"></div>
@@ -89,23 +92,23 @@
         </div>
       </section>
 
-      <!-- 3. 動態亮燈樂譜導航機 (Musical Map) -->
+      <!-- 3. Animated Score Roadmap -->
       <section class="lesson-section" aria-labelledby="ch5-map">
-        <h2 id="ch5-map">🧭 3. 動態亮燈樂譜導航機（一二房 · D.C. · D.S.）</h2>
+        <h2 id="ch5-map" data-zh="🧭 3. 動態亮燈樂譜導航機（一二房 · D.C. · D.S.）">🧭 3. Animated Score Roadmap (1st/2nd Endings · D.C. · D.S.)</h2>
         <div class="widget-box">
           <div class="widget-controls" style="margin-block-start:0;">
-            <button type="button" class="btn btn-sm btn-primary" data-map="endings">▶ 跑一次「一房／二房」路線</button>
-            <button type="button" class="btn btn-sm" data-map="dc">▶ 跑一次「D.C. al fine」路線</button>
-            <button type="button" class="btn btn-sm" data-map="ds">▶ 跑一次「D.S. al fine (𝄋)」路線</button>
+            <button type="button" class="btn btn-sm btn-primary" data-map="endings" data-zh="▶ 跑一次「一房／二房」路線">▶ Run 1st / 2nd Endings</button>
+            <button type="button" class="btn btn-sm" data-map="dc" data-zh="▶ 跑一次「D.C. al fine」路線">▶ Run D.C. al fine</button>
+            <button type="button" class="btn btn-sm" data-map="ds" data-zh="▶ 跑一次「D.S. al fine (𝄋)」路線">▶ Run D.S. al fine (𝄋)</button>
           </div>
           <div id="map-blocks" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(76px, 1fr));gap:0.45rem;margin-block:0.65rem;"></div>
-          <div id="map-step-label" class="visual-pill">點擊上方任一導航按鈕，觀察小節方塊實際跳躍與演奏順序！</div>
+          <div id="map-step-label" class="visual-pill"></div>
         </div>
       </section>
 
       <!-- 4. Focus on Skills 3 -->
       <section class="lesson-section" aria-labelledby="focus3-heading">
-        <h2 id="focus3-heading">🏆 Focus on Skills 3：音高與導航闖關檢定</h2>
+        <h2 id="focus3-heading" data-zh="🏆 Focus on Skills 3：音高與導航闖關檢定">🏆 Focus on Skills 3: Pitch &amp; Navigation Checkpoint</h2>
         <div id="focus3-quiz"></div>
       </section>
     </main>
@@ -113,18 +116,20 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      const pick = (v) => (window.I18n ? window.I18n.pick(v) : v.en);
+
       MusicNotation.render('#score-ledger-8va', {
-        title: '加線 vs 8va 高八度記號（後四音實際發聲同前四音！）',
+        title: { en: 'Ledger Lines vs. 8va Sign (Last 4 notes sound identical to first 4!)', zh: '加線 vs 8va 高八度記號（後四音實際發聲同前四音！）' },
         clef: 'treble',
         bpm: 104,
-        spacing: 42,
+        spacing: 46,
         octaveBracket: { startIdx: 5, endIdx: 8, type: '8va' },
         notes: [
           { pitch: 'A5', dur: 'q', label: 'A5' },
@@ -132,10 +137,10 @@
           { pitch: 'C6', dur: 'q', label: 'C6' },
           { pitch: 'D6', dur: 'q', label: 'D6' },
           { bar: '||' },
-          { pitch: 'A4', dur: 'q', label: '記A4=A5' },
-          { pitch: 'B4', dur: 'q', label: '記B4=B5' },
-          { pitch: 'C5', dur: 'q', label: '記C5=C6' },
-          { pitch: 'D5', dur: 'q', label: '記D5=D6' }
+          { pitch: 'A4', dur: 'q', label: { en: 'A4→A5', zh: '記A4=A5' } },
+          { pitch: 'B4', dur: 'q', label: { en: 'B4→B5', zh: '記B4=B5' } },
+          { pitch: 'C5', dur: 'q', label: { en: 'C5→C6', zh: '記C5=C6' } },
+          { pitch: 'D5', dur: 'q', label: { en: 'D5→D6', zh: '記D5=D6' } }
         ]
       });
 
@@ -148,18 +153,22 @@
 
       // Dynamics & Articulations
       const DYN_LEVELS = [
-        { sym: 'pp (極弱)', vel: 0.16 },
-        { sym: 'p (弱)',    vel: 0.30 },
-        { sym: 'mp (中弱)', vel: 0.46 },
-        { sym: 'mf (中強)', vel: 0.64 },
-        { sym: 'f (強)',    vel: 0.82 },
-        { sym: 'ff (極強)', vel: 1.00 }
+        { sym: { en: 'pp (very soft)', zh: 'pp (極弱)' }, vel: 0.16 },
+        { sym: { en: 'p (soft)',       zh: 'p (弱)' },    vel: 0.30 },
+        { sym: { en: 'mp (med. soft)', zh: 'mp (中弱)' }, vel: 0.46 },
+        { sym: { en: 'mf (med. loud)', zh: 'mf (中強)' }, vel: 0.64 },
+        { sym: { en: 'f (loud)',       zh: 'f (強)' },    vel: 0.82 },
+        { sym: { en: 'ff (very loud)', zh: 'ff (極強)' }, vel: 1.00 }
       ];
       const dynSlider = document.getElementById('dyn-slider');
       const dynLabel = document.getElementById('dyn-label');
-      dynSlider.addEventListener('input', () => {
-        dynLabel.textContent = DYN_LEVELS[Number(dynSlider.value)].sym;
-      });
+      function updateDynLabel() {
+        dynLabel.textContent = pick(DYN_LEVELS[Number(dynSlider.value)].sym);
+      }
+      updateDynLabel();
+      dynSlider.addEventListener('input', updateDynLabel);
+      window.addEventListener('lang-changed', updateDynLabel);
+
       document.getElementById('dyn-play').addEventListener('click', () => {
         const lv = DYN_LEVELS[Number(dynSlider.value)];
         AudioEngine.playChord(['C4', 'E4', 'G4', 'C5'], 0.9, 0, { velocity: lv.vel });
@@ -170,9 +179,7 @@
           const art = btn.dataset.art;
           const notes = ['C4', 'D4', 'E4', 'G4'];
           if (art === 'staccato') {
-            AudioEngine.playSequence(notes.map(n => ({ pitch: n, beats: 0.5, opts: { velocity: 0.72 } })), 130);
-            setTimeout(() => AudioEngine.stopAll(), 950);
-            notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.09), i * 240));
+            notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.09, 0, { velocity: 0.78 }), i * 240));
           } else if (art === 'legato') {
             notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.48, 0, { timbre: 'violin', attack: 0.06 }), i * 280));
           } else if (art === 'tenuto') {
@@ -213,28 +220,52 @@
       // Animated Score Map Runner
       const MAP_SPECS = {
         endings: {
-          bars: ['M1 主題', 'M2 主題', '1. 一房 :|', '2. 二房 ||'],
+          bars: [
+            { en: 'M1 Theme', zh: 'M1 主題' },
+            { en: 'M2 Theme', zh: 'M2 主題' },
+            { en: '1. 1st :|', zh: '1. 一房 :|' },
+            { en: '2. 2nd ||', zh: '2. 二房 ||' }
+          ],
           order: [0, 1, 2, 0, 1, 3],
           pitches: ['C4', 'E4', 'G4', 'C5'],
-          msg: '第二次重奏到 M2 結尾時，直接跳過「1. 一房」進入「2. 二房」！'
+          msg: {
+            en: 'On the repeat after M2, skip 1st ending and jump straight into 2nd ending!',
+            zh: '第二次重奏到 M2 結尾時，直接跳過「1. 一房」進入「2. 二房」！'
+          }
         },
         dc: {
-          bars: ['M1 開頭', 'M2 Fine 🏁', 'M3 B段', 'M4 D.C.↩'],
+          bars: [
+            { en: 'M1 Start', zh: 'M1 開頭' },
+            { en: 'M2 Fine 🏁', zh: 'M2 Fine 🏁' },
+            { en: 'M3 B Sec', zh: 'M3 B段' },
+            { en: 'M4 D.C.↩', zh: 'M4 D.C.↩' }
+          ],
           order: [0, 1, 2, 3, 0, 1],
           pitches: ['F4', 'A4', 'G4', 'E4'],
-          msg: '遇到 D.C. al fine → 跳回最開頭 M1，彈到標有 Fine 的 M2 結束！'
+          msg: {
+            en: 'D.C. al fine → Jump back to the very beginning (M1) and stop at Fine (M2)!',
+            zh: '遇到 D.C. al fine → 跳回最開頭 M1，彈到標有 Fine 的 M2 結束！'
+          }
         },
         ds: {
-          bars: ['M1 前奏', 'M2 𝄋記號', 'M3 Fine 🏁', 'M4 D.S.↩'],
+          bars: [
+            { en: 'M1 Intro', zh: 'M1 前奏' },
+            { en: 'M2 𝄋 Sign', zh: 'M2 𝄋記號' },
+            { en: 'M3 Fine 🏁', zh: 'M3 Fine 🏁' },
+            { en: 'M4 D.S.↩', zh: 'M4 D.S.↩' }
+          ],
           order: [0, 1, 2, 3, 1, 2],
           pitches: ['D4', 'F#4', 'A4', 'E4'],
-          msg: '遇到 D.S. al fine → 跳回有 𝄋 (Segno) 的 M2，彈到 Fine 結束！'
+          msg: {
+            en: 'D.S. al fine → Jump back to the 𝄋 Segno sign (M2) and stop at Fine (M3)!',
+            zh: '遇到 D.S. al fine → 跳回有 𝄋 (Segno) 的 M2，彈到 Fine 結束！'
+          }
         }
       };
 
       let mapTimer = null;
-      function runMap(key) {
-        if (mapTimer) clearInterval(mapTimer);
+      let curMapKey = 'endings';
+      function renderMapStatic(key) {
         const cfg = MAP_SPECS[key];
         const mount = document.getElementById('map-blocks');
         const lbl = document.getElementById('map-step-label');
@@ -246,13 +277,22 @@
           d.style.fontWeight = '800';
           d.style.fontSize = '0.84rem';
           d.style.padding = '0.7rem 0.4rem';
-          d.textContent = txt;
+          d.textContent = pick(txt);
           mount.appendChild(d);
           return d;
         });
+        lbl.textContent = pick(cfg.msg);
+        return cards;
+      }
+
+      function runMap(key, playAudio = true) {
+        curMapKey = key;
+        if (mapTimer) clearInterval(mapTimer);
+        const cfg = MAP_SPECS[key];
+        const cards = renderMapStatic(key);
+        if (!playAudio) return;
 
         let step = 0;
-        lbl.textContent = cfg.msg;
         mapTimer = setInterval(() => {
           if (step >= cfg.order.length) {
             clearInterval(mapTimer);
@@ -271,29 +311,40 @@
       document.querySelectorAll('[data-map]').forEach(btn => {
         btn.addEventListener('click', () => {
           document.querySelectorAll('[data-map]').forEach(x => x.classList.toggle('btn-primary', x === btn));
-          runMap(btn.dataset.map);
+          runMap(btn.dataset.map, true);
         });
       });
-      runMap('endings');
+      runMap('endings', false);
+      window.addEventListener('lang-changed', () => renderMapStatic(curMapKey));
 
       Widgets.createQuiz('#focus3-quiz', 'quiz-focus3', 'ch05', [
         {
-          prompt: '以「中央 C = C4」為基準，緊鄰在中央 C 左側一個半音的白鍵 B 編號為？',
+          prompt: { en: 'With Middle C = C4, what is the octave label of the white key B immediately to its left?', zh: '以「中央 C = C4」為基準，緊鄰在中央 C 左側一個半音的白鍵 B 編號為？' },
           options: ['B4', 'B3', 'B5', 'C♭3'],
           answer: 1,
-          explanation: '每個八度編號由 C 起算至 B 結束，因此 C4 左側的白鍵屬於第 3 八度的最後一音 B3！'
+          explanation: { en: 'Octave numbers change on C (C–B), so the B below C4 is the top note of octave 3: B3!', zh: '每個八度編號由 C 起算至 B 結束，因此 C4 左側的白鍵屬於第 3 八度的最後一音 B3！' }
         },
         {
-          prompt: '高音譜表第 4 線（D5）的單獨四分音符，符桿應如何繪製？',
-          options: ['朝上畫右側', '朝下畫左側（高於第 3 線中線）', '不畫符桿', '朝下畫右側'],
+          prompt: { en: 'How should the stem be drawn on a single D5 quarter note (Line 4 of treble clef)?', zh: '高音譜表第 4 線（D5）的單獨四分音符，符桿應如何繪製？' },
+          options: [
+            { en: 'Up on the right', zh: '朝上畫右側' },
+            { en: 'Down on the left (above middle Line 3)', zh: '朝下畫左側（高於第 3 線中線）' },
+            { en: 'No stem', zh: '不畫符桿' },
+            { en: 'Down on the right', zh: '朝下畫右側' }
+          ],
           answer: 1,
-          explanation: '第 3 線以上的音符符桿一律朝下，畫在符頭左側（如字母 p）。'
+          explanation: { en: 'Notes above Line 3 take downward stems on the left side (like the letter p).', zh: '第 3 線以上的音符符桿一律朝下，畫在符頭左側（如字母 p）。' }
         },
         {
-          prompt: '樂譜尾端標記「D.S. al fine」，演奏者應該跳回哪裡？',
-          options: ['全曲第 1 小節', '標有記號 𝄋 (Segno) 的小節並彈到 Fine 結束', '直接結束', '跳到 Coda'],
+          prompt: { en: 'When you reach “D.S. al fine”, where do you jump?', zh: '樂譜尾端標記「D.S. al fine」，演奏者應該跳回哪裡？' },
+          options: [
+            { en: 'Measure 1', zh: '全曲第 1 小節' },
+            { en: 'Back to the 𝄋 (Segno) sign and play until Fine', zh: '標有記號 𝄋 (Segno) 的小節並彈到 Fine 結束' },
+            { en: 'Stop immediately', zh: '直接結束' },
+            { en: 'Jump to the Coda', zh: '跳到 Coda' }
+          ],
           answer: 1,
-          explanation: 'D.C. 回最開頭；D.S. (Dal segno) 則是跳回 𝄋 記號處彈至 Fine 結束！'
+          explanation: { en: 'D.C. returns to the head; D.S. (Dal segno) returns to the 𝄋 sign and stops at Fine.', zh: 'D.C. 回最開頭；D.S. (Dal segno) 則是跳回 𝄋 記號處彈至 Fine 結束！' }
         }
       ]);
     });

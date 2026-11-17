@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +7,15 @@
   <script>
     try {
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+      var lg = localStorage.getItem("duckworth11e_lang") || "en";
+      document.documentElement.dataset.lang = lg;
+      document.documentElement.lang = lg === "zh" ? "zh-Hant" : "en";
     } catch {}
   </script>
-  <title>第 4 章：複拍子幾何雷達 ＋ 焦點技能 2 | 創意音樂基礎 11e</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Ch 4: Rhythm II — Compound Meter + Focus 2 | Music Fundamentals 11e</title>
+  <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
-<body data-page="ch04">
+<body data-page="ch04" data-zh-title="第 4 章：複拍子幾何雷達 ＋ 焦點技能 2 | 創意音樂基礎 11e">
   <header id="site-header"></header>
 
   <div class="app-shell">
@@ -20,34 +23,34 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 4 + Focus on Skills 2</span>
-        <h1 id="main-heading" tabindex="-1">第 4 章：複拍子 (6/8 vs 3/4)、切分音與連音雷達</h1>
-        <p class="chapter-subtitle">
-          基本大拍自然<strong>三等分</strong>即為<strong>複拍子 (Compound Meter)</strong>。打開幾何雷達一眼看穿 <code>6/8</code> 與 <code>3/4</code> 的根本差異！
+        <span class="chapter-eyebrow" data-zh="Chapter 4 + Focus on Skills 2 · 第 4 章＋檢定 2">Chapter 4 + Focus on Skills 2</span>
+        <h1 id="main-heading" tabindex="-1" data-zh="第 4 章：複拍子 (6/8 vs 3/4)、切分音與連音雷達">Ch 4: Compound Meter (6/8 vs. 3/4), Syncopation &amp; Radar</h1>
+        <p class="chapter-subtitle" data-zh="基本大拍自然<strong>三等分</strong>即為<strong>複拍子 (Compound Meter)</strong>。打開幾何雷達一眼看穿 <code>6/8</code> 與 <code>3/4</code> 的根本差異！">
+          When each big beat divides naturally into <strong>three equal parts</strong>, you’re in <strong>Compound Meter</strong>. Spin the geometric radar to see <code>6/8</code> vs. <code>3/4</code>!
         </p>
         <div class="pill-row">
-          <span class="visual-pill">🔵 <strong>6/8 = 複二拍（2 個 ♩. 大拍 = 3+3）</strong></span>
-          <span class="visual-pill">🟢 <strong>3/4 = 單三拍（3 個 ♩ 拍 = 2+2+2）</strong></span>
-          <span class="visual-pill">🗣️ <strong>複拍數法：1 - la - le - 2 - la - le</strong></span>
+          <span class="visual-pill" data-zh="🔵 <strong>6/8 = 複二拍（2 個 ♩. 大拍 = 3+3）</strong>">🔵 <strong>6/8 = Compound Duple (two ♩. beats = 3+3)</strong></span>
+          <span class="visual-pill" data-zh="🟢 <strong>3/4 = 單三拍（3 個 ♩ 拍 = 2+2+2）</strong>">🟢 <strong>3/4 = Simple Triple (three ♩ beats = 2+2+2)</strong></span>
+          <span class="visual-pill" data-zh="🗣️ <strong>複拍數法：1 - la - le - 2 - la - le</strong>">🗣️ <strong>Compound count: 1 - la - le - 2 - la - le</strong></span>
         </div>
       </section>
 
-      <!-- 1. 幾何節奏雷達：3/4 vs 6/8 & 2:3 -->
+      <!-- 1. Geometric Rhythm Radar -->
       <section class="lesson-section" aria-labelledby="ch4-radar">
-        <h2 id="ch4-radar">🛸 1. 旋轉幾何節奏雷達：3/4 正三角 vs 6/8 雙軸律動</h2>
+        <h2 id="ch4-radar" data-zh="🛸 1. 旋轉幾何節奏雷達：3/4 正三角 vs 6/8 雙軸律動">🛸 1. Geometric Rhythm Radar: 3/4 Triangle vs. 6/8 Axis</h2>
         <div class="widget-box">
           <div id="ch04-radar"></div>
         </div>
         <div id="score-34-vs-68"></div>
       </section>
 
-      <!-- 2. 6/8 複拍鼓機 & 名曲示範 -->
+      <!-- 2. 6/8 Sequencer & Jolly Good Fellow -->
       <section class="lesson-section" aria-labelledby="ch4-count">
-        <h2 id="ch4-count">🥁 2. 複拍子 6 格律動鼓機（1 - la - le）＆ 切分音</h2>
+        <h2 id="ch4-count" data-zh="🥁 2. 複拍子 6 格律動鼓機（1 - la - le）＆ 切分音">🥁 2. Compound 6-Step Drum Machine (1 - la - le) &amp; Syncopation</h2>
         <div class="pill-row">
-          <span class="visual-pill"><code>6/8, 6/4</code> → <strong>2 大拍</strong></span>
-          <span class="visual-pill"><code>9/8, 9/4</code> → <strong>3 大拍</strong></span>
-          <span class="visual-pill"><code>12/8, 12/4</code> → <strong>4 大拍</strong></span>
+          <span class="visual-pill" data-zh="<code>6/8, 6/4</code> → <strong>2 大拍</strong>"><code>6/8, 6/4</code> → <strong>2 big beats</strong></span>
+          <span class="visual-pill" data-zh="<code>9/8, 9/4</code> → <strong>3 大拍</strong>"><code>9/8, 9/4</code> → <strong>3 big beats</strong></span>
+          <span class="visual-pill" data-zh="<code>12/8, 12/4</code> → <strong>4 大拍</strong>"><code>12/8, 12/4</code> → <strong>4 big beats</strong></span>
         </div>
         <div class="widget-box">
           <div id="ch04-sequencer"></div>
@@ -55,21 +58,21 @@
         <div id="score-jolly"></div>
       </section>
 
-      <!-- 3. 連結線 vs 圓滑線、切分音、三連音與二連音 -->
+      <!-- 3. Tie vs Slur, Syncopation, Triplet & Duplet -->
       <section class="lesson-section" aria-labelledby="ch4-ties">
-        <h2 id="ch4-ties">⚡ 3. 連結線、切分音與借用連音（Triplet 3 ＆ Duplet 2）</h2>
+        <h2 id="ch4-ties" data-zh="⚡ 3. 連結線、切分音與借用連音（Triplet 3 ＆ Duplet 2）">⚡ 3. Ties, Syncopation &amp; Borrowed Divisions (Triplet 3 &amp; Duplet 2)</h2>
         <div class="concept-grid">
           <div class="concept-card">
-            <h3>🔗 連結線 Tie vs 圓滑線 Slur</h3>
-            <p><strong>Tie</strong> 連<strong>同音高</strong>（時值相加不重彈）；<strong>Slur</strong> 跨<strong>不同音</strong>（連奏 legato）。</p>
+            <h3 data-zh="🔗 連結線 Tie vs 圓滑線 Slur">🔗 Tie vs. Slur</h3>
+            <p data-zh="<strong>Tie</strong> 連<strong>同音高</strong>（時值相加不重彈）；<strong>Slur</strong> 跨<strong>不同音</strong>（連奏 legato）。"><strong>Tie</strong> joins the <strong>same pitch</strong> (sustained); <strong>Slur</strong> connects <strong>different pitches</strong> (legato).</p>
           </div>
           <div class="concept-card">
-            <h3>⚡ 切分音 Syncopation</h3>
-            <p>重音或長音刻意落在<strong>弱拍／後半拍</strong>（如 <code>♪ ♩ ♪</code>），創造搖擺推進感。</p>
+            <h3 data-zh="⚡ 切分音 Syncopation">⚡ Syncopation</h3>
+            <p data-zh="重音或長音刻意落在<strong>弱拍／後半拍</strong>（如 <code>♪ ♩ ♪</code>），創造搖擺推進感。">Accents or longer notes placed on <strong>weak beats / offbeats</strong> (<code>♪ ♩ ♪</code>) for forward groove.</p>
           </div>
           <div class="concept-card">
-            <h3>🔀 三連音 3 ＆ 二連音 2</h3>
-            <p>單拍借三等分＝<strong>三連音 <code>3</code></strong>；複拍借二等分＝<strong>二連音 <code>2</code></strong>。</p>
+            <h3 data-zh="🔀 三連音 3 ＆ 二連音 2">🔀 Triplet 3 &amp; Duplet 2</h3>
+            <p data-zh="單拍借三等分＝<strong>三連音 <code>3</code></strong>；複拍借二等分＝<strong>二連音 <code>2</code></strong>。">Simple beat borrowed in 3 = <strong>Triplet <code>3</code></strong>; compound beat borrowed in 2 = <strong>Duplet <code>2</code></strong>.</p>
           </div>
         </div>
         <div id="score-triplet-sync"></div>
@@ -77,7 +80,7 @@
 
       <!-- 4. Focus on Skills 2 -->
       <section class="lesson-section" aria-labelledby="focus2-heading">
-        <h2 id="focus2-heading">🏆 Focus on Skills 2：節奏綜合闖關檢定</h2>
+        <h2 id="focus2-heading" data-zh="🏆 Focus on Skills 2：節奏綜合闖關檢定">🏆 Focus on Skills 2: Rhythm Checkpoint</h2>
         <div id="focus2-quiz"></div>
       </section>
     </main>
@@ -85,21 +88,21 @@
 
   <footer id="site-footer"></footer>
 
-  <script defer src="js/course-data.js"></script>
-  <script defer src="js/audio-engine.js"></script>
-  <script defer src="js/notation.js"></script>
-  <script defer src="js/widgets.js"></script>
-  <script defer src="js/app.js"></script>
+  <script defer src="js/course-data.js?v=6"></script>
+  <script defer src="js/audio-engine.js?v=6"></script>
+  <script defer src="js/notation.js?v=6"></script>
+  <script defer src="js/widgets.js?v=6"></script>
+  <script defer src="js/app.js?v=6"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       Widgets.createPolyrhythmRadar('#ch04-radar');
 
       MusicNotation.render('#score-34-vs-68', {
-        title: '3/4（3組二連♪） vs 6/8（2組三連♪）',
+        title: { en: '3/4 (3 pairs of ♪) vs. 6/8 (2 triplets of ♪)', zh: '3/4（3組二連♪） vs 6/8（2組三連♪）' },
         clef: 'rhythm',
         time: '3/4',
         bpm: 96,
-        spacing: 38,
+        spacing: 42,
         notes: [
           { dur: '8', beam: 1, accent: true, topText: '3/4', count: '1' },
           { dur: '8', beam: 1, count: '&' },
@@ -118,12 +121,12 @@
       });
 
       MusicNotation.render('#score-jolly', {
-        title: '《For He’s a Jolly Good Fellow》（6/8 複二拍＋連結線）',
+        title: { en: '“For He’s a Jolly Good Fellow” (6/8 Compound Duple + Tie)', zh: '《For He’s a Jolly Good Fellow》（6/8 複二拍＋連結線）' },
         clef: 'treble',
         key: 'F',
         time: '6/8',
         bpm: 108,
-        spacing: 40,
+        spacing: 44,
         notes: [
           { pitch: 'C4', dur: '8', lyric: 'For', count: 'le' },
           { bar: '|' },
@@ -140,13 +143,13 @@
       });
 
       MusicNotation.render('#score-triplet-sync', {
-        title: '切分音 (♪ ♩ ♪) 與三連音 (Triplet 3)',
+        title: { en: 'Syncopation (♪ ♩ ♪) & Triplet (3)', zh: '切分音 (♪ ♩ ♪) 與三連音 (Triplet 3)' },
         clef: 'treble',
         time: '4/4',
         bpm: 88,
-        spacing: 40,
+        spacing: 44,
         notes: [
-          { pitch: 'C4', dur: '8', topText: '切分音', count: '1' },
+          { pitch: 'C4', dur: '8', topText: { en: 'Syncopation', zh: '切分音' }, count: '1' },
           { pitch: 'E4', dur: 'q', accent: true, count: '&-(2)' },
           { pitch: 'G4', dur: '8', count: '&' },
           { pitch: 'A4', dur: '8', beam: 2, tuplet: 3, tupletText: '3', count: '3' },
@@ -160,23 +163,23 @@
         bpm: 94,
         presets: [
           {
-            name: '6/8 複二拍（1 la le 2 la le）',
+            name: { en: '6/8 Compound Duple (1 la le 2 la le)', zh: '6/8 複二拍（1 la le 2 la le）' },
             stepFactor: 0.5,
             beatEvery: 3,
             counts: ['1', 'la', 'le', '2', 'la', 'le', '1', 'la', 'le', '2', 'la', 'le'],
             tracks: [
-              { name: '🥁 八分律動', voice: 'clave', pattern: [2, 1, 1, 1, 0, 1, 2, 1, 0, 1, 1, 1] },
-              { name: '🔊 ♩. 大拍', voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
+              { name: { en: '🥁 8th Groove', zh: '🥁 八分律動' }, voice: 'clave', pattern: [2, 1, 1, 1, 0, 1, 2, 1, 0, 1, 1, 1] },
+              { name: { en: '🔊 ♩. Big Beats', zh: '🔊 ♩. 大拍' }, voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
             ]
           },
           {
-            name: '4/4 切分音搖擺 (Syncopation)',
+            name: { en: '4/4 Syncopated Groove', zh: '4/4 切分音搖擺 (Syncopation)' },
             stepFactor: 0.5,
             beatEvery: 2,
             counts: ['1', '&', '2', '&', '3', '&', '4', '&'],
             tracks: [
-              { name: '⚡ 切分重音', voice: 'clave', pattern: [1, 2, 0, 2, 0, 1, 1, 0] },
-              { name: '🔊 穩定正拍', voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 1, 0] }
+              { name: { en: '⚡ Offbeat Accents', zh: '⚡ 切分重音' }, voice: 'clave', pattern: [1, 2, 0, 2, 0, 1, 1, 0] },
+              { name: { en: '🔊 Steady Pulse', zh: '🔊 穩定正拍' }, voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 1, 0] }
             ]
           }
         ]
@@ -184,28 +187,48 @@
 
       Widgets.createQuiz('#focus2-quiz', 'quiz-focus2', 'ch04', [
         {
-          prompt: '在標準速度下，拍號「6/8」屬於哪一種拍子？每小節有幾個主要大拍？',
-          options: ['單六拍子（6 拍）', '複二拍子（2 個附點四分音符大拍）', '單三拍子（3 拍）', '複三拍子（3 大拍）'],
+          prompt: { en: 'At a standard tempo, what meter type is “6/8” and how many main beats per measure?', zh: '在標準速度下，拍號「6/8」屬於哪一種拍子？每小節有幾個主要大拍？' },
+          options: [
+            { en: 'Simple sextuple (6 beats)', zh: '單六拍子（6 拍）' },
+            { en: 'Compound duple (2 dotted-quarter beats)', zh: '複二拍子（2 個附點四分音符大拍）' },
+            { en: 'Simple triple (3 beats)', zh: '單三拍子（3 拍）' },
+            { en: 'Compound triple (3 big beats)', zh: '複三拍子（3 大拍）' }
+          ],
           answer: 1,
-          explanation: '6/8 的 6 個八分音符分成 3+3 兩組，真正的大拍是 2 個附點四分音符 (♩.)，故為複二拍子！'
+          explanation: { en: 'Six eighths group as 3+3 into 2 dotted-quarter (♩.) beats — Compound Duple!', zh: '6/8 的 6 個八分音符分成 3+3 兩組，真正的大拍是 2 個附點四分音符 (♩.)，故為複二拍子！' }
         },
         {
-          prompt: '在「9/8」拍中，指揮家的右手應該揮幾拍的指揮圖形？',
-          options: ['9 拍', '2 拍', '3 拍（複三拍子）', '4 拍'],
+          prompt: { en: 'In 9/8 time, which beat pattern does a conductor beat?', zh: '在「9/8」拍中，指揮家的右手應該揮幾拍的指揮圖形？' },
+          options: [
+            { en: '9 beats', zh: '9 拍' },
+            { en: '2 beats', zh: '2 拍' },
+            { en: '3 beats (Compound Triple)', zh: '3 拍（複三拍子）' },
+            { en: '4 beats', zh: '4 拍' }
+          ],
           answer: 2,
-          explanation: '9 ÷ 3 = 3 個附點四分音符大拍，因此揮三拍子圖形！'
+          explanation: { en: '9 ÷ 3 = 3 dotted-quarter beats, so conductors use the 3-beat pattern.', zh: '9 ÷ 3 = 3 個附點四分音符大拍，因此揮三拍子圖形！' }
         },
         {
-          prompt: '連接「兩個相同音高」使時值相加不重彈的弧線稱為？',
-          options: ['圓滑線 (Slur)', '連結線 (Tie)', '三連音 (Triplet)', '弱起拍 (Anacrusis)'],
+          prompt: { en: 'What curved line connects two notes of the SAME pitch to combine their duration?', zh: '連接「兩個相同音高」使時值相加不重彈的弧線稱為？' },
+          options: [
+            { en: 'Slur', zh: '圓滑線 (Slur)' },
+            { en: 'Tie', zh: '連結線 (Tie)' },
+            { en: 'Triplet', zh: '三連音 (Triplet)' },
+            { en: 'Anacrusis', zh: '弱起拍 (Anacrusis)' }
+          ],
           answer: 1,
-          explanation: '同音高相加為連結線 (Tie)；不同音高連奏才是圓滑線 (Slur)。'
+          explanation: { en: 'Same pitch sustained = Tie; different pitches played legato = Slur.', zh: '同音高相加為連結線 (Tie)；不同音高連奏才是圓滑線 (Slur)。' }
         },
         {
-          prompt: '在 6/8 複拍子中暫時將一大拍改為「二等分」的借用連音稱為？',
-          options: ['三連音 (Triplet)', '二連音 (Duplet，標記 2)', '切分音', '附點音符'],
+          prompt: { en: 'Temporarily dividing a compound beat (6/8) into TWO equal parts is called a:', zh: '在 6/8 複拍子中暫時將一大拍改為「二等分」的借用連音稱為？' },
+          options: [
+            { en: 'Triplet', zh: '三連音 (Triplet)' },
+            { en: 'Duplet (marked 2)', zh: '二連音 (Duplet，標記 2)' },
+            { en: 'Syncopation', zh: '切分音' },
+            { en: 'Dotted note', zh: '附點音符' }
+          ],
           answer: 1,
-          explanation: '複拍子借用單拍子的二等分稱為二連音 (Duplet)。'
+          explanation: { en: 'Borrowing a 2-way division inside compound meter creates a Duplet (2).', zh: '複拍子借用單拍子的二等分稱為二連音 (Duplet)。' }
         }
       ]);
     });

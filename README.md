@@ -1,10 +1,10 @@
-# 創意音樂基礎互動教學網 (Duckworth 11e Interactive Music Fundamentals)
+# Interactive Music Lab | 互動音樂實驗室 (Duckworth 11e)
 
-依據 William Duckworth《*A Creative Approach to Music Fundamentals*》(11th Edition) 全書章節順序編排之繁體中文互動式樂理教學網站。
+Bilingual (**English default + 繁體中文 live toggle**) interactive music theory playground built chapter-by-chapter from William Duckworth’s *A Creative Approach to Music Fundamentals* (11th Edition).
 
-- **線上體驗 (GitHub Pages)**：https://blog.danielchen.cc/duckworth-music-fundamentals/
-- **全站規模**：共 20 頁（首頁儀表板、導論、第 1～15 章、7 個 Focus on Skills 技能檢核站、附錄 A～K、62 條音樂術語總辭典與經典曲目索引）
-- **核心互動功能**：
-  - Web Audio API 多音色合成器（平台鋼琴、長笛、單簧管、小提琴、木吉他、管風琴）與 8 分音加法合成泛音列實驗室
-  - 自研 SVG 向量五線譜渲染引擎（高音、低音、中音、次中音、女高音、大譜表、節奏譜、調號、拍號、連尾、數字低音）
-  - 互動虛擬鋼琴鍵盤、單／複拍子與世界複節奏步進編曲機、右手動態指揮訓練儀、雙環五度圈、旋律配和聲工作坊、隨堂測驗與 `localStorage` 學習進度追蹤
+- **Live Demo (GitHub Pages)**: https://blog.danielchen.cc/duckworth-music-fundamentals/
+- **Scope**: 20 interactive pages (Hub Dashboard, Introduction, Chapters 1–15, all 7 *Focus on Skills* checkpoints, Appendices A–K, 62-term Flashcard Glossary & Musical Examples Index)
+- **Key Features**:
+  - **Bilingual Live Switch (`EN / 繁`)**: Defaults to **English**, switches the entire UI, scores, interactive synth widgets, and quizzes to **Traditional Chinese** without reloading, and remembers user preference in `localStorage` (`duckworth11e_lang`).
+  - **Auto-Scrolling Color SVG Scores**: Custom vector notation engine (Treble, Bass, Alto, Tenor, Grand Staff, Rhythm Staff, key/time signatures, beaming, tuplets, figured bass) with a glowing vertical playhead cursor and smooth horizontal auto-scroll during playback.
+  - **Web Audio Synth Playground**: Multi-timbre Web Audio synthesizer, live header oscilloscope HUD, Wave Lab, Texture Canvas, 1:2 Rhythm Brick Wall, Note Reflex Arcade, Polyrhythm Radar, Lissajous Resonance Scope, Blues Pitch-Bend Jam Pads, 8×8 Song Matrix, and 8-Partial Fourier Drawbar Synth.
