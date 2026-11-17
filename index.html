@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>課程總覽與學習儀表板 | 創意音樂基礎 11e 互動教學網</title>
+  <title>互動音樂實驗室 | Duckworth 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="home">
@@ -20,49 +20,58 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">William Duckworth · Eleventh Edition</span>
-        <h1 id="main-heading" tabindex="-1">創意音樂基礎：互動式樂理全書教學網</h1>
+        <span class="chapter-eyebrow">🎹 Interactive Music Lab · Duckworth 11e</span>
+        <h1 id="main-heading" tabindex="-1">用耳朵與手指玩懂樂理</h1>
         <p class="chapter-subtitle">
-          完整依據 <cite lang="en">A Creative Approach to Music Fundamentals (11th Edition)</cite> 全書脈絡編排——從「聲音四大特性、節奏單拍與複拍、五線譜與鍵盤」，一路推進到「大小調音階、調號五度圈、音程轉位、五聲與藍調、三和弦與七和弦、終止式、歌曲配和聲與四大曲式」，並完整收錄附錄 A–K 與樂理總辭典。
+          拋開死背課文！全書 15 章＋7 大檢定站＋附錄全部濃縮成<strong>可彈、可畫、可聽、可闖關</strong>的視覺聲音玩具。
         </p>
-        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-block-start:1rem;">
-          <a class="btn btn-primary" href="intro.html">▶ 從「導論：音樂的本質」開始學習</a>
-          <a class="btn" href="ch01-basics.html">直接進入第 1 章：音樂基礎</a>
-          <a class="btn" href="glossary.html">📖 查閱樂理術語總辭典</a>
+        <div class="pill-row">
+          <span class="visual-pill">🎛️ <strong>即時聲波合成</strong></span>
+          <span class="visual-pill">🎼 <strong>十二音色彩樂譜</strong></span>
+          <span class="visual-pill">🥁 <strong>MPC 節奏鼓機</strong></span>
+          <span class="visual-pill">🎯 <strong>極速識譜闖關</strong></span>
+        </div>
+        <div class="widget-controls" style="margin-block-start:0.85rem;">
+          <a class="btn btn-primary" href="intro.html">🚀 開始闖關：導論</a>
+          <a class="btn" href="ch01-basics.html">第 1 章：節奏與譜號</a>
+          <a class="btn" href="glossary.html">📖 術語快查</a>
         </div>
       </section>
 
-      <!-- 學習進度總覽儀表板 -->
+      <!-- 即刻創作體驗：8x8 旋律方塊 + 滑奏鋼琴 -->
+      <section class="lesson-section" aria-labelledby="instant-play-heading">
+        <h2 id="instant-play-heading">✨ 10 秒上手：點格子寫歌 ＆ 滑奏彩虹鍵盤</h2>
+        <div class="tabs">
+          <div class="tablist" focusgroup="tablist nomemory" aria-label="首頁互動體驗切換">
+            <button type="button" id="tab-song" aria-selected="true" focusgroupstart>🎨 8×8 旋律創作方格</button>
+            <button type="button" id="tab-kb" aria-selected="false">🎹 滑奏合成鍵盤</button>
+          </div>
+          <div role="tabpanel" aria-labelledby="tab-song">
+            <div class="tabpanel-inner">
+              <div id="home-song-grid"></div>
+            </div>
+          </div>
+          <div role="tabpanel" aria-labelledby="tab-kb" hidden="until-found">
+            <div class="tabpanel-inner">
+              <div class="widget-controls" style="margin-block-start:0;">
+                <button type="button" class="btn btn-sm btn-primary" id="demo-scale-btn">▶ C 大調音階</button>
+                <button type="button" class="btn btn-sm btn-amber" id="demo-cadence-btn">▶ I – IV – V7 – I 終止式</button>
+              </div>
+              <div id="home-demo-piano"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 闖關進度儀表板 -->
       <section class="lesson-section" aria-labelledby="dash-heading">
-        <h2 id="dash-heading">📊 個人學習進度與里程碑檢定 (Focus on Skills 1–7)</h2>
-        <p>
-          Duckworth 在《致學生序 (Preface: To Students)》中強調：<strong>「音樂知識是累積而成的拼圖——學習音樂沒有唯一正確的路徑，但每日持續、多元且主動參與的練習，是讓天賦與知識融合的唯一方法。」</strong>本網站會自動將您的章節閱讀狀態與各章檢定得分儲存於瀏覽器本機。
-        </p>
+        <h2 id="dash-heading">🏆 闖關進度儀表板</h2>
         <div class="concept-grid" id="dashboard-stats"></div>
       </section>
 
-      <!-- 快速互動體驗：直接彈奏與體驗大調音階及和弦 -->
-      <section class="lesson-section" aria-labelledby="quick-studio-heading">
-        <h2 id="quick-studio-heading">🎹 即刻發聲：互動音樂實驗台</h2>
-        <p>
-          全站每一頁皆內建即時 <strong>Web Audio 合成音源</strong>與<strong>向量五線譜渲染引擎</strong>，無須外掛任何檔案即可點擊音符聽見真實音高、節奏脈動、泛音列與吉他刷弦。您也可以隨時點擊右上角的「🎹 隨身鋼琴」在閱讀任何章節時邊學邊彈！
-        </p>
-        <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">聲音預覽：調性音樂的核心元素（旋律、音階與 V7–I 正格終止）</h3>
-            <div class="widget-controls" style="margin:0;">
-              <button type="button" class="btn btn-sm btn-primary" id="demo-scale-btn">▶ 聽 C 大調音階</button>
-              <button type="button" class="btn btn-sm btn-amber" id="demo-cadence-btn">▶ 聽 I – IV – V7 – I 和聲進行</button>
-            </div>
-          </div>
-          <div id="home-demo-piano"></div>
-        </div>
-      </section>
-
-      <!-- 全書 19 個教學單元完整章節地圖 -->
+      <!-- 全書 19 個互動單元地圖 -->
       <section class="lesson-section" aria-labelledby="syllabus-heading">
-        <h2 id="syllabus-heading">🗺️ 全書章節順序編排總覽（共 19 個互動教學單元 · 全站 20 頁）</h2>
-        <p>點擊任一單元卡片即可進入該章節的完整課文精講、樂譜範例、互動實驗室與課後練習檢定：</p>
+        <h2 id="syllabus-heading">🗺️ 全書章節闖關地圖（19 個互動單元 · 全站 20 頁）</h2>
         <div id="syllabus-grid-mount"></div>
       </section>
     </main>
@@ -77,6 +86,8 @@
   <script defer src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      Widgets.createSongGrid('#home-song-grid');
+
       const piano = Widgets.createPiano('#home-demo-piano', {
         startMidi: 48,
         endMidi: 76,
@@ -86,8 +97,8 @@
       document.getElementById('demo-scale-btn')?.addEventListener('click', () => {
         const scale = CourseData.buildScale('C4', 'major').notes;
         piano.highlightMidi(scale.map(n => n.midi), 60);
-        AudioEngine.playSequence(scale.map(n => ({ pitch: n, beats: 0.45 })), 100, {
-          onStep: (ev) => piano.flashKey(ev.pitch.midi, 240)
+        AudioEngine.playSequence(scale.map(n => ({ pitch: n, beats: 0.42 })), 104, {
+          onStep: (ev) => piano.flashKey(ev.pitch.midi, 220)
         });
       });
 
@@ -98,11 +109,11 @@
           ['G3', 'B3', 'F4', 'G4'],
           ['C3', 'C4', 'E4', 'G4']
         ];
-        AudioEngine.playSequence(chords.map(c => ({ notes: c, beats: 1.3 })), 88, {
+        AudioEngine.playSequence(chords.map(c => ({ notes: c, beats: 1.2 })), 92, {
           onStep: (ev) => {
             const midis = ev.notes.map(s => CourseData.parsePitch(s).midi);
             piano.highlightMidi(midis, 60);
-            midis.forEach(m => piano.flashKey(m, 550));
+            midis.forEach(m => piano.flashKey(m, 500));
           }
         });
       });
@@ -111,25 +122,40 @@
         const prog = CourseData.getProgress();
         const pages = CourseData.COURSE_PAGES.filter(p => p.id !== 'home');
         const doneCount = pages.filter(p => prog.completedPages[p.id]).length;
+        const pct = Math.round((doneCount / pages.length) * 100);
         const quizEntries = Object.values(prog.quizScores || {});
         const totalQ = quizEntries.reduce((s, q) => s + q.total, 0);
         const totalC = quizEntries.reduce((s, q) => s + q.correct, 0);
+        const qPct = totalQ > 0 ? Math.round((totalC / totalQ) * 100) : 0;
 
         document.getElementById('dashboard-stats').innerHTML = `
-          <div class="concept-card">
-            <h3>已完成教學章節</h3>
-            <p style="font-size:1.7rem;font-weight:700;color:var(--brand);font-family:var(--font-mono);">${doneCount} / ${pages.length}</p>
-            <p>涵蓋導論、第 1–15 章、7 大技能檢定與附錄 A–K</p>
+          <div class="concept-card" style="display:flex;align-items:center;gap:0.85rem;">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" style="flex-shrink:0;">
+              <circle cx="28" cy="28" r="22" fill="none" stroke="var(--bg-subtle)" stroke-width="6"/>
+              <circle cx="28" cy="28" r="22" fill="none" stroke="var(--brand)" stroke-width="6"
+                stroke-dasharray="138.2" stroke-dashoffset="${138.2 * (1 - pct / 100)}" stroke-linecap="round" transform="rotate(-90 28 28)"/>
+              <text x="28" y="32" text-anchor="middle" font-size="12" font-weight="800" fill="var(--text-primary)">${pct}%</text>
+            </svg>
+            <div>
+              <h3 style="margin:0;">已通關單元</h3>
+              <p style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:var(--brand);margin:0.1rem 0;">${doneCount} / ${pages.length}</p>
+            </div>
+          </div>
+          <div class="concept-card" style="display:flex;align-items:center;gap:0.85rem;">
+            <svg width="56" height="56" viewBox="0 0 56 56" aria-hidden="true" style="flex-shrink:0;">
+              <circle cx="28" cy="28" r="22" fill="none" stroke="var(--bg-subtle)" stroke-width="6"/>
+              <circle cx="28" cy="28" r="22" fill="none" stroke="var(--accent-amber)" stroke-width="6"
+                stroke-dasharray="138.2" stroke-dashoffset="${138.2 * (1 - qPct / 100)}" stroke-linecap="round" transform="rotate(-90 28 28)"/>
+              <text x="28" y="32" text-anchor="middle" font-size="12" font-weight="800" fill="var(--text-primary)">${qPct}%</text>
+            </svg>
+            <div>
+              <h3 style="margin:0;">檢定答對率</h3>
+              <p style="font-family:var(--font-mono);font-size:1.25rem;font-weight:800;color:var(--accent-amber);margin:0.1rem 0;">${quizEntries.length} 組已測</p>
+            </div>
           </div>
           <div class="concept-card">
-            <h3>已完成檢定題組</h3>
-            <p style="font-size:1.7rem;font-weight:700;color:var(--accent-amber);font-family:var(--font-mono);">${quizEntries.length} 組</p>
-            <p>${totalQ > 0 ? `累計答對率：${Math.round((totalC / totalQ) * 100)}% (${totalC}/${totalQ})` : '完成各章末練習即可累積答對率'}</p>
-          </div>
-          <div class="concept-card">
-            <h3>創作終極目標</h3>
-            <p style="font-size:1.1rem;font-weight:700;color:var(--success);">第 15 章：獨立完成旋律配和聲與歌曲創作</p>
-            <p>「音樂不是上完課才開始做的事——從第一章起，我們就要邊學邊做音樂。」</p>
+            <h3 style="margin:0;">🎯 終極任務</h3>
+            <p style="font-weight:700;color:var(--success);margin-block:0.25rem 0;">Ch 15 獨立為旋律配和聲與寫歌！</p>
           </div>
         `;
 
@@ -140,20 +166,23 @@
         });
 
         let html = '';
+        let gIdx = 0;
         for (const [gName, items] of groups.entries()) {
-          html += `<h3 style="margin-block:1.4rem 0.6rem;">${gName}</h3><div class="concept-grid">`;
+          html += `<h3 style="margin-block:1.1rem 0.45rem;font-size:0.95rem;color:var(--text-muted);">${gName}</h3><div class="concept-grid">`;
           for (const item of items) {
             const isDone = !!prog.completedPages[item.id];
+            const accent = AudioEngine.PITCH_COLORS[gIdx % 12];
+            gIdx++;
             html += `
-              <a href="${item.file}" class="concept-card" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;border-color:${isDone ? 'var(--success)' : 'var(--border-subtle)'};">
+              <a href="${item.file}" class="concept-card" style="text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;border-inline-start:4px solid ${isDone ? 'var(--success)' : accent};">
                 <div>
-                  <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.4rem;">
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-block-end:0.3rem;">
                     <span class="badge">${item.num}</span>
-                    ${isDone ? '<span style="color:var(--success);font-weight:700;font-size:0.85rem;">✓ 已完成</span>' : '<span style="color:var(--text-muted);font-size:0.82rem;">前往學習 →</span>'}
+                    ${isDone ? '<span style="color:var(--success);font-weight:800;font-size:0.8rem;">✓ 完成</span>' : '<span style="color:var(--brand);font-weight:700;font-size:0.8rem;">PLAY →</span>'}
                   </div>
-                  <h4 style="margin:0.25rem 0;font-size:1.03rem;">${item.title}</h4>
+                  <h4 style="margin:0.15rem 0;font-size:0.98rem;">${item.title}</h4>
                 </div>
-                <p style="font-size:0.82rem;color:var(--text-muted);margin-block-start:0.5rem;" lang="en">${item.en}</p>
+                <span style="font-size:0.76rem;color:var(--text-muted);margin-block-start:0.35rem;" lang="en">${item.en}</span>
               </a>
             `;
           }

@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>第 5 章：音高進階與樂譜地圖 ＋ 焦點技能 3 | 創意音樂基礎 11e</title>
+  <title>第 5 章：八度音域、力度球與樂譜導航 ＋ 焦點技能 3 | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="ch05">
@@ -20,123 +20,92 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 5 + Focus on Skills 3 · 第 5 章與第三階段檢定</span>
-        <h1 id="main-heading" tabindex="-1">第 5 章：音高進階、八度編號、力度與樂譜導航地圖 ＋ 檢定 3</h1>
+        <span class="chapter-eyebrow">Chapter 5 + Focus on Skills 3</span>
+        <h1 id="main-heading" tabindex="-1">第 5 章：同音異名、A0–C8 八度、力度奏法與樂譜導航</h1>
         <p class="chapter-subtitle">
-          記譜法就像跨越數百年的音樂藍圖，使莫札特、貝多芬或艾靈頓公爵大樂團的精密編曲得以原汁原味重現。本章將把音高視野擴展至整個 88 鍵音域，並學會讀懂力度、奏法與樂譜反覆跳躍導航。
+          把視野擴展至整台 88 鍵鋼琴，親手玩轉<strong>白鍵等音、力度能量球、奏法觸控板</strong>與<strong>反覆跳躍導航機</strong>！
         </p>
-        <div class="learning-goals">
-          <h2>本章學習目標 (What Will I Learn Here?)</h2>
-          <ul>
-            <li>掌握<strong>同音異名 (Enharmonic Pitches)</strong>——包含白鍵上的 <code>E♯/F</code>、<code>B♯/C</code>、<code>C♭/B</code>、<code>F♭/E</code>。</li>
-            <li>正確使用<strong>加線 (Ledger Lines)</strong>、<strong>八度記號 (<code>8va</code> / <code>8va bassa</code>)</strong> 與鋼琴<strong>科學音高編號 (<code>A0</code>–<code>C8</code>)</strong>。</li>
-            <li>熟記義大利<strong>力度記號 (Dynamics)</strong>、<strong>奏法 (Articulations)</strong> 與<strong>樂譜導航地圖 (1st/2nd Endings, D.C. al fine, D.S. al fine)</strong>，通過 <strong>Focus on Skills 3</strong>！</li>
-          </ul>
+        <div class="pill-row">
+          <span class="visual-pill">🔁 白鍵等音：<strong>E♯=F · F♭=E · B♯=C · C♭=B</strong></span>
+          <span class="visual-pill">🎹 八度從 C 起算：<strong>C4–B4（中央C = C4）</strong></span>
+          <span class="visual-pill">📏 第 3 線以上符桿朝<strong>下</strong> · 以下朝<strong>上</strong></span>
         </div>
       </section>
 
-      <!-- 1. Enharmonic Pitches, Ledger Lines & 8va -->
+      <!-- 1. 白鍵等音 + 加線 & 8va 切換器 -->
       <section class="lesson-section" aria-labelledby="ch5-enh">
-        <h2 id="ch5-enh">1. 同音異名 (Enharmonic Pitches)、加線與八度記號 (8va)</h2>
-        <p>
-          當<strong>兩個不同的音名指向同一個實際發聲音高</strong>時，我們稱它們互為<strong>同音異名／等音 (Enharmonic Pitches)</strong>。除了黑鍵（如 <code>F♯ = G♭</code>、<code>C♯ = D♭</code>）之外，由於 <code>E–F</code> 與 <code>B–C</code> 之間沒有黑鍵，因此會產生四組極為重要的<strong>白鍵同音異名</strong>：
-        </p>
-        <ul>
-          <li><code>E♯</code>（E 升高半音）＝ 白鍵 <code>F</code>；反之 <code>F♭</code>（F 降低半音）＝ 白鍵 <code>E</code>。</li>
-          <li><code>B♯</code>（B 升高半音）＝ 白鍵 <code>C</code>；反之 <code>C♭</code>（C 降低半音）＝ 白鍵 <code>B</code>。</li>
-        </ul>
-
-        <h3>加線 (Ledger Lines) 與八度記號 (The Octave Sign)</h3>
-        <p>
-          超出五線譜範圍的高低音，會用與五線譜等距的短橫線<strong>加線 (Ledger Lines)</strong> 延伸。書寫加線有兩條嚴格禁令：① 相鄰音符的加線不可連成一條長線；② <strong>絕不可在音符外側多畫一條加線把音符「夾住」</strong>（例如高音譜表上加一間 <code>A5</code> 只需畫下方那條 <code>A5</code> 下方的 <code>A</code>? 不——高音譜表第 5 線是 <code>F5</code>，上加一間是 <code>G5</code>〔完全不需加線！〕，上加一線是 <code>A5</code>〔畫一條線穿過符頭〕，上加二間是 <code>B5</code>〔只畫下方 <code>A5</code> 那一條加線，絕不可在上方多畫一條線封住它！〕）。
-        </p>
-        <p>
-          為了避免加線過多難以視譜，作曲家常使用<strong>八度記號 <code>8va</code></strong>：寫在音符<strong>上方</strong>時代表<strong>實際彈奏高一個八度</strong>；寫在音符<strong>下方</strong>（常加註 <i lang="it">bassa</i>，即 <code>8va bassa</code>）時代表<strong>實際彈奏低一個八度</strong>（如德布西《霧 Brouillards》探索鋼琴極端音域）。
-        </p>
+        <h2 id="ch5-enh">🔁 1. 白鍵同音異名 ＆ <code>8va</code> 八度折疊視譜</h2>
+        <div class="jam-pad-grid" id="enh-pads" style="grid-template-columns:repeat(auto-fit, minmax(115px, 1fr));">
+          <button type="button" class="jam-pad" data-p1="E#4" data-p2="F4" style="--pad-color:#10b981;min-block-size:60px;">
+            <span>E♯4 ＝ F4</span><span style="font-size:0.72rem;">同一白鍵</span>
+          </button>
+          <button type="button" class="jam-pad" data-p1="Fb4" data-p2="E4" style="--pad-color:#84cc16;min-block-size:60px;">
+            <span>F♭4 ＝ E4</span><span style="font-size:0.72rem;">同一白鍵</span>
+          </button>
+          <button type="button" class="jam-pad" data-p1="B#3" data-p2="C4" style="--pad-color:#ef4444;min-block-size:60px;">
+            <span>B♯3 ＝ C4</span><span style="font-size:0.72rem;">跨越八度編號!</span>
+          </button>
+          <button type="button" class="jam-pad" data-p1="Cb4" data-p2="B3" style="--pad-color:#ec4899;min-block-size:60px;">
+            <span>C♭4 ＝ B3</span><span style="font-size:0.72rem;">跨越八度編號!</span>
+          </button>
+        </div>
         <div id="score-ledger-8va"></div>
       </section>
 
-      <!-- 2. Octave Identification & Stems -->
-      <section class="lesson-section" aria-labelledby="ch5-oct">
-        <h2 id="ch5-oct">2. 八度音域編號系統 (Octave Identification：<code>A0</code> 至 <code>C8</code>) 與符桿方向</h2>
-        <p>
-          在 88 鍵標準鋼琴系統中，<strong>每一個八度編號都從 <code>C</code> 開始、到 <code>B</code> 結束</strong>！<strong>中央 C 定義為 <code>C4</code></strong>，因此中央 C 往右到下一個 B 為第 4 八度（<code>C4–B4</code>），再往上依序為 <code>C5–B5</code>、<code>C6–B6</code>、<code>C7–B7</code> 與最高音 <code>C8</code>；中央 C 往下則為 <code>C3–B3</code>、<code>C2–B2</code>、<code>C1–B1</code>，而鋼琴最左端低於 <code>C1</code> 的三個音則標為 <strong><code>A0, A♯0/B♭0, B0</code></strong>。（註：部分 61 鍵電子合成器說明書因琴鍵較少，會將中央 C 標為 C3，但樂理標準一律以 88 鍵鋼琴的 <strong><code>C4</code> = 中央 C</strong> 為準！）
-        </p>
-        <div class="callout callout-tips">
-          <div class="callout-title">💡 Tips &amp; Tools：五線譜上的符桿方向規則 (Stem Direction)</div>
-          <p>
-            • 位於<strong>第 3 線（中線）以上</strong>的音符：符桿一律<strong>朝下</strong>（畫在符頭左側）。<br>
-            • 位於<strong>第 3 線以下</strong>的音符：符桿一律<strong>朝上</strong>（畫在符頭右側）。<br>
-            • 剛好在<strong>第 3 線正中央</strong>的音符：符桿朝上或朝下皆可，通常配合前後相鄰音符的方向以維持視覺整齊。
-          </p>
+      <!-- 2. A0-C8 八度雷達 + 力度與奏法觸控台 -->
+      <section class="lesson-section" aria-labelledby="ch5-dyn">
+        <h2 id="ch5-dyn">💥 2. <code>pp → ff</code> 力度能量推桿 ＆ 四大奏法觸控板</h2>
+        <div class="widget-box">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
+            <label style="flex:1;min-inline-size:180px;font-weight:800;">
+              <span>力度推桿 Dynamics：<strong id="dyn-label" style="color:var(--brand);font-size:1.15rem;">mf (中強)</strong></span>
+              <input type="range" id="dyn-slider" min="0" max="5" step="1" value="3" style="inline-size:100%;margin-block-start:0.4rem;">
+            </label>
+            <button type="button" class="btn btn-primary" id="dyn-play">🔊 彈奏和弦感受力度</button>
+          </div>
+          <div class="jam-pad-grid" style="margin-block-start:0.85rem;grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));">
+            <button type="button" class="jam-pad" data-art="staccato" style="--pad-color:#06b6d4;min-block-size:64px;">
+              <span>· Staccato</span><span style="font-size:0.72rem;">短促跳音斷奏</span>
+            </button>
+            <button type="button" class="jam-pad" data-art="legato" style="--pad-color:#8b5cf6;min-block-size:64px;">
+              <span>⌒ Legato</span><span style="font-size:0.72rem;">綿密圓滑連奏</span>
+            </button>
+            <button type="button" class="jam-pad" data-art="tenuto" style="--pad-color:#10b981;min-block-size:64px;">
+              <span>— Tenuto</span><span style="font-size:0.72rem;">保持唱滿時值</span>
+            </button>
+            <button type="button" class="jam-pad" data-art="sfz" style="--pad-color:#ef4444;min-block-size:64px;">
+              <span>sf Sforzando</span><span style="font-size:0.72rem;">猛烈突強重音!</span>
+            </button>
+          </div>
         </div>
 
-        <!-- 互動八度編號轉換儀 -->
         <div class="widget-box">
           <div class="widget-header">
-            <h3 class="widget-title">🔭 互動八度音域探索器（比較 C2 · C3 · C4 中央C · C5 · C6）</h3>
-            <span id="oct-readout" class="badge">點擊下方八度音高，觀察大譜表位置與八度記號</span>
+            <h3 class="widget-title">🔭 A1–C6 八度編號跳躍器</h3>
+            <span id="oct-readout" class="visual-pill">C4 = 261.6 Hz</span>
           </div>
           <div class="widget-controls" id="oct-btns"></div>
           <div id="oct-score"></div>
         </div>
       </section>
 
-      <!-- 3. Dynamics, Articulations & How to Read a Musical Map -->
+      <!-- 3. 動態亮燈樂譜導航機 (Musical Map) -->
       <section class="lesson-section" aria-labelledby="ch5-map">
-        <h2 id="ch5-map">3. 力度記號 (Dynamics)、奏法 (Articulations) 與樂譜導航地圖</h2>
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="dyn-cap">
-          <table class="data-table stack-mobile">
-            <caption id="dyn-cap">標準義大利力度記號與奏法術語總表</caption>
-            <thead>
-              <tr>
-                <th scope="col">類別</th>
-                <th scope="col">記號／縮寫</th>
-                <th scope="col">義大利原文與音樂意義</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">穩定弱至強</th>
-                <td data-label="記號"><code>pp</code> → <code>p</code> → <code>mp</code> → <code>mf</code> → <code>f</code> → <code>ff</code></td>
-                <td data-label="意義"><i lang="it">pianissimo</i>(極弱) → <i lang="it">piano</i>(弱) → <i lang="it">mezzo piano</i>(中弱) → <i lang="it">mezzo forte</i>(中強) → <i lang="it">forte</i>(強) → <i lang="it">fortissimo</i>(極強)</td>
-              </tr>
-              <tr>
-                <th scope="row">漸強與漸弱</th>
-                <td data-label="記號"><code>cresc.</code> (<code>&lt;</code>) ／ <code>dim.</code>, <code>decresc.</code> (<code>&gt;</code>)</td>
-                <td data-label="意義"><i lang="it">crescendo</i> 漸強 ／ <i lang="it">diminuendo, decrescendo</i> 漸弱；搭配 <i lang="it">subito</i> 為「突然」（如 <i lang="it">subito f</i> 突強），搭配 <i lang="it">poco a poco</i> 為「一點一點逐漸地」。</td>
-              </tr>
-              <tr>
-                <th scope="row">重要奏法</th>
-                <td data-label="記號">圓點 · ／ 圓滑線 ／ <i lang="it">marcato</i> ／ <i lang="it">sf</i> ／ <i lang="it">tenuto</i> (<code>-</code>)</td>
-                <td data-label="意義"><i lang="it">staccato</i> 短促斷奏 ／ <i lang="it">legato</i> 圓滑連奏 ／ <i lang="it">marcato</i> 鮮明強調 ／ <i lang="it">sforzando</i> 突強重音 ／ <i lang="it">tenuto</i> 保持唱滿時值。</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3>如何閱讀樂譜地圖 (How to Read a Musical Map)</h3>
-        <p>
-          就像舒曼《少年曲集：西西里舞曲 (Siciliana)》或克萊曼蒂小奏鳴曲，樂譜常透過四種空間精簡記號讓紙面長度倍增。請點擊下方<strong>互動樂譜路徑模擬器</strong>，親眼追蹤演奏家的小節行走順序：
-        </p>
-
+        <h2 id="ch5-map">🧭 3. 動態亮燈樂譜導航機（一二房 · D.C. · D.S.）</h2>
         <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">🧭 互動樂譜導航模擬器 (Musical Map Pathfinder)</h3>
+          <div class="widget-controls" style="margin-block-start:0;">
+            <button type="button" class="btn btn-sm btn-primary" data-map="endings">▶ 跑一次「一房／二房」路線</button>
+            <button type="button" class="btn btn-sm" data-map="dc">▶ 跑一次「D.C. al fine」路線</button>
+            <button type="button" class="btn btn-sm" data-map="ds">▶ 跑一次「D.S. al fine (𝄋)」路線</button>
           </div>
-          <div class="widget-controls">
-            <button type="button" class="btn btn-sm btn-primary" data-map="endings">① 一房／二房反覆 (1st &amp; 2nd Endings)</button>
-            <button type="button" class="btn btn-sm" data-map="dc">② D.C. al fine（從頭反覆至 Fine 結束）</button>
-            <button type="button" class="btn btn-sm" data-map="ds">③ D.S. al fine（從記號 𝄋 反覆至 Fine 結束）</button>
-          </div>
-          <div id="map-sim-output" class="concept-card" style="margin-block-start:0.75rem;"></div>
+          <div id="map-blocks" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(76px, 1fr));gap:0.45rem;margin-block:0.65rem;"></div>
+          <div id="map-step-label" class="visual-pill">點擊上方任一導航按鈕，觀察小節方塊實際跳躍與演奏順序！</div>
         </div>
       </section>
 
-      <!-- 4. Focus on Skills 3: Pitch -->
+      <!-- 4. Focus on Skills 3 -->
       <section class="lesson-section" aria-labelledby="focus3-heading">
-        <h2 id="focus3-heading">🏆 Focus on Skills 3: Pitch（第三階段音高綜合檢定）</h2>
-        <p>Duckworth 特地在第 5 章結束後立即安排單章檢定，確保你在進入第 6 章「大調音階」前已能秒讀加線、同音異名與八度編號！</p>
+        <h2 id="focus3-heading">🏆 Focus on Skills 3：音高與導航闖關檢定</h2>
         <div id="focus3-quiz"></div>
       </section>
     </main>
@@ -152,121 +121,179 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       MusicNotation.render('#score-ledger-8va', {
-        title: '加線與 8va 八度記號對照：後四音標有 8va，視譜輕鬆且實際發聲高一個八度！',
+        title: '加線 vs 8va 高八度記號（後四音實際發聲同前四音！）',
         clef: 'treble',
-        bpm: 100,
-        spacing: 48,
+        bpm: 104,
+        spacing: 42,
         octaveBracket: { startIdx: 5, endIdx: 8, type: '8va' },
         notes: [
-          { pitch: 'A5', dur: 'q', label: 'A5(上加一線)' },
-          { pitch: 'B5', dur: 'q', label: 'B5(上加二間)' },
-          { pitch: 'C6', dur: 'q', label: 'C6(上加二線)' },
+          { pitch: 'A5', dur: 'q', label: 'A5' },
+          { pitch: 'B5', dur: 'q', label: 'B5' },
+          { pitch: 'C6', dur: 'q', label: 'C6' },
           { pitch: 'D6', dur: 'q', label: 'D6' },
           { bar: '||' },
-          { pitch: 'A4', dur: 'q', label: '記A4→實A5' },
-          { pitch: 'B4', dur: 'q', label: '記B4→實B5' },
-          { pitch: 'C5', dur: 'q', label: '記C5→實C6' },
-          { pitch: 'D5', dur: 'q', label: '記D5→實D6' }
+          { pitch: 'A4', dur: 'q', label: '記A4=A5' },
+          { pitch: 'B4', dur: 'q', label: '記B4=B5' },
+          { pitch: 'C5', dur: 'q', label: '記C5=C6' },
+          { pitch: 'D5', dur: 'q', label: '記D5=D6' }
         ]
       });
 
-      const octSamples = ['A1', 'C2', 'G2', 'C3', 'F3', 'B3', 'C4', 'G4', 'C5', 'A5', 'C6'];
+      document.querySelectorAll('#enh-pads [data-p1]').forEach(pad => {
+        pad.addEventListener('click', () => {
+          const p1 = pad.dataset.p1, p2 = pad.dataset.p2;
+          AudioEngine.playSequence([{ pitch: p1, beats: 0.45 }, { pitch: p2, beats: 0.65 }], 100);
+        });
+      });
+
+      // Dynamics & Articulations
+      const DYN_LEVELS = [
+        { sym: 'pp (極弱)', vel: 0.16 },
+        { sym: 'p (弱)',    vel: 0.30 },
+        { sym: 'mp (中弱)', vel: 0.46 },
+        { sym: 'mf (中強)', vel: 0.64 },
+        { sym: 'f (強)',    vel: 0.82 },
+        { sym: 'ff (極強)', vel: 1.00 }
+      ];
+      const dynSlider = document.getElementById('dyn-slider');
+      const dynLabel = document.getElementById('dyn-label');
+      dynSlider.addEventListener('input', () => {
+        dynLabel.textContent = DYN_LEVELS[Number(dynSlider.value)].sym;
+      });
+      document.getElementById('dyn-play').addEventListener('click', () => {
+        const lv = DYN_LEVELS[Number(dynSlider.value)];
+        AudioEngine.playChord(['C4', 'E4', 'G4', 'C5'], 0.9, 0, { velocity: lv.vel });
+      });
+
+      document.querySelectorAll('[data-art]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const art = btn.dataset.art;
+          const notes = ['C4', 'D4', 'E4', 'G4'];
+          if (art === 'staccato') {
+            AudioEngine.playSequence(notes.map(n => ({ pitch: n, beats: 0.5, opts: { velocity: 0.72 } })), 130);
+            setTimeout(() => AudioEngine.stopAll(), 950);
+            notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.09), i * 240));
+          } else if (art === 'legato') {
+            notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.48, 0, { timbre: 'violin', attack: 0.06 }), i * 280));
+          } else if (art === 'tenuto') {
+            notes.forEach((n, i) => setTimeout(() => AudioEngine.playNote(n, 0.34, 0, { velocity: 0.75 }), i * 320));
+          } else {
+            AudioEngine.playChord(['C3', 'C4', 'E4', 'G4'], 0.65, 0, { velocity: 1.0, attack: 0.004 });
+          }
+        });
+      });
+
+      // Octave jumper
+      const octSamples = ['A1', 'C2', 'C3', 'B3', 'C4', 'G4', 'C5', 'A5', 'C6'];
       const octBtns = document.getElementById('oct-btns');
       const octReadout = document.getElementById('oct-readout');
 
       function showOct(pStr) {
         const p = CourseData.parsePitch(pStr);
-        octReadout.textContent = `${p.label} · 頻率 ${p.freq.toFixed(1)} Hz · MIDI ${p.midi}`;
+        octReadout.innerHTML = `<strong>${p.label}</strong> · ${p.freq.toFixed(1)} Hz`;
         const isHigh = p.midi >= 60;
         MusicNotation.render('#oct-score', {
           grand: true,
           playable: false,
-          minWidth: 320,
-          notes: [isHigh ? { pitch: pStr, dur: 'w', label: p.label } : { dur: 'w', rest: true }],
-          bassNotes: [!isHigh ? { pitch: pStr, dur: 'w', label: p.label } : { dur: 'w', rest: true }]
+          minWidth: 240,
+          notes: [isHigh ? { pitch: pStr, dur: 'q', label: p.label } : { dur: 'q', rest: true }],
+          bassNotes: [!isHigh ? { pitch: pStr, dur: 'q', label: p.label } : { dur: 'q', rest: true }]
         });
       }
-
       octSamples.forEach(s => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'btn btn-sm' + (s === 'C4' ? ' btn-primary' : '');
         b.textContent = s;
-        b.addEventListener('click', () => {
-          AudioEngine.playNote(s, 0.85);
-          showOct(s);
-        });
+        b.addEventListener('click', () => { AudioEngine.playNote(s, 0.65); showOct(s); });
         octBtns.appendChild(b);
       });
       showOct('C4');
 
-      // Musical Map Simulator
-      const MAPS = {
+      // Animated Score Map Runner
+      const MAP_SPECS = {
         endings: {
-          title: '一房與二房 (1st and 2nd Endings)',
-          diagram: '[ 第 1–7 小節 ] → [ 1. 第 8A 小節 :| ] ↩ 回到開頭 → [ 第 1–7 小節 ] → (跳過 8A！) → [ 2. 第 8B 小節 || ]',
-          desc: '第一次演奏進入「1. 一房 (1st ending)」並遇反覆記號回到起點；第二次重奏至第 7 小節尾端時，直接跳過一房改彈「2. 二房 (2nd ending)」繼續往下！'
+          bars: ['M1 主題', 'M2 主題', '1. 一房 :|', '2. 二房 ||'],
+          order: [0, 1, 2, 0, 1, 3],
+          pitches: ['C4', 'E4', 'G4', 'C5'],
+          msg: '第二次重奏到 M2 結尾時，直接跳過「1. 一房」進入「2. 二房」！'
         },
         dc: {
-          title: 'Da capo al fine (D.C. al fine — 從頭反覆至 Fine)',
-          diagram: '[ A 段：第 1–8 小節 (標有 Fine) ] → [ B 段：第 9–16 小節 (尾端標 D.C. al fine) ] ↩ 回到第 1 小節 → [ A 段：第 1–8 小節 Fine 終止！ ]',
-          desc: 'Da capo 意為「頭部（開頭）」。如舒曼《西西里舞曲》標示 Da capo al fine senza repetizione，代表回到全曲第 1 小節且不再做內部小反覆，一路彈到標有 Fine（終點）的小節正式結束！'
+          bars: ['M1 開頭', 'M2 Fine 🏁', 'M3 B段', 'M4 D.C.↩'],
+          order: [0, 1, 2, 3, 0, 1],
+          pitches: ['F4', 'A4', 'G4', 'E4'],
+          msg: '遇到 D.C. al fine → 跳回最開頭 M1，彈到標有 Fine 的 M2 結束！'
         },
         ds: {
-          title: 'Dal segno al fine (D.S. al fine — 從記號 𝄋 反覆至 Fine)',
-          diagram: '[ 前奏 1–4 ] → [ 𝄋 第 5–12 小節 (Fine) ] → [ 第 13–20 小節 (D.S. al fine) ] ↩ 跳回 𝄋 第 5 小節 → [ 第 5–12 小節 Fine 終止！ ]',
-          desc: '當作曲家不想回到最開頭，而是想回到樂曲中段某處時，會在目標小節放上記號 𝄋 (Segno)，演奏到 D.S. al fine 時跳回 𝄋 並彈到 Fine 結束。'
+          bars: ['M1 前奏', 'M2 𝄋記號', 'M3 Fine 🏁', 'M4 D.S.↩'],
+          order: [0, 1, 2, 3, 1, 2],
+          pitches: ['D4', 'F#4', 'A4', 'E4'],
+          msg: '遇到 D.S. al fine → 跳回有 𝄋 (Segno) 的 M2，彈到 Fine 結束！'
         }
       };
 
-      function renderMap(key) {
-        const m = MAPS[key];
-        document.getElementById('map-sim-output').innerHTML = `
-          <h4 style="margin-block:0 0.4rem;color:var(--brand);">${m.title}</h4>
-          <p style="font-family:var(--font-mono);font-size:0.88rem;background:var(--bg-subtle);padding:0.65rem;border-radius:6px;">${m.diagram}</p>
-          <p style="margin-block-end:0;">${m.desc}</p>
-        `;
+      let mapTimer = null;
+      function runMap(key) {
+        if (mapTimer) clearInterval(mapTimer);
+        const cfg = MAP_SPECS[key];
+        const mount = document.getElementById('map-blocks');
+        const lbl = document.getElementById('map-step-label');
+        mount.innerHTML = '';
+        const cards = cfg.bars.map(txt => {
+          const d = document.createElement('div');
+          d.className = 'concept-card';
+          d.style.textAlign = 'center';
+          d.style.fontWeight = '800';
+          d.style.fontSize = '0.84rem';
+          d.style.padding = '0.7rem 0.4rem';
+          d.textContent = txt;
+          mount.appendChild(d);
+          return d;
+        });
+
+        let step = 0;
+        lbl.textContent = cfg.msg;
+        mapTimer = setInterval(() => {
+          if (step >= cfg.order.length) {
+            clearInterval(mapTimer);
+            return;
+          }
+          const bIdx = cfg.order[step];
+          cards.forEach((c, idx) => {
+            c.style.background = idx === bIdx ? 'var(--brand)' : 'var(--bg-elevated)';
+            c.style.color = idx === bIdx ? '#fff' : 'var(--text-primary)';
+          });
+          AudioEngine.playNote(cfg.pitches[bIdx], 0.35);
+          step++;
+        }, 480);
       }
+
       document.querySelectorAll('[data-map]').forEach(btn => {
         btn.addEventListener('click', () => {
-          document.querySelectorAll('[data-map]').forEach(b => b.classList.remove('btn-primary'));
-          btn.classList.add('btn-primary');
-          renderMap(btn.dataset.map);
+          document.querySelectorAll('[data-map]').forEach(x => x.classList.toggle('btn-primary', x === btn));
+          runMap(btn.dataset.map);
         });
       });
-      renderMap('endings');
+      runMap('endings');
 
       Widgets.createQuiz('#focus3-quiz', 'quiz-focus3', 'ch05', [
         {
-          prompt: '【同音異名 Enharmonic】在鋼琴鍵盤上，下列哪一個音與白鍵「B」是同音異名（彈同一個琴鍵）？',
-          options: ['B♭', 'C♭', 'A♯', 'C♯'],
+          prompt: '以「中央 C = C4」為基準，緊鄰在中央 C 左側一個半音的白鍵 B 編號為？',
+          options: ['B4', 'B3', 'B5', 'C♭3'],
           answer: 1,
-          explanation: '因為 B 與 C 之間沒有黑鍵，將 C 降低半音得到的 C♭ 就是緊鄰左方的白鍵 B！'
+          explanation: '每個八度編號由 C 起算至 B 結束，因此 C4 左側的白鍵屬於第 3 八度的最後一音 B3！'
         },
         {
-          prompt: '【Practice 5-5 八度編號】低音譜表「第 2 間」上的 C（位於中央 C 下方一個八度），其標準八度編號為何？',
-          scoreSpec: { clef: 'bass', playable: false, minWidth: 250, notes: [{ pitch: 'C3', dur: 'w' }] },
-          options: ['C2', 'C3', 'C4', 'C5'],
+          prompt: '高音譜表第 4 線（D5）的單獨四分音符，符桿應如何繪製？',
+          options: ['朝上畫右側', '朝下畫左側（高於第 3 線中線）', '不畫符桿', '朝下畫右側'],
           answer: 1,
-          explanation: '中央 C 為 C4，低音譜表第 2 間的 C 比中央 C 低一個八度，故編號為 C3！'
+          explanation: '第 3 線以上的音符符桿一律朝下，畫在符頭左側（如字母 p）。'
         },
         {
-          prompt: '【Focus 3-2 八度記號與加線】若高音譜表「第 3 間」寫著 C5，且其上方標有「8va」虛線記號，實際彈奏的音高編號為何？',
-          options: ['C4', 'C5', 'C6', 'B5'],
-          answer: 2,
-          explanation: '音符上方的 8va 代表高一個八度演奏，因此原本的 C5 會變成 C6！'
-        },
-        {
-          prompt: '【力度術語】譜上出現「dim. poco a poco」，演奏者應該如何處理音量？',
-          options: ['突然變得很強', '一點一點逐漸變弱 (gradually softer, little by little)', '保持極強不變', '速度越來越快'],
+          prompt: '樂譜尾端標記「D.S. al fine」，演奏者應該跳回哪裡？',
+          options: ['全曲第 1 小節', '標有記號 𝄋 (Segno) 的小節並彈到 Fine 結束', '直接結束', '跳到 Coda'],
           answer: 1,
-          explanation: 'dim. (diminuendo) 為漸弱，poco a poco 意為「一點一點地」；若要表達「突然變強」則是 subito f。'
-        },
-        {
-          prompt: '【樂譜地圖計算】一首 16 小節的短曲：第 1–8 小節尾端有反覆記號「:|」，第 9–16 小節沒有反覆記號但第 16 小節尾端標示「D.C. al fine (senza repetizione)」，且 Fine 標在第 8 小節。請問完整演奏下來總共彈了幾小節？',
-          options: ['16 小節', '24 小節', '32 小節', '40 小節'],
-          answer: 2,
-          explanation: '先彈 1–8 小節（8）＋反覆 1–8 小節（8）＋繼續彈 9–16 小節（8）＋D.C. 回到開頭不反覆彈 1–8 至 Fine（8）＝ 8+8+8+8 = 32 小節！'
+          explanation: 'D.C. 回最開頭；D.S. (Dal segno) 則是跳回 𝄋 記號處彈至 Fine 結束！'
         }
       ]);
     });

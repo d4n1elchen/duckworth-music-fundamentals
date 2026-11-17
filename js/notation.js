@@ -386,13 +386,25 @@
       }
     }
 
-    const endStaffX = Math.max(noteCursorX + 18, spec.minWidth || 520);
+    const endStaffX = Math.max(noteCursorX + 16, spec.minWidth || 240);
     const totalWidth = endStaffX + 14;
+    const needsScroll = totalWidth > 440;
+    const minSvgW = needsScroll ? Math.min(totalWidth, Math.max(360, Math.round(totalWidth * 0.74))) : 0;
+
+    if (needsScroll) {
+      const capEl = card.querySelector('.score-caption');
+      if (capEl) {
+        const hint = document.createElement('span');
+        hint.className = 'score-scroll-hint';
+        hint.textContent = '⇆ 可滑動看全譜 · 點擊音符發聲';
+        capEl.appendChild(hint);
+      }
+    }
 
     const svg = el('svg', {
       viewBox: `0 0 ${totalWidth} ${totalHeight}`,
       class: 'music-svg',
-      style: `min-inline-size: ${Math.min(totalWidth, spec.minWidth || 460)}px;`,
+      style: minSvgW > 0 ? `min-inline-size: ${minSvgW}px;` : 'min-inline-size: 0;',
       role: 'img',
       'aria-label': spec.ariaLabel || spec.title || '音樂五線譜範例'
     });
@@ -500,12 +512,15 @@
           const isOpenHead = (dur === 'w' || dur === 'h');
           const rx = dur === 'w' ? 7.2 : 6.2;
           const ry = 4.5;
+          const nColor = (clef !== 'rhythm' && !item.highlight && spec.colorNotes !== false && window.AudioEngine?.PITCH_COLORS)
+            ? window.AudioEngine.PITCH_COLORS[((p.midi % 12) + 12) % 12]
+            : 'currentColor';
           const head = el('ellipse', {
             cx: headX, cy: ny, rx, ry,
             transform: dur === 'w' ? undefined : `rotate(-18 ${headX} ${ny})`,
-            fill: isOpenHead ? 'var(--bg-score)' : 'currentColor',
-            stroke: 'currentColor',
-            'stroke-width': isOpenHead ? '2.1' : '1'
+            fill: isOpenHead ? 'var(--bg-score)' : nColor,
+            stroke: nColor,
+            'stroke-width': isOpenHead ? '2.3' : '1.1'
           });
           g.appendChild(head);
 

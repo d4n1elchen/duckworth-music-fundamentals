@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>第 6 章：大調音階與視唱練耳 | 創意音樂基礎 11e</title>
+  <title>第 6 章：大調音階階梯與音級引力 | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="ch06">
@@ -21,162 +21,79 @@
     <main class="lesson-main">
       <section class="chapter-hero">
         <span class="chapter-eyebrow">Chapter 6 · 第 6 章</span>
-        <h1 id="main-heading" tabindex="-1">第 6 章：大調音階、音級命名與視唱練耳（Major Scales）</h1>
+        <h1 id="main-heading" tabindex="-1">第 6 章：15 大調音階階梯、四音列與音級引力</h1>
         <p class="chapter-subtitle">
-          全世界的旋律都由「音階 (Scale)」孕育而生，猶如人體的骨架。西方音樂將一個八度均分為 12 個半音（半音音階 Chromatic Scale），並從中萃取出主宰西方調性音樂最重要的兩大音階——本章我們先深入探索<strong>大調音階 (Major Scale)</strong>。
+          大調音階由兩組對稱的四音列 <code>[W-W-H] + W + [W-W-H]</code> 組成。切換全部 15 個大調，同時看見階梯高度、五線譜與琴鍵！
         </p>
-        <div class="learning-goals">
-          <h2>本章學習目標 (What Will I Learn Here?)</h2>
-          <ul>
-            <li>學會書寫<strong>半音音階 (Chromatic Scale)</strong>（上行用升記號、下行用降記號，保留 <code>E–F</code> 與 <code>B–C</code>）。</li>
-            <li>掌握大調音階的全半音公式 <strong><code>W – W – H – W – W – W – H</code></strong> 與<strong>四音列 (Tetrachords)</strong>，能在全部 15 個大調正確拼出音階。</li>
-            <li>理解七個<strong>音級名稱 (Scale Degree Names)</strong> 以主音為重心的對稱邏輯、<strong>首調唱名法 (Movable Do)</strong>，以及絕對音感 vs. 相對音感。</li>
-          </ul>
+        <div class="pill-row">
+          <span class="visual-pill">📐 公式：<strong>W – W – H – W – W – W – H</strong></span>
+          <span class="visual-pill">🧲 半音鎖定在 <strong>3–4 級</strong> 與 <strong>7–8 級（導音→主音）</strong></span>
+          <span class="visual-pill">🔤 鐵則：<strong>A～G 七個字母必須各出現一次</strong></span>
         </div>
       </section>
 
-      <!-- 1. Chromatic Scale & Major Scale Formula -->
+      <!-- 1. 15 大調音階 3D 階梯 + 樂譜 + 鋼琴 -->
       <section class="lesson-section" aria-labelledby="ch6-formula">
-        <h2 id="ch6-formula">1. 半音音階、大調音階公式與四音列 (Tetrachords)</h2>
-        <p>
-          將一個八度劃分為 12 個相等半音的音階稱為<strong>半音音階 (Chromatic Scale)</strong>，它是所有其他音階的原料庫。書寫半音音階的慣例是：<strong>上行時使用升記號 (♯)，下行時使用降記號 (♭)</strong>，但務必保持原本就是自然半音的 <code>E–F</code> 與 <code>B–C</code> 不變！
-        </p>
-        <p>
-          <strong>大調音階 (Major Scale)</strong> 由 <strong>5 個全音 (W) 與 2 個自然半音 (H)</strong> 構成，兩個半音永遠落在<strong>第 3–4 級</strong>與<strong>第 7–8(1) 級</strong>之間：
-        </p>
-        <p style="text-align:center;font-family:var(--font-mono);font-size:1.15rem;font-weight:700;background:var(--bg-subtle);padding:0.8rem;border-radius:8px;">
-          1 ──(W)── 2 ──(W)── 3 ──<span style="color:var(--danger)">[H]</span>── 4 ──(W)── 5 ──(W)── 6 ──(W)── 7 ──<span style="color:var(--danger)">[H]</span>── 8(1)
-        </p>
-        <p>
-          正是<strong>第 7 級（導音）與第 1 級之間緊密的半音引力</strong>，賦予了第 1 級強烈的歸屬感與中心重力，我們稱第 1 級為<strong>主音 (Tonic / Home Note)</strong>。全書共有 <strong>15 個大調音階</strong>（C 大調無升降、7 個升號大調、7 個降號大調）。<strong>拼寫鐵則：每一個大調音階中，A 到 G 每個英文字母必須剛好各出現一次（只准使用自然半音，絕不可同時出現 <code>G♭</code> 與 <code>G♮</code>，必須寫成 <code>F♯–G</code>）！</strong>
-        </p>
-
-        <div class="callout callout-tips">
-          <div class="callout-title">💡 Tips &amp; Tools：古希臘四音列思維 (Tetrachords)</div>
-          <p>
-            你也可以將大調音階拆解為上下兩個結構完全相同的<strong>四音列 (Tetrachord，源自古希臘四弦里拉琴)</strong>：下四音列（如 <code>C-D-E-F</code>）是 <strong><code>W – W – H</code></strong>，上四音列（<code>G-A-B-C</code>）也是 <strong><code>W – W – H</code></strong>，兩組四音列中間由一個全音 (<code>W</code>) 連接！
-          </p>
-        </div>
-
-        <!-- 互動全 15 個大調音階建構器 -->
+        <h2 id="ch6-formula">🪜 1. 互動 15 大調音階階梯 ＆ 鍵盤實驗室</h2>
         <div class="widget-box">
           <div class="widget-header">
-            <h3 class="widget-title">🎹 互動 15 大調音階實驗室（五線譜 ＋ 鍵盤映射 ＋ 首調唱名）</h3>
+            <label style="font-weight:800;font-size:0.9rem;">選擇大調主音：
+              <select id="maj-scale-select">
+                <option value="C">C 大調 (0)</option>
+                <option value="G">G 大調 (1♯)</option>
+                <option value="D">D 大調 (2♯)</option>
+                <option value="A">A 大調 (3♯)</option>
+                <option value="E">E 大調 (4♯)</option>
+                <option value="B">B 大調 (5♯)</option>
+                <option value="F#">F♯ 大調 (6♯)</option>
+                <option value="C#">C♯ 大調 (7♯)</option>
+                <option value="F">F 大調 (1♭)</option>
+                <option value="Bb">B♭ 大調 (2♭)</option>
+                <option value="Eb">E♭ 大調 (3♭)</option>
+                <option value="Ab">A♭ 大調 (4♭)</option>
+                <option value="Db">D♭ 大調 (5♭)</option>
+                <option value="Gb">G♭ 大調 (6♭)</option>
+                <option value="Cb">C♭ 大調 (7♭)</option>
+              </select>
+            </label>
             <div class="widget-controls" style="margin:0;">
-              <label style="font-weight:700;font-size:0.9rem;">選擇主音 (Tonic)：
-                <select id="maj-scale-select">
-                  <option value="C">C 大調（0 升降）</option>
-                  <option value="G">G 大調（1♯: F♯）</option>
-                  <option value="D">D 大調（2♯: F♯, C♯）</option>
-                  <option value="A">A 大調（3♯）</option>
-                  <option value="E">E 大調（4♯）</option>
-                  <option value="B">B 大調（5♯）</option>
-                  <option value="F#">F♯ 大調（6♯）</option>
-                  <option value="C#">C♯ 大調（7♯）</option>
-                  <option value="F">F 大調（1♭: B♭）</option>
-                  <option value="Bb">B♭ 大調（2♭: B♭, E♭）</option>
-                  <option value="Eb">E♭ 大調（3♭）</option>
-                  <option value="Ab">A♭ 大調（4♭）</option>
-                  <option value="Db">D♭ 大調（5♭）</option>
-                  <option value="Gb">G♭ 大調（6♭）</option>
-                  <option value="Cb">C♭ 大調（7♭）</option>
-                </select>
-              </label>
-              <button type="button" class="btn btn-sm btn-primary" id="play-maj-asc">▶ 上行視唱</button>
-              <button type="button" class="btn btn-sm" id="play-maj-desc">▶ 下行視唱</button>
+              <button type="button" class="btn btn-sm btn-primary" id="play-maj-asc">▶ 上行 do→do</button>
+              <button type="button" class="btn btn-sm" id="play-maj-desc">▶ 下行</button>
+              <button type="button" class="btn btn-sm btn-amber" id="play-chromatic">▶ 聽 12 半音音階</button>
             </div>
           </div>
-          <p id="maj-scale-Readout" style="font-weight:600;margin-block:0.4rem;"></p>
+          <div id="maj-stairs"></div>
           <div id="maj-scale-score"></div>
           <div id="maj-scale-piano"></div>
         </div>
       </section>
 
-      <!-- 2. Naming Scale Degrees & Sight Singing -->
+      <!-- 2. 七個音級對稱引力觸控卡 -->
       <section class="lesson-section" aria-labelledby="ch6-degrees">
-        <h2 id="ch6-degrees">2. 音級名稱的對稱奧秘 (Naming Scale Degrees) 與首調唱名法</h2>
-        <p>
-          大調音階的七個音級各有專屬名稱與兩種常見視唱系統（在<strong>首調唱名法 Movable Do</strong> 中，無論哪一個大調，主音永遠唱作 <code>do</code>；而在<strong>固定唱名法 Fixed Do</strong> 中，則是 C 永遠唱 <code>do</code>）：
-        </p>
-
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="deg-table-cap">
-          <table class="data-table stack-mobile">
-            <caption id="deg-table-cap">大調音階七個音級名稱、首調唱名與「以主音為中心」的對稱關係</caption>
-            <thead>
-              <tr>
-                <th scope="col">音級數字</th>
-                <th scope="col">音級英文與中文名稱</th>
-                <th scope="col">首調唱名</th>
-                <th scope="col">以 C 大調為例 ＆ 命名對稱原理（Duckworth 圖解）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">第 1 級 (<code>1̂</code>)</th>
-                <td data-label="名稱"><strong>Tonic（主音）</strong></td>
-                <td data-label="唱名"><code>do</code></td>
-                <td data-label="原理"><code>C</code> — 調性重力中心 (Center of Gravity)，最安定的歸宿。</td>
-              </tr>
-              <tr>
-                <th scope="row">第 2 級 (<code>2̂</code>)</th>
-                <td data-label="名稱"><strong>Supertonic（上主音）</strong></td>
-                <td data-label="唱名"><code>re</code></td>
-                <td data-label="原理"><code>D</code> — 位於主音正上方一度 (Super = 上方)。</td>
-              </tr>
-              <tr>
-                <th scope="row">第 3 級 (<code>3̂</code>)</th>
-                <td data-label="名稱"><strong>Mediant（中音）</strong></td>
-                <td data-label="唱名"><code>mi</code></td>
-                <td data-label="原理"><code>E</code> — 主音<strong>往上三度</strong>（位居主音 C 與屬音 G 正中間）。</td>
-              </tr>
-              <tr>
-                <th scope="row">第 4 級 (<code>4̂</code>)</th>
-                <td data-label="名稱"><strong>Subdominant（下屬音）</strong></td>
-                <td data-label="唱名"><code>fa</code></td>
-                <td data-label="原理"><code>F</code> — 與屬音對稱：位於<strong>主音往下五度</strong>的位置！</td>
-              </tr>
-              <tr>
-                <th scope="row">第 5 級 (<code>5̂</code>)</th>
-                <td data-label="名稱"><strong>Dominant（屬音）</strong></td>
-                <td data-label="唱名"><code>sol</code></td>
-                <td data-label="原理"><code>G</code> — 位於<strong>主音往上五度</strong>，僅次於主音的重要支柱音。</td>
-              </tr>
-              <tr>
-                <th scope="row">第 6 級 (<code>6̂</code>)</th>
-                <td data-label="名稱"><strong>Submediant（下中音）</strong></td>
-                <td data-label="唱名"><code>la</code></td>
-                <td data-label="原理"><code>A</code> — 與中音對稱：位於<strong>主音往下三度</strong>（主音 C 與下屬音 F 中間）！</td>
-              </tr>
-              <tr>
-                <th scope="row">第 7 級 (<code>7̂</code>)</th>
-                <td data-label="名稱"><strong>Leading Tone（導音）</strong></td>
-                <td data-label="唱名"><code>ti</code></td>
-                <td data-label="原理"><code>B</code> — 位於主音下方半音，強烈傾向導引回主音 <code>do</code>。</td>
-              </tr>
-            </tbody>
-          </table>
+        <h2 id="ch6-degrees">🧲 2. 七大音級名稱對稱圖解（點擊聽各音級在調內的引力！）</h2>
+        <div class="pill-row">
+          <span class="visual-pill">主音上五度＝<strong>屬音 5̂</strong> ↔ 主音下五度＝<strong>下屬音 4̂</strong></span>
+          <span class="visual-pill">主音上三度＝<strong>中音 3̂</strong> ↔ 主音下三度＝<strong>下中音 6̂</strong></span>
         </div>
+        <div class="jam-pad-grid" id="deg-cards" style="grid-template-columns:repeat(auto-fit, minmax(122px, 1fr));"></div>
       </section>
 
-      <!-- 3. Ear Training: Relative Pitch Trainer -->
+      <!-- 3. 相對音感練耳 -->
       <section class="lesson-section" aria-labelledby="ch6-ear">
-        <h2 id="ch6-ear">3. 聽音訓練 (Ear Training)：相對音感音級聽辨實驗室</h2>
-        <p>
-          少數人天生擁有直接叫出音名的「絕對音感 (Perfect Pitch)」，但它並非必備；所有音樂人都能透過後天訓練培養出強大的<strong>相對音感 (Relative Pitch)</strong>——在聽見音階建立調性重心後，辨識目標音是主音 (Tonic)、屬音 (Dominant)、下屬音 (Subdominant) 還是下中音 (Submediant)！
-        </p>
+        <h2 id="ch6-ear">👂 3. 相對音感練耳機（聽音階抓 1̂ · 4̂ · 5̂ · 7̂）</h2>
         <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">👂 Music in Action 互動練耳：聽音階抓音級（1̂ / 4̂ / 5̂ / 6̂）</h3>
-            <button type="button" class="btn btn-primary" id="ear-deg-new">🎲 出新題並播放「音階 ＋ 目標音」</button>
+          <div class="widget-controls" style="margin-block-start:0;">
+            <button type="button" class="btn btn-primary" id="ear-deg-new">🎲 出題：播放音階＋神秘音級</button>
+            <button type="button" class="btn btn-sm" id="ear-deg-replay">🔊 重聽一次</button>
           </div>
-          <div class="widget-controls" id="ear-deg-choices"></div>
-          <p id="ear-deg-feedback" style="margin-block-end:0;font-weight:600;">點擊上方「出新題」開始你的相對音感訓練！</p>
+          <div class="jam-pad-grid" id="ear-deg-choices" style="grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));"></div>
+          <div id="ear-deg-feedback" class="visual-pill">點擊「出題」訓練你的相對音感！</div>
         </div>
       </section>
 
-      <!-- 4. Practice 6-1 ~ 6-7 -->
+      <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch6-quiz-sec">
-        <h2 id="ch6-quiz-sec">📝 Practice 6-1～6-7 大調音階與音級課後檢定</h2>
+        <h2 id="ch6-quiz-sec">🏆 Practice 6-1～6-7 闖關檢定</h2>
         <div id="ch06-quiz"></div>
       </section>
     </main>
@@ -191,31 +108,27 @@
   <script defer src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const piano = Widgets.createPiano('#maj-scale-piano', {
-        startMidi: 58, // Bb3
-        endMidi: 86    // D6
-      });
-
+      const piano = Widgets.createPiano('#maj-scale-piano', { startMidi: 58, endMidi: 86 });
+      const stairs = Widgets.createStepStaircase('#maj-stairs');
       const sel = document.getElementById('maj-scale-select');
-      const readout = document.getElementById('maj-scale-Readout');
       let currentScale = null;
+      let stairInfo = null;
 
       function updateMajorScale() {
         const tonic = sel.value + '4';
         currentScale = CourseData.buildScale(tonic, 'major');
-        const names = currentScale.notes.map(n => n.name).join(' – ');
-        readout.innerHTML = `<strong>音階拼寫：</strong> ${names} &nbsp;|&nbsp; <span style="color:var(--danger)">半音 (H) 位置：${currentScale.notes[2].name}–${currentScale.notes[3].name} (3–4級)、${currentScale.notes[6].name}–${currentScale.notes[7].name} (7–8級)</span>`;
+        stairInfo = stairs.renderScale(tonic, 'major');
 
         MusicNotation.render('#maj-scale-score', {
           clef: 'treble',
           playable: false,
-          spacing: 56,
+          spacing: 46,
           notes: currentScale.notes.map((n, i) => ({
             pitch: n.ascii,
-            dur: 'w',
+            dur: 'q',
             label: n.name,
             solfege: currentScale.solfege[i],
-            topText: (i === 2 || i === 6) ? '┌─ H ─┐' : ''
+            topText: (i === 2 || i === 6) ? 'H' : ''
           }))
         });
 
@@ -225,114 +138,115 @@
       sel.addEventListener('change', updateMajorScale);
       updateMajorScale();
 
-      document.getElementById('play-maj-asc').addEventListener('click', () => {
-        AudioEngine.playSequence(currentScale.notes.map(n => ({ pitch: n, beats: 0.55 })), 102, {
-          onStep: ev => piano.flashKey(ev.pitch.midi, 280)
+      function playScale(desc) {
+        const arr = desc ? [...currentScale.notes].reverse() : currentScale.notes;
+        AudioEngine.playSequence(arr.map((n, i) => ({ pitch: n, beats: 0.42, idx: desc ? 7 - i : i })), 108, {
+          onStep: (ev) => {
+            piano.flashKey(ev.pitch.midi, 220);
+            stairInfo?.colEls?.forEach((c, ci) => c.classList.toggle('is-playing', ci === ev.idx));
+          },
+          onDone: () => stairInfo?.colEls?.forEach(c => c.classList.remove('is-playing'))
         });
+      }
+
+      document.getElementById('play-maj-asc').addEventListener('click', () => playScale(false));
+      document.getElementById('play-maj-desc').addEventListener('click', () => playScale(true));
+      document.getElementById('play-chromatic').addEventListener('click', () => {
+        const seq = Array.from({ length: 13 }, (_, i) => ({ pitch: 60 + i, beats: 0.25 }));
+        AudioEngine.playSequence(seq, 112, { onStep: (ev) => piano.flashKey(ev.pitch, 140) });
       });
 
-      document.getElementById('play-maj-desc').addEventListener('click', () => {
-        const desc = [...currentScale.notes].reverse();
-        AudioEngine.playSequence(desc.map(n => ({ pitch: n, beats: 0.55 })), 102, {
-          onStep: ev => piano.flashKey(ev.pitch.midi, 280)
-        });
-      });
-
-      // Ear Training Widget (Duckworth p. 119 Music in Action)
-      const degOptions = [
-        { idx: 0, name: '主音 Tonic (1̂ / do)' },
-        { idx: 3, name: '下屬音 Subdominant (4̂ / fa)' },
-        { idx: 4, name: '屬音 Dominant (5̂ / sol)' },
-        { idx: 5, name: '下中音 Submediant (6̂ / la)' }
+      // 7 Scale Degree Cards
+      const DEG_DATA = [
+        { deg: '1̂ 主音', en: 'Tonic · do', idx: 0, resolve: [0] },
+        { deg: '2̂ 上主音', en: 'Supertonic · re', idx: 1, resolve: [1, 0] },
+        { deg: '3̂ 中音', en: 'Mediant · mi', idx: 2, resolve: [2, 0] },
+        { deg: '4̂ 下屬音', en: 'Subdominant · fa', idx: 3, resolve: [3, 2] },
+        { deg: '5̂ 屬音', en: 'Dominant · sol', idx: 4, resolve: [4, 7] },
+        { deg: '6̂ 下中音', en: 'Submediant · la', idx: 5, resolve: [5, 4] },
+        { deg: '7̂ 導音', en: 'Leading Tone · ti', idx: 6, resolve: [6, 7] }
       ];
-      let targetDeg = null;
-      let earScale = null;
-      const earChoices = document.getElementById('ear-deg-choices');
+      const degMount = document.getElementById('deg-cards');
+      DEG_DATA.forEach(d => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'jam-pad';
+        b.style.minBlockSize = '66px';
+        b.style.setProperty('--pad-color', AudioEngine.PITCH_COLORS[(d.idx * 2) % 12]);
+        b.innerHTML = `<span>${d.deg}</span><span style="font-size:0.72rem;opacity:0.86;">${d.en}</span>`;
+        b.addEventListener('click', () => {
+          const seq = d.resolve.map(ri => ({ pitch: currentScale.notes[ri], beats: 0.55 }));
+          AudioEngine.playSequence(seq, 100, { onStep: (ev) => piano.flashKey(ev.pitch.midi, 280) });
+        });
+        degMount.appendChild(b);
+      });
+
+      // Relative Pitch Ear Trainer
+      const EAR_TARGETS = [
+        { idx: 0, label: '1̂ 主音 (do)' },
+        { idx: 3, label: '4̂ 下屬音 (fa)' },
+        { idx: 4, label: '5̂ 屬音 (sol)' },
+        { idx: 6, label: '7̂ 導音 (ti)' }
+      ];
+      let earCurrent = null;
       const earFb = document.getElementById('ear-deg-feedback');
+      const earChoices = document.getElementById('ear-deg-choices');
 
       function playEarPrompt() {
-        if (!earScale || !targetDeg) return;
-        const seq = earScale.notes.map(n => ({ pitch: n, beats: 0.35 }));
-        seq.push({ rest: true, beats: 0.6 });
-        seq.push({ pitch: earScale.notes[targetDeg.idx], beats: 1.4 });
-        AudioEngine.playSequence(seq, 110);
+        if (!earCurrent) return;
+        const sc = CourseData.buildScale(earCurrent.tonic, 'major').notes;
+        const evs = sc.slice(0, 5).map(n => ({ pitch: n, beats: 0.28 }));
+        evs.push({ rest: true, beats: 0.45 });
+        evs.push({ pitch: sc[earCurrent.target.idx], beats: 1.1 });
+        AudioEngine.playSequence(evs, 112);
       }
 
       document.getElementById('ear-deg-new').addEventListener('click', () => {
-        const keys = ['C4', 'D4', 'Eb4', 'F4', 'G4'];
-        const k = keys[Math.floor(Math.random() * keys.length)];
-        earScale = CourseData.buildScale(k, 'major');
-        targetDeg = degOptions[Math.floor(Math.random() * degOptions.length)];
-        earFb.textContent = `已播放 ${earScale.notes[0].name} 大調音階與最後一個目標音——請判斷最後一音是哪個音級？（可重複點擊聽題）`;
-        earFb.style.color = 'var(--text-primary)';
+        const roots = ['C4', 'F4', 'G4', 'D4', 'Bb3'];
+        earCurrent = {
+          tonic: roots[Math.floor(Math.random() * roots.length)],
+          target: EAR_TARGETS[Math.floor(Math.random() * EAR_TARGETS.length)]
+        };
+        earFb.textContent = '🎧 仔細聽最後的長音屬於哪一個音級？';
         playEarPrompt();
       });
+      document.getElementById('ear-deg-replay').addEventListener('click', playEarPrompt);
 
-      degOptions.forEach(opt => {
+      EAR_TARGETS.forEach(t => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'btn btn-sm';
-        b.textContent = opt.name;
+        b.className = 'btn';
+        b.textContent = t.label;
         b.addEventListener('click', () => {
-          if (!targetDeg) {
-            earFb.textContent = '請先點擊「🎲 出新題」！';
-            return;
-          }
-          const actualNote = earScale.notes[targetDeg.idx].name;
-          if (opt.idx === targetDeg.idx) {
-            earFb.textContent = `✓ 完全正確！目標音是 ${actualNote}，正是 ${earScale.notes[0].name} 大調的 ${targetDeg.name}！`;
-            earFb.style.color = 'var(--success)';
+          if (!earCurrent) { document.getElementById('ear-deg-new').click(); return; }
+          if (t.idx === earCurrent.target.idx) {
+            earFb.innerHTML = `✅ 答對了！正是 <strong>${t.label}</strong>！`;
             AudioEngine.playChord(['C5', 'E5', 'G5'], 0.35);
           } else {
-            earFb.textContent = `✕ 再聽一次看看！剛剛的音不是 ${opt.name}，再點一次選項或重聽比較它與主音 do 的關係。`;
-            earFb.style.color = 'var(--danger)';
-            playEarPrompt();
+            earFb.innerHTML = `❌ 再聽一次！剛才其實是 <strong>${earCurrent.target.label}</strong>。`;
           }
         });
         earChoices.appendChild(b);
       });
 
-      // Quiz
       Widgets.createQuiz('#ch06-quiz', 'quiz-ch06', 'ch06', [
         {
-          prompt: '【Practice 6-5】下列哪一個是「A♭ 大調音階」的正確字母拼寫（注意不可重複同一字母）？',
-          options: [
-            'A♭ – B♭ – C – D♭ – E♭ – F – G – A♭',
-            'A♭ – A♯ – C – C♯ – E♭ – F – G – A♭',
-            'A♭ – B – C – D – E♭ – F – G♭ – A♭',
-            'G♯ – B♭ – C – D♭ – E♭ – F – G – G♯'
-          ],
-          answer: 0,
-          explanation: '依 W-W-H-W-W-W-H 且每字母恰好出現一次：A♭–B♭(W)–C(W)–D♭(H)–E♭(W)–F(W)–G(W)–A♭(H)，共 4 個降號。'
+          prompt: '大調音階中，兩個自然半音 (H) 永遠位於哪兩個音級之間？',
+          options: ['1–2 與 5–6', '2–3 與 5–6', '3–4 與 7–8(1)', '4–5 與 6–7'],
+          answer: 2,
+          explanation: 'W-W-H-W-W-W-H：半音永遠在 3–4 級 (mi–fa) 與 7–8 級 (ti–do)！'
         },
         {
-          prompt: '【Practice 6-6】D 大調音階的「下中音 (Submediant, 第 6 級)」與 G 大調音階的「導音 (Leading tone, 第 7 級)」分別是什麼音？',
-          options: ['B 與 F♯', 'A 與 F♮', 'F♯ 與 D', 'B♭ 與 F♯'],
-          answer: 0,
-          explanation: 'D 大調音階為 D-E-F♯-G-A-B-C♯-D，第 6 級下中音為 B；G 大調導音位於 G 下方半音，為 F♯。'
-        },
-        {
-          prompt: '【Practice 6-7 逆向推算】如果「E♭」是某個大調音階的「下屬音 (Subdominant, 第 4 級)」，請問這是哪一個大調？',
-          options: ['A♭ 大調', 'B♭ 大調', 'F 大調', 'C 大調'],
+          prompt: '拼寫「F 大調音階」時，第 4 級必須寫成什麼才符合每個字母各用一次的規則？',
+          options: ['A♯', 'B♭', 'B♮', 'C♭'],
           answer: 1,
-          explanation: 'E♭ 為第 4 級，往下推回主音（或想哪個大調第 4 音是 E♭）：B♭(1) – C(2) – D(3) – E♭(4)，答案是 B♭ 大調！'
+          explanation: 'F–G–A 之後第 4 個字母必須是 B，A 上行半音必須寫成 B♭（絕不可寫成 A♯ 導致缺 B 重複 A）！'
         },
         {
-          prompt: '【Practice 6-7 逆向推算】如果「F♯」是某個大調音階的「中音 (Mediant, 第 3 級)」，請問這是哪一個大調？',
-          options: ['D 大調', 'A 大調', 'E 大調', 'B 大調'],
-          answer: 0,
-          explanation: '中音在第 3 級，從 F♯ 往下退大三度（4 個半音，兩個字母）：F♯(3) ← E(2) ← D(1)，即 D 大調！'
-        },
-        {
-          prompt: '書寫一個八度的「半音音階 (Chromatic Scale)」時，標準記譜慣例為何？',
-          options: [
-            '上行與下行全部都用升記號',
-            '上行通常使用升記號 (♯)，下行通常使用降記號 (♭)，並維持 E–F 與 B–C 原樣',
-            '上行用降記號，下行用升記號',
-            '必須使用重升記號'
-          ],
-          answer: 1,
-          explanation: '上行用升號表達向上推進傾向，下行用降號表達向下傾向，且 E–F、B–C 本身已是半音，不需加升降記號。'
+          prompt: '主音往下五度的第 4 級音（與屬音上下對稱）稱為什麼？',
+          options: ['上主音 Supertonic', '中音 Mediant', '下屬音 Subdominant', '導音 Leading Tone'],
+          answer: 2,
+          explanation: '主音往上五度為屬音 (Dominant 5̂)，往下五度對稱即為下屬音 (Subdominant 4̂)！'
         }
       ]);
     });

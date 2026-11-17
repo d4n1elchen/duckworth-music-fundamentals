@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>音樂術語總辭典與經典曲目索引 | 創意音樂基礎 11e</title>
+  <title>術語翻卡與快查總辭典 | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="glossary">
@@ -20,64 +20,74 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Glossary &amp; Musical Examples Index</span>
-        <h1 id="main-heading" tabindex="-1">音樂術語總辭典（Glossary）與經典範例曲目索引</h1>
+        <span class="chapter-eyebrow">Glossary &amp; Flashcards</span>
+        <h1 id="main-heading" tabindex="-1">樂理術語翻卡挑戰 ＆ 62 條快查總辭典</h1>
         <p class="chapter-subtitle">
-          完整收錄 William Duckworth《創意音樂基礎（第 11 版）》書末 Glossary 核心術語中英對照精解，支援即時關鍵字檢索、主題分類篩選與對應教學章節一鍵跳轉，並附全書經典範例曲目索引。
+          支援<strong>隨機抽卡翻面自測</strong>與<strong>中英關鍵字即時過濾</strong>，一鍵跳回對應互動章節！
         </p>
         <search>
           <div class="widget-controls" style="margin-block-end:0;">
             <label for="glossary-search" class="visually-hidden">搜尋樂理術語</label>
-            <input type="search" id="glossary-search" placeholder="輸入英文、義大利文或中文關鍵字（如 cadence, anacrusis, 增二度, 導音）..." style="flex:1;min-inline-size:240px;">
+            <input type="search" id="glossary-search" placeholder="搜尋術語（如 cadence, 增二度, V7）..." style="flex:1 1 180px;min-inline-size:0;">
             <select id="glossary-cat" aria-label="依主題篩選術語">
-              <option value="all">全部主題分類</option>
-              <option value="rhythm">節奏、拍號與速度</option>
-              <option value="pitch">譜號、音高與表情記號</option>
-              <option value="scale">音階、調號、調式與視唱</option>
-              <option value="interval">音程與聲學泛音</option>
-              <option value="harmony">三和弦、七和弦、終止式與曲式</option>
+              <option value="all">全部主題</option>
+              <option value="rhythm">🥁 節奏與拍號</option>
+              <option value="pitch">🎼 譜號與音高</option>
+              <option value="scale">🪜 音階與調號</option>
+              <option value="interval">📏 音程與泛音</option>
+              <option value="harmony">🎹 和弦與曲式</option>
             </select>
             <span id="glossary-count" class="badge"></span>
           </div>
         </search>
       </section>
 
-      <!-- Glossary Cards -->
+      <!-- 1. 互動隨機術語翻卡記憶機 -->
+      <section class="lesson-section" aria-labelledby="fc-heading">
+        <h2 id="fc-heading">🃏 隨機術語翻卡挑戰（點擊卡片翻看答案！）</h2>
+        <div class="widget-box" style="text-align:center;">
+          <button type="button" id="flashcard-box" class="concept-card" style="inline-size:100%;min-block-size:135px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.4rem;border:2px solid var(--brand);">
+            <span class="badge" id="fc-side">正面 · 點擊翻面</span>
+            <strong id="fc-front" style="font-size:1.3rem;color:var(--brand);"></strong>
+            <p id="fc-back" style="margin:0;font-size:0.92rem;" hidden></p>
+          </button>
+          <div class="widget-controls" style="justify-content:center;margin-block-end:0;">
+            <button type="button" class="btn btn-sm btn-primary" id="fc-next">🎲 抽下一張術語卡</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Glossary Grid -->
       <section class="lesson-section" aria-labelledby="gl-list-heading">
-        <h2 id="gl-list-heading">📖 A–Z 樂理術語辭典</h2>
+        <h2 id="gl-list-heading">📖 A–Z 樂理術語快查卡</h2>
         <div id="glossary-mount" class="concept-grid"></div>
       </section>
 
-      <!-- Index to Musical Examples -->
+      <!-- 3. Index to Musical Examples -->
       <section class="lesson-section" aria-labelledby="idx-ex-heading">
-        <h2 id="idx-ex-heading">🎵 課本精選古典、民謠、聖詠與藍調範例曲目索引 (Index to Musical Examples)</h2>
+        <h2 id="idx-ex-heading">🎵 課本經典範例曲目索引</h2>
         <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="ex-cap">
           <table class="data-table stack-mobile">
-            <caption id="ex-cap">Duckworth 第 11 版代表性樂曲範例與樂理知識點對照</caption>
+            <caption id="ex-cap">Duckworth 11e 代表曲目與對應章節</caption>
             <thead>
               <tr>
                 <th scope="col">作曲家／來源</th>
-                <th scope="col">曲名 (Musical Example)</th>
-                <th scope="col">課本示範之核心樂理概念</th>
-                <th scope="col">對應章節</th>
+                <th scope="col">曲名</th>
+                <th scope="col">樂理亮點</th>
+                <th scope="col">章節</th>
               </tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Beethoven</th><td data-label="曲名">“Moonlight” Sonata（月光奏鳴曲）</td><td data-label="概念">古典音樂精確控制音高、織體、力度與踏板之記譜法</td><td data-label="章節"><a href="intro.html">導論</a></td></tr>
-              <tr><th scope="row">Traditional</th><td data-label="曲名">“Careless Love” / “Deep River”</td><td data-label="概念">流行與民謠功能譜 (Lead Sheet)：旋律＋歌詞＋和弦代號即興</td><td data-label="章節"><a href="intro.html">導論</a> / <a href="ch13-triads-context.html">Ch 13</a></td></tr>
-              <tr><th scope="row">Traditional</th><td data-label="曲名">“Go Tell Aunt Rhody” / “This Old Man”</td><td data-label="概念">高音譜號與低音譜號基礎視唱與主音安定感體驗</td><td data-label="章節"><a href="ch01-basics.html">Ch 1</a></td></tr>
-              <tr><th scope="row">Traditional</th><td data-label="曲名">“America” / “The Yellow Rose of Texas”</td><td data-label="概念">單拍子數拍系統 (1 &amp; / 1 e &amp; a) 與弱起拍 (Anacrusis)</td><td data-label="章節"><a href="ch03-simple-meter.html">Ch 3</a></td></tr>
-              <tr><th scope="row">Traditional</th><td data-label="曲名">“For He’s a Jolly Good Fellow” / “Three Blind Mice”</td><td data-label="概念">6/8 複二拍子雙層脈動（附點四分大拍 vs 三連八分次脈動）</td><td data-label="章節"><a href="ch04-compound-meter.html">Ch 4</a></td></tr>
-              <tr><th scope="row">Debussy / Kuhlau</th><td data-label="曲名">“Brouillards”（霧） / Rondo Op. 20 No. 1</td><td data-label="概念">高低八度記號 (8va / 8va bassa) 探索極端音域並簡化加線</td><td data-label="章節"><a href="ch05-pitch.html">Ch 5</a></td></tr>
-              <tr><th scope="row">Clementi / Schumann</th><td data-label="曲名">Sonatina Op. 36 No. 1 / “Siciliana”</td><td data-label="概念">樂譜導航地圖：反覆記號、一二房與 D.C. al fine senza repetizione</td><td data-label="章節"><a href="ch05-pitch.html">Ch 5</a></td></tr>
-              <tr><th scope="row">J. S. Bach</th><td data-label="曲名">Preludio III (WTC I) / Praeludium / Minuet in G Minor</td><td data-label="概念">7 升調號簡化視譜、和聲小調升導音強化和聲、真實小調混合運用</td><td data-label="章節"><a href="ch07-major-keys.html">Ch 7</a> / <a href="ch10-minor-scales.html">Ch 10</a></td></tr>
-              <tr><th scope="row">Scarlatti</th><td data-label="曲名">Sonata in C Minor</td><td data-label="概念">c 小調樂曲中出現 A♮ 與 B♮ 旋律小調音階實例</td><td data-label="章節"><a href="ch10-minor-scales.html">Ch 10</a></td></tr>
-              <tr><th scope="row">Folk / Rossini</th><td data-label="曲名">“Auld Lang Syne” / William Tell / “Sakura, Sakura”</td><td data-label="概念">大調無半音五聲音階與日本含半音小調五聲音階</td><td data-label="章節"><a href="ch11-pentatonic-blues.html">Ch 11</a></td></tr>
-              <tr><th scope="row">Traditional Blues</th><td data-label="曲名">“Behind Closed Doors” / “Good Morning Blues”</td><td data-label="概念">六音藍調音階藍調音 (♭3, ♭5, ♭7) 與標準 12 小節藍調和弦進行</td><td data-label="章節"><a href="ch11-pentatonic-blues.html">Ch 11</a> / <a href="ch14-progressions.html">Ch 14</a></td></tr>
-              <tr><th scope="row">Hymn / Handel</th><td data-label="曲名">“Old Hundredth” / Flute Sonata (“Siciliana”)</td><td data-label="概念">三和弦轉位、巴洛克數字低音 (Figured Bass) 與四樂句多樣終止式</td><td data-label="章節"><a href="ch12-triads.html">Ch 12</a> / <a href="ch14-progressions.html">Ch 14</a></td></tr>
-              <tr><th scope="row">Stephen Foster</th><td data-label="曲名">“Old Folks at Home” (1851)</td><td data-label="概念">為 16 小節自然音旋律規劃終止式、和聲節奏與配和聲六步驟示範</td><td data-label="章節"><a href="ch15-songwriting.html">Ch 15</a></td></tr>
-              <tr><th scope="row">Beethoven / Schumann / Hanna-Barbera</th><td data-label="曲名">“Dance” / “Waltz” / “Meet the Flintstones”</td><td data-label="概念">二段體 (AB)、三段體 (ABA 轉調對比) 與 32 小節流行曲式 (AABA Bridge)</td><td data-label="章節"><a href="ch15-songwriting.html">Ch 15</a></td></tr>
-              <tr><th scope="row">English Folk / Debussy</th><td data-label="曲名">“Scarborough Fair” / “Voiles”</td><td data-label="概念">A 多利安調式（含特徵音 F♯）與全音音階 (Whole-Tone Scale)</td><td data-label="章節"><a href="appendices-modes-timbre.html">App F–K</a></td></tr>
+              <tr><th scope="row">Beethoven</th><td data-label="曲名">“Moonlight” Sonata</td><td data-label="亮點">古典精確記譜</td><td data-label="章節"><a href="intro.html">導論</a></td></tr>
+              <tr><th scope="row">Traditional</th><td data-label="曲名">“Careless Love”</td><td data-label="亮點">Lead Sheet 功能譜</td><td data-label="章節"><a href="intro.html">導論</a></td></tr>
+              <tr><th scope="row">Traditional</th><td data-label="曲名">“Go Tell Aunt Rhody”</td><td data-label="亮點">高音譜號主音 G4</td><td data-label="章節"><a href="ch01-basics.html">Ch 1</a></td></tr>
+              <tr><th scope="row">Traditional</th><td data-label="曲名">“America”</td><td data-label="亮點">3/4 單拍數法</td><td data-label="章節"><a href="ch03-simple-meter.html">Ch 3</a></td></tr>
+              <tr><th scope="row">Traditional</th><td data-label="曲名">“For He’s a Jolly Good Fellow”</td><td data-label="亮點">6/8 複二拍與連結線</td><td data-label="章節"><a href="ch04-compound-meter.html">Ch 4</a></td></tr>
+              <tr><th scope="row">Debussy / Schumann</th><td data-label="曲名">“Brouillards” / “Siciliana”</td><td data-label="亮點">8va 與 D.C. al fine</td><td data-label="章節"><a href="ch05-pitch.html">Ch 5</a></td></tr>
+              <tr><th scope="row">J. S. Bach / Scarlatti</th><td data-label="曲名">Minuet in g / Sonata in c</td><td data-label="亮點">小調升導音與混合運用</td><td data-label="章節"><a href="ch09-minor-keys.html">Ch 9–10</a></td></tr>
+              <tr><th scope="row">Folk</th><td data-label="曲名">“Auld Lang Syne” / “Sakura”</td><td data-label="亮點">無半音與含半音五聲</td><td data-label="章節"><a href="ch11-pentatonic-blues.html">Ch 11</a></td></tr>
+              <tr><th scope="row">Stephen Foster</th><td data-label="曲名">“Old Folks at Home”</td><td data-label="亮點">旋律配和聲六步驟</td><td data-label="章節"><a href="ch15-songwriting.html">Ch 15</a></td></tr>
+              <tr><th scope="row">Folk / Debussy</th><td data-label="曲名">“Scarborough Fair” / “Voiles”</td><td data-label="亮點">Dorian 調式與全音階</td><td data-label="章節"><a href="appendices-modes-timbre.html">App F–K</a></td></tr>
             </tbody>
           </table>
         </div>
@@ -95,70 +105,103 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const TERMS = [
-        { term: 'Accelerando (accel.)', zh: '漸快', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '指示音樂速度逐漸加快的速度術語。' },
-        { term: 'Accent mark (>)', zh: '重音記號', cat: 'rhythm', ch: 'ch01-basics.html', def: '置於音符上方或下方，指示該音要比周圍的音給予更多強調與力量。' },
-        { term: 'Accidentals', zh: '臨時記號', cat: 'pitch', ch: 'ch02-keyboard.html', def: '置於符頭左方以半音或全音改變音高的五種記號：升(♯)、降(♭)、還原(♮)、重升(𝄪)、重降(𝄫)。' },
-        { term: 'Adagio / Lento / Largo', zh: '慢板／廣板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '慢速義大利術語：Largo 為極寬廣緩慢，Lento 與 Adagio 為慢速。' },
-        { term: 'Alla breve / Cut time (𝄵)', zh: '簡記二二拍', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '中央帶垂直線的 C 拍號，代表以二分音符為一拍的單二拍子 (2/2)，進行曲最常使用。' },
-        { term: 'Allegro / Vivace / Presto', zh: '快板／活潑快板／急板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '快速義大利術語：Allegro 快、Vivace 活潑輕快、Presto 極快。' },
-        { term: 'Anacrusis (Pickup beat)', zh: '弱起拍／導進拍', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '樂曲第一個不完整小節開頭的一或數個弱拍，源自詩學「前導音節」。' },
-        { term: 'Andante / Moderato', zh: '行板／中板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '中等速度術語：Andante 約為悠閒緩步速度，Moderato 為適中步行速度。' },
-        { term: 'Arpeggiation (Broken chords)', zh: '分解和弦／琶音伴奏', cat: 'harmony', ch: 'ch13-triads-context.html', def: '將和弦各音拆開依序先後彈奏的伴奏型態，能減弱垂直切割感並創造水平推進動能。' },
-        { term: 'Articulation', zh: '奏法／運音法', cat: 'pitch', ch: 'ch05-pitch.html', def: '控制音符起音與連接方式的標記，如斷奏 (staccato)、連奏 (legato)、突強 (sforzando)、保持音 (tenuto)。' },
-        { term: 'Augmented / Diminished Interval', zh: '增音程／減音程', cat: 'interval', ch: 'ch08-intervals.html', def: '將完全音程或大音程擴大 1 半音稱為增音程 (A)；將完全音程或小音程縮小 1 半音稱為減音程 (d)。' },
-        { term: 'Authentic Cadence', zh: '正格終止', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾由 V(7)–I（大調）或 V(7)–i（小調）構成的終止式，具有最強烈的完結感。' },
-        { term: 'Bar lines & Double bar lines', zh: '小節線與雙小節線', cat: 'rhythm', ch: 'ch01-basics.html', def: '小節線置於強拍正前方以劃分小節；雙小節線標示段落分界或全曲結束。' },
-        { term: 'Bass clef (F clef)', zh: '低音譜號（F 譜號）', cat: 'pitch', ch: 'ch01-basics.html', def: '將五線譜第 4 線定位為中央 C 下方五度的 F3 之譜號。' },
-        { term: 'Beat vs. Pulse', zh: '主要大拍 vs. 脈動', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '音樂家稱最核心的主要脈動為 Beat（如 6/8 中的兩個附點四分音符），其餘快慢細分為次要脈動 (Pulses)。' },
-        { term: 'Binary Form (AB)', zh: '二段體', cat: 'harmony', ch: 'ch15-songwriting.html', def: '由兩個相互對比且通常各自反覆的樂段 (A 與 B) 組成的二部曲式。' },
-        { term: 'Blue notes & Blues scale', zh: '藍調音與藍調音階', cat: 'scale', ch: 'ch11-pentatonic-blues.html', def: '六音藍調音階 (1-♭3-4-♭5-5-♭7) 省略 2、6 級，其中降低的 ♭3、♭5、♭7 稱為藍調音，創造強烈色彩張力。' },
-        { term: 'C clef (Alto & Tenor clef)', zh: 'C 譜號（中音與次中音譜號）', cat: 'pitch', ch: 'appendices-modes-timbre.html', def: '標示中央 C (C4) 位置的可移動譜號；位於第 3 線為中音譜號（中提琴），第 4 線為次中音譜號。' },
-        { term: 'Cadence', zh: '終止式', cat: 'harmony', ch: 'ch14-progressions.html', def: '每個樂句結尾暫時或永久的呼吸停頓點，和聲終止式由兩個和弦構成（正格、變格、半終止、假終止）。' },
-        { term: 'Chromatic vs. Diatonic half step', zh: '變化半音 vs. 自然半音', cat: 'pitch', ch: 'ch02-keyboard.html', def: '同字母的半音（G–G♯）為變化半音；相鄰不同字母的半音（G–A♭、E–F）為自然半音（大小調音階必用自然半音）。' },
-        { term: 'Chromatic scale', zh: '半音音階', cat: 'scale', ch: 'ch06-major-scales.html', def: '將一個八度均分為 12 個半音的音階，上行慣用升號、下行慣用降號。' },
-        { term: 'Circle of Fifths', zh: '五度圈', cat: 'scale', ch: 'ch07-major-keys.html', def: '以完全五度順時針遞增升號、逆時針遞增降號排列全部 15 個大調與關係小調的視覺圓環。' },
-        { term: 'Close vs. Open Position', zh: '密集位置 vs. 開放位置', cat: 'harmony', ch: 'ch12-triads.html', def: '三和弦三音全在一個八度內為密集位置；各音之間跳過和弦音使總跨度超過一個八度為開放位置。' },
-        { term: 'Common time (C)', zh: '普通拍號', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '等同於 4/4 單四拍子的傳統拍號符號。' },
-        { term: 'Compound interval', zh: '複音程', cat: 'interval', ch: 'ch08-intervals.html', def: '超過一個八度的音程（如 9 度、10 度、11 度），減去一個八度即可還原為同性質的單音程。' },
-        { term: 'Compound meter', zh: '複拍子', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '主要大拍（附點音符）自然分裂為三個相等部分的拍子（如 6/8 複二拍、9/8 複三拍、12/8 複四拍），數作 1-la-le。' },
-        { term: 'Da capo (D.C.) & Dal segno (D.S.) al fine', zh: '從頭反覆／從記號反覆至 Fine', cat: 'pitch', ch: 'ch05-pitch.html', def: 'D.C. al fine 指示回到樂曲最開頭彈至 Fine 結束；D.S. al fine 則回到記號 𝄋 處彈至 Fine 結束。' },
-        { term: 'Deceptive Cadence', zh: '假終止（阻礙終止）', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句尾端 V 或 V7 未如預期解決到主和弦 I，而意外進入 vi（或其他和弦）的暫時轉折終止。' },
-        { term: 'Dominant & Dominant 7th (V7)', zh: '屬音／屬和弦與屬七和弦', cat: 'harmony', ch: 'ch13-triads-context.html', def: '音階第 5 級；屬七和弦 V7 由大三和弦加小七度構成（小調須升導音），是推向主和弦最強的張力來源。' },
-        { term: 'Dotted note', zh: '附點音符', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '音符右側的小圓點，永遠將原音符時值增加一半（× 1.5）。' },
-        { term: 'Duplet & Triplet (Borrowed division)', zh: '二連音與三連音（借用劃分）', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '單拍子中暫時借用三等分稱為三連音 (3)；複拍子中暫時借用二等分稱為二連音 (2)。' },
-        { term: 'Dynamics (pp–ff, cresc., dim.)', zh: '力度記號', cat: 'pitch', ch: 'ch05-pitch.html', def: '標示音樂強弱與漸強 (crescendo)、漸弱 (diminuendo/decrescendo) 的義大利術語與符號。' },
-        { term: 'Enharmonic pitches & keys', zh: '同音異名（等音）與等音調', cat: 'pitch', ch: 'ch05-pitch.html', def: '寫法不同但實際發聲相同的音高（如 F♯/G♭、E♯/F、C♭/B）或調性（B/C♭、F♯/G♭、C♯/D♭）。' },
-        { term: 'Figured bass & Inversions', zh: '數字低音與和弦轉位', cat: 'harmony', ch: 'ch12-triads.html', def: '以低音上方音程度數標記轉位的簡記系統：三和弦第一轉位標 6、第二轉位標 6/4；七和弦轉位標 6/5、4/3、4/2。' },
-        { term: 'Great staff (Grand staff)', zh: '大譜表', cat: 'pitch', ch: 'ch01-basics.html', def: '以直線與花括號將高音譜表與低音譜表結合成的寬音域譜表，中央為加線上的中央 C (C4)。' },
-        { term: 'Half Cadence (Semi-cadence)', zh: '半終止', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾停在屬和弦 V 上的暫時停頓（如 I–V、IV–V、ii–V），無法作為全曲終結。' },
-        { term: 'Harmonic Inversion of Intervals', zh: '音程和聲轉位', cat: 'interval', ch: 'ch08-intervals.html', def: '將音程上下音顛倒八度：度數相加必等於 9，性質 P↔P、M↔m、A↔d 互換。' },
-        { term: 'Harmonic minor scale', zh: '和聲小調音階', cat: 'scale', ch: 'ch10-minor-scales.html', def: '將自然小調第 7 級升高半音成為導音，以強化 V 與 vii° 和聲功能，並在第 6–7 級間產生特色增二度 (A2)。' },
-        { term: 'Harmonic rhythm', zh: '和聲節奏', cat: 'harmony', ch: 'ch15-songwriting.html', def: '樂曲中和弦更換的快慢頻率與規律（如每兩小節一換或每拍一換）。' },
-        { term: 'Harmonic series (Partials & Overtones)', zh: '泛音列（分音與泛音）', cat: 'interval', ch: 'appendices-modes-timbre.html', def: '單一樂音中由基音與上方泛音共同組成的自然頻率數列，決定各樂器獨特音色。' },
-        { term: 'Lead sheet & Guitar tablature', zh: '功能譜與吉他指法譜', cat: 'harmony', ch: 'ch13-triads-context.html', def: 'Lead sheet 僅記旋律、歌詞與上方和弦代號；Tablature 則以六弦格線圖指示吉他手指按壓位置。' },
-        { term: 'Leading tone vs. Subtonic', zh: '導音 vs. 下主音', cat: 'scale', ch: 'ch10-minor-scales.html', def: '主音下方「半音」的第 7 級稱為導音（大調、和聲/上行旋律小調）；主音下方「全音」的第 7 級稱為下主音（自然小調）。' },
-        { term: 'Ledger lines & Octave sign (8va)', zh: '加線與八度記號', cat: 'pitch', ch: 'ch05-pitch.html', def: '延伸五線譜音域的短橫線稱為加線；8va 置於上方表高八度演奏，置於下方 (bassa) 表低八度演奏。' },
-        { term: 'Major scale & Tetrachord', zh: '大調音階與四音列', cat: 'scale', ch: 'ch06-major-scales.html', def: '由 W-W-H-W-W-W-H（兩組 W-W-H 四音列以全音相連）構成的七音音階，半音位於 3–4 與 7–8 級。' },
-        { term: 'Melodic minor scale', zh: '旋律小調音階', cat: 'scale', ch: 'ch10-minor-scales.html', def: '為避免和聲小調增二度，上行同時升高第 6、7 級，下行則將第 7、6 級還原回自然小調。' },
-        { term: 'Modes (Church modes)', zh: '教會調式（中古調式）', cat: 'scale', ch: 'appendices-modes-timbre.html', def: '包含 Ionian、Dorian、Phrygian、Lydian、Mixolydian、Aeolian、Locrian 七種不同半音位置的七音音階。' },
-        { term: 'Modulation vs. Change of mode', zh: '轉調 vs. 調式轉換', cat: 'scale', ch: 'ch09-minor-keys.html', def: '樂曲中轉移至新的主音中心稱為轉調 (Modulation)；保持同一主音而在平行大小調間切換稱為調式轉換。' },
-        { term: 'Movable do vs. Fixed do', zh: '首調唱名法 vs. 固定唱名法', cat: 'scale', ch: 'ch06-major-scales.html', def: '首調唱名將任何調的主音皆唱作 do；固定唱名則規定音名 C 永遠唱作 do。' },
-        { term: 'Octatonic & Whole-tone scales', zh: '八音（減）音階與全音音階', cat: 'scale', ch: 'appendices-modes-timbre.html', def: '20 世紀常見合成音階：全音音階每八度 6 音全相距全音；八音音階則以全音與半音交替共 8 音。' },
-        { term: 'Parallel vs. Relative keys', zh: '平行大小調 vs. 關係大小調', cat: 'scale', ch: 'ch09-minor-keys.html', def: '平行調共享同一主音但調號差 3 個記號；關係調共享同一調號但主音相距小三度（大調第 6 級）。' },
-        { term: 'Pentatonic scale', zh: '五聲音階', cat: 'scale', ch: 'ch11-pentatonic-blues.html', def: '每八度含五個音的古老音階，最常見的大調五聲 (1-2-3-5-6) 與小調五聲 (1-♭3-4-5-♭7) 皆不含半音。' },
-        { term: 'Plagal Cadence', zh: '變格終止（阿們終止）', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾由 IV–I（大調）或 iv–i（小調）構成的柔和終止式，常見於聖詩結尾。' },
-        { term: 'Primary & Secondary Triads', zh: '正三和弦與副三和弦', cat: 'harmony', ch: 'ch15-songwriting.html', def: 'I, IV, V 為正三和弦（涵蓋全音階七音）；ii, iii, vi, vii° 為增添和聲色彩的副三和弦。' },
-        { term: 'Relative pitch vs. Perfect pitch', zh: '相對音感 vs. 絕對音感', cat: 'interval', ch: 'ch06-major-scales.html', def: '絕對音感能無參照直接說出音名；相對音感則透過聽辨音程與音級關係認音，人人皆可透過練耳養成。' },
-        { term: 'Scale degrees (Tonic–Leading tone)', zh: '七個音級名稱', cat: 'scale', ch: 'ch06-major-scales.html', def: '1 主音 Tonic、2 上主音 Supertonic、3 中音 Mediant、4 下屬音 Subdominant、5 屬音 Dominant、6 下中音 Submediant、7 導音 Leading tone。' },
-        { term: 'Simple meter', zh: '單拍子', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '基本脈動自然二等分的拍子（如 2/4, 3/4, 4/4, 2/2, 3/8），細分數拍為 1-e-&-a。' },
-        { term: 'Strophic, Ternary (ABA) & 32-Bar (AABA)', zh: '反覆曲式、三段體與 32 小節曲式', cat: 'harmony', ch: 'ch15-songwriting.html', def: '平衡重複與對比的曲式：Strophic 每段歌詞同曲；ABA 為呈示-離題-再現；AABA 含 8 小節對比橋段 Bridge。' },
-        { term: 'Syncopation', zh: '切分音', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '將重音刻意置於原本為弱拍或拍中弱位，製造搖擺與推進張力。' },
-        { term: 'Texture (Monophonic, Homophonic, Polyphonic)', zh: '音樂織體（單音、主音、複音）', cat: 'harmony', ch: 'intro.html', def: '單一無伴奏旋律為單音織體；主旋律配伴奏為主音織體；多條獨立平等旋律交織為複音織體。' },
-        { term: 'Tie vs. Slur', zh: '連結線 vs. 圓滑線', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '連結線連接兩個同音高音符以合併延長時值；圓滑線跨越不同音高指示連奏 (legato)。' },
-        { term: 'Treble clef (G clef)', zh: '高音譜號（G 譜號）', cat: 'pitch', ch: 'ch01-basics.html', def: '渦卷環繞第 2 線，將其定位為中央 C 上方五度之 G4 的譜號。' },
-        { term: 'Triad (M, m, A, d)', zh: '三和弦（大、小、增、減）', cat: 'harmony', ch: 'ch12-triads.html', def: '由根音、三音、五音以三度疊置而成的三音基本和弦，依內部兩個三度大小分為大、小、增、減四種性質。' }
+        { term: 'Accelerando (accel.)', zh: '漸快', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '速度逐漸加快。' },
+        { term: 'Accent mark (>)', zh: '重音記號', cat: 'rhythm', ch: 'ch01-basics.html', def: '比周圍音符更強調發聲。' },
+        { term: 'Accidentals', zh: '臨時記號', cat: 'pitch', ch: 'ch02-keyboard.html', def: '♯、♭、♮、𝄪、𝄫 五種改變音高記號。' },
+        { term: 'Adagio / Lento / Largo', zh: '慢板／廣板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: 'Largo 極慢，Lento/Adagio 慢速。' },
+        { term: 'Alla breve / Cut time (₵)', zh: '簡記二二拍', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '等同 2/2 拍，以二分音符當 1 拍。' },
+        { term: 'Allegro / Vivace / Presto', zh: '快板／急板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: 'Allegro 快、Vivace 活潑、Presto 極快。' },
+        { term: 'Anacrusis (Pickup beat)', zh: '弱起拍', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '第 1 個不完整小節開頭的導進弱拍。' },
+        { term: 'Andante / Moderato', zh: '行板／中板', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: 'Andante 緩步、Moderato 適中步行速度。' },
+        { term: 'Arpeggiation', zh: '分解和弦／琶音', cat: 'harmony', ch: 'ch13-triads-context.html', def: '將和弦各音依序先後彈奏的流動伴奏。' },
+        { term: 'Articulation', zh: '奏法', cat: 'pitch', ch: 'ch05-pitch.html', def: 'staccato 斷奏、legato 連奏、sforzando 突強、tenuto 保持。' },
+        { term: 'Augmented / Diminished', zh: '增／減音程', cat: 'interval', ch: 'ch08-intervals.html', def: 'P/M 擴大半音為增 (A)；P/m 縮小半音為減 (d)。' },
+        { term: 'Authentic Cadence', zh: '正格終止', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾 V(7) → I/i，最強完結句號。' },
+        { term: 'Bar lines', zh: '小節線', cat: 'rhythm', ch: 'ch01-basics.html', def: '畫在強拍正前方以劃分小節。' },
+        { term: 'Bass clef (F clef)', zh: '低音譜號', cat: 'pitch', ch: 'ch01-basics.html', def: '第 4 線定位為 F3。' },
+        { term: 'Beat vs. Pulse', zh: '大拍 vs. 脈動', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '如 6/8 具 2 個 ♩. 大拍與 6 個八分次脈動。' },
+        { term: 'Binary Form (AB)', zh: '二段體', cat: 'harmony', ch: 'ch15-songwriting.html', def: '由兩個對比樂段 A–B 組成。' },
+        { term: 'Blue notes & Blues scale', zh: '藍調音與藍調音階', cat: 'scale', ch: 'ch11-pentatonic-blues.html', def: '1-♭3-4-♭5-5-♭7，含 ♭3·♭5·♭7 三個藍調音。' },
+        { term: 'C clef (Alto & Tenor)', zh: 'C 譜號', cat: 'pitch', ch: 'appendices-modes-timbre.html', def: '中心線即中央 C4（第3線中音、第4線次中音）。' },
+        { term: 'Cadence', zh: '終止式', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾的呼吸停頓（正格、變格、半、假）。' },
+        { term: 'Chromatic vs. Diatonic half step', zh: '變化 vs. 自然半音', cat: 'pitch', ch: 'ch02-keyboard.html', def: '同字母 F–F♯ 為變化半音；不同字母 F–G♭ 為自然半音。' },
+        { term: 'Chromatic scale', zh: '半音音階', cat: 'scale', ch: 'ch06-major-scales.html', def: '八度均分 12 半音，上行升號、下行降號。' },
+        { term: 'Circle of Fifths', zh: '五度圈', cat: 'scale', ch: 'ch07-major-keys.html', def: '順時針 +♯、逆時針 +♭ 排列全 15 大小調。' },
+        { term: 'Close vs. Open Position', zh: '密集 vs. 開放位置', cat: 'harmony', ch: 'ch12-triads.html', def: '三音在八度內為密集；跨超過八度為開放。' },
+        { term: 'Common time (C)', zh: '普通拍號', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '等同 4/4 拍。' },
+        { term: 'Compound interval', zh: '複音程', cat: 'interval', ch: 'ch08-intervals.html', def: '超過八度的音程（減 7 即還原單音程）。' },
+        { term: 'Compound meter', zh: '複拍子', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '附點大拍自然三等分（6/8, 9/8, 12/8），數 1-la-le。' },
+        { term: 'D.C. & D.S. al fine', zh: '從頭／從記號反覆', cat: 'pitch', ch: 'ch05-pitch.html', def: 'D.C. 回開頭、D.S. 回 𝄋 記號，彈至 Fine 結束。' },
+        { term: 'Deceptive Cadence', zh: '假終止', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾 V(7) → vi/VI 製造意外轉折。' },
+        { term: 'Dominant 7th (V7)', zh: '屬七和弦', cat: 'harmony', ch: 'ch13-triads-context.html', def: '第 5 級大三＋小七（小調須升導音），轉位 6/5·4/3·4/2。' },
+        { term: 'Dotted note', zh: '附點音符', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '時值延長一半（× 1.5）。' },
+        { term: 'Duplet & Triplet', zh: '二連音與三連音', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '單拍借三等分＝三連音 (3)；複拍借二等分＝二連音 (2)。' },
+        { term: 'Dynamics', zh: '力度記號', cat: 'pitch', ch: 'ch05-pitch.html', def: 'pp → p → mp → mf → f → ff 與漸強漸弱。' },
+        { term: 'Enharmonic', zh: '同音異名／等音調', cat: 'pitch', ch: 'ch05-pitch.html', def: '同音不同名（E♯=F, B=C♭, F♯=G♭, C♯=D♭）。' },
+        { term: 'Figured bass', zh: '數字低音', cat: 'harmony', ch: 'ch12-triads.html', def: '三和弦一轉 6、二轉 6/4；七和弦 7、6/5、4/3、4/2。' },
+        { term: 'Great staff', zh: '大譜表', cat: 'pitch', ch: 'ch01-basics.html', def: '高音＋低音譜表花括號聯結，中央為加線 C4。' },
+        { term: 'Half Cadence', zh: '半終止', cat: 'harmony', ch: 'ch14-progressions.html', def: '樂句結尾停在 V，如未完問號。' },
+        { term: 'Harmonic Inversion', zh: '音程轉位', cat: 'interval', ch: 'ch08-intervals.html', def: '度數和 = 9，P↔P、M↔m、A↔d。' },
+        { term: 'Harmonic minor', zh: '和聲小調', cat: 'scale', ch: 'ch10-minor-scales.html', def: '升第 7 級造導音，6–7 級產生增二度 A2。' },
+        { term: 'Harmonic rhythm', zh: '和聲節奏', cat: 'harmony', ch: 'ch15-songwriting.html', def: '和弦變換的快慢頻率。' },
+        { term: 'Harmonic series', zh: '泛音列', cat: 'interval', ch: 'appendices-modes-timbre.html', def: '基音＋上方泛音分音數列，決定樂器音色。' },
+        { term: 'Lead sheet & Tablature', zh: '功能譜與吉他譜', cat: 'harmony', ch: 'ch13-triads-context.html', def: '旋律＋和弦代號譜；吉他六弦格位指法圖。' },
+        { term: 'Leading tone vs. Subtonic', zh: '導音 vs. 下主音', cat: 'scale', ch: 'ch10-minor-scales.html', def: '主音下半音為導音；主音下全音為下主音。' },
+        { term: 'Ledger lines & 8va', zh: '加線與八度記號', cat: 'pitch', ch: 'ch05-pitch.html', def: '延伸音域短橫線；8va 高八度、8va bassa 低八度。' },
+        { term: 'Major scale & Tetrachord', zh: '大調音階與四音列', cat: 'scale', ch: 'ch06-major-scales.html', def: '[W-W-H] + W + [W-W-H]。' },
+        { term: 'Melodic minor', zh: '旋律小調', cat: 'scale', ch: 'ch10-minor-scales.html', def: '上行升 6·7 級消除 A2，下行還原自然小調。' },
+        { term: 'Modes', zh: '教會調式', cat: 'scale', ch: 'appendices-modes-timbre.html', def: 'Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, Locrian。' },
+        { term: 'Modulation vs. Change of mode', zh: '轉調 vs. 調式轉換', cat: 'scale', ch: 'ch09-minor-keys.html', def: '換新主音＝轉調；同主音切換平行大小調＝調式轉換。' },
+        { term: 'Movable do vs. Fixed do', zh: '首調 vs. 固定唱名', cat: 'scale', ch: 'ch06-major-scales.html', def: '首調主音永遠唱 do；固定唱名 C 永遠唱 do。' },
+        { term: 'Octatonic & Whole-tone', zh: '八音與全音音階', cat: 'scale', ch: 'appendices-modes-timbre.html', def: '全音階 6 音全為全音；八音階全半交替 8 音。' },
+        { term: 'Parallel vs. Relative keys', zh: '平行調 vs. 關係調', cat: 'scale', ch: 'ch09-minor-keys.html', def: '平行調同主音差 3 記號；關係調同調號差小三度。' },
+        { term: 'Pentatonic scale', zh: '五聲音階', cat: 'scale', ch: 'ch11-pentatonic-blues.html', def: '每八度五音（如無半音 1-2-3-5-6 或含半音櫻花音階）。' },
+        { term: 'Plagal Cadence', zh: '變格終止', cat: 'harmony', ch: 'ch14-progressions.html', def: 'IV → I 聖詩阿們終止。' },
+        { term: 'Primary & Secondary Triads', zh: '正／副三和弦', cat: 'harmony', ch: 'ch15-songwriting.html', def: 'I·IV·V 為正三和弦；ii·iii·vi·vii° 為副三和弦。' },
+        { term: 'Relative vs. Perfect pitch', zh: '相對 vs. 絕對音感', cat: 'interval', ch: 'ch06-major-scales.html', def: '相對音感依音程與調性重心認音，可後天養成。' },
+        { term: 'Scale degrees', zh: '音級名稱', cat: 'scale', ch: 'ch06-major-scales.html', def: '主音、上主音、中音、下屬音、屬音、下中音、導音。' },
+        { term: 'Simple meter', zh: '單拍子', cat: 'rhythm', ch: 'ch03-simple-meter.html', def: '基本拍自然二等分（2/4, 3/4, 4/4），數 1-e-&-a。' },
+        { term: '32-Bar Form (AABA)', zh: '32 小節流行曲式', cat: 'harmony', ch: 'ch15-songwriting.html', def: '8+8+8+8，含第 17–24 小節對比橋段 Bridge。' },
+        { term: 'Syncopation', zh: '切分音', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: '將重音移至弱拍或後半拍創造推進感。' },
+        { term: 'Texture', zh: '音樂織體', cat: 'harmony', ch: 'intro.html', def: 'Monophonic 單音、Homophonic 主音、Polyphonic 複音。' },
+        { term: 'Tie vs. Slur', zh: '連結線 vs. 圓滑線', cat: 'rhythm', ch: 'ch04-compound-meter.html', def: 'Tie 同音延長；Slur 異音連奏。' },
+        { term: 'Treble clef (G clef)', zh: '高音譜號', cat: 'pitch', ch: 'ch01-basics.html', def: '第 2 線定位為 G4。' },
+        { term: 'Triad (M, m, A, d)', zh: '三和弦', cat: 'harmony', ch: 'ch12-triads.html', def: '根音、三音、五音三度疊置（大、小、增、減）。' }
       ];
 
+      // Flashcard Flip Trainer
+      let fcItem = TERMS[0];
+      let flipped = false;
+      const fcBox = document.getElementById('flashcard-box');
+      const fcSide = document.getElementById('fc-side');
+      const fcFront = document.getElementById('fc-front');
+      const fcBack = document.getElementById('fc-back');
+
+      function pickCard() {
+        fcItem = TERMS[Math.floor(Math.random() * TERMS.length)];
+        flipped = false;
+        syncCard();
+      }
+
+      function syncCard() {
+        fcSide.textContent = flipped ? '背面 · 答案揭曉' : '正面 · 點擊翻看中文與定義';
+        fcFront.textContent = flipped ? `${fcItem.term} — ${fcItem.zh}` : fcItem.term;
+        fcBack.hidden = !flipped;
+        fcBack.textContent = fcItem.def;
+      }
+
+      fcBox.addEventListener('click', () => {
+        flipped = !flipped;
+        AudioEngine.playNote(flipped ? 'G4' : 'C4', 0.25);
+        syncCard();
+      });
+      document.getElementById('fc-next').addEventListener('click', () => {
+        AudioEngine.playNote('E5', 0.2);
+        pickCard();
+      });
+      pickCard();
+
+      // Filterable Glossary Cards
       const mount = document.getElementById('glossary-mount');
       const searchIn = document.getElementById('glossary-search');
       const catSel = document.getElementById('glossary-cat');
@@ -173,15 +216,15 @@
           return matchCat && matchQ;
         });
 
-        countBadge.textContent = `顯示 ${filtered.length} / ${TERMS.length} 條核心術語`;
+        countBadge.textContent = `${filtered.length} / ${TERMS.length}`;
         mount.innerHTML = filtered.map(t => `
-          <article class="concept-card" style="display:flex;flex-direction:column;justify-content:space-between;">
+          <article class="concept-card" style="display:flex;flex-direction:column;justify-content:space-between;gap:0.4rem;">
             <div>
-              <h3 style="font-size:1.02rem;color:var(--brand);margin-block-end:0.2rem;">${t.term}</h3>
-              <div style="font-weight:700;font-size:0.92rem;margin-block-end:0.4rem;">${t.zh}</div>
-              <p style="margin-block:0 0.75rem;font-size:0.89rem;">${t.def}</p>
+              <h3 style="font-size:0.96rem;color:var(--brand);margin:0;">${t.term}</h3>
+              <div style="font-weight:800;font-size:0.86rem;margin-block:0.15rem;">${t.zh}</div>
+              <p style="margin:0;font-size:0.84rem;">${t.def}</p>
             </div>
-            <div><a href="${t.ch}" class="btn btn-sm">前往對應章節詳解 →</a></div>
+            <a href="${t.ch}" class="btn btn-sm" style="align-self:flex-start;">前往互動實驗 →</a>
           </article>
         `).join('');
       }

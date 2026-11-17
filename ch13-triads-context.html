@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>第 13 章：音樂脈絡中的和弦與七和弦 | 創意音樂基礎 11e</title>
+  <title>第 13 章：和弦代號、吉他譜與屬七和弦 (V7) | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="ch13">
@@ -21,129 +21,51 @@
     <main class="lesson-main">
       <section class="chapter-hero">
         <span class="chapter-eyebrow">Chapter 13 · 第 13 章</span>
-        <h1 id="main-heading" tabindex="-1">第 13 章：音樂脈絡中的三和弦、三種標記法與屬七和弦（<code>V7</code>）</h1>
+        <h1 id="main-heading" tabindex="-1">第 13 章：羅馬數字、吉他指法、屬七和弦 (V7) 與伴奏織體</h1>
         <p class="chapter-subtitle">
-          在真實的音樂世界裡，理論家、爵士鋼琴手與民謠吉他手各自使用不同的和弦語言；同時，作曲家也會加上第四個音形成<strong>屬七和弦 (<code>V7</code>)</strong> 增加張力，並透過<strong>柱式和弦 (Block Chords)</strong> 或<strong>分解和弦 (Arpeggiations)</strong> 展開織體。
+          古典分析用<strong>羅馬數字</strong>、爵士流行用<strong>和弦代號 (<code>F/A</code>)</strong>、吉他手看<strong>六線指法圖</strong>——一頁貫通三種和弦語言！
         </p>
-        <div class="learning-goals">
-          <h2>本章學習目標 (What Will I Learn Here?)</h2>
-          <ul>
-            <li>精通三種和弦標記系統：<strong>羅馬數字分析 (Roman Numerals)</strong>、<strong>流行和弦代號 (Chord Symbols 含斜線轉位 <code>F/A</code>)</strong> 與<strong>吉他和弦指法圖 (Guitar Tablature)</strong>。</li>
-            <li>建構大／小調通用的<strong>屬七和弦 (<code>V7</code> = 大三和弦＋小七度)</strong> 及其三種轉位（<code>6/5, 4/3, 4/2</code>），認識五種順階七和弦與功能譜 (Lead Sheet)。</li>
-            <li>在樂譜中辨認垂直的<strong>柱式和弦</strong>與水平流動的<strong>分解和弦／琶音伴奏</strong>！</li>
-          </ul>
+        <div class="pill-row">
+          <span class="visual-pill">🏛️ 大寫 <code>I, IV, V</code>＝大三 · 小寫 <code>ii, vi</code>＝小三 · <code>vii°</code>＝減三</span>
+          <span class="visual-pill">🎸 斜線和弦 <strong>F/A ＝ 以 A 為最低音的 F 和弦（第一轉位）</strong></span>
+          <span class="visual-pill">🔥 屬七 <strong>V7 ＝ 大三＋小七</strong>（轉位：<code>7 · 6/5 · 4/3 · 4/2</code>）</span>
         </div>
       </section>
 
-      <!-- 1. Three Ways to Label Triads -->
-      <section class="lesson-section" aria-labelledby="ch13-labels">
-        <h2 id="ch13-labels">1. 標記三和弦的三種通用系統</h2>
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="rn-table-cap">
-          <table class="data-table stack-mobile">
-            <caption id="rn-table-cap">羅馬數字分析法 (Roman Numeral Analysis) 大小調順階三和弦性質總表</caption>
-            <thead>
-              <tr>
-                <th scope="col">三和弦性質</th>
-                <th scope="col">羅馬數字寫法</th>
-                <th scope="col">大調音級分佈 (如 <code>D:</code>)</th>
-                <th scope="col">自然小調分佈</th>
-                <th scope="col">借用導音之和聲小調（最常用！）</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">大三和弦 (Major)</th>
-                <td data-label="寫法">大寫（<code>I, IV, V</code>）</td>
-                <td data-label="大調"><code>I, IV, V</code></td>
-                <td data-label="自然小調"><code>III, VI, VII</code></td>
-                <td data-label="和聲小調"><strong>第 5 級變為大三 <code>V</code>！</strong>（另保留 <code>III, VI</code>）</td>
-              </tr>
-              <tr>
-                <th scope="row">小三和弦 (Minor)</th>
-                <td data-label="寫法">小寫（<code>ii, iii, vi</code>）</td>
-                <td data-label="大調"><code>ii, iii, vi</code></td>
-                <td data-label="自然小調"><code>i, iv, v</code></td>
-                <td data-label="和聲小調"><code>i, iv</code></td>
-              </tr>
-              <tr>
-                <th scope="row">減三和弦 (Diminished)</th>
-                <td data-label="寫法">小寫加 <code>°</code>（<code>vii°</code>）</td>
-                <td data-label="大調"><code>vii°</code></td>
-                <td data-label="自然小調"><code>ii°</code></td>
-                <td data-label="和聲小調"><code>ii°</code> 與<strong>升導音產生的 <code>vii°</code>！</strong></td>
-              </tr>
-              <tr>
-                <th scope="row">增三和弦 (Augmented)</th>
-                <td data-label="寫法">大寫加 <code>+</code>（<code>III+</code>）</td>
-                <td data-label="大調">無</td>
-                <td data-label="自然小調">無</td>
-                <td data-label="和聲小調">（理論上有 <code>III+</code>，但實際創作極少取代大三 <code>III</code>）</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div class="concept-grid">
-          <div class="concept-card">
-            <h3>流行與爵士和弦代號 (Chord Symbols)</h3>
-            <p>直接標示根音與性質，最利於即興與伴奏：<code>D</code>（大三）、<code>Em</code> 或 <code>E-</code>（小三）、<code>G+</code> 或 <code>G aug.</code>（增三）、<code>F♯°</code> 或 <code>F♯ dim.</code>（減三）。若為轉位則用斜線標示最低音：<strong><code>F/A</code> 代表「以 A 為最低音的 F 大三和弦（第一轉位）」</strong>！</p>
-          </div>
-          <div class="concept-card">
-            <h3>吉他和弦指法圖 (Guitar Tablature)</h3>
-            <p>不同於五線譜描繪「聲音高低」，Tab 指法圖直接描繪「手指按弦動作」：6 條直線由左至右代表第 6 弦（最低音 <code>E2</code>）至第 1 弦（最高音 <code>E4</code>），空弦為 <code>E-A-D-G-B-E</code>；黑圓點代表手指按壓琴格，<code>✕</code> 代表不彈該弦。</p>
-          </div>
-        </div>
-
-        <!-- 民謠《Worried Man Blues》吉他指法刷奏示範 -->
+      <!-- 1. 吉他指法刷奏台 + 斜線和弦比較 -->
+      <section class="lesson-section" aria-labelledby="ch13-guitar">
+        <h2 id="ch13-guitar">🎸 1. 《Worried Man Blues》吉他和弦刷奏台（空弦 E-A-D-G-B-E）</h2>
         <div class="widget-box">
-          <h3 class="widget-title">🎸 《Worried Man Blues》G 大調三大伴奏和弦指法圖（點擊刷奏）</h3>
           <div class="guitar-grid" id="ch13-guitar-demo"></div>
         </div>
       </section>
 
-      <!-- 2. Seventh Chords & Dominant 7th -->
+      <!-- 2. 五種七和弦色彩 & V7 四種位置切換器 -->
       <section class="lesson-section" aria-labelledby="ch13-v7">
-        <h2 id="ch13-v7">2. 七和弦與屬七和弦 (<code>V7</code>) 及其轉位（<code>7 · 6/5 · 4/3 · 4/2</code>）</h2>
-        <p>
-          在三和弦上方再疊加一個根音上方七度的音，即構成四音的<strong>七和弦 (Seventh Chord)</strong>，其唯一目的就是<strong>增強和聲推進的緊張感 (Tension)</strong>。其中最普遍、最重要的一種是建構在第 5 級屬音上的<strong>屬七和弦 (Dominant Seventh Chord, <code>V7</code>)</strong>：
-        </p>
-        <ul>
-          <li><strong>不變結構：</strong>無論在大調還是小調中，<code>V7</code> 永遠由<strong>「大三和弦 ＋ 根音上方小七度 (Mm7)」</strong>組成！因此在小調中寫 <code>V7</code> 時，<strong>務必採用和聲小調升高第 7 級導音</strong>（例如 b♭ 小調的屬七和弦 <code>F7</code> 為 <code>F – A♮ – C – E♭</code>）。</li>
-          <li><strong>七和弦的三種轉位簡記：</strong>因為有 4 個音，除了原位 <strong><code>V7</code></strong>（完整為 <code>7/5/3</code>）之外，共有三種轉位：<strong>第一轉位 <code>V6/5</code></strong>（三音在低音）、<strong>第二轉位 <code>V4/3</code></strong>（五音在低音）、<strong>第三轉位 <code>V4/2</code> 或 <code>V2</code></strong>（七音在低音）！</li>
-        </ul>
-
-        <!-- 互動五種順階七和弦與 V7 轉位比較器 -->
+        <h2 id="ch13-v7">🔥 2. 五大七和弦色彩 ＆ 屬七和弦 <code>V7</code> 轉位實驗室</h2>
         <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">🎹 Tips &amp; Tools 互動試聽：五種常見七和弦色彩 ＆ <code>V7</code> 四種位置</h3>
-          </div>
-          <div class="widget-controls" id="sev-type-btns"></div>
-          <p id="sev-readout" style="font-weight:700;margin-block:0.4rem;"></p>
+          <div class="widget-controls" style="margin-block-start:0;" id="sev-type-btns"></div>
+          <div id="sev-readout" class="visual-pill"></div>
           <div id="sev-score"></div>
         </div>
       </section>
 
-      <!-- 3. Block Chords vs Arpeggiations -->
+      <!-- 3. 伴奏型態變形機：柱式 vs 阿爾貝堤低音 vs 流行分解琶音 -->
       <section class="lesson-section" aria-labelledby="ch13-texture">
-        <h2 id="ch13-texture">3. 實戰樂譜辨識：柱式和弦 (Block Chords) vs. 分解和弦 (Arpeggiations)</h2>
-        <p>
-          真實樂曲不會永遠把三和弦直立堆成雪人！當作曲家想強調垂直節奏感時會採用<strong>柱式和弦 (Block Chords)</strong>（如舒伯特圓舞曲或 1950 年代搖滾鋼琴連打）；當想削弱沉重的垂直切割、改以水平線條推動音樂前進時，則會將和弦拆開成先後發聲的<strong>分解和弦／琶音伴奏 (Arpeggiations / Broken Chords)</strong>（如莫札特與克萊曼蒂小奏鳴曲中的阿爾貝堤低音 Alberti Bass）。
-        </p>
+        <h2 id="ch13-texture">🎹 3. 伴奏型態變形機（同一組 <code>C – Am – Dm – G7</code> 三種彈法！）</h2>
         <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">🔄 互動伴奏轉換器：同一組 C – Am – Dm – G7 和聲進行</h3>
-            <div class="widget-controls" style="margin:0;">
-              <button type="button" class="btn btn-sm btn-primary" id="play-block-style">▶ 聽柱式和弦 (Block Chords)</button>
-              <button type="button" class="btn btn-sm btn-amber" id="play-arp-style">▶ 聽分解琶音 (Arpeggiated)</button>
-            </div>
+          <div class="widget-controls" style="margin-block-start:0;">
+            <button type="button" class="btn btn-sm btn-primary" id="play-block-style">🧱 柱式和弦 Block Chords</button>
+            <button type="button" class="btn btn-sm btn-amber" id="play-arp-style">🌊 分解琶音 Arpeggiated</button>
+            <button type="button" class="btn btn-sm" id="play-alberti-style">🏛️ 莫札特阿爾貝堤低音 Alberti</button>
           </div>
           <div id="block-arp-score"></div>
         </div>
       </section>
 
-      <!-- 4. Practice 13-1 ~ 13-7 -->
+      <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch13-quiz-sec">
-        <h2 id="ch13-quiz-sec">📝 Practice 13-1～13-7 羅馬數字、和弦代號與屬七和弦檢定</h2>
+        <h2 id="ch13-quiz-sec">🏆 Practice 13-1～13-7 闖關檢定</h2>
         <div id="ch13-quiz"></div>
       </section>
     </main>
@@ -158,135 +80,119 @@
   <script defer src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Guitar Chords for Worried Man Blues
-      const gMount = document.getElementById('ch13-guitar-demo');
       [
-        { name: 'G', subtitle: 'G 大調主和弦 (I)', frets: [3, 2, 0, 0, 0, 3], pitches: ['G2', 'B2', 'D3', 'G3', 'B3', 'G4'] },
-        { name: 'C', subtitle: 'G 大調下屬和弦 (IV)', frets: [-1, 3, 2, 0, 1, 0], pitches: ['C3', 'E3', 'G3', 'C4', 'E4'] },
-        { name: 'D7', subtitle: 'G 大調屬七和弦 (V7)', frets: [-1, -1, 0, 2, 1, 2], pitches: ['D3', 'A3', 'C4', 'F#4'] }
-      ].forEach(c => Widgets.createGuitarChord(gMount, c));
+        { name: 'G',  subtitle: 'I 主和弦',    frets: [3, 2, 0, 0, 0, 3],  pitches: ['G2', 'B2', 'D3', 'G3', 'B3', 'G4'] },
+        { name: 'C',  subtitle: 'IV 下屬和弦', frets: [-1, 3, 2, 0, 1, 0], pitches: ['C3', 'E3', 'G3', 'C4', 'E4'] },
+        { name: 'D7', subtitle: 'V7 屬七和弦', frets: [-1, -1, 0, 2, 1, 2], pitches: ['D3', 'A3', 'C4', 'F#4'] },
+        { name: 'Em', subtitle: 'vi 副三和弦', frets: [0, 2, 2, 0, 0, 0],  pitches: ['E2', 'B2', 'E3', 'G3', 'B3', 'E4'] }
+      ].forEach(ch => Widgets.createGuitarChord('#ch13-guitar-demo', ch));
 
-      // 7th Chords Explorer
-      const sevSpecs = [
-        { label: '大七 CMaj7 (MM7)', type: 'MM7', inv: 0, desc: '大三和弦 C-E-G ＋ 大七度 B（爵士與流行抒情溫暖色彩）' },
-        { label: '屬七 C7 (Mm7 = V7 原位)', type: 'Mm7', inv: 0, desc: '大三和弦 C-E-G ＋ 小七度 B♭（F 大調/f 小調的 V7，強烈渴望解決到 F！）' },
-        { label: '小七 Cm7 (mm7)', type: 'mm7', inv: 0, desc: '小三和弦 C-E♭-G ＋ 小七度 B♭（柔和內斂）' },
-        { label: '半減七 Cø7', type: 'hd7', inv: 0, desc: '減三和弦 C-E♭-G♭ ＋ 小七度 B♭' },
-        { label: '全減七 Co7', type: 'dd7', inv: 0, desc: '減三和弦 C-E♭-G♭ ＋ 減七度 B𝄫（極高戲劇張力）' },
-        { label: '屬七第一轉位 V6/5', type: 'Mm7', inv: 1, desc: '三音 E 在最低音：E4 – G4 – B♭4 – C5' },
-        { label: '屬七第二轉位 V4/3', type: 'Mm7', inv: 2, desc: '五音 G 在最低音：G4 – B♭4 – C5 – E5' },
-        { label: '屬七第三轉位 V4/2', type: 'Mm7', inv: 3, desc: '七音 B♭ 在最低音：B♭4 – C5 – E5 – G5' }
+      const SEV_ITEMS = [
+        { label: '🔥 G7 屬七原位 (V7)', notes: ['G4', 'B4', 'D5', 'F5'], desc: '大三＋小七 (Mm7)：B–F 三全音強烈渴望解決回 C-E！' },
+        { label: 'G7 第一轉位 (V6/5)', notes: ['B3', 'D4', 'F4', 'G4'], desc: '三音 B 在最低音（導音上行推向主音 C 最順暢！）' },
+        { label: 'G7 第二轉位 (V4/3)', notes: ['D4', 'F4', 'G4', 'B4'], desc: '五音 D 在最低音' },
+        { label: 'G7 第三轉位 (V4/2)', notes: ['F4', 'G4', 'B4', 'D5'], desc: '七音 F 在最低音（強烈下行解決至 E = I6！）' },
+        { label: '✨ Cmaj7 大七', notes: ['C4', 'E4', 'G4', 'B4'], desc: '大三＋大七 (MM7)：都會爵士夢幻色彩' },
+        { label: '🌙 Dm7 小七', notes: ['D4', 'F4', 'A4', 'C5'], desc: '小三＋小七 (mm7)：柔和溫暖 ii7' },
+        { label: '⚡ Bø7 半減七', notes: ['B3', 'D4', 'F4', 'A4'], desc: '減三＋小七 (dm7)' },
+        { label: '🌩️ B°7 全減七', notes: ['B3', 'D4', 'F4', 'Ab4'], desc: '減三＋減七 (dd7)：戲劇化懸疑感' }
       ];
+
       const sevBtns = document.getElementById('sev-type-btns');
       const sevReadout = document.getElementById('sev-readout');
 
-      function showSev(sp) {
-        const notes = CourseData.buildSeventh('C4', sp.type, sp.inv);
-        sevReadout.textContent = `${sp.label}：${notes.map(n => n.label).join(' – ')} ｜ ${sp.desc}`;
+      function showSev(item, play) {
+        sevReadout.innerHTML = `<strong>${item.label}</strong>（${item.notes.join('–')}）：${item.desc}`;
         MusicNotation.render('#sev-score', {
           clef: 'treble',
           playable: false,
-          minWidth: 340,
-          notes: [
-            { notes: notes.map(n => n.ascii), dur: 'w', topText: sp.label },
-            { bar: '||' },
-            ...notes.map(n => ({ pitch: n.ascii, dur: 'q', label: n.name }))
-          ]
+          minWidth: 240,
+          notes: [{ notes: item.notes, dur: 'w', label: item.label.split(' ')[1] || item.label }]
         });
+        if (play) AudioEngine.playChord(item.notes, 1.05);
       }
 
-      sevSpecs.forEach((sp, i) => {
+      SEV_ITEMS.forEach((it, idx) => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'btn btn-sm' + (i === 1 ? ' btn-primary' : '');
-        b.textContent = sp.label;
+        b.className = 'btn btn-sm' + (idx === 0 ? ' btn-primary' : '');
+        b.textContent = it.label;
         b.addEventListener('click', () => {
-          sevBtns.querySelectorAll('button').forEach(x => x.classList.remove('btn-primary'));
-          b.classList.add('btn-primary');
-          showSev(sp);
-          const notes = CourseData.buildSeventh('C4', sp.type, sp.inv);
-          AudioEngine.playChord(notes, 1.2);
+          sevBtns.querySelectorAll('button').forEach(x => x.classList.toggle('btn-primary', x === b));
+          showSev(it, true);
         });
         sevBtns.appendChild(b);
       });
-      showSev(sevSpecs[1]);
+      showSev(SEV_ITEMS[0], false);
 
-      // Block vs Arpeggiated
-      MusicNotation.render('#block-arp-score', {
-        title: '左半：柱式和弦 (Block Chords) ｜ 右半：分解琶音 (Arpeggiation — 線性推進力)',
-        clef: 'treble',
-        playable: false,
-        spacing: 38,
-        notes: [
-          { notes: ['C4', 'E4', 'G4'], dur: 'h', chordSymbol: 'C (I)' },
-          { notes: ['A3', 'C4', 'E4'], dur: 'h', chordSymbol: 'Am (vi)' },
-          { bar: '||' },
-          { pitch: 'C4', dur: '8', beam: 1, chordSymbol: 'C 分解琶音' },
-          { pitch: 'G4', dur: '8', beam: 1 },
-          { pitch: 'E4', dur: '8', beam: 1 },
-          { pitch: 'G4', dur: '8', beam: 1 },
-          { pitch: 'A3', dur: '8', beam: 2, chordSymbol: 'Am 分解琶音' },
-          { pitch: 'E4', dur: '8', beam: 2 },
-          { pitch: 'C4', dur: '8', beam: 2 },
-          { pitch: 'E4', dur: '8', beam: 2 }
-        ]
-      });
+      function renderBlockMode() {
+        MusicNotation.render('#block-arp-score', {
+          title: '柱式和弦 Block Chords：C → Am → Dm → G7',
+          clef: 'treble',
+          playable: false,
+          spacing: 56,
+          notes: [
+            { notes: ['C4', 'E4', 'G4'], dur: 'h', chordSymbol: 'C (I)' },
+            { notes: ['A3', 'C4', 'E4'], dur: 'h', chordSymbol: 'Am (vi)' },
+            { bar: '|' },
+            { notes: ['D4', 'F4', 'A4'], dur: 'h', chordSymbol: 'Dm (ii)' },
+            { notes: ['G3', 'B3', 'F4'], dur: 'h', chordSymbol: 'G7 (V7)' }
+          ]
+        });
+      }
+      renderBlockMode();
 
       document.getElementById('play-block-style').addEventListener('click', () => {
+        renderBlockMode();
         AudioEngine.playSequence([
-          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 1 }, { notes: ['C3', 'C4', 'E4', 'G4'], beats: 1 },
-          { notes: ['A2', 'A3', 'C4', 'E4'], beats: 1 }, { notes: ['A2', 'A3', 'C4', 'E4'], beats: 1 },
-          { notes: ['D3', 'A3', 'D4', 'F4'], beats: 1 }, { notes: ['G2', 'B3', 'D4', 'F4'], beats: 1 },
+          { notes: ['C3', 'C4', 'E4', 'G4'], beats: 1.5 },
+          { notes: ['A2', 'A3', 'C4', 'E4'], beats: 1.5 },
+          { notes: ['D3', 'D4', 'F4', 'A4'], beats: 1.5 },
+          { notes: ['G2', 'B3', 'D4', 'F4'], beats: 1.5 },
           { notes: ['C3', 'C4', 'E4', 'G4'], beats: 2 }
-        ], 108);
+        ], 104);
       });
 
       document.getElementById('play-arp-style').addEventListener('click', () => {
-        const arp = [
-          'C3', 'G3', 'E4', 'G3', 'A2', 'E3', 'C4', 'E3',
-          'D3', 'A3', 'F4', 'A3', 'G2', 'G3', 'F4', 'B3',
-          'C3', 'G3', 'E4', 'C5'
-        ];
-        AudioEngine.playSequence(arp.map((p, i) => ({ pitch: p, beats: i === 19 ? 1.5 : 0.5 })), 110);
+        MusicNotation.render('#block-arp-score', {
+          title: '分解琶音伴奏 Arpeggiated：水平流動推進',
+          clef: 'treble',
+          playable: false,
+          spacing: 34,
+          notes: [
+            { pitch: 'C4', dur: '8', beam: 1, chordSymbol: 'C' }, { pitch: 'E4', dur: '8', beam: 1 }, { pitch: 'G4', dur: '8', beam: 1 }, { pitch: 'C5', dur: '8', beam: 1 },
+            { pitch: 'A3', dur: '8', beam: 2, chordSymbol: 'Am' }, { pitch: 'C4', dur: '8', beam: 2 }, { pitch: 'E4', dur: '8', beam: 2 }, { pitch: 'A4', dur: '8', beam: 2 },
+            { bar: '|' },
+            { pitch: 'D4', dur: '8', beam: 3, chordSymbol: 'Dm' }, { pitch: 'F4', dur: '8', beam: 3 }, { pitch: 'A4', dur: '8', beam: 3 }, { pitch: 'G3', dur: '8', beam: 4, chordSymbol: 'G7' }, { pitch: 'B3', dur: '8', beam: 4 }, { pitch: 'F4', dur: '8', beam: 4 }
+          ]
+        });
+        const arp = ['C3', 'G3', 'C4', 'E4', 'A2', 'E3', 'A3', 'C4', 'D3', 'A3', 'D4', 'F4', 'G2', 'D3', 'B3', 'F4', 'C3'];
+        AudioEngine.playSequence(arp.map((p, i) => ({ pitch: p, beats: i === arp.length - 1 ? 2 : 0.45 })), 116);
+      });
+
+      document.getElementById('play-alberti-style').addEventListener('click', () => {
+        const alb = ['C3', 'G3', 'E3', 'G3', 'A2', 'E3', 'C3', 'E3', 'D3', 'A3', 'F3', 'A3', 'G2', 'F3', 'B2', 'F3', 'C3'];
+        AudioEngine.playSequence(alb.map((p, i) => ({ pitch: p, beats: i === alb.length - 1 ? 2 : 0.38 })), 124);
       });
 
       Widgets.createQuiz('#ch13-quiz', 'quiz-ch13', 'ch13', [
         {
-          prompt: '【Practice 13-1 & 13-3】在「A 大調（3♯：F♯, C♯, G♯）」中，羅馬數字「ii」與「vi」分別代表哪兩個三和弦？',
-          options: ['Bm（B-D-F♯）與 F♯m（F♯-A-C♯）', 'B（B-D♯-F♯）與 F♯（F♯-A♯-C♯）', 'Dm 與 Fm', 'C♯m 與 E'],
-          answer: 0,
-          explanation: 'A 大調第 2 級為 B-D-F♯（小三和弦 ii = Bm），第 6 級為 F♯-A-C♯（小三和弦 vi = F♯m）！'
-        },
-        {
-          prompt: '【流行和弦代號 Slash Chord】功能譜 Lead Sheet 上寫著和弦代號「B♭/D」，它代表什麼意思？',
-          options: [
-            '同時彈奏 B♭ 大三和弦與 D 大三和弦',
-            '以 D 為最低音的 B♭ 大三和弦（即 B♭ 大三和弦第一轉位）',
-            '以 B♭ 為最低音的 D 小三和弦',
-            'B♭ 減三和弦'
-          ],
+          prompt: '流行和弦代號「F/A」代表什麼意思？',
+          options: ['同時彈 F 與 A 兩個和弦', '以三音 A 為最低音的 F 大三和弦（第一轉位 I6）', 'A 小三和弦', 'F 屬七和弦'],
           answer: 1,
-          explanation: '斜線左方為和弦名稱（B♭ 大三和弦 B♭-D-F），斜線右方指定最低音為 D（正好是三音，即第一轉位）！'
+          explanation: '斜線左邊為和弦 F，右邊指定最低音 A（三音在底＝第一轉位）！'
         },
         {
-          prompt: '【Practice 13-6 小調中的屬七和弦】在「g 小調（調號 2♭：B♭, E♭）」中建構原位屬七和弦「V7」，正確的四個音為何？',
-          options: ['D – F♮ – A – C', 'D – F♯ – A – C', 'G – B♭ – D – F♯', 'D – F♯ – A – C♯'],
+          prompt: '在「c 小調」中建構屬七和弦 (V7 = G7)，為維持大三＋小七結構，哪一音必須臨時升高？',
+          options: ['G♯', 'B♮（升高第 7 級導音！）', 'D♯', 'F♯'],
           answer: 1,
-          explanation: 'g 小調第 5 級屬音為 D；V7 必須是大三和弦加小七度，因此必須將導音 F 升高為 F♯，得到 D – F♯ – A – C（即 D7）！'
+          explanation: 'c 小調調號有 B♭，寫 V7 (G-B♮-D-F) 時必須還原升高 B♮ 成為導音！'
         },
         {
-          prompt: '【Practice 13-7 七和弦轉位】當屬七和弦的「七音（第四個音）」放在最低音時，屬於第幾轉位？其數字低音簡記為何？',
-          options: ['第一轉位 (V6/5)', '第二轉位 (V4/3)', '第三轉位 (V4/2 或 V2)', '原位 (V7)'],
-          answer: 2,
-          explanation: '三音在低音為 V6/5（第一轉位），五音在低音為 V4/3（第二轉位），七音在低音則為第三轉位 V4/2！'
-        },
-        {
-          prompt: '【聽音辨識：三和弦 vs 七和弦】點擊播放下方和弦，憑聽覺判斷它是純淨的三和弦，還是帶有緊張度的四音屬七和弦？',
-          audioLabel: '🔊 播放和弦聽辨題',
-          audioFn: () => AudioEngine.playChord(['G3', 'B3', 'D4', 'F4'], 1.35),
-          options: ['大三和弦 (Triad)', '屬七和弦 (Dominant Seventh Chord, V7)'],
-          answer: 1,
-          explanation: '此和弦為 G–B–D–F (G7)，導音 B 與七音 F 之間的減五度張力使它聽起來充滿渴望解決到 C 主和弦的動能！'
+          prompt: '屬七和弦「七音在最低音」的第三轉位數字低音標記為何？',
+          options: ['V7', 'V6/5', 'V4/3', 'V4/2（或 V2）'],
+          answer: 3,
+          explanation: '原位 7 → 一轉 6/5 → 二轉 4/3 → 三轉（七音在底）為 4/2！'
         }
       ]);
     });

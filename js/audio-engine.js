@@ -1,16 +1,40 @@
 /* ==========================================================================
-   audio-engine.js — Web Audio API Studio Synthesizer, Metronome & Sequencer
-   Zero external audio dependencies — works 100% offline & online
+   audio-engine.js — Web Audio API Studio Synthesizer, Analyser & Sequencer
+   Includes Real-Time AnalyserNode for Live Waveform/Spectrum Visualizers
    ========================================================================== */
 (function () {
   'use strict';
 
   let ctx = null;
   let masterGain = null;
+  let analyser = null;
   let currentTimbre = 'piano';
-  let masterVolume = 0.75;
+  let masterVolume = 0.78;
   let activeTimers = [];
   let activeNodes = new Set();
+
+  // 12-Tone Chromatic Synesthesia Palette (Chrome Music Lab inspired)
+  const PITCH_COLORS = [
+    '#ef4444', // C  - Red
+    '#f97316', // C# - Orange-Red
+    '#f59e0b', // D  - Amber
+    '#eab308', // D# - Gold
+    '#84cc16', // E  - Lime
+    '#10b981', // F  - Emerald
+    '#06b6d4', // F# - Cyan
+    '#3b82f6', // G  - Royal Blue
+    '#6366f1', // G# - Indigo
+    '#8b5cf6', // A  - Violet
+    '#d946ef', // A# - Fuchsia
+    '#ec4899'  // B  - Rose
+  ];
+
+  function pitchColor(pitchOrMidiOrFreq) {
+    const f = resolveFreq(pitchOrMidiOrFreq);
+    const midi = Math.round(69 + 12 * Math.log2(Math.max(20, f) / 440));
+    const pc = ((midi % 12) + 12) % 12;
+    return PITCH_COLORS[pc];
+  }
 
   function ensureContext() {
     if (!ctx) {
@@ -19,12 +43,26 @@
       ctx = new AudioCtx();
       masterGain = ctx.createGain();
       masterGain.gain.value = masterVolume;
-      masterGain.connect(ctx.destination);
+
+      analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      analyser.smoothingTimeConstant = 0.82;
+
+      masterGain.connect(analyser);
+      analyser.connect(ctx.destination);
     }
     if (ctx.state === 'suspended') {
       ctx.resume().catch(() => {});
     }
     return ctx;
+  }
+
+  function getAnalyser() {
+    return analyser;
+  }
+
+  function emitActivity(detail) {
+    window.dispatchEvent(new CustomEvent('audio-activity', { detail }));
   }
 
   function setVolume(val) {
@@ -36,6 +74,10 @@
 
   function setTimbre(timbre) {
     currentTimbre = timbre || 'piano';
+  }
+
+  function getTimbre() {
+    return currentTimbre;
   }
 
   function stopAll() {
@@ -69,16 +111,35 @@
     return 440;
   }
 
-  /* Synthesize a musical note with selectable instrumental timbre */
+  function resolveLabel(pitchOrMidiOrFreq) {
+    if (typeof pitchOrMidiOrFreq === 'string') return pitchOrMidiOrFreq.replace('#', '♯').replace(/([A-G])b/, '$1♭');
+    if (typeof pitchOrMidiOrFreq === 'object' && pitchOrMidiOrFreq !== null) {
+      return pitchOrMidiOrFreq.label || pitchOrMidiOrFreq.name || '♪';
+    }
+    if (typeof pitchOrMidiOrFreq === 'number') {
+      if (pitchOrMidiOrFreq <= 130 && window.CourseData) {
+        return window.CourseData.midiToCleanPitch(pitchOrMidiOrFreq).label;
+      }
+      return `${Math.round(pitchOrMidiOrFreq)} Hz`;
+    }
+    return '♪';
+  }
+
+  /* Synthesize a musical note with selectable instrumental timbre & optional pitch bend */
   function playNote(pitch, durationSec = 0.65, whenOffset = 0, opts = {}) {
     const audio = ensureContext();
     if (!audio) return;
 
     const freq = resolveFreq(pitch);
     const timbre = opts.timbre || currentTimbre;
-    const velocity = opts.velocity !== undefined ? opts.velocity : 0.7;
+    const velocity = opts.velocity !== undefined ? opts.velocity : 0.72;
     const t0 = audio.currentTime + Math.max(0, whenOffset);
-    const dur = Math.max(0.08, durationSec);
+    const dur = Math.max(0.06, durationSec);
+    const color = pitchColor(freq);
+
+    if (whenOffset <= 0.02 && !opts.silentHud) {
+      emitActivity({ label: resolveLabel(pitch), freq, color, kind: 'note' });
+    }
 
     const voiceGain = audio.createGain();
     voiceGain.connect(masterGain);
@@ -92,7 +153,7 @@
       organ:    [{ mul: 1, amp: 0.50, type: 'sine' }, { mul: 2, amp: 0.30, type: 'sine' }, { mul: 3, amp: 0.15, type: 'sine' }, { mul: 4, amp: 0.10, type: 'sine' }]
     }[timbre] || [{ mul: 1, amp: 0.75, type: 'triangle' }];
 
-    const attack = opts.attack !== undefined ? opts.attack : (timbre === 'violin' ? 0.08 : timbre === 'flute' ? 0.05 : 0.012);
+    const attack = opts.attack !== undefined ? opts.attack : (timbre === 'violin' ? 0.07 : timbre === 'flute' ? 0.045 : 0.01);
     const release = opts.release !== undefined ? opts.release : (timbre === 'organ' ? 0.08 : 0.18);
     const peak = 0.28 * velocity;
 
@@ -116,12 +177,19 @@
       filter = lp;
     }
 
+    const bendRatio = opts.bendSemitones ? Math.pow(2, opts.bendSemitones / 12) : 1;
+
     for (const p of partials) {
       if (freq * p.mul > 14000) continue;
       const osc = audio.createOscillator();
       const pGain = audio.createGain();
       osc.type = p.type;
-      osc.frequency.setValueAtTime(freq * p.mul, t0);
+      if (bendRatio !== 1) {
+        osc.frequency.setValueAtTime(freq * p.mul * bendRatio, t0);
+        osc.frequency.exponentialRampToValueAtTime(freq * p.mul, t0 + Math.min(0.22, dur * 0.5));
+      } else {
+        osc.frequency.setValueAtTime(freq * p.mul, t0);
+      }
       pGain.gain.setValueAtTime(p.amp, t0);
       osc.connect(pGain);
       pGain.connect(filter);
@@ -136,8 +204,10 @@
     if (!Array.isArray(pitches) || !pitches.length) return;
     const strumGap = opts.strum ? 0.038 : 0;
     const vel = (opts.velocity !== undefined ? opts.velocity : 0.72) / Math.sqrt(Math.max(1, pitches.length * 0.6));
+    const names = pitches.map(p => resolveLabel(p)).slice(0, 4).join('·');
+    emitActivity({ label: names, freq: resolveFreq(pitches[0]), color: pitchColor(pitches[0]), kind: 'chord' });
     pitches.forEach((p, idx) => {
-      playNote(p, durationSec, whenOffset + idx * strumGap, { ...opts, velocity: vel });
+      playNote(p, durationSec, whenOffset + idx * strumGap, { ...opts, velocity: vel, silentHud: true });
     });
   }
 
@@ -149,16 +219,23 @@
     const g = audio.createGain();
     g.connect(masterGain);
 
+    emitActivity({
+      label: accent ? '⚡ 重拍' : '● 節拍',
+      freq: accent ? 880 : 440,
+      color: accent ? '#f59e0b' : '#38bdf8',
+      kind: 'perc'
+    });
+
     if (kind === 'kick') {
       const osc = audio.createOscillator();
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(accent ? 150 : 125, t0);
+      osc.frequency.setValueAtTime(accent ? 155 : 125, t0);
       osc.frequency.exponentialRampToValueAtTime(42, t0 + 0.14);
-      g.gain.setValueAtTime(accent ? 0.55 : 0.38, t0);
-      g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.18);
+      g.gain.setValueAtTime(accent ? 0.58 : 0.40, t0);
+      g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.19);
       osc.connect(g);
       osc.start(t0);
-      osc.stop(t0 + 0.2);
+      osc.stop(t0 + 0.21);
       return;
     }
 
@@ -172,7 +249,7 @@
       const filter = audio.createBiquadFilter();
       filter.type = kind === 'snare' ? 'bandpass' : 'highpass';
       filter.frequency.setValueAtTime(kind === 'snare' ? 1800 : 6500, t0);
-      g.gain.setValueAtTime(accent ? 0.34 : 0.20, t0);
+      g.gain.setValueAtTime(accent ? 0.36 : 0.22, t0);
       g.gain.exponentialRampToValueAtTime(0.001, t0 + (kind === 'snare' ? 0.14 : 0.06));
       noise.connect(filter);
       filter.connect(g);
@@ -180,12 +257,11 @@
       return;
     }
 
-    // Default woodblock / metronome click / clave
     const osc = audio.createOscillator();
     osc.type = 'triangle';
     const baseF = kind === 'clave' ? (accent ? 1450 : 1180) : (accent ? 1050 : 760);
     osc.frequency.setValueAtTime(baseF, t0);
-    g.gain.setValueAtTime(accent ? 0.38 : 0.22, t0);
+    g.gain.setValueAtTime(accent ? 0.40 : 0.24, t0);
     g.gain.exponentialRampToValueAtTime(0.001, t0 + 0.065);
     osc.connect(g);
     osc.start(t0);
@@ -203,6 +279,8 @@
     g.gain.setValueAtTime(0.24, t0 + durationSec - 0.15);
     g.gain.exponentialRampToValueAtTime(0.0001, t0 + durationSec);
     g.connect(masterGain);
+
+    emitActivity({ label: `泛音合成 ${Math.round(fundamentalHz)}Hz`, freq: fundamentalHz, color: '#a855f7', kind: 'harmonic' });
 
     partialWeights.forEach((amp, idx) => {
       if (amp <= 0.001) return;
@@ -223,9 +301,6 @@
     });
   }
 
-  /* Play a scheduled musical sequence:
-     events: [{ notes: ['C4'] | 'C4', beats: 1, rest?: false, perc?: 'click', accent?: bool, id?: any }]
-     bpm: quarter-note (or beat-unit) tempo */
   function playSequence(events, bpm = 100, callbacks = {}) {
     stopAll();
     ensureContext();
@@ -260,9 +335,13 @@
   }
 
   window.AudioEngine = {
+    PITCH_COLORS,
+    pitchColor,
     ensureContext,
+    getAnalyser,
     setVolume,
     setTimbre,
+    getTimbre,
     stopAll,
     playNote,
     playChord,

@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>第 1 章：音樂基礎 | 創意音樂基礎 11e</title>
+  <title>第 1 章：節奏積木與五線譜快打 | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="ch01">
@@ -21,106 +21,90 @@
     <main class="lesson-main">
       <section class="chapter-hero">
         <span class="chapter-eyebrow">Chapter 1 · 第 1 章</span>
-        <h1 id="main-heading" tabindex="-1">第 1 章：音樂基礎（The Basics of Music）</h1>
+        <h1 id="main-heading" tabindex="-1">第 1 章：節奏積木、高低譜號與大譜表</h1>
         <p class="chapter-subtitle">
-          Duckworth 說本章也可以命名為「你真正必須知道的兩件事」——調性音樂最重要的兩大基石：<strong>節奏 (Rhythm)</strong> 與 <strong>音高 (Pitch)</strong>。西方記譜法本質上就是一套把「時間長短」與「振動高低」編碼成視覺符號的儲存與檢索系統。
+          樂譜就是「<strong>時間比例積木</strong> × <strong>高低音座標</strong>」的視覺密碼。直接點擊積木與音符秒懂規則！
         </p>
-        <div class="learning-goals">
-          <h2>本章學習目標 (What Will I Learn Here?)</h2>
-          <ul>
-            <li>理解<strong>脈動 (Pulse)</strong>、<strong>拍子 (Meter：二拍、三拍、四拍)</strong>、<strong>小節與小節線 (Measures &amp; Bar Lines)</strong> 如何組織時間。</li>
-            <li>掌握全音符至十六分音符與對應<strong>休止符 (Rests)</strong> 的比例關係（節奏樹 Rhythm Tree），以及符頭、符桿方向、符尾與符槓規則。</li>
-            <li>學會五線譜 (5-Line Staff)、<strong>高音譜號 (Treble/G Clef)</strong>、<strong>低音譜號 (Bass/F Clef)</strong> 與<strong>大譜表 (Great Staff)</strong> 上的中央 C 讀譜。</li>
-          </ul>
+        <div class="pill-row">
+          <span class="visual-pill">💓 <strong>小節線永遠畫在重音 &gt; 前方</strong></span>
+          <span class="visual-pill">𝄞 <strong>高音譜號鎖定第 2 線 = G4</strong></span>
+          <span class="visual-pill">𝄢 <strong>低音譜號鎖定第 4 線 = F3</strong></span>
         </div>
       </section>
 
-      <!-- 1. Pulse, Meter, Measures -->
+      <!-- 1. 二拍、三拍、四拍強弱脈動體驗 -->
       <section class="lesson-section" aria-labelledby="ch1-rhythm">
-        <h2 id="ch1-rhythm">1. 脈動 (Pulse)、拍子 (Meter) 與小節線 (Measures &amp; Bar Lines)</h2>
-        <p>
-          當你聽音樂忍不住用腳打拍子時，感受到的那股穩定、均勻的律動就稱為<strong>脈動 (Pulse)</strong>。任何音符時值（全音符、二分音符、四分音符、八分音符，以<strong>四分音符</strong>最常見）都可以用來代表這個穩定脈動。
-        </p>
-        <p>
-          當某些脈動聽起來比其他脈動更強時，強弱交替的循環模式就形成了<strong>拍子 (Meter)</strong>。記號 <code>&gt;</code> 稱為<strong>重音記號 (Accent Mark)</strong>，代表該音要比周圍的音更強調。最常見的三種拍子為：
-        </p>
-        <ul>
-          <li><strong>二拍子 (Duple Meter)：</strong>「強 – 弱」（<code>&gt;  -</code>），每小節 2 個脈動。</li>
-          <li><strong>三拍子 (Triple Meter)：</strong>「強 – 弱 – 弱」（<code>&gt;  -  -</code>），每小節 3 個脈動。</li>
-          <li><strong>四拍子 (Quadruple Meter)：</strong>「強 – 弱 – 弱 – 弱」（<code>&gt;  -  -  -</code>），每小節 4 個脈動。</li>
-        </ul>
-        <p>
-          為了避免演奏長曲時迷失位置，我們在<strong>每一個重音脈動的正前方</strong>畫上一條垂直線，稱為<strong>小節線 (Bar Line)</strong>，將音樂劃分為<strong>小節 (Measures)</strong>。樂曲段落轉換處常使用<strong>雙小節線 (Double Bar Lines)</strong>，而全曲結束時則使用「一細一粗」的<strong>終止線</strong>。
-        </p>
+        <h2 id="ch1-rhythm">💓 1. 脈動 (Pulse) 與二／三／四拍子重音循環</h2>
+        <div class="pill-row">
+          <span class="visual-pill">二拍 Duple：<strong>強 – 弱</strong></span>
+          <span class="visual-pill">三拍 Triple：<strong>強 – 弱 – 弱</strong></span>
+          <span class="visual-pill">四拍 Quadruple：<strong>強 – 弱 – 弱 – 弱</strong></span>
+        </div>
         <div id="score-meters"></div>
       </section>
 
-      <!-- 2. Note Values & Rests Rhythm Tree -->
+      <!-- 2. 1:2 等比節奏積木牆 + 休止符對照 -->
       <section class="lesson-section" aria-labelledby="ch1-tree">
-        <h2 id="ch1-tree">2. 音符時值 (Note Values)、符桿符槓規則與休止符 (Rests)</h2>
-        <p>
-          不論樂曲速度 (Tempo) 快慢，各種音符與休止符之間永遠維持嚴格的 <strong>1 : 2 等比倍數關係</strong>。只有全音符單獨由空心<strong>符頭 (Notehead)</strong> 構成；二分與四分音符加上了<strong>符桿 (Stem)</strong>；八分與十六分音符則再加上一條或兩條<strong>符尾 (Flags)</strong>。
-        </p>
-        <div class="callout callout-tips">
-          <div class="callout-title">💡 記譜書寫黃金規則（Class Practice 重點）</div>
-          <ul style="margin:0;">
-            <li><strong>符頭是橢圓形</strong>而非正圓形。</li>
-            <li><strong>符桿方向與左右位置：</strong>符桿朝上時，永遠畫在符頭<strong>右側</strong>（如字母 <code>d</code>）；符桿朝下時，永遠畫在符頭<strong>左側</strong>（如字母 <code>p</code>）。</li>
-            <li><strong>符尾永遠朝右：</strong>不論符桿朝上或朝下，八分與十六分音符的符尾 (Flags) 永遠朝<strong>右方</strong>彎曲！</li>
-            <li><strong>符槓 (Beams) 原則：</strong>多個帶符尾的音符相連時，會用粗橫槓取代符尾，並在<strong>每一拍開頭換新的符槓</strong>以便肉眼辨識拍點。只要某根符桿碰到兩條符槓（即使是斷開的局部短符槓），該音符就是十六分音符！</li>
-            <li><strong>全休止符 vs 二分休止符：</strong>全休止符懸掛在第 4 線下方（且可用於<strong>任何拍子中代表整整一小節的沉默</strong>，置中書寫）；二分休止符則像帽子一樣坐在第 3 線上。</li>
-          </ul>
-        </div>
-
-        <!-- 互動比例節奏樹 -->
+        <h2 id="ch1-tree">🧱 2. 音符時值 1 : 2 分裂積木牆 ＆ 休止符</h2>
         <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">🌳 互動比例節奏樹 (Interactive Rhythm Tree — 四拍等長對照)</h3>
-            <span class="badge">點擊每一層播放，體會總長度皆等於 4 拍！</span>
-          </div>
-          <div class="rhythm-grid" id="rhythm-tree-mount"></div>
-          <div id="score-rests-demo"></div>
+          <div id="rhythm-brick-mount"></div>
         </div>
+        <div class="pill-row">
+          <span class="visual-pill">符桿朝上畫右側 <strong>d</strong> · 朝下畫左側 <strong>p</strong></span>
+          <span class="visual-pill">單獨符尾永遠朝<strong>右</strong></span>
+          <span class="visual-pill">全休止符<strong>掛第 4 線下</strong> · 二分休止符<strong>坐第 3 線上</strong></span>
+        </div>
+        <div id="score-rests-demo"></div>
       </section>
 
-      <!-- 3. Pitch, Staff, Clefs, Great Staff -->
+      <!-- 3. 大譜表互動探索 + 極速識譜快打遊戲 -->
       <section class="lesson-section" aria-labelledby="ch1-pitch">
-        <h2 id="ch1-pitch">3. 五線譜 (The Staff)、高音譜號、低音譜號與大譜表 (The Great Staff)</h2>
-        <p>
-          西方音樂將音高記在由五條平行線組成的<strong>五線譜 (Staff)</strong> 上。<strong>線（第 1～5 線）與間（第 1～4 間）皆由下往上編號</strong>——位置越高，代表空氣振動頻率越快、音高越高。音名只使用英文字母前七個字：<code>A – B – C – D – E – F – G</code>，之後循環往復。
-        </p>
-        <div class="concept-grid">
-          <div class="concept-card">
-            <h3>𝄞 高音譜號 (Treble Clef / G Clef)</h3>
-            <p>下半部渦卷環繞著<strong>第 2 線</strong>，將第 2 線定位為中央 C 上方五度的 <strong>G4</strong>。鋼琴右手與高音樂器常用。</p>
-            <div id="score-treble-song"></div>
+        <h2 id="ch1-pitch">🎯 3. 大譜表全音域點選儀 ＆ 極速識譜快打遊戲</h2>
+        <div class="tabs">
+          <div class="tablist" focusgroup="tablist nomemory" aria-label="讀譜互動模式切換">
+            <button type="button" id="tab-reflex" aria-selected="true" focusgroupstart>⚡ 識譜快打</button>
+            <button type="button" id="tab-grand" aria-selected="false">🔍 大譜表</button>
+            <button type="button" id="tab-songs" aria-selected="false">🎤 視唱曲</button>
           </div>
-          <div class="concept-card">
-            <h3>𝄢 低音譜號 (Bass Clef / F Clef)</h3>
-            <p>起點圓點落在<strong>第 4 線</strong>，右側兩點上下夾住第 4 線，將其定位為中央 C 下方五度的 <strong>F3</strong>。鋼琴左手與低音樂器常用。</p>
-            <div id="score-bass-song"></div>
-          </div>
-        </div>
 
-        <h3>大譜表 (The Great Staff / Grand Staff) 與中央 C (Middle C)</h3>
-        <p>
-          將高音譜表與低音譜表以垂直線及左側花括號 (Brace) 結合，即為<strong>大譜表</strong>（鋼琴與合唱譜最常使用）。注意位於兩譜表正中間的<strong>中央 C (Middle C, C4)</strong> 並不碰觸任一五線譜，而是坐在一條短暫的<strong>加線 (Ledger Line)</strong> 上。實際樂譜中，中央 C 偏向高音譜表時代表由右手（或女低音）演奏／演唱，偏向低音譜表時則代表由左手（或男高音）負責。
-        </p>
-
-        <!-- 互動大譜表點選探索器 -->
-        <div class="widget-box">
-          <div class="widget-header">
-            <h3 class="widget-title">🔍 互動大譜表讀譜儀 (Great Staff Explorer：G2 至 A5)</h3>
-            <span id="staff-explorer-info" class="badge">點擊下方任一音名按鈕，同時觀察大譜表位置與發聲</span>
+          <div role="tabpanel" aria-labelledby="tab-reflex">
+            <div class="tabpanel-inner">
+              <div class="widget-box" style="margin:0;">
+                <div id="ch1-reflex-game"></div>
+              </div>
+            </div>
           </div>
-          <div class="widget-controls" id="staff-explorer-btns"></div>
-          <div id="staff-explorer-score"></div>
+
+          <div role="tabpanel" aria-labelledby="tab-grand" hidden="until-found">
+            <div class="tabpanel-inner">
+              <div class="widget-box" style="margin:0;">
+                <div class="visual-pill" id="staff-explorer-info" style="margin-block-end:0.5rem;">點擊任一音名按鈕，觀察大譜表位置與中央 C 加線！</div>
+                <div class="widget-controls" id="staff-explorer-btns"></div>
+                <div id="staff-explorer-score"></div>
+              </div>
+            </div>
+          </div>
+
+          <div role="tabpanel" aria-labelledby="tab-songs" hidden="until-found">
+            <div class="tabpanel-inner">
+              <div class="concept-grid">
+                <div class="concept-card">
+                  <h3>𝄞 《Go Tell Aunt Rhody》</h3>
+                  <div id="score-treble-song"></div>
+                </div>
+                <div class="concept-card">
+                  <h3>𝄢 《This Old Man》</h3>
+                  <div id="score-bass-song"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- 4. Music in Action: Ear Training + Practice 1-1~1-5 -->
+      <!-- 4. Quiz -->
       <section class="lesson-section" aria-labelledby="ch1-practice">
-        <h2 id="ch1-practice">🎯 Music in Action 聽音訓練 ＆ Practice 1-1～1-5 課後練習</h2>
+        <h2 id="ch1-practice">🏆 Practice 1-1～1-5 闖關檢定</h2>
         <div id="ch01-quiz"></div>
       </section>
     </main>
@@ -135,239 +119,154 @@
   <script defer src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Meter comparison
       MusicNotation.render('#score-meters', {
-        title: '二拍子、三拍子與四拍子的小節線與強弱脈動（注意重音記號 > 緊接在小節線之後）',
+        title: '二拍、三拍、四拍強弱重音與小節線',
         clef: 'rhythm',
-        bpm: 96,
-        spacing: 42,
+        bpm: 98,
+        spacing: 38,
         notes: [
-          { dur: 'q', accent: true, topText: '二拍子', label: '強 (1)' },
-          { dur: 'q', label: '弱 (2)' },
+          { dur: 'q', accent: true, topText: '2拍', label: '強' },
+          { dur: 'q', label: '弱' },
           { bar: '||' },
-          { dur: 'q', accent: true, topText: '三拍子', label: '強 (1)' },
-          { dur: 'q', label: '弱 (2)' },
-          { dur: 'q', label: '弱 (3)' },
+          { dur: 'q', accent: true, topText: '3拍', label: '強' },
+          { dur: 'q', label: '弱' },
+          { dur: 'q', label: '弱' },
           { bar: '||' },
-          { dur: 'q', accent: true, topText: '四拍子', label: '強 (1)' },
-          { dur: 'q', label: '弱 (2)' },
-          { dur: 'q', label: '弱 (3)' },
-          { dur: 'q', label: '弱 (4)' }
+          { dur: 'q', accent: true, topText: '4拍', label: '強' },
+          { dur: 'q', label: '弱' },
+          { dur: 'q', label: '弱' },
+          { dur: 'q', label: '弱' }
         ]
       });
 
-      // Interactive Rhythm Tree
-      const levels = [
-        { name: '全音符 (Whole Note, 4 拍)', count: 1, beats: 4, sym: '𝅝' },
-        { name: '二分音符 (Half Notes, 2 × 2 拍)', count: 2, beats: 2, sym: '𝅗𝅥' },
-        { name: '四分音符 (Quarter Notes, 4 × 1 拍)', count: 4, beats: 1, sym: '♩' },
-        { name: '八分音符 (Eighth Notes, 8 × ½ 拍)', count: 8, beats: 0.5, sym: '♪' },
-        { name: '十六分音符 (Sixteenth Notes, 16 × ¼ 拍)', count: 16, beats: 0.25, sym: '♬' }
-      ];
-      const treeMount = document.getElementById('rhythm-tree-mount');
-      levels.forEach(lv => {
-        const row = document.createElement('div');
-        row.className = 'rhythm-track';
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'btn btn-sm btn-primary';
-        btn.textContent = `▶ ${lv.name.split(' ')[0]}`;
-        const cells = document.createElement('div');
-        cells.style.display = 'grid';
-        cells.style.gridTemplateColumns = `repeat(${lv.count}, 1fr)`;
-        cells.style.gap = '4px';
-
-        const boxes = [];
-        for (let i = 0; i < lv.count; i++) {
-          const b = document.createElement('div');
-          b.style.background = 'var(--bg-surface)';
-          b.style.border = '1px solid var(--border-strong)';
-          b.style.borderRadius = '6px';
-          b.style.padding = '0.35rem 0.15rem';
-          b.style.textAlign = 'center';
-          b.style.fontWeight = '700';
-          b.textContent = lv.sym;
-          cells.appendChild(b);
-          boxes.push(b);
-        }
-
-        btn.addEventListener('click', () => {
-          const evs = Array.from({ length: lv.count }, (_, idx) => ({
-            pitch: 'C5',
-            beats: lv.beats,
-            idx
-          }));
-          AudioEngine.playSequence(evs, 84, {
-            onStep: (ev) => {
-              boxes.forEach((bx, bi) => {
-                bx.style.background = bi === ev.idx ? 'var(--accent-amber-soft)' : 'var(--bg-surface)';
-                bx.style.borderColor = bi === ev.idx ? 'var(--accent-amber)' : 'var(--border-strong)';
-              });
-            },
-            onDone: () => {
-              boxes.forEach(bx => {
-                bx.style.background = 'var(--bg-surface)';
-                bx.style.borderColor = 'var(--border-strong)';
-              });
-            }
-          });
-        });
-
-        row.append(btn, cells);
-        treeMount.appendChild(row);
-      });
+      Widgets.createFractionTree('#rhythm-brick-mount');
+      Widgets.createNoteReflexGame('#ch1-reflex-game', { clefs: ['treble', 'bass'] });
 
       MusicNotation.render('#score-rests-demo', {
-        title: '五種休止符對照譜例：全休止符（第4線下）、二分休止符（第3線上）、四分、八分與十六分休止符',
+        title: '五種休止符對照',
         clef: 'treble',
         time: '4/4',
         playable: false,
-        spacing: 56,
+        spacing: 50,
         notes: [
-          { dur: 'w', rest: true, label: '全休止符(4拍)' },
+          { dur: 'w', rest: true, label: '全(4拍)' },
           { bar: '|' },
-          { dur: 'h', rest: true, label: '二分休止(2拍)' },
-          { dur: 'q', rest: true, label: '四分(1拍)' },
-          { dur: '8', rest: true, label: '八分(½)' },
-          { dur: '16', rest: true, label: '十六分(¼)' },
+          { dur: 'h', rest: true, label: '二分(2)' },
+          { dur: 'q', rest: true, label: '四分(1)' },
+          { dur: '8', rest: true, label: '八分' },
+          { dur: '16', rest: true, label: '十六' },
           { dur: '16', pitch: 'G4', label: 'G4' }
         ]
       });
 
-      // Sight-Singing Songs in Ch 1
       MusicNotation.render('#score-treble-song', {
-        title: '視唱曲《Go Tell Aunt Rhody》（高音譜號，試聽並找出最安定的主音 G4！）',
+        title: '主音 G4 安定感',
         clef: 'treble',
         time: '4/4',
-        bpm: 100,
-        spacing: 42,
+        bpm: 104,
+        spacing: 38,
         notes: [
-          { pitch: 'B4', dur: 'h', lyric: 'Go', solfege: 'B' },
-          { pitch: 'B4', dur: 'q', lyric: 'tell', solfege: 'B' },
-          { pitch: 'A4', dur: 'q', lyric: 'Aunt', solfege: 'A' },
+          { pitch: 'B4', dur: 'h', lyric: 'Go' },
+          { pitch: 'B4', dur: 'q', lyric: 'tell' },
+          { pitch: 'A4', dur: 'q', lyric: 'Aunt' },
           { bar: '|' },
-          { pitch: 'G4', dur: 'h', lyric: 'Rho-', solfege: 'G' },
-          { pitch: 'G4', dur: 'h', lyric: 'dy,', solfege: 'G' },
-          { bar: '|' },
-          { pitch: 'A4', dur: 'h', lyric: 'Go', solfege: 'A' },
-          { pitch: 'A4', dur: 'q', lyric: 'tell', solfege: 'A' },
-          { pitch: 'C5', dur: 'q', lyric: 'Aunt', solfege: 'C' },
-          { bar: '|' },
-          { pitch: 'B4', dur: 'q', lyric: 'Rho-', solfege: 'B' },
-          { pitch: 'A4', dur: 'q', lyric: 'dy', solfege: 'A' },
-          { pitch: 'G4', dur: 'h', lyric: 'home.', solfege: 'G(主音)' }
+          { pitch: 'G4', dur: 'h', lyric: 'Rho-' },
+          { pitch: 'G4', dur: 'h', lyric: 'dy' }
         ]
       });
 
       MusicNotation.render('#score-bass-song', {
-        title: '視唱曲《This Old Man》（低音譜號，第 4 線為 F3）',
+        title: '低音譜號 F3 視唱',
         clef: 'bass',
         time: '4/4',
         bpm: 104,
-        spacing: 42,
+        spacing: 38,
         notes: [
-          { pitch: 'G3', dur: 'q', lyric: 'This', solfege: 'G' },
-          { pitch: 'E3', dur: 'q', lyric: 'old', solfege: 'E' },
-          { pitch: 'G3', dur: 'h', lyric: 'man,', solfege: 'G' },
+          { pitch: 'C3', dur: 'q', lyric: 'This' },
+          { pitch: 'A2', dur: 'q', lyric: 'old' },
+          { pitch: 'C3', dur: 'h', lyric: 'man,' },
           { bar: '|' },
-          { pitch: 'G3', dur: 'q', lyric: 'he', solfege: 'G' },
-          { pitch: 'E3', dur: 'q', lyric: 'played', solfege: 'E' },
-          { pitch: 'G3', dur: 'h', lyric: 'one,', solfege: 'G' },
-          { bar: '|' },
-          { pitch: 'A3', dur: 'q', lyric: 'nick-', solfege: 'A' },
-          { pitch: 'G3', dur: 'q', lyric: 'nack', solfege: 'G' },
-          { pitch: 'F3', dur: 'q', lyric: 'on', solfege: 'F' },
-          { pitch: 'E3', dur: 'q', lyric: 'my', solfege: 'E' },
-          { bar: '|' },
-          { pitch: 'D3', dur: 'h', lyric: 'roll-', solfege: 'D' },
-          { pitch: 'C3', dur: 'h', lyric: 'home.', solfege: 'C(主音)' }
+          { pitch: 'D3', dur: 'q', lyric: 'nick-' },
+          { pitch: 'C3', dur: 'q', lyric: 'nack' },
+          { pitch: 'F3', dur: 'h', lyric: 'one' }
         ]
       });
 
-      // Interactive Great Staff Explorer (G2 to A5 complete)
-      const grandNotes = ['G2', 'A2', 'B2', 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3', 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5'];
+      // Great Staff Explorer (G2 to A5)
+      const grandPitches = [
+        'G2', 'A2', 'B2', 'C3', 'D3', 'E3', 'F3', 'G3', 'A3', 'B3',
+        'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5', 'E5', 'F5', 'G5', 'A5'
+      ];
+      let activeGrand = 'C4';
       const btnMount = document.getElementById('staff-explorer-btns');
-      const infoBadge = document.getElementById('staff-explorer-info');
+      const infoEl = document.getElementById('staff-explorer-info');
 
-      function showGrandStaffHighlight(selPitch) {
-        const p = CourseData.parsePitch(selPitch);
-        infoBadge.textContent = `選取音高：${p.label}（頻率 ${p.freq.toFixed(1)} Hz）${selPitch === 'C4' ? ' — 中央 C 位於兩譜表之間的加線上！' : ''}`;
-        const topNotes = grandNotes.map(n => {
-          const pn = CourseData.parsePitch(n);
-          return pn.midi >= 60
-            ? { pitch: n, dur: 'q', label: n === 'C4' ? 'C4*' : pn.letter, className: n === selPitch ? 'is-playing' : '' }
-            : { dur: 'q', rest: true };
-        });
-        const botNotes = grandNotes.map(n => {
-          const pn = CourseData.parsePitch(n);
-          return pn.midi <= 60
-            ? { pitch: n, dur: 'q', label: pn.midi < 60 ? pn.letter : '', className: n === selPitch ? 'is-playing' : '' }
-            : { dur: 'q', rest: true };
-        });
+      function renderGrandExplorer() {
+        const idx = grandPitches.indexOf(activeGrand);
+        const topNotes = grandPitches.map(p => (CourseData.parsePitch(p).midi >= 60
+          ? { pitch: p, dur: 'q', label: p === 'C4' ? 'C4★' : p[0], highlight: p === activeGrand ? 'tonic' : undefined }
+          : { dur: 'q', rest: true }
+        ));
+        const botNotes = grandPitches.map(p => (CourseData.parsePitch(p).midi <= 60
+          ? { pitch: p, dur: 'q', label: p === 'C4' ? 'C4★' : p[0], highlight: p === activeGrand ? 'tonic' : undefined }
+          : { dur: 'q', rest: true }
+        ));
         MusicNotation.render('#staff-explorer-score', {
           grand: true,
           playable: false,
-          spacing: 38,
+          spacing: 32,
           notes: topNotes,
           bassNotes: botNotes
         });
+        const parsed = CourseData.parsePitch(activeGrand);
+        infoEl.innerHTML = `🎯 <strong>${activeGrand}</strong> · ${parsed.freq.toFixed(1)} Hz ${activeGrand === 'C4' ? '（★ 中央 C 加線地標！）' : ''}`;
       }
 
-      grandNotes.forEach(n => {
+      grandPitches.forEach(p => {
         const b = document.createElement('button');
         b.type = 'button';
-        b.className = 'btn btn-sm' + (n === 'C4' ? ' btn-amber' : '');
-        b.textContent = n === 'C4' ? 'C4 (中央C)' : n;
+        b.className = 'btn btn-sm' + (p === 'C4' ? ' btn-amber' : '');
+        b.textContent = p === 'C4' ? 'C4★' : p;
         b.addEventListener('click', () => {
-          AudioEngine.playNote(n, 0.75);
-          showGrandStaffHighlight(n);
+          activeGrand = p;
+          AudioEngine.playNote(p, 0.65);
+          renderGrandExplorer();
         });
         btnMount.appendChild(b);
       });
-      showGrandStaffHighlight('C4');
+      renderGrandExplorer();
 
-      // Quiz + Ear Training
       Widgets.createQuiz('#ch01-quiz', 'quiz-ch01', 'ch01', [
         {
-          prompt: '【聽音訓練 Ear Training】點擊播放下方四個音的旋律片段，判斷「最後一個音」比「第一個音」更高 (H) 還是更低 (L)？',
-          audioLabel: '🔊 播放四音序列',
-          audioFn: () => AudioEngine.playSequence([
-            { pitch: 'F4', beats: 0.7 }, { pitch: 'A4', beats: 0.7 }, { pitch: 'E4', beats: 0.7 }, { pitch: 'C4', beats: 1.0 }
-          ], 92),
-          options: ['更高 (Higher, H)', '更低 (Lower, L)', '完全同音'],
-          answer: 1,
-          explanation: '此序列為 F4 → A4 → E4 → C4，最後一個音 C4 低於第一個音 F4（Lower）。'
-        },
-        {
-          prompt: '【聽音訓練 Ear Training】聆聽這段帶重音的穩定節拍，請問它是哪一種拍子 (Meter)？',
-          audioLabel: '🔊 播放節拍範例',
-          audioFn: () => AudioEngine.playSequence([
-            { perc: 'clave', accent: true, beats: 0.65 }, { perc: 'clave', accent: false, beats: 0.65 }, { perc: 'clave', accent: false, beats: 0.65 },
-            { perc: 'clave', accent: true, beats: 0.65 }, { perc: 'clave', accent: false, beats: 0.65 }, { perc: 'clave', accent: false, beats: 0.65 }
-          ], 95),
-          options: ['二拍子 (Duple Meter)', '三拍子 (Triple Meter)', '四拍子 (Quadruple Meter)'],
-          answer: 1,
-          explanation: '重音模式為「強 – 弱 – 弱 | 強 – 弱 – 弱」，每小節三個脈動，屬於三拍子 (Triple Meter)。'
-        },
-        {
-          prompt: '【Practice 1-1 高音譜號讀譜】請辨認下方高音譜表上的音符音名：',
-          scoreSpec: { clef: 'treble', playable: false, minWidth: 260, notes: [{ pitch: 'E5', dur: 'w' }] },
-          options: ['C', 'D', 'E', 'F'],
-          answer: 2,
-          explanation: '高音譜表第 2 線為 G4，往上推算：第 2 間 A4、第 3 線 B4、第 3 間 C5、第 4 線 D5、第 4 間為 E5！'
-        },
-        {
-          prompt: '【Practice 1-3 低音譜號讀譜】請辨認下方低音譜表第 1 間上的音符音名：',
-          scoreSpec: { clef: 'bass', playable: false, minWidth: 260, notes: [{ pitch: 'A2', dur: 'w' }] },
-          options: ['A', 'F', 'C', 'G'],
-          answer: 0,
-          explanation: '低音譜表第 4 線為 F3，往下推算：第 3 間 E3、第 3 線 D3、第 2 間 C3、第 2 線 B2、第 1 間為 A2！'
-        },
-        {
-          prompt: '1 個二分音符 (Half Note) 的時值長度等於幾個十六分音符 (Sixteenth Notes)？',
+          prompt: '1 個二分音符 (𝅗𝅥) 等於幾個十六分音符 (♬) 的總長度？',
           options: ['2 個', '4 個', '8 個', '16 個'],
           answer: 2,
-          explanation: '1 個二分音符 = 2 個四分音符 = 4 個八分音符 = 8 個十六分音符。'
+          explanation: '1 二分 = 2 四分 = 4 八分 = 8 個十六分音符！'
+        },
+        {
+          prompt: '高音譜號 (Treble Clef) 的渦卷鎖定了五線譜哪一條線為 G4？',
+          options: ['第 1 線', '第 2 線', '第 3 線', '第 4 線'],
+          answer: 1,
+          explanation: '高音 G 譜號環繞第 2 線定位 G4；低音 F 譜號夾住第 4 線定位 F3。'
+        },
+        {
+          prompt: '「懸掛在第 4 線下方」與「像帽子坐在第 3 線上」分別是什麼休止符？',
+          options: ['全休止符 ／ 二分休止符', '二分休止符 ／ 全休止符', '四分 ／ 八分休止符', '八分 ／ 十六分休止符'],
+          answer: 0,
+          explanation: '全休止符較重「掛在第 4 線下」（且可代表整小節沉默）；二分休止符像帽子「坐第 3 線上」。'
+        },
+        {
+          prompt: '🔊 聽音辨拍：點擊播放，聽聽重音循環屬於幾拍子？',
+          audioLabel: '🔊 播放重音脈動',
+          audioFn: () => {
+            AudioEngine.playSequence([
+              { perc: 'clave', accent: true, beats: 1 }, { perc: 'clave', accent: false, beats: 1 }, { perc: 'clave', accent: false, beats: 1 },
+              { perc: 'clave', accent: true, beats: 1 }, { perc: 'clave', accent: false, beats: 1 }, { perc: 'clave', accent: false, beats: 1 }
+            ], 112);
+          },
+          options: ['二拍子 (強-弱)', '三拍子 (強-弱-弱)', '四拍子 (強-弱-弱-弱)', '單一無重音'],
+          answer: 1,
+          explanation: '「強 – 弱 – 弱」每三拍循環一次，即為三拍子 (Triple Meter)。'
         }
       ]);
     });

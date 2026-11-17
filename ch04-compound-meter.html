@@ -9,7 +9,7 @@
       document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
     } catch {}
   </script>
-  <title>第 4 章：節奏（二）複拍子 ＋ 焦點技能 2 | 創意音樂基礎 11e</title>
+  <title>第 4 章：複拍子幾何雷達 ＋ 焦點技能 2 | 創意音樂基礎 11e</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="ch04">
@@ -20,114 +20,64 @@
 
     <main class="lesson-main">
       <section class="chapter-hero">
-        <span class="chapter-eyebrow">Chapter 4 + Focus on Skills 2 · 第 4 章與第二階段檢定</span>
-        <h1 id="main-heading" tabindex="-1">第 4 章：節奏（二）複拍子、連結線、切分音與連音 ＋ 技能檢定 2</h1>
+        <span class="chapter-eyebrow">Chapter 4 + Focus on Skills 2</span>
+        <h1 id="main-heading" tabindex="-1">第 4 章：複拍子 (6/8 vs 3/4)、切分音與連音雷達</h1>
         <p class="chapter-subtitle">
-          當基本脈動自然分裂為<strong>三個相等部分</strong>時，就稱為<strong>複拍子 (Compound Meter)</strong>。本章將徹底釐清 <code>6/8</code> 與 <code>3/4</code> 的本質差異，並學習連結線 (Tie)、反覆記號、切分音 (Syncopation) 以及借用劃分的三連音／二連音。
+          基本大拍自然<strong>三等分</strong>即為<strong>複拍子 (Compound Meter)</strong>。打開幾何雷達一眼看穿 <code>6/8</code> 與 <code>3/4</code> 的根本差異！
         </p>
-        <div class="learning-goals">
-          <h2>本章學習目標 (What Will I Learn Here?)</h2>
-          <ul>
-            <li>分辨複拍子（<code>6/8, 9/8, 12/8</code> 等）中「附點音符大拍 (Beat)」與「三等分次要脈動」的雙層結構。</li>
-            <li>熟練複拍子數拍法（<code>1 - la - le</code> 與六等分 <code>1 - ta - la - ta - le - ta</code>）及不跨大拍的符槓原則。</li>
-            <li>掌握<strong>連結線 (Tie)</strong> vs <strong>圓滑線 (Slur)</strong>、<strong>反覆記號</strong>、<strong>切分音</strong>與<strong>三連音／二連音 (Triplets &amp; Duplets)</strong>，完成 <strong>Focus on Skills 2</strong>！</li>
-          </ul>
+        <div class="pill-row">
+          <span class="visual-pill">🔵 <strong>6/8 = 複二拍（2 個 ♩. 大拍 = 3+3）</strong></span>
+          <span class="visual-pill">🟢 <strong>3/4 = 單三拍（3 個 ♩ 拍 = 2+2+2）</strong></span>
+          <span class="visual-pill">🗣️ <strong>複拍數法：1 - la - le - 2 - la - le</strong></span>
         </div>
       </section>
 
-      <!-- 1. Compound Meter & 3/4 vs 6/8 -->
-      <section class="lesson-section" aria-labelledby="ch4-compound">
-        <h2 id="ch4-compound">1. 複拍子 (Compound Meter) 原理與 <code>3/4</code> vs. <code>6/8</code> 世紀比較</h2>
-        <p>
-          初學者看到 <code>6/8</code> 拍號時，常誤以為是「每小節 6 拍」。事實上，除了極慢速度外，<code>6/8</code> 中的 6 個八分音符永遠被分成<strong>兩組三連八分音符（3 + 3）</strong>來感受！因此 <code>6/8</code> 聽起來是<strong>二拍子律動——稱為「複二拍子 (Compound Duple)」</strong>，它真正的主要大拍 (Primary Pulse / Beat) 是<strong>兩個附點四分音符 (<code>♩.</code>)</strong>！
-        </p>
-
-        <div class="table-wrapper" tabindex="0" role="region" aria-labelledby="comp-table-cap">
-          <table class="data-table stack-mobile">
-            <caption id="comp-table-cap">九種常見複拍子 (Common Compound Meters) 結構一覽表</caption>
-            <thead>
-              <tr>
-                <th scope="col">拍子分類（大拍數）</th>
-                <th scope="col">以附點二分音符 (𝅗𝅥.) 為大拍</th>
-                <th scope="col">以附點四分音符 (♩.) 為大拍</th>
-                <th scope="col">以附點八分音符 (♪.) 為大拍</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">複二拍子 (Compound Duple, 2 大拍)</th>
-                <td data-label="附點二分拍"><code>6/4</code>（2 個 𝅗𝅥.，分為 6 個 ♩）</td>
-                <td data-label="附點四分拍"><code>6/8</code>（2 個 ♩.，分為 6 個 ♪）</td>
-                <td data-label="附點八分拍"><code>6/16</code>（2 個 ♪.，分為 6 個 ♬）</td>
-              </tr>
-              <tr>
-                <th scope="row">複三拍子 (Compound Triple, 3 大拍)</th>
-                <td data-label="附點二分拍"><code>9/4</code>（3 個 𝅗𝅥.）</td>
-                <td data-label="附點四分拍"><code>9/8</code>（3 個 ♩.）</td>
-                <td data-label="附點八分拍"><code>9/16</code>（3 個 ♪.）</td>
-              </tr>
-              <tr>
-                <th scope="row">複四拍子 (Compound Quadruple, 4 大拍)</th>
-                <td data-label="附點二分拍"><code>12/4</code>（4 個 𝅗𝅥.）</td>
-                <td data-label="附點四分拍"><code>12/8</code>（4 個 ♩.）</td>
-                <td data-label="附點八分拍"><code>12/16</code>（4 個 ♪.）</td>
-              </tr>
-            </tbody>
-          </table>
+      <!-- 1. 幾何節奏雷達：3/4 vs 6/8 & 2:3 -->
+      <section class="lesson-section" aria-labelledby="ch4-radar">
+        <h2 id="ch4-radar">🛸 1. 旋轉幾何節奏雷達：3/4 正三角 vs 6/8 雙軸律動</h2>
+        <div class="widget-box">
+          <div id="ch04-radar"></div>
         </div>
-
-        <p>
-          <strong>關鍵比較：<code>3/4</code> 與 <code>6/8</code> 都有 6 個八分音符，為何聽感完全不同？</strong>因為重音分組與符槓完全不同！請點擊播放下方對照譜例，親耳聽見「3 組 2 等分」與「2 組 3 等分」的差別：
-        </p>
         <div id="score-34-vs-68"></div>
       </section>
 
-      <!-- 2. Counting Compound Meter -->
+      <!-- 2. 6/8 複拍鼓機 & 名曲示範 -->
       <section class="lesson-section" aria-labelledby="ch4-count">
-        <h2 id="ch4-count">2. 複拍子數拍法 (1 - la - le) 與符槓、指揮原則</h2>
-        <ul>
-          <li><strong>主要大拍 (Primary Pulse / Beat)：</strong>與單拍子一樣數 <code>1, 2, 3, 4</code>（所以複二拍指揮也是揮 2 拍、複三拍揮 3 拍、複四拍揮 4 拍！）。</li>
-          <li><strong>三等分拍 (Division)：</strong>使用音節 <strong><code>la</code></strong> 與 <strong><code>le</code></strong>，例如 <code>6/8</code> 唸作 <strong><code>1 - la - le - 2 - la - le</code></strong>（亦有教師採 <code>1-2-3-4-5-6</code> 並強調 1 與 4）。</li>
-          <li><strong>六等分細分拍 (Subdivision，十六分音符)：</strong>在每個八分音符中間插入 <strong><code>ta</code></strong>，唸作 <strong><code>1 - ta - la - ta - le - ta - 2 - ta - la - ta - le - ta</code></strong>！</li>
-        </ul>
+        <h2 id="ch4-count">🥁 2. 複拍子 6 格律動鼓機（1 - la - le）＆ 切分音</h2>
+        <div class="pill-row">
+          <span class="visual-pill"><code>6/8, 6/4</code> → <strong>2 大拍</strong></span>
+          <span class="visual-pill"><code>9/8, 9/4</code> → <strong>3 大拍</strong></span>
+          <span class="visual-pill"><code>12/8, 12/4</code> → <strong>4 大拍</strong></span>
+        </div>
+        <div class="widget-box">
+          <div id="ch04-sequencer"></div>
+        </div>
         <div id="score-jolly"></div>
       </section>
 
-      <!-- 3. Ties, Repeat Signs, Syncopation, Triplets & Duplets -->
+      <!-- 3. 連結線 vs 圓滑線、切分音、三連音與二連音 -->
       <section class="lesson-section" aria-labelledby="ch4-ties">
-        <h2 id="ch4-ties">3. 連結線 (Ties)、反覆記號、切分音與借用連音 (Triplets &amp; Duplets)</h2>
+        <h2 id="ch4-ties">⚡ 3. 連結線、切分音與借用連音（Triplet 3 ＆ Duplet 2）</h2>
         <div class="concept-grid">
           <div class="concept-card">
-            <h3>連結線 (Tie) vs. 圓滑線 (Slur)</h3>
-            <p><strong>連結線 (Tie)</strong> 連接<strong>兩個相同音高</strong>的音符（跨越小節線或在小節內釐清拍點），演奏時第二音不重新發聲，而是將兩音時值相加持續按住；<strong>圓滑線 (Slur)</strong> 則跨越<strong>不同音高</strong>，代表連奏 (<i lang="it">legato</i>)。</p>
+            <h3>🔗 連結線 Tie vs 圓滑線 Slur</h3>
+            <p><strong>Tie</strong> 連<strong>同音高</strong>（時值相加不重彈）；<strong>Slur</strong> 跨<strong>不同音</strong>（連奏 legato）。</p>
           </div>
           <div class="concept-card">
-            <h3>反覆記號 (Repeat Signs <code>|:  :|</code>)</h3>
-            <p>將夾在兩個反覆記號之間的段落立即重奏一次。若從全曲<strong>第 1 小節</strong>開始反覆，開頭的反覆記號會省略，只在段落尾端標記 <code>:|</code>。</p>
+            <h3>⚡ 切分音 Syncopation</h3>
+            <p>重音或長音刻意落在<strong>弱拍／後半拍</strong>（如 <code>♪ ♩ ♪</code>），創造搖擺推進感。</p>
           </div>
           <div class="concept-card">
-            <h3>切分音 (Syncopation)</h3>
-            <p>刻意將重音或長音放在原本屬於<strong>弱拍或後半拍</strong>的位置（例如 <code>♪ ♩ ♪</code>），打破預期平穩感，創造強烈的推進能量，是爵士與搖滾樂的靈魂。</p>
-          </div>
-          <div class="concept-card">
-            <h3>三連音 (Triplet) 與二連音 (Duplet)</h3>
-            <p>稱為<strong>借用劃分 (Borrowed Division)</strong>：在單拍子中暫時借用複拍子的三等分稱為<strong>三連音（標記 <code>3</code>，數作 <code>1-la-le</code>）</strong>；在複拍子中暫時借用單拍子的二等分則稱為<strong>二連音（標記 <code>2</code>，數作 <code>1-&amp;</code>）</strong>。</p>
+            <h3>🔀 三連音 3 ＆ 二連音 2</h3>
+            <p>單拍借三等分＝<strong>三連音 <code>3</code></strong>；複拍借二等分＝<strong>二連音 <code>2</code></strong>。</p>
           </div>
         </div>
-
         <div id="score-triplet-sync"></div>
-
-        <!-- 互動複拍子與切分音節奏機 -->
-        <div class="widget-box">
-          <h3 class="widget-title">🥁 互動實驗室：<code>6/8</code> 複拍子 vs <code>3/4</code> 單拍子 ＆ 切分音體驗器</h3>
-          <div id="ch04-sequencer"></div>
-        </div>
       </section>
 
-      <!-- 4. Focus on Skills 2: Rhythm -->
+      <!-- 4. Focus on Skills 2 -->
       <section class="lesson-section" aria-labelledby="focus2-heading">
-        <h2 id="focus2-heading">🏆 Focus on Skills 2: Rhythm（第二階段節奏綜合檢定）</h2>
-        <p>綜合檢驗第 3 章（單拍子）與第 4 章（複拍子、連結線、三連音／二連音）的所有核心技能：</p>
+        <h2 id="focus2-heading">🏆 Focus on Skills 2：節奏綜合闖關檢定</h2>
         <div id="focus2-quiz"></div>
       </section>
     </main>
@@ -142,21 +92,23 @@
   <script defer src="js/app.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      Widgets.createPolyrhythmRadar('#ch04-radar');
+
       MusicNotation.render('#score-34-vs-68', {
-        title: '3/4（單三拍：1-& 2-& 3-&，三個強弱組） vs. 6/8（複二拍：1-la-le 2-la-le，兩個大拍組）',
+        title: '3/4（3組二連♪） vs 6/8（2組三連♪）',
         clef: 'rhythm',
         time: '3/4',
         bpm: 96,
-        spacing: 42,
+        spacing: 38,
         notes: [
-          { dur: '8', beam: 1, accent: true, topText: '3/4 單三拍', count: '1' },
+          { dur: '8', beam: 1, accent: true, topText: '3/4', count: '1' },
           { dur: '8', beam: 1, count: '&' },
           { dur: '8', beam: 2, accent: true, count: '2' },
           { dur: '8', beam: 2, count: '&' },
           { dur: '8', beam: 3, accent: true, count: '3' },
           { dur: '8', beam: 3, count: '&' },
           { bar: '||', timeSig: '6/8' },
-          { dur: '8', beam: 4, accent: true, topText: '6/8 複二拍', count: '1' },
+          { dur: '8', beam: 4, accent: true, topText: '6/8', count: '1' },
           { dur: '8', beam: 4, count: 'la' },
           { dur: '8', beam: 4, count: 'le' },
           { dur: '8', beam: 5, accent: true, count: '2' },
@@ -166,38 +118,38 @@
       });
 
       MusicNotation.render('#score-jolly', {
-        title: '複二拍名曲《For He’s a Jolly Good Fellow》（6/8 拍，含弱起拍 le 導進與連結線）',
+        title: '《For He’s a Jolly Good Fellow》（6/8 複二拍＋連結線）',
         clef: 'treble',
         key: 'F',
         time: '6/8',
         bpm: 108,
-        spacing: 42,
+        spacing: 40,
         notes: [
           { pitch: 'C4', dur: '8', lyric: 'For', count: 'le' },
           { bar: '|' },
-          { pitch: 'F4', dur: 'q', lyric: "he's", count: '1-(la)' },
+          { pitch: 'F4', dur: 'q', lyric: "he's", count: '1' },
           { pitch: 'F4', dur: '8', lyric: 'a', count: 'le' },
           { pitch: 'F4', dur: '8', beam: 1, lyric: 'jol-', count: '2' },
           { pitch: 'E4', dur: '8', beam: 1, lyric: 'ly', count: 'la' },
           { pitch: 'F4', dur: '8', beam: 1, lyric: 'good', count: 'le' },
           { bar: '|' },
           { pitch: 'G4', dur: 'q', dotted: true, tie: true, lyric: 'fel-', count: '1-la-le' },
-          { pitch: 'G4', dur: 'q', lyric: '(low)', count: '2-(la)' },
+          { pitch: 'G4', dur: 'q', lyric: '(low)', count: '2' },
           { pitch: 'C4', dur: '8', lyric: 'For', count: 'le' }
         ]
       });
 
       MusicNotation.render('#score-triplet-sync', {
-        title: '切分音 (Syncopation：♪ ♩ ♪) 與借用三連音 (Triplet：1-la-le) 譜例',
+        title: '切分音 (♪ ♩ ♪) 與三連音 (Triplet 3)',
         clef: 'treble',
         time: '4/4',
         bpm: 88,
-        spacing: 42,
+        spacing: 40,
         notes: [
           { pitch: 'C4', dur: '8', topText: '切分音', count: '1' },
-          { pitch: 'E4', dur: 'q', accent: true, count: '& - (2)' },
+          { pitch: 'E4', dur: 'q', accent: true, count: '&-(2)' },
           { pitch: 'G4', dur: '8', count: '&' },
-          { pitch: 'A4', dur: '8', beam: 2, tuplet: 3, tupletText: '3 (三連音)', count: '3' },
+          { pitch: 'A4', dur: '8', beam: 2, tuplet: 3, tupletText: '3', count: '3' },
           { pitch: 'G4', dur: '8', beam: 2, tuplet: 3, count: 'la' },
           { pitch: 'E4', dur: '8', beam: 2, tuplet: 3, count: 'le' },
           { pitch: 'C4', dur: 'q', count: '4' }
@@ -208,23 +160,23 @@
         bpm: 94,
         presets: [
           {
-            name: '6/8 複二拍子（2 大拍 × 3 等分：1 la le 2 la le）',
+            name: '6/8 複二拍（1 la le 2 la le）',
             stepFactor: 0.5,
             beatEvery: 3,
             counts: ['1', 'la', 'le', '2', 'la', 'le', '1', 'la', 'le', '2', 'la', 'le'],
             tracks: [
-              { name: '八分次脈動', voice: 'clave', pattern: [2, 1, 1, 1, 0, 1, 2, 1, 0, 1, 1, 1] },
-              { name: '附點四分大拍', voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
+              { name: '🥁 八分律動', voice: 'clave', pattern: [2, 1, 1, 1, 0, 1, 2, 1, 0, 1, 1, 1] },
+              { name: '🔊 ♩. 大拍', voice: 'kick',  pattern: [2, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0] }
             ]
           },
           {
-            name: '4/4 爵士／搖滾切分音律動 (Syncopation)',
+            name: '4/4 切分音搖擺 (Syncopation)',
             stepFactor: 0.5,
             beatEvery: 2,
             counts: ['1', '&', '2', '&', '3', '&', '4', '&'],
             tracks: [
-              { name: '切分重音線', voice: 'clave', pattern: [1, 2, 0, 2, 0, 1, 1, 0] },
-              { name: '穩定四分拍', voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 1, 0] }
+              { name: '⚡ 切分重音', voice: 'clave', pattern: [1, 2, 0, 2, 0, 1, 1, 0] },
+              { name: '🔊 穩定正拍', voice: 'kick',  pattern: [2, 0, 1, 0, 1, 0, 1, 0] }
             ]
           }
         ]
@@ -232,61 +184,28 @@
 
       Widgets.createQuiz('#focus2-quiz', 'quiz-focus2', 'ch04', [
         {
-          prompt: '【Practice 4-3 & Focus 2-1】拍號「9/8」的正確樂理名稱與主要大拍 (Primary Pulse) 音符為何？',
-          options: [
-            '單九拍子，以八分音符為一拍',
-            '複三拍子 (Compound Triple)，每小節 3 個大拍，以附點四分音符 (♩.) 為一拍',
-            '複四拍子，每小節 4 個大拍，以附點八分音符為一拍',
-            '單三拍子，以二分音符為一拍'
-          ],
+          prompt: '在標準速度下，拍號「6/8」屬於哪一種拍子？每小節有幾個主要大拍？',
+          options: ['單六拍子（6 拍）', '複二拍子（2 個附點四分音符大拍）', '單三拍子（3 拍）', '複三拍子（3 大拍）'],
           answer: 1,
-          explanation: '上方數字 9 ÷ 3 = 3 個主要大拍（複三拍子 Compound Triple）；每大拍由 3 個八分音符組成，即 1 個附點四分音符 (♩.)！'
+          explanation: '6/8 的 6 個八分音符分成 3+3 兩組，真正的大拍是 2 個附點四分音符 (♩.)，故為複二拍子！'
         },
         {
-          prompt: '【Focus 2-1】拍號「12/16」屬於哪一種拍子？每小節有幾個大拍？',
-          options: [
-            '複四拍子 (Compound Quadruple)，每小節 4 個附點八分音符 (♪.) 大拍',
-            '複二拍子，每小節 2 個附點四分音符大拍',
-            '單四拍子，每小節 12 拍',
-            '複三拍子，每小節 3 個大拍'
-          ],
-          answer: 0,
-          explanation: '12 個十六分音符分為 4 組（每組 3 個十六分音符 = 1 個附點八分音符 ♪.），故為複四拍子 (Compound Quadruple)。'
+          prompt: '在「9/8」拍中，指揮家的右手應該揮幾拍的指揮圖形？',
+          options: ['9 拍', '2 拍', '3 拍（複三拍子）', '4 拍'],
+          answer: 2,
+          explanation: '9 ÷ 3 = 3 個附點四分音符大拍，因此揮三拍子圖形！'
         },
         {
-          prompt: '【連結線 vs 圓滑線】在 3/4 拍中，作曲家想讓一個 C4 音持續響滿 4 拍，應如何記譜？',
-          options: [
-            '在一個 3/4 小節內直接寫一個全音符',
-            '在第 1 小節寫附點二分音符 C4，並用連結線 (Tie) 連到下一小節第 1 拍的四分音符 C4',
-            '使用斷奏記號',
-            '加上兩個附點'
-          ],
+          prompt: '連接「兩個相同音高」使時值相加不重彈的弧線稱為？',
+          options: ['圓滑線 (Slur)', '連結線 (Tie)', '三連音 (Triplet)', '弱起拍 (Anacrusis)'],
           answer: 1,
-          explanation: '3/4 每小節只能容納 3 拍，必須用連結線 (Tie) 跨越小節線連接同音高的 3 拍（𝅗𝅥.）與 1 拍（♩），合成 4 拍長音。'
+          explanation: '同音高相加為連結線 (Tie)；不同音高連奏才是圓滑線 (Slur)。'
         },
         {
-          prompt: '【借用劃分 Borrowed Division】在 6/8 複拍子中，若某個附點四分音符大拍暫時被均分為「2 個等長的音符」（標記數字 2），稱為什麼？數拍音節應切換為何？',
-          options: [
-            '三連音 (Triplet)，數作 1-la-le',
-            '二連音 (Duplet)，暫時切換為單拍子思維數作「1 - &」（或 2 - &）',
-            '切分音 (Syncopation)，數作 ta',
-            '反覆記號'
-          ],
+          prompt: '在 6/8 複拍子中暫時將一大拍改為「二等分」的借用連音稱為？',
+          options: ['三連音 (Triplet)', '二連音 (Duplet，標記 2)', '切分音', '附點音符'],
           answer: 1,
-          explanation: '在複拍子中借用單拍子的二等分稱為二連音 (Duplet)，數拍音節也隨之暫時切換為單拍子的「1 - &」。'
-        },
-        {
-          prompt: '【聽音辨識：單拍子 vs 複拍子】點擊播放下方節奏，判斷它是 3/4 單三拍還是 6/8 複二拍？',
-          audioLabel: '🔊 播放節奏題目',
-          audioFn: () => AudioEngine.playSequence([
-            { perc: 'kick', accent: true, beats: 0.45 }, { perc: 'hihat', beats: 0.45 }, { perc: 'hihat', beats: 0.45 },
-            { perc: 'clave', accent: true, beats: 0.45 }, { perc: 'hihat', beats: 0.45 }, { perc: 'hihat', beats: 0.45 },
-            { perc: 'kick', accent: true, beats: 0.45 }, { perc: 'hihat', beats: 0.45 }, { perc: 'hihat', beats: 0.45 },
-            { perc: 'clave', accent: true, beats: 0.45 }, { perc: 'hihat', beats: 0.45 }, { perc: 'hihat', beats: 0.45 }
-          ], 92),
-          options: ['6/8 複二拍子（2 大拍 × 3 等分：強-弱-弱 次強-弱-弱）', '3/4 單三拍子（3 拍 × 2 等分：強-弱 弱-弱 弱-弱）'],
-          answer: 0,
-          explanation: '重音落在第 1 與第 4 個八分音符（1-la-le 2-la-le），呈現清楚的兩大拍三等分律動，即 6/8 複二拍子！'
+          explanation: '複拍子借用單拍子的二等分稱為二連音 (Duplet)。'
         }
       ]);
     });
